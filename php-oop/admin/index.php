@@ -1,5 +1,5 @@
-<?php //require_once("includes/header.php"); ?>
-<?php //if (!$session->is_logged_in()) {redirect('login.php');} ?>
+<?php require_once("includes/header.php"); ?>
+<?php if (!$session->is_logged_in()) {redirect('login.php');} ?>
 
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
