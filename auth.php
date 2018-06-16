@@ -6,7 +6,7 @@ $success = true;
 $user_name = clean_data($_GET['username']);
 $user_password = clean_data($_GET['password']);
 
-if (csrf_val_ajax(clean_data($_GET['CSRFtoken']));) {
+if (csrf_val_ajax(clean_data($_GET['CSRFtoken']))) {
     error();
 }
 
