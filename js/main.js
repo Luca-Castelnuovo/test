@@ -70,6 +70,7 @@ $('#submit').click(function () {
     });
 
     if (!request_done) {
+        console.log(request_done);
         setTimeout(function () {
             $this.addClass('error');
             $state.html('Connection timed out!');
