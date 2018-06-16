@@ -179,5 +179,5 @@ function my_project($project_id)
     } else {
         echo "<p>You don't have any files in this project.</p>";
     }
-    echo '<br><a href="/home" style="margin-bottom: 10px;">Back</a>';
+    echo '<br><a href="/home" style="padding-bottom: 10px;">Back</a>';
 }
