@@ -21,7 +21,7 @@ RewriteRule ^ - [L]
 </Files>
 
 # block access to .html
-<Files ~ "\.txt$">
+<Files ~ "\.html$">
     Order allow,deny
     Deny from all
 </Files>
