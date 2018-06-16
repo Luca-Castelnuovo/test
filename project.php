@@ -9,6 +9,7 @@ if (isset($_GET['submit'])) {
     $show_button = false;
     switch ($_GET['type']) {
     case 'add':
+        csrf_val(clean_data($_POST['CSRFtoken']));
         $title = 'Add Project';
         if ($mysqli->query("INSERT INTO projects (owner_id, project_name) VALUES ('{$_SESSION['user_id']}', 'project_name')")) {
             $content = ['<p>Project succesfully created!</p>', '<a href="home">Go Back</a>'];
@@ -17,6 +18,7 @@ if (isset($_GET['submit'])) {
         }
         break;
     case 'edit':
+        csrf_val(clean_data($_POST['CSRFtoken']));
         $title = 'Edit Project';
         if ($mysqli->query("UDATE projects SET project_name='{$project_name}' WHERE id={$id} AND owner_id={$_SESSION['user_id']}")) {
             $content = ['<p>Project succesfully edited!</p>', '<a href="home">Go Back</a>'];
@@ -25,6 +27,7 @@ if (isset($_GET['submit'])) {
         }
         break;
     case 'delete':
+        csrf_val(clean_data($_GET['CSRFtoken']));
         $title = 'Delete Project';
         if ($mysqli->query("DELETE FROM projects WHERE id={$id} AND owner_id={$_SESSION['user_id']}")) {
             $content = ['<p>Project succesfully deleted!</p>', '<a href="home">Go Back</a>'];
