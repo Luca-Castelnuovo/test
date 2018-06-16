@@ -8,9 +8,9 @@
     <link href=https://lucacastelnuovo.nl/images/favicon.ico rel="shortcut icon">
     <title><?= $_SESSION['user_name'] ?></title>
 
-    <link as="style" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" onload='this.rel="stylesheet"' rel="preload">
+    <link as="style" href="//fonts.googleapis.com/css?family=Open+Sans:400,700" onload='this.rel="stylesheet"' rel="preload">
     <link as="style" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" onload='this.rel="stylesheet"' rel="preload">
-    <link as="style" href="css/style.css" onload='this.rel="stylesheet"' rel="preload">
+    <link as="style" href="/css/style.css" onload='this.rel="stylesheet"' rel="preload">
 </head>
 <body>
     <a href="/?logout"><h1><?= $_SESSION['user_name'] ?> user</h1></a>
