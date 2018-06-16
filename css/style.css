@@ -183,6 +183,6 @@ footer {
 
 /* line 213, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
 .dropdown-content li > a, .dropdown-content li > span {
-  color: #2196F3; }
+  color: #2196F3 !important; }
 
 /*# sourceMappingURL=style.css.map */
