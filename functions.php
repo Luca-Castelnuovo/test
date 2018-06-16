@@ -159,7 +159,7 @@ function my_project($project_id)
     echo '<h2>Files:</h2><table><tr><td class="inline">';
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            $file_id  = $row["file_id"];
+            $file_id  = $row["id"];
             $file_name  = $row["file_name"];
             echo "<td class='inline'><a class='dropdown-trigger btn' href='?project={$file_id}' data-target='{$file_id}'>{$file_name}</a></td>";
             echo "<ul id='{$file_id}' class='dropdown-content'>
