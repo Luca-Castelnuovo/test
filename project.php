@@ -95,6 +95,7 @@ if (isset($_GET['submit'])) {
                     echo '<button id="submit"><span class="state">Submit</span></button>';
                 }
             ?>
+            <input placeholder="Username" type="text" name="username" autocomplete="off" class="text" id="username" autofocus> <i class="fa fa-user"></i>
         </form>
     </div>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
