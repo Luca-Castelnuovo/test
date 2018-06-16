@@ -149,7 +149,7 @@ function my_projects()
                 </ul>";
         }
     }
-    echo '</tr></table><br><a href="/?logout">Log Out</a><a href="project?type=new" style="float: right">New Project</a>';
+    echo '</tr></table><br><a href="/?logout">Log Out</a><a href="project?type=add" style="float: right">New Project</a>';
 }
 
 function my_project($project_id)
@@ -168,5 +168,5 @@ function my_project($project_id)
                 </ul>";
         }
     }
-    echo '</tr></table><br><a href="home">Back</a><a href="file?type=new" style="float: right">New File</a>';
+    echo '</tr></table><br><a href="home">Back</a><a href="file?type=add" style="float: right">New File</a>';
 }
