@@ -183,5 +183,5 @@ function my_project($project_id)
                 </ul>";
         }
     }
-    echo '</tr></table><br><a href="/home">Back</a><a href="/home">New</a>';
+    echo '</tr></table><br><a href="/home">Back</a>   <a href="/home">New</a>';
 }
