@@ -72,8 +72,6 @@ if (isset($_GET['submit'])) {
                 if ($show_button) {
                     echo '<button id="submit"><span class="state">Submit</span></button>';
                 }
-
-                var_dump($show_button);
             ?>
         </form>
     </div>
