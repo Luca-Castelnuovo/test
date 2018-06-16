@@ -1,6 +1,7 @@
 <?php
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
-login_user('test');
+//login_user('test');
+login();
 ?>
 <!DOCTYPE html>
 <html lang="en">
