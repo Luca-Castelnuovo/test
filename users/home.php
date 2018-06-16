@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="wrapper login">
         <a href="/?logout">
             <h1><?= $_SESSION['user_name'] ?> user</h1>
         </a>
