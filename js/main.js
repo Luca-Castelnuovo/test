@@ -40,7 +40,7 @@ $('#submit').click(function () {
 
     //start the ajax
     $.ajax({
-        //this is the php file that processes the data and send mail
+        //this is the php file that processes the data
         url: "auth.php",
 
         //GET method is used

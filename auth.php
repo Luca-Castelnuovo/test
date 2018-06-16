@@ -1,5 +1,5 @@
 <?php
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/authentication/functions.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 
 // GET - user submitted data using AJAX
 // POST - in case user does not support javascript, we'll use POST instead
