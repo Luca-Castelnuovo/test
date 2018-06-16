@@ -22,7 +22,7 @@
             <h2>Projects:</h2>
             <table>
                 <tr>
-                    <td class="inline"><a class="waves-effect waves-light btn">New</a></td>
+                    <td class="inline"><a class="waves-effect waves-light btn">New</a></td><br>
                     <td class="inline"><a class='dropdown-trigger btn' href='#' data-target='dropdown1'>test1</a></td>
                     <td class="inline"><a class='dropdown-trigger btn' href='#' data-target='dropdown2'>test2</a></td>
                     <td class="inline"><a class='dropdown-trigger btn' href='#' data-target='dropdown3'>test3</a></td>
