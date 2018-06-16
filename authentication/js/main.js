@@ -59,7 +59,7 @@ $('#submit').click(function () {
       $state.html('Log in');
       $this.removeClass('ok loading');
       working = false;
-    }, 4000);
+    }, 1);
 
     //cancel the submit button default behaviours
     return false;
