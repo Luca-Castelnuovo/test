@@ -9,7 +9,7 @@ $mysqli = new mysqli($config['servername'], $config['username'], $config['passwo
 //display alert
 function alert()
 {
-    echo swal('Good job!','You clicked the button!','success')
+    echo" <script>swal('Good job!','You clicked the button!','success')</script>";
 }
 
 
