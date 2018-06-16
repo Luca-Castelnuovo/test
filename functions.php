@@ -147,8 +147,18 @@ function logout($alert)
     exit;
 }
 
-
 function my_projects($project)
 {
-
+    global $mysqli;
+    $result = $mysqli->query("SELECT * FROM projects WHERE owner_id='{$_SESSION['user_id']}'");
+    if ($result->num_rows > 0) {
+        echo '<u;>';
+        while ($row = $result->fetch_assoc()) {
+            $project_name  = $row["project_n"];
+            echo '<li><a href="/users/' . $_SESSION['user_id'] . '/' . $project_name . '">' . $project_name . '</a></li>';
+        }
+        echo '</ul>';
+    } else {
+        echo "<p>You don't have any projects.</p>";
+    }
 }

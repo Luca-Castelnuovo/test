@@ -19,6 +19,7 @@ if ($result->num_rows != 0) {
         $_SESSION['user_name'] = $user['user_name'];
         $_SESSION['user_active'] = $user['user_active'];
         $_SESSION['user_type'] = $user['user_type'];
+        $_SESSION['user_id'] = $user['id'];
         $_SESSION['logged_in'] = 1;
 
         $text = date('Y-m-d H:i:s') . '	:	' . $_SESSION['ip'] . '	:	' . $_SESSION['user_name'] . PHP_EOL;
