@@ -147,18 +147,36 @@ function logout($alert)
     exit;
 }
 
-function my_projects($project)
+function my_projects()
 {
     global $mysqli;
     $result = $mysqli->query("SELECT * FROM projects WHERE owner_id='{$_SESSION['user_id']}'");
     if ($result->num_rows > 0) {
         echo '<u;>';
         while ($row = $result->fetch_assoc()) {
+            $project_id  = $row["id"];
             $project_name  = $row["project_name"];
-            echo '<li><a href="/users/' . $_SESSION['user_name'] . '/' . $project_name . '">' . $project_name . '</a></li>';
+            echo '<li><a href="?project=' . $project_id . '">' . $project_name . '</a></li>';
         }
         echo '</ul>';
     } else {
         echo "<p>You don't have any projects.</p>";
+    }
+}
+
+function my_project($project_id)
+{
+    global $mysqli;
+    $result = $mysqli->query("SELECT * FROM files WHERE project_id='{$project_id}'");
+    if ($result->num_rows > 0) {
+        echo '<u;>';
+        while ($row = $result->fetch_assoc()) {
+            $file_name  = $row["project_name"];
+            echo '<li><a href="/users/' . $_SESSION['user_name'] . '/' . $project_name . '/' . $file_name . '">' . $file_name . '</a></li>';
+        }
+        echo '</ul>';
+        echo '<a href="/home"></a>';
+    } else {
+        echo "<p>You don't have any files in this project.</p>";
     }
 }

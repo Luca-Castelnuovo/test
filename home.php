@@ -20,7 +20,11 @@
     <div class="wrapper">
         <div class="login">
             <h2>Your Projects:</h2>
-            <?php ($_GET['project']) ? $_GET['project'] : null; my_projects($project); ?>
+            <?php if (isset($_GET['project'])) {
+                my_project($_GET['project']);
+            } else {
+                my_projects();
+            } ?>
             <button onclick="location.replace('/?logout')">Log Out</button>
         </div>
     </div>
