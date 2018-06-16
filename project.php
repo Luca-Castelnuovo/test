@@ -90,9 +90,8 @@ if (isset($_GET['submit'])) {
                 foreach($content as $row) {
                     echo $row;
                 }
-            ?>
-            <input placeholder="Password" type="password" name="password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>
-            <?php if ($show_button) {
+
+                if ($show_button) {
                     echo '<button id="submit"><i class="spinner"></i> <span class="state">Log in</span></button>';
                 }
             ?>
