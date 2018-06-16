@@ -23,16 +23,19 @@ $('#submit').click(function () {
     $('.text').attr('disabled', 'true');
 
     //start the loader
-    var $this = $('.login'), $state = $this.find('button > .state');
+    var $this = $('.login'),
+        $state = $this.find('button > .state');
     $this.addClass('loading');
     $state.html('Authenticating');
 
-    setTimeout(function() {
+    $this.addClass('error');
+    $state.html('Connection timed out!');
+    setTimeout(function () {
         $state.html('Log in');
         $this.removeClass('ok loading');
         $('.text').removeAttr('disabled');
         $("#username").focus();
-    }, 4000);
+    }, 4000)
 
     //start the ajax
     $.ajax({
@@ -54,15 +57,19 @@ $('#submit').click(function () {
                 //if process.php returned 1/true
                 $this.addClass('ok');
                 $state.html('Welcome back!');
-                setTimeout(function() {
-                    window.open("https://test.lucacastelnuovo.nl","_self")
+                setTimeout(function () {
+                    window.open("https://test.lucacastelnuovo.nl", "_self")
                 }, 1000)
             } else {
                 //if process.php returned 0/false
-                $state.html('Log in');
-                $this.removeClass('ok loading');
-                $('.text').removeAttr('disabled');
-                $("#username").focus();
+                $this.addClass('error');
+                $state.html('Username and Password did not match!');
+                setTimeout(function () {
+                    $state.html('Log in');
+                    $this.removeClass('ok loading');
+                    $('.text').removeAttr('disabled');
+                    $("#username").focus();
+                }, 1000)
             };
         }
     });
