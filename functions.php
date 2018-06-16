@@ -158,7 +158,7 @@ function my_projects()
             $project_name = $row["project_name"];
             echo "<td class='inline'><a class='dropdown-trigger btn' href='?project={$project_id}' data-target='{$project_id}'>{$project_name}</a></td>";
             echo "<ul id='{$project_id}' class='dropdown-content'>
-                    <li><a href='?project=1'>files</a></li>
+                    <li><a href='?project={$project_id}'>files</a></li>
                     <li><a href='project?type=edit&id={$project_id}'>edit</a></li>
                     <li><a href='project?type=delete&id={$project_id}'>delete</a></li>
                 </ul>";
