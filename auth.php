@@ -6,6 +6,8 @@ $success = false;
 $user_name = clean_data($_GET['username']);
 $user_password = clean_data($_GET['password']);
 
+csrf_val(clean_data($CSRFtoken));
+
 $result = $mysqli->query("SELECT * FROM users WHERE user_name='$user_name'");
 
 if ($result->num_rows != 0) {

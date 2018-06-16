@@ -21,7 +21,7 @@
             <p class="title">Log in</p>
             <input placeholder="Username" type="text" name="username" autocomplete="off" class="text" id="username" autofocus> <i class="fa fa-user"></i>
             <input placeholder="Password" type="password" name="password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>
-            <input type="hidden" name="token" value="<?= csrf_gen(); ?>"/>
+            <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
             <button id="submit"><i class="spinner"></i> <span class="state">Log in</span></button>
         </form>
     </div>

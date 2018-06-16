@@ -4,6 +4,7 @@ $('#submit').click(function () {
     //Get the data from all the fields
     var username = $('input[name=username]');
     var password = $('input[name=password]');
+    var CSRFtoken = $('input[name=CSRFtoken]');
 
     //Ensure non empty inputs
     if (username.val() == '') {
@@ -17,7 +18,7 @@ $('#submit').click(function () {
     } else password.removeClass('hightlight');
 
     //organize the data properly
-    var data = 'username=' + username.val() + '&password=' + password.val();
+    var data = 'username=' + username.val() + '&password=' + password.val() + '&CSRFtoken=' + CSRFtoken.val();
 
     //disabled all the text fields
     $('.text').attr('disabled', 'true');
