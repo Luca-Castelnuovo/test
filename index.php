@@ -2,7 +2,11 @@
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 if(isset($_GET['logout'])){
     //logout('You are succesfully logged out!');
-    logout();
+    if (isset($_COOKIE[session_name()])) {
+        setcookie(session_name(), “”, time()-3600, “/” );
+    }
+    $_SESSION = array();
+    session_destroy();
 }
 ?>
 <!DOCTYPE html>
