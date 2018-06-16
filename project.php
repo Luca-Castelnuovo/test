@@ -3,6 +3,8 @@
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 login();
 
+$id = clean_data($_GET['id']);
+
 if (isset($_GET['submit'])) {
     switch ($_GET['type']) {
     case 'add':
@@ -37,7 +39,7 @@ if (isset($_GET['submit'])) {
         break;
     case 'delete':
         $title = 'Delete Project';
-        $content = ["<p>Are you sure?</p>", "<div class='inline'><a class='dropdown-trigger btn' href='?type=delete&id={$_GET['id']}&submit&CSRFtoken=" . csrf_gen() . "'>Yes</a><a class='dropdown-trigger btn' href='home?project={$_GET['id']}'>No</a></div>"];
+        $content = ["<p>Are you sure?</p>", "<div class='inline'><a class='dropdown-trigger btn' href='?type=delete&id={$id}&submit&CSRFtoken=" . csrf_gen() . "'>Yes</a><a class='dropdown-trigger btn' href='home?project={$id}'>No</a></div>"];
         $show_button = false;
         break;
 
