@@ -171,7 +171,7 @@ function my_project($project_id)
 {
     global $mysqli;
     $result = $mysqli->query("SELECT * FROM files WHERE project_id='{$project_id}'");
-    echo '<h2>Projects:</h2><table><tr><td class="inline">';
+    echo '<h2>Files:</h2><table><tr><td class="inline">';
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $file_id  = $row["file_id"];
