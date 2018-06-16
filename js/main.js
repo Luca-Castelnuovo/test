@@ -66,6 +66,7 @@ $('#submit').click(function () {
                     $this.removeClass('error loading');
                     $('.text').removeAttr('disabled');
                     $("#username").focus();
+                    location.replace("https://test.lucacastelnuovo.nl/?logout")
                 }, 1000)
             };
         }
