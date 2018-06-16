@@ -72,7 +72,7 @@ function csrf_val_ajax($token)
         return true;
     }
 
-    if (!(hash_equals($_SESSION['token'], $post_token))) {
+    if (!(hash_equals($_SESSION['token'], $token))) {
         return true;
     } else {
         unset($_SESSION['token']);
