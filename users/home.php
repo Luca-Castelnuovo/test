@@ -19,7 +19,6 @@
 <body>
     <div class="wrapper">
         <div class="login">
-            <h1 class="username"><?= $_SESSION['user_name'] ?></h1>
             <a href="/?logout">Log Out</a>
 
             <h3>Your Projects:</h3>
