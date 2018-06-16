@@ -23,21 +23,13 @@ $('#submit').click(function () {
     $('.text').attr('disabled', 'true');
 
     //start the loader
-    var $this = $('.login'), $state = $this.find('button > .state');
+    var $this = $('.login'),
+        $state = $this.find('button > .state');
     $this.addClass('loading');
     $state.html('Authenticating');
 
-    setTimeout(function () {
-        $this.addClass('error');
-        $state.html('Connection timed out!');
-        setTimeout(function () {
-            $state.html('Log in');
-            $this.removeClass('ok loading error');
-            $('.text').removeAttr('disabled');
-            $("#username").focus();
-        }, 1000)
-    }, 4000)
 
+    var request_done = false;
     //start the ajax
     $.ajax({
         //this is the php file that processes the data
@@ -55,6 +47,7 @@ $('#submit').click(function () {
         //success
         success: function (html) {
             if (html == 1) {
+                request_done = true;
                 //if process.php returned 1/true
                 $this.addClass('ok');
                 $state.html('Welcome back!');
@@ -63,6 +56,7 @@ $('#submit').click(function () {
                 }, 1000)
             } else {
                 //if process.php returned 0/false
+                request_done = true;
                 $this.addClass('error');
                 $state.html('Username and Password did not match!');
                 setTimeout(function () {
@@ -74,6 +68,19 @@ $('#submit').click(function () {
             };
         }
     });
+
+    if (!request_done) {
+        setTimeout(function () {
+            $this.addClass('error');
+            $state.html('Connection timed out!');
+            setTimeout(function () {
+                $state.html('Log in');
+                $this.removeClass('ok loading error');
+                $('.text').removeAttr('disabled');
+                $("#username").focus();
+            }, 1000)
+        }, 4000)
+    }
 
     //cancel the submit button default behaviours
     return false;
