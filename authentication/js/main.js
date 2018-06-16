@@ -10,8 +10,6 @@ $('.login').on('submit', function(e) {
   setTimeout(function() {
     $this.addClass('ok');
     $state.html('Welcome back!');
-    console.log('form submit');
-    return true;
     setTimeout(function() {
       $state.html('Log in');
       $this.removeClass('ok loading');
