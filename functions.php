@@ -17,7 +17,7 @@ function alert($alert, $url = null)
 
 function alert_set($alert)
 {
-    alert($alert, "/users/{$_SESSION['user_name']}")
+    alert($alert, "/users/{$_SESSION['user_name']}");
 }
 
 //clean user data
