@@ -67,7 +67,7 @@ function csrf_val($post_token)
 function login()
 {
     if (!$_SESSION['logged_in']) {
-        $error = ['Please Log In!','error']
+        $error = ['Please Log In!','error'];
         logout($error);
     }
 
