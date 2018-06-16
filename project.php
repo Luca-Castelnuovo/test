@@ -13,6 +13,11 @@ if (isset($_GET['submit'])) {
         break;
     case 'delete':
         $title = 'Delete Project';
+        if ($mysqli->query("DELETE FROM projects WHERE id={$id} AND owner_id={$_SESSION['user_id']}")) {
+            $content = ['<p>Project succesfully deleted!</p>', '<a href="home">Go Back</a>'];
+        } else {
+            $content = ['<p>Project not succesfully deleted!</p>', '<a href="home">Go Back</a>'];
+        }
         break;
 
     default:
