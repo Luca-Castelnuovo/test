@@ -54,7 +54,7 @@ $('#submit').click(function () {
                 $this.addClass('ok');
                 $state.html('Welcome back!');
                 setTimeout(function() {
-                    window.open("https://www.youraddress.com","_self")
+                    window.open("https://test.lucacastelnuovo.nl","_self")
                 }, 1000)
             } else {
                 //if process.php returned 0/false
