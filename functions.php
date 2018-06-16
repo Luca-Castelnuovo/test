@@ -9,16 +9,7 @@ $mysqli = new mysqli($config['servername'], $config['username'], $config['passwo
 //display alert
 function alert()
 {
-    if (isset($_SESSION['alert'])) {
-        $error = $_SESSION['alert'];
-        print'<div class="alert"><span class="closebtn" onclick="this.parentElement.style.display=\'none\'; window.location.search += \'&clear\';">&times;</span><b><p style="margin-bottom: 0;">' . $error . '</p></b></div>';
-        unset($_SESSION['alert']);
-        if (isset($_GET["clear"])) {
-            unset($_SESSION['alert']);
-            unset($error);
-            header('Location:' . $_SERVER['REQUEST_URI']);
-        }
-    }
+    echo swal('Good job!','You clicked the button!','success')
 }
 
 

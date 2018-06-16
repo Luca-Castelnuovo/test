@@ -26,7 +26,7 @@
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="sweetalert2.all.min.js"></script>
+    <script src="sweetalert2.all.js"></script>
 </body>
 
 </html>
