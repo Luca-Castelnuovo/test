@@ -3,10 +3,6 @@
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 login();
 
-//add
-//edit
-//delete
-
 if (isset($_POST)) {
     switch ($_GET['type']) {
     case 'add':
@@ -24,6 +20,7 @@ if (isset($_POST)) {
         break;
     }
 } else {
+    $show_button = true;
     switch ($_GET['type']) {
     case 'add':
         $title = 'Add Project';
@@ -35,8 +32,8 @@ if (isset($_POST)) {
         break;
     case 'delete':
         $title = 'Delete Project';
-        //$content = ["<p>Are you sure?</p>", "<form method='post' action='?type=delete&id={$_GET['id']}'><button class='dropdown-trigger btn inline'>Yes</button></form><a class='dropdown-trigger btn inline' href='home?project={$_GET['id']}'>No</a>"];
-        $content = ['<p>item4<p>', '<p>item5</p>'];
+        $content = ["<p>Are you sure?</p>", "<form method='post' action='?type=delete&id={$_GET['id']}'><button class='dropdown-trigger btn inline'>Yes</button></form><a class='dropdown-trigger btn inline' href='home?project={$_GET['id']}'>No</a>"];
+        $show_button = false;
         break;
 
     default:
@@ -65,14 +62,17 @@ if (isset($_POST)) {
 <body>
     <div class="wrapper">
         <form class="login" method="post" action="project.php?$_GET['type']">
+            <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
             <p class="title"><?= $title ?></p>
             <?php
                 foreach($content as $row) {
                     echo $row;
                 }
+
+                if ($show_button) {
+                    echo '<button id="submit"><span class="state">Submit</span></button>';
+                }
             ?>
-            <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
-            <button id="submit"><span class="state"><?= $title ?></span></button>
         </form>
     </div>
 </body>
