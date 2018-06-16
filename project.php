@@ -32,7 +32,7 @@ if (isset($_GET['submit'])) {
         break;
     case 'delete':
         $title = 'Delete Project';
-        $content = ["<p>Are you sure?</p>", "<form method='post' action='?type=delete&id={$_GET['id']}'><button class='dropdown-trigger btn inline'>Yes</button></form><a class='dropdown-trigger btn inline' href='home?project={$_GET['id']}'>No</a>"];
+        $content = ["<p>Are you sure?</p>", "<a class='dropdown-trigger btn inline' href='home?project={$_GET['id']}'>Yes</a><a class='dropdown-trigger btn inline' href='home?project={$_GET['id']}'>No</a>"];
         $show_button = false;
         break;
 
@@ -75,6 +75,8 @@ if (isset($_GET['submit'])) {
             ?>
         </form>
     </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 </body>
 
 </html>
