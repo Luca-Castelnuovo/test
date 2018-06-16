@@ -18,7 +18,7 @@
 
 <body>
     <div class="wrapper">
-        <div class="login">
+        <div class="login" style="padding-bottom: 0">
             <h2>Your Projects:</h2>
             <?php if (isset($_GET['project'])) {
                 my_project($_GET['project']);
