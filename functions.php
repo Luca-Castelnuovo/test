@@ -15,15 +15,6 @@ function alert()
     }
 }
 
-//set alert
-function alert_set($alert)
-{
-//    if (session_status()) {
-//       session_start();
-//    }
-//    $_SESSION['alert'] = $alert;
-}
-
 
 //clean user data
 function clean_data($data)
@@ -134,7 +125,6 @@ function logout($alert)
     }
     $_SESSION = array();
     session_destroy();
-    alert_set($alert);
     header('Location: /');
     exit;
 }
