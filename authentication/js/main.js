@@ -23,19 +23,10 @@ $('#submit').click(function () {
     //disabled all the text fields
     $('.text').attr('disabled', 'true');
 
-    var $this = $('.login'),
-        $state = $this.find('button > .state');
+    var $this = $('.login'), $state = $this.find('button > .state');
     $this.addClass('loading');
     $state.html('Authenticating');
-    setTimeout(function () {
-        $this.addClass('ok');
-        $state.html('Welcome back!');
-        setTimeout(function () {
-            $state.html('Log in');
-            $this.removeClass('ok loading');
-            working = false;
-        }, 4000);
-    }, 1000);
+
 
     //start the ajax
     $.ajax({
@@ -53,12 +44,15 @@ $('#submit').click(function () {
 
         //success
         success: function (html) {
-            //if process.php returned 1/true (send mail success)
             if (html == 1) {
-                alert('succ');
-
+                //if process.php returned 1/true (send mail success)
+                $this.addClass('ok');
+                $state.html('Welcome back!');
+            } else {
                 //if process.php returned 0/false (send mail failed)
-            } else alert('errrot');
+                $state.html('Log in');
+                $this.removeClass('ok loading');
+            };
         }
     });
 
