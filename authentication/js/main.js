@@ -27,6 +27,12 @@ $('#submit').click(function () {
     $this.addClass('loading');
     $state.html('Authenticating');
 
+    setTimeout(function() {
+      $state.html('Log in');
+      $this.removeClass('ok loading');
+      working = false;
+    }, 1);
+
     //start the ajax
     $.ajax({
         //this is the php file that processes the data and send mail
@@ -54,12 +60,6 @@ $('#submit').click(function () {
             };
         }
     });
-
-    setTimeout(function() {
-      $state.html('Log in');
-      $this.removeClass('ok loading');
-      working = false;
-    }, 1);
 
     //cancel the submit button default behaviours
     return false;
