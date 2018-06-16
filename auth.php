@@ -25,10 +25,6 @@ if ($result->num_rows != 0) {
     }
 }
 
-
-echo var_dump($result);
-
-
 if ($success) {
     $out = ["status" => true, "username" => $_SESSION['user_name']];
     echo json_encode($out);
