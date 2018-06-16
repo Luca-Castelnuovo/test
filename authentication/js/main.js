@@ -28,7 +28,7 @@ $('#submit').click(function () {
     $state.html('Authenticating');
 
     //start the ajax
-    $.delay(2000).ajax({
+    $.ajax({
         //this is the php file that processes the data and send mail
         url: "auth.php",
 
@@ -45,7 +45,7 @@ $('#submit').click(function () {
         success: function (html) {
             if (html == 1) {
                 //if process.php returned 1/true
-                $this.addClass('ok');
+//                $this.addClass('ok');
                 $state.html('Welcome back!');
             } else {
                 //if process.php returned 0/false
