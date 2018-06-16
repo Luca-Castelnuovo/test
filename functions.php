@@ -125,6 +125,7 @@ function logout($alert)
     }
     $_SESSION = array();
     session_destroy();
+    session_start();
     $_SESSION['alert'] = $alert;
     header('Location: /');
     exit;
