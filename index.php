@@ -1,3 +1,4 @@
+<?php if (isset($_GET['logout'])) {require_once ($_SERVER['DOCUMENT_ROOT'] . "/functions.php"); logout('You are succesfully logged out!');}?>
 <!DOCTYPE html>
 
 <html lang="en">
