@@ -62,16 +62,14 @@ $('#submit').click(function () {
 
         //success
         success: function (html) {
-            //if process.php returned 1/true (send mail success)
             if (html == 1) {
-                //hide the form
-                $('.form').fadeOut('slow');
+                //if auth.php returned 1/true
+                alert('ajax success');
 
-                //show the success message
-                $('.done').fadeIn('slow');
-
-                //if process.php returned 0/false (send mail failed)
-            } else alert('Sorry, unexpected error. Please try again later.');
+            } else {
+                //if auth.php returned 0/false
+                alert('ajax error')
+            };
         }
     });
 
