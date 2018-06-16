@@ -19,9 +19,10 @@
 <body>
     <div class="wrapper">
         <div class="login">
-            <div style="display: inline;">
+            <div>
                 <h2>Your Projects:</h2>
-                <a href="/?logout">Log Out</a></div>
+                <a href="/?logout" style="float: right">Log Out</a>
+            </div>
             <?php ($_GET['project']) ? $_GET['project'] : null; my_projects($project); ?>
         </div>
     </div>
