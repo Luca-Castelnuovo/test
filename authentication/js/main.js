@@ -23,6 +23,7 @@ $('#submit').click(function () {
     //disabled all the text fields
     $('.text').attr('disabled', 'true');
 
+    //start the loader
     var $this = $('.login'), $state = $this.find('button > .state');
     $this.addClass('loading');
     $state.html('Authenticating');
@@ -44,11 +45,11 @@ $('#submit').click(function () {
         //success
         success: function (html) {
             if (html == 1) {
-                //if process.php returned 1/true (send mail success)
+                //if process.php returned 1/true
                 $this.addClass('ok');
                 $state.html('Welcome back!');
             } else {
-                //if process.php returned 0/false (send mail failed)
+                //if process.php returned 0/false
                 $state.html('Log in');
                 $this.removeClass('ok loading');
             };
