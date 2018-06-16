@@ -155,7 +155,7 @@ function my_projects()
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $project_id  = $row["id"];
-            $project_name  = $row["project_name"];
+            $project_name = $row["project_name"];
             echo "<td class='inline'><a class='dropdown-trigger btn' href='?project={$project_id}' data-target='{$project_id}'>{$project_name}</a></td>";
             echo "<ul id='{$project_id}' class='dropdown-content'>
                     <li><a href='?project=1'>files</a></li>
@@ -164,7 +164,7 @@ function my_projects()
                 </ul>";
         }
     }
-    echo '</tr></table><br><a href="/?logout">Back</a><a href="project?type=new" style="float: right">New Project</a>';
+    echo '</tr></table><br><a href="/?logout">Log Out</a><a href="project?type=new" style="float: right">New Project</a>';
 }
 
 function my_project($project_id)
