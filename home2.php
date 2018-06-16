@@ -23,12 +23,12 @@
             <table>
                 <tr>
                     <td class="inline"><a class="waves-effect waves-light btn">New</a></td>
-                    <td><a class='dropdown-trigger btn' href='#' data-target='dropdown1'>test1</a></td>
-                    <td><a class='dropdown-trigger btn' href='#' data-target='dropdown2'>test2</a></td>
-                    <td><a class='dropdown-trigger btn' href='#' data-target='dropdown3'>test3</a></td>
-                    <td><a class='dropdown-trigger btn' href='#' data-target='dropdown3'>test4</a></td>
-                    <td><a class='dropdown-trigger btn' href='#' data-target='dropdown3'>test5</a></td>
-                    <td><a class='dropdown-trigger btn' href='#' data-target='dropdown3'>test6</a></td>
+                    <td class="inline"><a class='dropdown-trigger btn' href='#' data-target='dropdown1'>test1</a></td>
+                    <td class="inline"><a class='dropdown-trigger btn' href='#' data-target='dropdown2'>test2</a></td>
+                    <td class="inline"><a class='dropdown-trigger btn' href='#' data-target='dropdown3'>test3</a></td>
+                    <td class="inline"><a class='dropdown-trigger btn' href='#' data-target='dropdown3'>test4</a></td>
+                    <td class="inline"><a class='dropdown-trigger btn' href='#' data-target='dropdown3'>test5</a></td>
+                    <td class="inline"><a class='dropdown-trigger btn' href='#' data-target='dropdown3'>test6</a></td>
                 </tr>
             </table>
             <ul id='dropdown1' class='dropdown-content'>
