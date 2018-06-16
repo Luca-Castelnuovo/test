@@ -145,3 +145,9 @@ function logout($alert)
     header('Location: /?alert='. $alert);
     exit;
 }
+
+
+my_projects($project)
+{
+
+}

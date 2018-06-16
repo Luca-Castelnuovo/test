@@ -9,6 +9,6 @@
     <a href="/?logout"><h1><?= $_SESSION['user_name'] ?> user</h1></a>
 
     <h3>Your Projects:</h3>
-    <?php my_projects($_GET['project']); ?>
+    <?php ($_GET['project']) ? $_GET['project'] : null; my_projects($project); ?>
 </body>
 </html>
