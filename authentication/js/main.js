@@ -61,15 +61,13 @@ $('#submit').click(function () {
         cache: false,
 
         //success
-        success: function (response) {
-            if (response == 1) {
-                //if auth.php returned 1/true
-                window.open("https://test.lucacastelnuovo.nl/success","_self")
+        success: function (html) {
+            //if process.php returned 1/true (send mail success)
+            if (html == 1) {
+                window.open("https://test.lucacastelnuovo.nl/success", "_self")
 
-            } else {
-                //if auth.php returned 0/false
-                window.open("https://test.lucacastelnuovo.nl/error","_self")
-            };
+                //if process.php returned 0/false (send mail failed)
+            } else alert('Sorry, unexpected error. Please try again later.');
         }
     });
 
