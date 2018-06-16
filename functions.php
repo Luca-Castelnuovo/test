@@ -152,7 +152,8 @@ function my_projects()
     global $mysqli;
     $result = $mysqli->query("SELECT * FROM projects WHERE owner_id='{$_SESSION['user_id']}'");
     if ($result->num_rows > 0) {
-        echo '<u;>';
+        echo '<h2>Your Projects:</h2>';
+        echo '<ul>';
         while ($row = $result->fetch_assoc()) {
             $project_id  = $row["id"];
             $project_name  = $row["project_name"];
@@ -170,7 +171,8 @@ function my_project($project_id)
     global $mysqli;
     $result = $mysqli->query("SELECT * FROM files WHERE project_id='{$project_id}'");
     if ($result->num_rows > 0) {
-        echo '<u;>';
+        echo '<h2>Your Files:</h2>';
+        echo '<ul>';
         while ($row = $result->fetch_assoc()) {
             $file_name  = $row["project_name"];
             echo '<li><a href="/users/' . $_SESSION['user_name'] . '/' . $project_name . '/' . $file_name . '">' . $file_name . '</a></li>';
