@@ -21,7 +21,7 @@
         <div class="login">
             <h2>Your Projects:</h2>
             <?php ($_GET['project']) ? $_GET['project'] : null; my_projects($project); ?>
-            <button id="submit"><i class="spinner"></i> <span class="state">Log in</span></button>
+            <button>Log Out</button>
         </div>
     </div>
 
