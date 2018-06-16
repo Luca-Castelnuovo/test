@@ -171,16 +171,17 @@ function my_project($project_id)
 {
     global $mysqli;
     $result = $mysqli->query("SELECT * FROM files WHERE project_id='{$project_id}'");
+    echo '<h2>Projects:</h2><table><tr><td class="inline"><a class="waves-effect waves-light btn" href="project?type=new">New</a></td>';
     if ($result->num_rows > 0) {
-        echo '<h2>Your Files:</h2>';
-        echo '<ul>';
         while ($row = $result->fetch_assoc()) {
+            $file_id  = $row["file_id"];
             $file_name  = $row["file_name"];
-            echo '<li><a href="/users/' . $_SESSION['user_name'] . '/' . $project_name . $file_name . '">' . $file_name . '</a></li>';
+            echo "<td class='inline'><a class='dropdown-trigger btn' href='?project={$file_id}' data-target='{$file_id}'>{$file_name}</a></td>";
+            echo "<ul id='{$project_id}' class='dropdown-content'>
+                    <li><a href='file?type=edit&id={$file_id}'>edit</a></li>
+                    <li><a href='file?type=delete&id={$file_id}'>delete</a></li>
+                </ul>";
         }
-        echo '</ul>';
-    } else {
-        echo "<p>You don't have any files in this project.</p>";
     }
-    echo '<br><a href="/home">Back</a>';
+    echo '</tr></table><br><a href="/?logout">Log Out</a>';
 }
