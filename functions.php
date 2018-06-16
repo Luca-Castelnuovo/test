@@ -147,7 +147,7 @@ function logout($alert)
 }
 
 
-my_projects($project)
+function my_projects($project)
 {
 
 }
