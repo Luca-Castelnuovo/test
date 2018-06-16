@@ -68,8 +68,7 @@ function csrf_val($post_token)
 function login()
 {
     if (!$_SESSION['logged_in']) {
-        $error = ['Please Log In!','error'];
-        logout($error);
+        logout('Please Log In!');
     }
 
     //check if account is active
