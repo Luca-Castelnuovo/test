@@ -35,7 +35,6 @@
             <input placeholder="Password" type="password" name="password" autocomplete="off" required="required" class="text"> <i class="fa fa-key"></i>
             <input type="submit" id="submit"/>
 <!--            <button name="submit"><i class="spinner"></i> <span class="state">Log in</span></button>-->
-            <div class="loading"><p>loading</p></div>
         </form>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
