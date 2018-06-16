@@ -32,7 +32,7 @@ $('#submit').click(function () {
     $state.html('Connection timed out!');
     setTimeout(function () {
         $state.html('Log in');
-        $this.removeClass('ok loading');
+        $this.removeClass('ok loading error');
         $('.text').removeAttr('disabled');
         $("#username").focus();
     }, 4000)
@@ -66,7 +66,7 @@ $('#submit').click(function () {
                 $state.html('Username and Password did not match!');
                 setTimeout(function () {
                     $state.html('Log in');
-                    $this.removeClass('ok loading');
+                    $this.removeClass('ok loading error');
                     $('.text').removeAttr('disabled');
                     $("#username").focus();
                 }, 1000)
