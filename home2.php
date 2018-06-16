@@ -28,8 +28,9 @@
                 </tr>
             </table>
             <ul id='dropdown1' class='dropdown-content'>
-                    <li><a href="#!">edit</a></li>
-                    <li><a href="#!">delete</a></li>
+                    <li><a href="?project=1">files</a></li>
+                    <li><a href="project?type=edit&id=1">edit</a></li>
+                    <li><a href="project?type=delete&id=1">delete</a></li>
                 </ul>
             <br><a href="/?logout">Log Out</a>
         </div>
