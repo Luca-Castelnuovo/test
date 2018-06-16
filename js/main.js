@@ -60,7 +60,7 @@ $('#submit').click(function () {
                 //if process.php returned 0/false
                 $state.html('Log in');
                 $this.removeClass('ok loading');
-                $('.text').attr('disabled', 'true');
+                $('.text').attr('disabled', 'false');
             };
         }
     });
