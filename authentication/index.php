@@ -27,20 +27,26 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/authentication/init.php");
         <meta content="origin-when-crossorigin" name="referrer">
         <link href="/images/favicon.ico" rel="shortcut icon">
         <!--        <link as="style" href="css/style.min.css" onload='this.rel="stylesheet"' rel="preload">-->
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="css/style.css" rel="stylesheet" type="text/css">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     </head>
 
     <body>
         <div class="wrapper">
-            <form class="login" method="post">
+            <form class="login">
                 <p class="title">Log in</p>
-                <input placeholder="Username" type="text"> <i class="fa fa-user"></i>  <i class="fa fa-key"></i> <input placeholder="Password" type="password"> <button><i class="spinner"></i> <span class="state">Log in</span></button>
+                <input placeholder="Username" type="text"> <i class="fa fa-user"></i> <input placeholder="Password" type="password"> <i class="fa fa-key"></i> <button><i class="spinner"></i> <span class="state">Log in</span></button>
             </form>
         </div>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script src="js/main.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+
+
+        </script>
+        <script src="js/main.min.js">
+
+
+        </script>
     </body>
 
     </html>
