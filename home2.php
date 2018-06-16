@@ -19,7 +19,7 @@
 <body>
     <div class="wrapper">
         <div class="login" style="padding-bottom: 20px;">
-            <h2>Your Projects:</h2>
+            <h2>Projects:</h2>
             <table>
                 <tr>
                     <td><a class='dropdown-trigger btn' href='#' data-target='dropdown1'>test1</a></td>
