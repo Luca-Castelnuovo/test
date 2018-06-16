@@ -19,7 +19,9 @@
 <body>
     <div class="wrapper">
         <div class="login">
-            <h2>Your Projects:</h2>
+            <div style="display: inline;">
+                <h2>Your Projects:</h2>
+                <a href="/?logout">Log Out</a></div>
             <?php ($_GET['project']) ? $_GET['project'] : null; my_projects($project); ?>
         </div>
     </div>
