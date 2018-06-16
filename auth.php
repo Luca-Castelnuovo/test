@@ -11,6 +11,7 @@ $result = $mysqli->query("SELECT * FROM users WHERE username='$username'");
 if ($result->num_rows != 0) {
     if (password_verify($_POST['password'], $user['password'])) {
         $ip = $_SESSION['ip'] = ip();
+        $username = $_SESSION['user_name'] = $user['username'];
         $_SESSION['active'] = $user['active'];
         $_SESSION['user_type'] = $user['user_type'];
         $_SESSION['logged_in'] = true;
