@@ -175,7 +175,7 @@ function my_project($project_id)
         echo '<ul>';
         while ($row = $result->fetch_assoc()) {
             $file_name  = $row["file_name"];
-            echo '<li><a href="/users/' . $_SESSION['user_name'] . '/' . $project_name . '' . $file_name . '">' . $file_name . '</a></li>';
+            echo '<li><a href="/users/' . $_SESSION['user_name'] . '/' . $project_name . $file_name . '">' . $file_name . '</a></li>';
         }
         echo '</ul>';
     } else {
