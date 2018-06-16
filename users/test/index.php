@@ -7,5 +7,6 @@
 </head>
 <body>
     <h1>test user</h1>
+    <a href="/?logout">Logout</a>
 </body>
 </html>
