@@ -39,8 +39,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/authentication/init.php");
                 <input placeholder="Username" type="text"> <i class="fa fa-user"></i> <input placeholder="Password" type="password"> <button><i class="spinner"></i> <span class="state">Log in</span></button>
             </form>
         </div>
-        <script src="js/main.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="js/main.min.js"></script>
     </body>
 
     </html>
