@@ -73,7 +73,7 @@ if (isset($_POST)) {
                     echo '<button id="submit"><span class="state">Submit</span></button>';
                 }
 
-                echo $show_button;
+                var_dump($show_button);
             ?>
         </form>
     </div>
