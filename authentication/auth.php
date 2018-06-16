@@ -2,7 +2,6 @@
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "functions.php");
 
-/Retrieve form data.
 //GET - user submitted data using AJAX
 //POST - in case user does not support javascript, we'll use POST instead
 $username = ($_GET['name']) ? $_GET['name'] : $_POST['name'];
