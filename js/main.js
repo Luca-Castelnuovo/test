@@ -30,7 +30,7 @@ $('#submit').click(function () {
     setTimeout(function() {
       $state.html('Log in');
       $this.removeClass('ok loading');
-      $('.text').attr('disabled', 'false');
+      $('.text').removeAttr('disabled');
     }, 4000);
 
     //start the ajax
@@ -60,7 +60,7 @@ $('#submit').click(function () {
                 //if process.php returned 0/false
                 $state.html('Log in');
                 $this.removeClass('ok loading');
-                $('.text').attr('disabled', 'false');
+                $('.text').removeAttr('disabled');
             };
         }
     });
