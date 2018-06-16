@@ -72,6 +72,8 @@ if (isset($_POST)) {
                 if ($show_button) {
                     echo '<button id="submit"><span class="state">Submit</span></button>';
                 }
+
+                echo 'tedufysidfhsdjfl;sjdklfj;';
             ?>
         </form>
     </div>
