@@ -2,7 +2,7 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/authentication/functions.php");
 
 if (isset($_POST['submit'])) {
-
+    echo 'test';
 }
 
 ?>
