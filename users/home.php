@@ -20,7 +20,7 @@
     <div class="wrapper">
         <div class="login">
             <h1 class="username"><?= $_SESSION['user_name'] ?></h1>
-            <p><a href="/?logout">Log Out</a></p>
+            <p><a href="/?logout" class="mt0">Log Out</a></p>
 
             <h3>Your Projects:</h3>
             <?php ($_GET['project']) ? $_GET['project'] : null; my_projects($project); ?>
