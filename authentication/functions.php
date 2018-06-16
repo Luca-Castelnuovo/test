@@ -79,21 +79,21 @@ function login()
     if ($_SESSION['logged_in'] != 1) {
         $_SESSION['return_url'] = $_SERVER['REQUEST_URI'];
         $_SESSION['alert'] = 'Please Log In!';
-        header("location: /authentication/");
+        header("location: /authentication/?logout");
         exit;
     }
 
     //check if account is active
     if ($_SESSION['active'] != 1) {
         $_SESSION['alert'] = 'Your Account is not active or is temporarily disables';
-        header('Location: /authentication/');
+        header('Location: /authentication/?logout');
         exit;
     }
 
     //auto logout after 10min no activity
     if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
         $_SESSION['alert'] = 'Your session is expired!';
-        header('Location: /authentication/');
+        header('Location: /authentication/?logout');
         exit;
     } else {
         $_SESSION['LAST_ACTIVITY'] = time();
@@ -110,7 +110,7 @@ function login()
     //check if session is stolen
     if ($_SESSION['ip'] != ip_rem()) {
         $_SESSION['alert'] = 'Hack attempt detected!';
-        header('Location: /authentication/');
+        header('Location: /authentication/?logout');
         exit;
     }
 }
@@ -121,7 +121,7 @@ function login_admin()
 
     if ($_SESSION['user_type'] != 1) {
         $_SESSION['alert'] = 'This page is only availible for administrators!';
-        header("location: /authentication/");
+        header('location:' . $_SESSION['home']);
         exit;
     }
 }
@@ -133,7 +133,7 @@ function login_user($owner)
 
     if ($_SESSION['user_name'] != $owner) {
         $_SESSION['alert'] = 'This page is only availible for ' . $owner . '!';
-        header("location: /authentication/");
+        header('location:' . $_SESSION['home']);
         exit;
     }
 }
