@@ -64,10 +64,10 @@ $('#submit').click(function () {
         success: function (html) {
             //if process.php returned 1/true (send mail success)
             if (html == 1) {
-                window.open("https://test.lucacastelnuovo.nl/success", "_self")
+                alert('succ');
 
                 //if process.php returned 0/false (send mail failed)
-            } else alert('Sorry, unexpected error. Please try again later.');
+            } else alert('error');
         }
     });
 
