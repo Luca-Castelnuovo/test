@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
         break;
     case 'edit':
         $title = 'Edit Project';
-        $content = ['<p>item4p>', '<p>item5</p>'];
+        $content = ['<p>item4<p>', '<p>item5</p>'];
         break;
     case 'delete':
         $title = 'Delete Project';
