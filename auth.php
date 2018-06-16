@@ -26,12 +26,13 @@ if ($result->num_rows != 0) {
 }
 
 
-$user = var_dump($user);
+echo var_dump($user);
+
 
 if ($success) {
     $out = ["status" => true, "username" => $_SESSION['user_name']];
     echo json_encode($out);
 } else {
-    $out = ["status" => false, "db_pass" => $user];
+    $out = ["status" => false];
     echo json_encode($out);
 }
