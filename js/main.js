@@ -44,13 +44,15 @@ $('#submit').click(function () {
         cache: false,
 
         //success
-        success: function (html) {
-            if (html == 1) {
+        dataType: 'JSON',
+        success: function (response) {
+            var success = response.status;
+            if (success) {
                 //if process.php returned 1/true
                 $this.addClass('ok');
                 $state.html('Welcome back!');
                 setTimeout(function () {
-                    window.open("https://test.lucacastelnuovo.nl", "_self")
+                    window.open("https://test.lucacastelnuovo.nl/" + username, "_self")
                 }, 1000)
             } else {
                 //if process.php returned 0/false

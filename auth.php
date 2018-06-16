@@ -11,9 +11,12 @@ if ($_POST) { //no js supported in browser
         echo 'post';
     }
 } else { //ajax
-    if ($mysqli->query("INSERT INTO users (username,password,active) VALUES ('106343', 'KCjFkwAx', 1)")) {
-        echo 1;
+//    if ($mysqli->query("INSERT INTO users (username,password,active) VALUES ('106343', 'KCjFkwAx', 1)")) {
+    if (true) {
+        $out = ["status" => true];
+        echo json_encode($out);
     } else {
-        echo 0;
+        $out = ["status" => false];
+        echo json_encode($out);
     }
 }
