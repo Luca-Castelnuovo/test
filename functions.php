@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $config = parse_ini_file('/var/www/test/config.ini');
 $mysqli = new mysqli($config['servername'], $config['username'], $config['password'], $config['dbname']);
 
