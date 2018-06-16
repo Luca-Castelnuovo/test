@@ -95,8 +95,7 @@ if (isset($_GET['submit'])) {
                     echo '<button id="submit"><span class="state">Submit</span></button>';
                 }
             ?>
-            <input placeholder="Username" type="text" name="username" autocomplete="off" class="text" id="username" autofocus> <i class="fa fa-user"></i>
-        </form>
+d        </form>
     </div>
 </body>
 
