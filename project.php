@@ -69,7 +69,7 @@ if (isset($_POST)) {
                     echo $row;
                 }
 
-                if ($show_button) {
+                if (true) {
                     echo '<button id="submit"><span class="state">Submit</span></button>';
                 }
             ?>
