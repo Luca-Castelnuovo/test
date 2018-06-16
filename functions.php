@@ -11,7 +11,7 @@ function alert($alert)
 {
     if (isset($alert)) {
         $alert = clean_data($alert);
-        echo "<script>alertify.alert('{$alert}');</script>";
+        echo "<script>alertify.message('{$alert}');</script>";
     }
 }
 
