@@ -23,9 +23,6 @@ $('#submit').click(function () {
     //disabled all the text fields
     $('.text').attr('disabled', 'true');
 
-    e.preventDefault();
-    if (working) return;
-    working = true;
     var $this = $(this),
         $state = $this.find('button > .state');
     $this.addClass('loading');
