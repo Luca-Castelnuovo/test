@@ -46,7 +46,7 @@ if (isset($_GET['submit'])) {
     switch ($_GET['type']) {
     case 'add':
         $title = 'Add Project';
-        $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" autofocus> <i class="fa fa-comment-alt"></i>'];
+        $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" autofocus> <i class="fas fa-comment-alt"></i>'];
         break;
     case 'edit':
         $title = 'Edit Project';
@@ -92,7 +92,7 @@ if (isset($_GET['submit'])) {
                 }
 
                 if ($show_button) {
-                    echo '<button id="submit"><i class="spinner"></i> <span class="state">Log in</span></button>';
+                    echo '<button id="submit"><span class="state">Submit</span></button>';
                 }
             ?>
         </form>
