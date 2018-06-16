@@ -11,8 +11,8 @@ function alert($alert, $url = null)
 {
     if (isset($alert)) {
         $alert = clean_data($alert);
-        //echo "<script>alert('{$alert}'); location.replace('https://test.lucacastelnuovo.nl/{$url}')</script>";
-        echo "location.replace('https://test.lucacastelnuovo.nl/{$url}')</script>";
+        //echo "<script>alert('{$alert}'); location.replace('https://test.lucacastelnuovo.nl/{$url}');</script>";
+        echo "<script>location.replace('https://test.lucacastelnuovo.nl/{$url}');</script>";
     }
 }
 
