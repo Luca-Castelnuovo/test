@@ -73,7 +73,7 @@ if (isset($_POST)) {
                     echo '<button id="submit"><span class="state">Submit</span></button>';
                 }
 
-                echo 'tedufysidfhsdjfl;sjdklfj;';
+                echo $show_button;
             ?>
         </form>
     </div>
