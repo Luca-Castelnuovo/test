@@ -5,8 +5,7 @@ $('#submit').click(function () {
     var username = $('input[name=username]');
     var password = $('input[name=password]');
 
-    //Simple validation to make sure user entered something
-    //If error found, add hightlight class to the text field
+    //Ensure non empty inputs
     if (username.val() == '') {
         username.addClass('hightlight');
         return false;
