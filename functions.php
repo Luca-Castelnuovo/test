@@ -9,9 +9,12 @@ $mysqli = new mysqli($config['servername'], $config['username'], $config['passwo
 //display alert
 function alert()
 {
-    if (isset($_SESSION['alert'])) {
-        echo "<script>swal({$_SESSION['alert']})</script>";
-        unset($_SESSION['alert']);
+    if (isset($_GET['alert'])) {
+        echo "<script>swal(
+            type: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+        )</script>";
     }
 }
 
