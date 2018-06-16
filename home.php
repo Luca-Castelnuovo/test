@@ -25,7 +25,6 @@
             } else {
                 my_projects();
             } ?>
-            <button onclick="location.replace('/?logout')">Log Out</button>
         </div>
     </div>
 

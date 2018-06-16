@@ -162,6 +162,7 @@ function my_projects()
     } else {
         echo "<p>You don't have any projects.</p>";
     }
+    echo '<a href="/?logout">Log Out</a>';
 }
 
 function my_project($project_id)
@@ -175,9 +176,8 @@ function my_project($project_id)
             echo '<li><a href="/users/' . $_SESSION['user_name'] . '/' . $project_name . '/' . $file_name . '">' . $file_name . '</a></li>';
         }
         echo '</ul>';
-        echo '<a href="/home">Back</a>';
     } else {
         echo "<p>You don't have any files in this project.</p>";
-        echo '<a href="/home">Back</a>';
     }
+    echo '<a href="/home">Back</a>';
 }
