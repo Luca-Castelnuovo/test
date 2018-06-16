@@ -151,9 +151,8 @@ function my_projects()
 {
     global $mysqli;
     $result = $mysqli->query("SELECT * FROM projects WHERE owner_id='{$_SESSION['user_id']}'");
-    echo '<h2>Projects:</h2>';
+    echo '<h2>Projects:</h2><table><tr><td class="inline"><a class="waves-effect waves-light btn" href="project?type=new">New</a></td>';
     if ($result->num_rows > 0) {
-        echo '<table><tr><td class="inline"><a class="waves-effect waves-light btn" href="project?type=new">New</a></td>';
         while ($row = $result->fetch_assoc()) {
             $project_id  = $row["id"];
             $project_name  = $row["project_name"];
@@ -164,11 +163,8 @@ function my_projects()
                     <li><a href='project?type=delete&id={$project_id}'>delete</a></li>
                 </ul>";
         }
-        echo '</tr></table>';
-    } else {
-        echo "<p>You don't have any projects.</p>";
     }
-    echo '<br><a href="/?logout">Log Out</a>';
+    echo '</tr></table><br><a href="/?logout">Log Out</a>';
 }
 
 function my_project($project_id)
