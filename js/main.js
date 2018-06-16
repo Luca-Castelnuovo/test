@@ -23,21 +23,20 @@ $('#submit').click(function () {
     $('.text').attr('disabled', 'true');
 
     //start the loader
-    var $this = $('.login'),
-        $state = $this.find('button > .state');
+    var $this = $('.login'), $state = $this.find('button > .state');
     $this.addClass('loading');
     $state.html('Authenticating');
 
-    setTimeout(function () {
-        $this.addClass('error');
-        $state.html('Connection timed out!');
-        setTimeout(function () {
-            $state.html('Log in');
-            $this.removeClass('ok loading error');
-            $('.text').removeAttr('disabled');
-            $("#username").focus();
-        }, 1000)
-    }, 4000)
+//    setTimeout(function () {
+//        $this.addClass('error');
+//        $state.html('Connection timed out!');
+//        setTimeout(function () {
+//            $state.html('Log in');
+//            $this.removeClass('ok loading error');
+//            $('.text').removeAttr('disabled');
+//            $("#username").focus();
+//        }, 1000)
+//    }, 4000)
 
     //start the ajax
     $.ajax({
