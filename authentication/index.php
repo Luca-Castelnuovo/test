@@ -36,7 +36,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/authentication/init.php");
         <div class="wrapper">
             <form class="login">
                 <p class="title">Log in</p>
-                <input placeholder="Username" type="text"> <i class="fa fa-user"></i> <input placeholder="Password" type="password"> <i class="fa fa-key"></i> <button><i class="spinner"></i> <span class="state">Log in</span></button>
+                <input placeholder="Username" type="text" autocomplete="off" required="required" autofocus> <i class="fa fa-user"></i> <input placeholder="Password" type="password" autocomplete="off" required="required"> <i class="fa fa-key"></i> <button><i class="spinner"></i> <span class="state">Log in</span></button>
             </form>
         </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
