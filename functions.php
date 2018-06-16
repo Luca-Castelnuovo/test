@@ -76,6 +76,7 @@ function login()
 {
     if ($_SESSION['logged_in'] != 1) {
         logout('Please Log In!');
+    }
 
     //check if account is active
     if ($_SESSION['active'] != 1) {
@@ -128,10 +129,10 @@ function login_user($owner)
 
 function logout($alert)
 {
-//    if (isset($_COOKIE[session_name()])) {
-//        setcookie(session_name(), “”, time()-3600, “/” );
-//    }
-//    $_SESSION = array();
+    if (isset($_COOKIE[session_name()])) {
+        setcookie(session_name(), “”, time()-3600, “/” );
+    }
+    $_SESSION = array();
     session_destroy();
     $_SESSION['alert'] = $alert;
     header('Location: /');
