@@ -61,8 +61,8 @@ $('#submit').click(function () {
         cache: false,
 
         //success
-        success: function (html) {
-            if (html == 1) {
+        success: function (response) {
+            if (response == 1) {
                 //if auth.php returned 1/true
                 alert('ajax success');
 
