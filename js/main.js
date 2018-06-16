@@ -29,7 +29,7 @@ $('#submit').click(function () {
     $state.html('Authenticating');
 
 
-    var request_done = false;
+    var rd = false;
     //start the ajax
     $.ajax({
         //this is the php file that processes the data
@@ -47,7 +47,7 @@ $('#submit').click(function () {
         //success
         success: function (html) {
             if (html == 1) {
-                request_done = true;
+                rd = true;
                 //if process.php returned 1/true
                 $this.addClass('ok');
                 $state.html('Welcome back!');
@@ -56,7 +56,7 @@ $('#submit').click(function () {
                 }, 1000)
             } else {
                 //if process.php returned 0/false
-                request_done = true;
+                rd = true;
                 $this.addClass('error');
                 $state.html('Username and Password did not match!');
                 setTimeout(function () {
@@ -67,10 +67,9 @@ $('#submit').click(function () {
                 }, 1000)
             };
         }
-    });
 
-    if (!request_done) {
-        console.log(request_done);
+        if (!rd) {
+        console.log(rd);
         setTimeout(function () {
             $this.addClass('error');
             $state.html('Connection timed out!');
@@ -82,6 +81,7 @@ $('#submit').click(function () {
             }, 1000)
         }, 4000)
     }
+    });
 
     //cancel the submit button default behaviours
     return false;
