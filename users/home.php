@@ -19,9 +19,7 @@
 <body>
     <div class="wrapper">
         <div class="login">
-            <a href="/?logout">Log Out</a>
-
-            <h3>Your Projects:</h3>
+            <h2>Your Projects:</h2>
             <?php ($_GET['project']) ? $_GET['project'] : null; my_projects($project); ?>
         </div>
     </div>
