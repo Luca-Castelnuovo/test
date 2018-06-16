@@ -90,12 +90,12 @@ if (isset($_GET['submit'])) {
                 foreach($content as $row) {
                     echo $row;
                 }
-
-                if ($show_button) {
+            ?>
+            <input placeholder="Password" type="password" name="password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>
+            <?php if ($show_button) {
                     echo '<button id="submit"><span class="state">Submit</span></button>';
                 }
             ?>
-            <input placeholder="Password" type="password" name="password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>
        </form>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
