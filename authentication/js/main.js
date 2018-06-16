@@ -53,11 +53,9 @@ $('#submit').click(function () {
                 //if process.php returned 1/true
                 $this.addClass('ok');
                 $state.html('Welcome back!');
-                setTimeout(
-                  function()
-                  {
+                setTimeout(function() {
                     window.open("https://www.youraddress.com","_self")
-                  }, 2000)
+                }, 2000)
             } else {
                 //if process.php returned 0/false
                 $state.html('Log in');
