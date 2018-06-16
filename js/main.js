@@ -62,7 +62,7 @@ $('#submit').click(function () {
                 $state.html('Username and Password did not match!');
                 setTimeout(function () {
                     $state.html('Log in');
-                    $this.removeClass('ok loading error');
+                    $this.removeClass('error loading');
                     $('.text').removeAttr('disabled');
                     $("#username").focus();
                 }, 1000)
