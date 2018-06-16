@@ -18,10 +18,10 @@ function alert()
 //set alert
 function alert_set($alert)
 {
-    if (session_status()) {
-       session_start();
-    }
-    $_SESSION['alert'] = $alert;
+//    if (session_status()) {
+//       session_start();
+//    }
+//    $_SESSION['alert'] = $alert;
 }
 
 
