@@ -8,7 +8,7 @@
     <meta content="width=device-width,initial-scale=1,shrink-to-fit=no" name="viewport">
 
     <link href=https://lucacastelnuovo.nl/images/favicon.ico rel="shortcut icon">
-    <title>Login - test.lucacastelnuovo.nl</title>
+    <title>Log In</title>
 
     <link as="style" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" onload='this.rel="stylesheet"' rel="preload">
     <link as="style" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" onload='this.rel="stylesheet"' rel="preload">
