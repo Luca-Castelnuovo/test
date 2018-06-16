@@ -38,7 +38,7 @@ $('#submit').click(function () {
     }, 1000);
 
     //start the ajax
-    $.delay(2000).ajax({
+    $.ajax({
         //this is the php file that processes the data and send mail
         url: "auth.php",
 
