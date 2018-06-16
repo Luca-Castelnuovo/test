@@ -7,7 +7,7 @@ $mysqli = new mysqli($config['servername'], $config['username'], $config['passwo
 
 
 //display alert
-function alert($alert, $url = null)
+function alert($alert = null, $url = null)
 {
     if (isset($alert)) {
         $alert = clean_data($alert);
