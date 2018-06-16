@@ -1,22 +1,31 @@
 <?php
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 
-$username = ($_GET['username']) ? $_GET['username'] : $_POST['username'];
-$password = ($_GET['password']) ? $_GET['password'] : $_POST['password'];
+$success = false;
 
-if ($_POST) { //no js supported in browser
+$username = clean_data($_GET['username']);
+$password = clean_data($_GET['password']);
 
-    // check pass and username (for post)
-    if (true) {
-        echo 'post';
+$result = $mysqli->query("SELECT * FROM users WHERE username='$username'");
+
+if ($result->num_rows != 0) {
+    if (password_verify($_POST['password'], $user['password'])) {
+        $ip = $_SESSION['ip'] = ip();
+        $_SESSION['active'] = $user['active'];
+        $_SESSION['user_type'] = $user['user_type'];
+        $_SESSION['logged_in'] = true;
+
+        $text = date('Y-m-d H:i:s') . '	:	' . $ip . '	:	' . $username . PHP_EOL;
+        $file = fopen("ip-login.txt", "a+");
+        fwrite($file, $text);
+        $success = true;
     }
-} else { //ajax
-//    if ($mysqli->query("INSERT INTO users (username,password,active) VALUES ('106343', 'KCjFkwAx', 1)")) {
-    if (true) {
-        $out = ["status" => true, "username" => $username];
-        echo json_encode($out);
-    } else {
-        $out = ["status" => false];
-        echo json_encode($out);
-    }
+}
+
+if ($success) {
+    $out = ["status" => true, "username" => $username];
+    echo json_encode($out);
+} else {
+    $out = ["status" => false];
+    echo json_encode($out);
 }
