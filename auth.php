@@ -1,12 +1,14 @@
 <?php
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 
-$success = false;
+$success = true;
 
 $user_name = clean_data($_GET['username']);
 $user_password = clean_data($_GET['password']);
 
-csrf_val(clean_data($_GET['CSRFtoken']));
+if (csrf_val_ajax(clean_data($_GET['CSRFtoken']));) {
+    error();
+}
 
 $result = $mysqli->query("SELECT * FROM users WHERE user_name='$user_name'");
 
@@ -23,14 +25,24 @@ if ($result->num_rows != 0) {
         $file = fopen("login.txt", "a+");
         fwrite($file, $text);
 
-        $success = true;
+        success($_SESSION['user_name']);
+    } else {
+        error();
     }
+} else {
+    error();
 }
 
-if ($success) {
-    $out = ["status" => true, "username" => $_SESSION['user_name']];
-    echo json_encode($out);
-} else {
+function error()
+{
     $out = ["status" => false];
     echo json_encode($out);
+    exit;
+}
+
+function success($username)
+{
+    $out = ["status" => true, "username" => $username];
+    echo json_encode($out);
+    exit;
 }

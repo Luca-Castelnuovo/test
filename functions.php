@@ -69,11 +69,11 @@ function csrf_val($post_token)
 function csrf_val_ajax($token)
 {
     if (!isset($_SESSION['token'])) {
-        return false;
+        return true;
     }
 
     if (!(hash_equals($_SESSION['token'], $post_token))) {
-        return false;
+        return true;
     } else {
         unset($_SESSION['token']);
     }
