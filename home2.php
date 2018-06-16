@@ -19,7 +19,19 @@
 <body>
     <div class="wrapper">
         <div class="login" style="padding-bottom: 20px;">
-            <?php if (isset($_GET['project'])) {my_project($_GET['project']);} else {my_projects();} ?>
+            <h2>Your Projects:</h2>
+            <table>
+                <tr>
+                    <td><a class='dropdown-trigger btn' href='#' data-target='dropdown1'>test1</a></td>
+                    <td><a class='dropdown-trigger btn' href='#' data-target='dropdown2'>test2</a></td>
+                    <td><a class='dropdown-trigger btn' href='#' data-target='dropdown3'>test3</a></td>
+                </tr>
+            </table>
+            <ul id='dropdown1' class='dropdown-content'>
+                    <li><a href="#!">edit</a></li>
+                    <li><a href="#!">delete</a></li>
+                </ul>
+            <br><a href="/?logout">Log Out</a>
         </div>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>

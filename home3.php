@@ -19,7 +19,17 @@
 <body>
     <div class="wrapper">
         <div class="login" style="padding-bottom: 20px;">
-            <?php if (isset($_GET['project'])) {my_project($_GET['project']);} else {my_projects();} ?>
+            <?php //if (isset($_GET['project'])) {my_project($_GET['project']);} else {my_projects();} ?>
+            <h2>Your Projects:</h2>
+            <ul>
+                <li><a href="?project=1"><b>test1</b></a> <a class='dropdown-trigger btn' href='#' data-target='dropdown1' style="float: right">Drop Me!</a></li>
+                <!-- Dropdown Structure -->
+                <ul id='dropdown1' class='dropdown-content'>
+                    <li><a href="#!">edit</a></li>
+                    <li><a href="#!">delete</a></li>
+                </ul>
+            </ul>
+            <br><a href="/?logout">Log Out</a>
         </div>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
