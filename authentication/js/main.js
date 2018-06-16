@@ -72,5 +72,5 @@ $('#submit').click(function () {
     });
 
     //cancel the submit button default behaviours
-    return true;
+    return false;
 });

@@ -29,7 +29,7 @@
 
 <body>
     <div class="wrapper">
-        <form class="login" method="post">
+        <form class="login" method="post" action="auth.php">
             <p class="title">Log in</p>
             <input placeholder="Username" type="text" name="username" autocomplete="off" required="required" autofocus> <i class="fa fa-user"></i> <input placeholder="Password" type="password" name="password" autocomplete="off" required="required"> <i class="fa fa-key"></i> <button name="submit"><i class="spinner"></i> <span class="state">Log in</span></button>
         </form>
