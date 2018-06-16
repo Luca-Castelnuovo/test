@@ -35,7 +35,8 @@ if (isset($_POST)) {
         break;
     case 'delete':
         $title = 'Delete Project';
-        $content = ["<p>Are you sure?</p>", "<form method='post' action='?type=delete&id={$_GET['id']}'><button class='dropdown-trigger btn inline'>Yes</button></form><a class='dropdown-trigger btn inline' href='home?project={$_GET['id']}'>No</a>"];
+        //$content = ["<p>Are you sure?</p>", "<form method='post' action='?type=delete&id={$_GET['id']}'><button class='dropdown-trigger btn inline'>Yes</button></form><a class='dropdown-trigger btn inline' href='home?project={$_GET['id']}'>No</a>"];
+        $content = ['<p>item4<p>', '<p>item5</p>'];
         break;
 
     default:
