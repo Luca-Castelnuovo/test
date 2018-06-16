@@ -32,7 +32,7 @@ if (isset($_GET['submit'])) {
         break;
     case 'delete':
         $title = 'Delete Project';
-        $content = ["<p>Are you sure?</p>", "<a class='dropdown-trigger btn inline' href='home?project={$_GET['id']}'>Yes</a><a class='dropdown-trigger btn inline' href='home?project={$_GET['id']}'>No</a>"];
+        $content = ["<p>Are you sure?</p>", "<div class='inline'><a class='dropdown-trigger btn' href='#'>Yes</a><a class='dropdown-trigger btn' href='#'>No</a></div>"];
         $show_button = false;
         break;
 
