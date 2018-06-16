@@ -3,7 +3,7 @@
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 login();
 
-if (isset($_POST)) {
+if (isset($_GET['submit'])) {
     switch ($_GET['type']) {
     case 'add':
         $title = 'Add Project';
