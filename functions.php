@@ -74,12 +74,12 @@ function csrf_val($post_token)
 //check if user has been logged in
 function login()
 {
-    if ($_SESSION['logged_in'] != 1) {
+    if (!$_SESSION['logged_in']) {
         logout('Please Log In!');
     }
 
     //check if account is active
-    if ($_SESSION['active'] != 1) {
+    if (!$_SESSION['user_active']) {
         logout('Your Account is  inactive or is temporarily disabled!');
     }
 
@@ -99,7 +99,7 @@ function login()
     }
 
     //check if session is stolen
-    if ($_SESSION['ip'] != ip_rem()) {
+    if ($_SESSION['ip'] != ip()) {
         logout('Hack attempt detected!');
     }
 }
@@ -108,7 +108,7 @@ function login_admin()
 {
     login();
 
-    if ($_SESSION['user_type'] != 1) {
+    if (!$_SESSION['user_type']) {
         logout('This page is only availible for administrators!');
     }
 }
@@ -130,6 +130,7 @@ function logout($alert)
     }
     $_SESSION = array();
     session_destroy();
+    session_start();
     $_SESSION['alert'] = $alert;
     header('Location: /');
     exit;
