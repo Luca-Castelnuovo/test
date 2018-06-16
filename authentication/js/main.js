@@ -45,7 +45,7 @@ $('#submit').click(function () {
         success: function (html) {
             if (html == 1) {
                 //if process.php returned 1/true
-//                $this.addClass('ok');
+                $this.addClass('ok');
                 $state.html('Welcome back!');
             } else {
                 //if process.php returned 0/false
@@ -54,6 +54,12 @@ $('#submit').click(function () {
             };
         }
     });
+
+    setTimeout(function() {
+      $state.html('Log in');
+      $this.removeClass('ok loading');
+      working = false;
+    }, 4000);
 
     //cancel the submit button default behaviours
     return false;
