@@ -48,14 +48,12 @@ $('#submit').click(function () {
         dataType: 'JSON',
         success: function (response) {
             var success = response.status;
-            var username = response.username;
             if (success) {
                 //if process.php returned 1/true
                 $this.addClass('ok');
                 $state.html('Welcome back!');
                 setTimeout(function () {
-                    //window.open("https://test.lucacastelnuovo.nl/users/" + username, "_self")
-                    window.open("https://test.lucacastelnuovo.nl/home", "_self")
+                    window.open("/home", "_self");
                 }, 1000)
             } else {
                 //if process.php returned 0/false
@@ -66,7 +64,7 @@ $('#submit').click(function () {
                     $this.removeClass('error loading');
                     $('.text').removeAttr('disabled');
                     $("#username").focus();
-                    location.replace("https://test.lucacastelnuovo.nl/?logout")
+                    location.replace("/?logout");
                 }, 1000)
             };
         }

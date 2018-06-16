@@ -43,7 +43,7 @@ function error()
 
 function success($username)
 {
-    $out = ["status" => true, "username" => $username];
+    $out = ["status" => true];
     echo json_encode($out);
     exit;
 }
