@@ -19,10 +19,16 @@
 <body>
     <div class="wrapper">
         <div class="login" style="padding-bottom: 20px;">
-            <?php if (isset($_GET['project'])) {my_project($_GET['project']);} else {my_projects();} ?>
+            <?php //if (isset($_GET['project'])) {my_project($_GET['project']);} else {my_projects();} ?>
+            <h2>Your Projects:</h2>
+            <ul>
+                <li><a href="?project=1">test1</a> <a class='dropdown-trigger btn' href='#' data-target='dropdown1' style="float: right">Drop Me!</a></li>
+            </ul>
+            <br><a href="/?logout">Log Out</a>';
         </div>
     </div>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 </body>
 
 </html>
