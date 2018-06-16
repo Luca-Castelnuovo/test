@@ -208,3 +208,8 @@ footer {
 .inline .btn {
     background-color: transparent !important;
 }
+
+
+.dropdown-content li>a, .dropdown-content li>span {
+    color: $primary;
+}
