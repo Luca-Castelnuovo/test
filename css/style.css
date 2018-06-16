@@ -35,7 +35,7 @@ body {
 
 /* line 39, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
 .login {
-  border-radius: 2px 2px 5px 5px;
+  border-radius: 5px;
   padding: 10px 20px 20px 20px;
   width: 90%;
   max-width: 320px;
