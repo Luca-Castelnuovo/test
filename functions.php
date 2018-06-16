@@ -7,14 +7,18 @@ $mysqli = new mysqli($config['servername'], $config['username'], $config['passwo
 
 
 //display alert
-function alert($alert)
+function alert($alert, $url = null)
 {
     if (isset($alert)) {
         $alert = clean_data($alert);
-        echo "<script>alertify.message('{$alert}');</script>";
+        echo "<script>alertify.alert('{$alert}'); window.replace('https://test.lucacastelnuovo.nl/{$url}')</script>";
     }
 }
 
+function alert_set($alert)
+{
+    alert($alert, "/users/{$_SESSION['user_name']}")
+}
 
 //clean user data
 function clean_data($data)
@@ -117,7 +121,7 @@ function login_admin()
     login();
 
     if (!$_SESSION['user_type']) {
-        logout('This page is only availible for administrators!');
+        alert_set('This page is only availible for administrators!');
     }
 }
 
@@ -127,7 +131,7 @@ function login_user($owner)
     login();
 
     if ($_SESSION['user_name'] != $owner) {
-        logout('This page is only availible for ' . $owner . '!');
+        alert_set('This page is only availible for ' . $owner . '!');
     }
 }
 
