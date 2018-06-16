@@ -155,7 +155,7 @@ function my_projects($project)
         echo '<u;>';
         while ($row = $result->fetch_assoc()) {
             $project_name  = $row["project_name"];
-            echo '<li><a href="/users/' . $_SESSION['user_id'] . '/' . $project_name . '">' . $project_name . '</a></li>';
+            echo '<li><a href="/users/' . $_SESSION['user_name'] . '/' . $project_name . '">' . $project_name . '</a></li>';
         }
         echo '</ul>';
     } else {
