@@ -38,7 +38,7 @@ $('#submit').click(function () {
     } else password.removeClass('hightlight');
 
     //organize the data properly
-    var data = 'username=' + username.val() + '&password=' + password.val());
+    var data = 'username=' + username.val() + '&password=' + password.val();
 
     //disabled all the text fields
     $('.text').attr('disabled', 'true');
