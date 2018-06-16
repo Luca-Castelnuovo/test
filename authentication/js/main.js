@@ -53,7 +53,7 @@ $('#submit').click(function () {
                 //if process.php returned 1/true
                 $this.addClass('ok');
                 $state.html('Welcome back!');
-                location.replace("https://test.lucacastelnuovo.nl","_self")
+                window.open("https://test.lucacastelnuovo.nl","_self")
             } else {
                 //if process.php returned 0/false
                 $state.html('Log in');
