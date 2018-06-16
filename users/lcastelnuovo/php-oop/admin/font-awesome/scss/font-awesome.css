@@ -1,0 +1,2174 @@
+@charset "UTF-8";
+/*!
+ *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+/* FONT PATH
+ * -------------------------- */
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("../fonts/fontawesome-webfont.eot?v=4.2.0");
+  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.2.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff?v=4.2.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.2.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/* line 4, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_core.scss */
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+/* makes the font 33% larger relative to the icon container */
+/* line 5, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_larger.scss */
+.fa-lg {
+  font-size: 1.33333em;
+  line-height: 0.75em;
+  vertical-align: -15%; }
+
+/* line 11, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_larger.scss */
+.fa-2x {
+  font-size: 2em; }
+
+/* line 15, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_larger.scss */
+.fa-3x {
+  font-size: 3em; }
+
+/* line 19, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_larger.scss */
+.fa-4x {
+  font-size: 4em; }
+
+/* line 23, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_larger.scss */
+.fa-5x {
+  font-size: 5em; }
+
+/* line 3, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_fixed-width.scss */
+.fa-fw {
+  width: 1.28571em;
+  text-align: center; }
+
+/* line 4, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_list.scss */
+.fa-ul {
+  padding-left: 0;
+  margin-left: 2.14286em;
+  list-style-type: none; }
+  /* line 8, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_list.scss */
+  .fa-ul > li {
+    position: relative; }
+
+/* line 13, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_list.scss */
+.fa-li {
+  position: absolute;
+  left: -2.14286em;
+  width: 2.14286em;
+  top: 0.14286em;
+  text-align: center; }
+  /* line 19, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_list.scss */
+  .fa-li.fa-lg {
+    left: -1.85714em; }
+
+/* line 4, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_bordered-pulled.scss */
+.fa-border {
+  padding: .2em .25em .15em;
+  border: solid 0.08em #eee;
+  border-radius: .1em; }
+
+/* line 10, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_bordered-pulled.scss */
+.pull-right {
+  float: right; }
+
+/* line 14, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_bordered-pulled.scss */
+.pull-left {
+  float: left; }
+
+/* line 19, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_bordered-pulled.scss */
+.fa.pull-left {
+  margin-right: .3em; }
+
+/* line 22, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_bordered-pulled.scss */
+.fa.pull-right {
+  margin-left: .3em; }
+
+/* line 4, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_spinning.scss */
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear; }
+
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+
+/* line 4, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_rotated-flipped.scss */
+.fa-rotate-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg); }
+
+/* line 8, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_rotated-flipped.scss */
+.fa-rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg); }
+
+/* line 12, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_rotated-flipped.scss */
+.fa-rotate-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg); }
+
+/* line 16, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_rotated-flipped.scss */
+.fa-flip-horizontal {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1); }
+
+/* line 20, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_rotated-flipped.scss */
+.fa-flip-vertical {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1); }
+
+/* line 27, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_rotated-flipped.scss */
+:root .fa-rotate-90,
+:root .fa-rotate-180,
+:root .fa-rotate-270,
+:root .fa-flip-horizontal,
+:root .fa-flip-vertical {
+  filter: none; }
+
+/* line 4, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_stacked.scss */
+.fa-stack {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle; }
+
+/* line 13, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_stacked.scss */
+.fa-stack-1x, .fa-stack-2x {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center; }
+
+/* line 20, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_stacked.scss */
+.fa-stack-1x {
+  line-height: inherit; }
+
+/* line 24, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_stacked.scss */
+.fa-stack-2x {
+  font-size: 2em; }
+
+/* line 28, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_stacked.scss */
+.fa-inverse {
+  color: #fff; }
+
+/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+   readers do not read off random characters that represent icons */
+/* line 4, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-glass:before {
+  content: ""; }
+
+/* line 8, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-music:before {
+  content: ""; }
+
+/* line 12, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-search:before {
+  content: ""; }
+
+/* line 16, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-envelope-o:before {
+  content: ""; }
+
+/* line 20, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-heart:before {
+  content: ""; }
+
+/* line 24, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-star:before {
+  content: ""; }
+
+/* line 28, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-star-o:before {
+  content: ""; }
+
+/* line 32, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-user:before {
+  content: ""; }
+
+/* line 36, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-film:before {
+  content: ""; }
+
+/* line 40, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-th-large:before {
+  content: ""; }
+
+/* line 44, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-th:before {
+  content: ""; }
+
+/* line 48, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-th-list:before {
+  content: ""; }
+
+/* line 52, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-check:before {
+  content: ""; }
+
+/* line 56, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-remove:before,
+.fa-close:before,
+.fa-times:before {
+  content: ""; }
+
+/* line 60, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-search-plus:before {
+  content: ""; }
+
+/* line 64, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-search-minus:before {
+  content: ""; }
+
+/* line 68, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-power-off:before {
+  content: ""; }
+
+/* line 72, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-signal:before {
+  content: ""; }
+
+/* line 76, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-gear:before,
+.fa-cog:before {
+  content: ""; }
+
+/* line 80, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-trash-o:before {
+  content: ""; }
+
+/* line 84, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-home:before {
+  content: ""; }
+
+/* line 88, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-file-o:before {
+  content: ""; }
+
+/* line 92, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-clock-o:before {
+  content: ""; }
+
+/* line 96, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-road:before {
+  content: ""; }
+
+/* line 100, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-download:before {
+  content: ""; }
+
+/* line 104, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-arrow-circle-o-down:before {
+  content: ""; }
+
+/* line 108, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-arrow-circle-o-up:before {
+  content: ""; }
+
+/* line 112, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-inbox:before {
+  content: ""; }
+
+/* line 116, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-play-circle-o:before {
+  content: ""; }
+
+/* line 120, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-rotate-right:before,
+.fa-repeat:before {
+  content: ""; }
+
+/* line 124, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-refresh:before {
+  content: ""; }
+
+/* line 128, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-list-alt:before {
+  content: ""; }
+
+/* line 132, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-lock:before {
+  content: ""; }
+
+/* line 136, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-flag:before {
+  content: ""; }
+
+/* line 140, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-headphones:before {
+  content: ""; }
+
+/* line 144, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-volume-off:before {
+  content: ""; }
+
+/* line 148, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-volume-down:before {
+  content: ""; }
+
+/* line 152, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-volume-up:before {
+  content: ""; }
+
+/* line 156, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-qrcode:before {
+  content: ""; }
+
+/* line 160, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-barcode:before {
+  content: ""; }
+
+/* line 164, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-tag:before {
+  content: ""; }
+
+/* line 168, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-tags:before {
+  content: ""; }
+
+/* line 172, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-book:before {
+  content: ""; }
+
+/* line 176, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-bookmark:before {
+  content: ""; }
+
+/* line 180, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-print:before {
+  content: ""; }
+
+/* line 184, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-camera:before {
+  content: ""; }
+
+/* line 188, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-font:before {
+  content: ""; }
+
+/* line 192, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-bold:before {
+  content: ""; }
+
+/* line 196, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-italic:before {
+  content: ""; }
+
+/* line 200, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-text-height:before {
+  content: ""; }
+
+/* line 204, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-text-width:before {
+  content: ""; }
+
+/* line 208, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-align-left:before {
+  content: ""; }
+
+/* line 212, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-align-center:before {
+  content: ""; }
+
+/* line 216, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-align-right:before {
+  content: ""; }
+
+/* line 220, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-align-justify:before {
+  content: ""; }
+
+/* line 224, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-list:before {
+  content: ""; }
+
+/* line 228, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-dedent:before,
+.fa-outdent:before {
+  content: ""; }
+
+/* line 232, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-indent:before {
+  content: ""; }
+
+/* line 236, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-video-camera:before {
+  content: ""; }
+
+/* line 240, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-photo:before,
+.fa-image:before,
+.fa-picture-o:before {
+  content: ""; }
+
+/* line 244, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-pencil:before {
+  content: ""; }
+
+/* line 248, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-map-marker:before {
+  content: ""; }
+
+/* line 252, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-adjust:before {
+  content: ""; }
+
+/* line 256, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-tint:before {
+  content: ""; }
+
+/* line 260, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-edit:before,
+.fa-pencil-square-o:before {
+  content: ""; }
+
+/* line 264, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-share-square-o:before {
+  content: ""; }
+
+/* line 268, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-check-square-o:before {
+  content: ""; }
+
+/* line 272, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-arrows:before {
+  content: ""; }
+
+/* line 276, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-step-backward:before {
+  content: ""; }
+
+/* line 280, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-fast-backward:before {
+  content: ""; }
+
+/* line 284, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-backward:before {
+  content: ""; }
+
+/* line 288, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-play:before {
+  content: ""; }
+
+/* line 292, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-pause:before {
+  content: ""; }
+
+/* line 296, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-stop:before {
+  content: ""; }
+
+/* line 300, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-forward:before {
+  content: ""; }
+
+/* line 304, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-fast-forward:before {
+  content: ""; }
+
+/* line 308, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-step-forward:before {
+  content: ""; }
+
+/* line 312, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-eject:before {
+  content: ""; }
+
+/* line 316, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-chevron-left:before {
+  content: ""; }
+
+/* line 320, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-chevron-right:before {
+  content: ""; }
+
+/* line 324, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-plus-circle:before {
+  content: ""; }
+
+/* line 328, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-minus-circle:before {
+  content: ""; }
+
+/* line 332, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-times-circle:before {
+  content: ""; }
+
+/* line 336, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-check-circle:before {
+  content: ""; }
+
+/* line 340, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-question-circle:before {
+  content: ""; }
+
+/* line 344, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-info-circle:before {
+  content: ""; }
+
+/* line 348, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-crosshairs:before {
+  content: ""; }
+
+/* line 352, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-times-circle-o:before {
+  content: ""; }
+
+/* line 356, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-check-circle-o:before {
+  content: ""; }
+
+/* line 360, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-ban:before {
+  content: ""; }
+
+/* line 364, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-arrow-left:before {
+  content: ""; }
+
+/* line 368, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-arrow-right:before {
+  content: ""; }
+
+/* line 372, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-arrow-up:before {
+  content: ""; }
+
+/* line 376, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-arrow-down:before {
+  content: ""; }
+
+/* line 380, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-mail-forward:before,
+.fa-share:before {
+  content: ""; }
+
+/* line 384, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-expand:before {
+  content: ""; }
+
+/* line 388, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-compress:before {
+  content: ""; }
+
+/* line 392, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-plus:before {
+  content: ""; }
+
+/* line 396, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-minus:before {
+  content: ""; }
+
+/* line 400, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-asterisk:before {
+  content: ""; }
+
+/* line 404, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-exclamation-circle:before {
+  content: ""; }
+
+/* line 408, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-gift:before {
+  content: ""; }
+
+/* line 412, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-leaf:before {
+  content: ""; }
+
+/* line 416, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-fire:before {
+  content: ""; }
+
+/* line 420, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-eye:before {
+  content: ""; }
+
+/* line 424, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-eye-slash:before {
+  content: ""; }
+
+/* line 428, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-warning:before,
+.fa-exclamation-triangle:before {
+  content: ""; }
+
+/* line 432, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-plane:before {
+  content: ""; }
+
+/* line 436, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-calendar:before {
+  content: ""; }
+
+/* line 440, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-random:before {
+  content: ""; }
+
+/* line 444, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-comment:before {
+  content: ""; }
+
+/* line 448, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-magnet:before {
+  content: ""; }
+
+/* line 452, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-chevron-up:before {
+  content: ""; }
+
+/* line 456, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-chevron-down:before {
+  content: ""; }
+
+/* line 460, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-retweet:before {
+  content: ""; }
+
+/* line 464, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-shopping-cart:before {
+  content: ""; }
+
+/* line 468, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-folder:before {
+  content: ""; }
+
+/* line 472, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-folder-open:before {
+  content: ""; }
+
+/* line 476, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-arrows-v:before {
+  content: ""; }
+
+/* line 480, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-arrows-h:before {
+  content: ""; }
+
+/* line 484, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-bar-chart-o:before,
+.fa-bar-chart:before {
+  content: ""; }
+
+/* line 488, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-twitter-square:before {
+  content: ""; }
+
+/* line 492, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-facebook-square:before {
+  content: ""; }
+
+/* line 496, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-camera-retro:before {
+  content: ""; }
+
+/* line 500, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-key:before {
+  content: ""; }
+
+/* line 504, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-gears:before,
+.fa-cogs:before {
+  content: ""; }
+
+/* line 508, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-comments:before {
+  content: ""; }
+
+/* line 512, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-thumbs-o-up:before {
+  content: ""; }
+
+/* line 516, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-thumbs-o-down:before {
+  content: ""; }
+
+/* line 520, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-star-half:before {
+  content: ""; }
+
+/* line 524, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-heart-o:before {
+  content: ""; }
+
+/* line 528, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-sign-out:before {
+  content: ""; }
+
+/* line 532, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-linkedin-square:before {
+  content: ""; }
+
+/* line 536, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-thumb-tack:before {
+  content: ""; }
+
+/* line 540, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-external-link:before {
+  content: ""; }
+
+/* line 544, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-sign-in:before {
+  content: ""; }
+
+/* line 548, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-trophy:before {
+  content: ""; }
+
+/* line 552, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-github-square:before {
+  content: ""; }
+
+/* line 556, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-upload:before {
+  content: ""; }
+
+/* line 560, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-lemon-o:before {
+  content: ""; }
+
+/* line 564, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-phone:before {
+  content: ""; }
+
+/* line 568, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-square-o:before {
+  content: ""; }
+
+/* line 572, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-bookmark-o:before {
+  content: ""; }
+
+/* line 576, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-phone-square:before {
+  content: ""; }
+
+/* line 580, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-twitter:before {
+  content: ""; }
+
+/* line 584, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-facebook:before {
+  content: ""; }
+
+/* line 588, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-github:before {
+  content: ""; }
+
+/* line 592, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-unlock:before {
+  content: ""; }
+
+/* line 596, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-credit-card:before {
+  content: ""; }
+
+/* line 600, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-rss:before {
+  content: ""; }
+
+/* line 604, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-hdd-o:before {
+  content: ""; }
+
+/* line 608, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-bullhorn:before {
+  content: ""; }
+
+/* line 612, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-bell:before {
+  content: ""; }
+
+/* line 616, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-certificate:before {
+  content: ""; }
+
+/* line 620, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-hand-o-right:before {
+  content: ""; }
+
+/* line 624, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-hand-o-left:before {
+  content: ""; }
+
+/* line 628, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-hand-o-up:before {
+  content: ""; }
+
+/* line 632, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-hand-o-down:before {
+  content: ""; }
+
+/* line 636, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-arrow-circle-left:before {
+  content: ""; }
+
+/* line 640, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-arrow-circle-right:before {
+  content: ""; }
+
+/* line 644, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-arrow-circle-up:before {
+  content: ""; }
+
+/* line 648, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-arrow-circle-down:before {
+  content: ""; }
+
+/* line 652, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-globe:before {
+  content: ""; }
+
+/* line 656, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-wrench:before {
+  content: ""; }
+
+/* line 660, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-tasks:before {
+  content: ""; }
+
+/* line 664, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-filter:before {
+  content: ""; }
+
+/* line 668, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-briefcase:before {
+  content: ""; }
+
+/* line 672, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-arrows-alt:before {
+  content: ""; }
+
+/* line 676, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-group:before,
+.fa-users:before {
+  content: ""; }
+
+/* line 680, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-chain:before,
+.fa-link:before {
+  content: ""; }
+
+/* line 684, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-cloud:before {
+  content: ""; }
+
+/* line 688, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-flask:before {
+  content: ""; }
+
+/* line 692, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-cut:before,
+.fa-scissors:before {
+  content: ""; }
+
+/* line 696, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-copy:before,
+.fa-files-o:before {
+  content: ""; }
+
+/* line 700, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-paperclip:before {
+  content: ""; }
+
+/* line 704, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-save:before,
+.fa-floppy-o:before {
+  content: ""; }
+
+/* line 708, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-square:before {
+  content: ""; }
+
+/* line 712, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-navicon:before,
+.fa-reorder:before,
+.fa-bars:before {
+  content: ""; }
+
+/* line 716, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-list-ul:before {
+  content: ""; }
+
+/* line 720, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-list-ol:before {
+  content: ""; }
+
+/* line 724, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-strikethrough:before {
+  content: ""; }
+
+/* line 728, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-underline:before {
+  content: ""; }
+
+/* line 732, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-table:before {
+  content: ""; }
+
+/* line 736, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-magic:before {
+  content: ""; }
+
+/* line 740, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-truck:before {
+  content: ""; }
+
+/* line 744, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-pinterest:before {
+  content: ""; }
+
+/* line 748, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-pinterest-square:before {
+  content: ""; }
+
+/* line 752, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-google-plus-square:before {
+  content: ""; }
+
+/* line 756, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-google-plus:before {
+  content: ""; }
+
+/* line 760, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-money:before {
+  content: ""; }
+
+/* line 764, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-caret-down:before {
+  content: ""; }
+
+/* line 768, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-caret-up:before {
+  content: ""; }
+
+/* line 772, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-caret-left:before {
+  content: ""; }
+
+/* line 776, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-caret-right:before {
+  content: ""; }
+
+/* line 780, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-columns:before {
+  content: ""; }
+
+/* line 784, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-unsorted:before,
+.fa-sort:before {
+  content: ""; }
+
+/* line 788, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-sort-down:before,
+.fa-sort-desc:before {
+  content: ""; }
+
+/* line 792, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-sort-up:before,
+.fa-sort-asc:before {
+  content: ""; }
+
+/* line 796, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-envelope:before {
+  content: ""; }
+
+/* line 800, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-linkedin:before {
+  content: ""; }
+
+/* line 804, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-rotate-left:before,
+.fa-undo:before {
+  content: ""; }
+
+/* line 808, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-legal:before,
+.fa-gavel:before {
+  content: ""; }
+
+/* line 812, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-dashboard:before,
+.fa-tachometer:before {
+  content: ""; }
+
+/* line 816, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-comment-o:before {
+  content: ""; }
+
+/* line 820, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-comments-o:before {
+  content: ""; }
+
+/* line 824, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-flash:before,
+.fa-bolt:before {
+  content: ""; }
+
+/* line 828, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-sitemap:before {
+  content: ""; }
+
+/* line 832, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-umbrella:before {
+  content: ""; }
+
+/* line 836, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-paste:before,
+.fa-clipboard:before {
+  content: ""; }
+
+/* line 840, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-lightbulb-o:before {
+  content: ""; }
+
+/* line 844, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-exchange:before {
+  content: ""; }
+
+/* line 848, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-cloud-download:before {
+  content: ""; }
+
+/* line 852, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-cloud-upload:before {
+  content: ""; }
+
+/* line 856, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-user-md:before {
+  content: ""; }
+
+/* line 860, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-stethoscope:before {
+  content: ""; }
+
+/* line 864, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-suitcase:before {
+  content: ""; }
+
+/* line 868, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-bell-o:before {
+  content: ""; }
+
+/* line 872, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-coffee:before {
+  content: ""; }
+
+/* line 876, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-cutlery:before {
+  content: ""; }
+
+/* line 880, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-file-text-o:before {
+  content: ""; }
+
+/* line 884, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-building-o:before {
+  content: ""; }
+
+/* line 888, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-hospital-o:before {
+  content: ""; }
+
+/* line 892, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-ambulance:before {
+  content: ""; }
+
+/* line 896, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-medkit:before {
+  content: ""; }
+
+/* line 900, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-fighter-jet:before {
+  content: ""; }
+
+/* line 904, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-beer:before {
+  content: ""; }
+
+/* line 908, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-h-square:before {
+  content: ""; }
+
+/* line 912, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-plus-square:before {
+  content: ""; }
+
+/* line 916, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-angle-double-left:before {
+  content: ""; }
+
+/* line 920, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-angle-double-right:before {
+  content: ""; }
+
+/* line 924, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-angle-double-up:before {
+  content: ""; }
+
+/* line 928, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-angle-double-down:before {
+  content: ""; }
+
+/* line 932, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-angle-left:before {
+  content: ""; }
+
+/* line 936, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-angle-right:before {
+  content: ""; }
+
+/* line 940, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-angle-up:before {
+  content: ""; }
+
+/* line 944, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-angle-down:before {
+  content: ""; }
+
+/* line 948, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-desktop:before {
+  content: ""; }
+
+/* line 952, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-laptop:before {
+  content: ""; }
+
+/* line 956, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-tablet:before {
+  content: ""; }
+
+/* line 960, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-mobile-phone:before,
+.fa-mobile:before {
+  content: ""; }
+
+/* line 964, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-circle-o:before {
+  content: ""; }
+
+/* line 968, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-quote-left:before {
+  content: ""; }
+
+/* line 972, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-quote-right:before {
+  content: ""; }
+
+/* line 976, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-spinner:before {
+  content: ""; }
+
+/* line 980, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-circle:before {
+  content: ""; }
+
+/* line 984, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-mail-reply:before,
+.fa-reply:before {
+  content: ""; }
+
+/* line 988, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-github-alt:before {
+  content: ""; }
+
+/* line 992, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-folder-o:before {
+  content: ""; }
+
+/* line 996, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-folder-open-o:before {
+  content: ""; }
+
+/* line 1000, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-smile-o:before {
+  content: ""; }
+
+/* line 1004, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-frown-o:before {
+  content: ""; }
+
+/* line 1008, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-meh-o:before {
+  content: ""; }
+
+/* line 1012, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-gamepad:before {
+  content: ""; }
+
+/* line 1016, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-keyboard-o:before {
+  content: ""; }
+
+/* line 1020, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-flag-o:before {
+  content: ""; }
+
+/* line 1024, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-flag-checkered:before {
+  content: ""; }
+
+/* line 1028, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-terminal:before {
+  content: ""; }
+
+/* line 1032, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-code:before {
+  content: ""; }
+
+/* line 1036, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-mail-reply-all:before,
+.fa-reply-all:before {
+  content: ""; }
+
+/* line 1040, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-star-half-empty:before,
+.fa-star-half-full:before,
+.fa-star-half-o:before {
+  content: ""; }
+
+/* line 1044, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-location-arrow:before {
+  content: ""; }
+
+/* line 1048, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-crop:before {
+  content: ""; }
+
+/* line 1052, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-code-fork:before {
+  content: ""; }
+
+/* line 1056, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-unlink:before,
+.fa-chain-broken:before {
+  content: ""; }
+
+/* line 1060, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-question:before {
+  content: ""; }
+
+/* line 1064, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-info:before {
+  content: ""; }
+
+/* line 1068, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-exclamation:before {
+  content: ""; }
+
+/* line 1072, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-superscript:before {
+  content: ""; }
+
+/* line 1076, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-subscript:before {
+  content: ""; }
+
+/* line 1080, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-eraser:before {
+  content: ""; }
+
+/* line 1084, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-puzzle-piece:before {
+  content: ""; }
+
+/* line 1088, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-microphone:before {
+  content: ""; }
+
+/* line 1092, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-microphone-slash:before {
+  content: ""; }
+
+/* line 1096, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-shield:before {
+  content: ""; }
+
+/* line 1100, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-calendar-o:before {
+  content: ""; }
+
+/* line 1104, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-fire-extinguisher:before {
+  content: ""; }
+
+/* line 1108, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-rocket:before {
+  content: ""; }
+
+/* line 1112, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-maxcdn:before {
+  content: ""; }
+
+/* line 1116, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-chevron-circle-left:before {
+  content: ""; }
+
+/* line 1120, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-chevron-circle-right:before {
+  content: ""; }
+
+/* line 1124, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-chevron-circle-up:before {
+  content: ""; }
+
+/* line 1128, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-chevron-circle-down:before {
+  content: ""; }
+
+/* line 1132, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-html5:before {
+  content: ""; }
+
+/* line 1136, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-css3:before {
+  content: ""; }
+
+/* line 1140, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-anchor:before {
+  content: ""; }
+
+/* line 1144, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-unlock-alt:before {
+  content: ""; }
+
+/* line 1148, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-bullseye:before {
+  content: ""; }
+
+/* line 1152, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-ellipsis-h:before {
+  content: ""; }
+
+/* line 1156, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-ellipsis-v:before {
+  content: ""; }
+
+/* line 1160, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-rss-square:before {
+  content: ""; }
+
+/* line 1164, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-play-circle:before {
+  content: ""; }
+
+/* line 1168, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-ticket:before {
+  content: ""; }
+
+/* line 1172, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-minus-square:before {
+  content: ""; }
+
+/* line 1176, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-minus-square-o:before {
+  content: ""; }
+
+/* line 1180, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-level-up:before {
+  content: ""; }
+
+/* line 1184, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-level-down:before {
+  content: ""; }
+
+/* line 1188, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-check-square:before {
+  content: ""; }
+
+/* line 1192, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-pencil-square:before {
+  content: ""; }
+
+/* line 1196, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-external-link-square:before {
+  content: ""; }
+
+/* line 1200, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-share-square:before {
+  content: ""; }
+
+/* line 1204, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-compass:before {
+  content: ""; }
+
+/* line 1208, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-toggle-down:before,
+.fa-caret-square-o-down:before {
+  content: ""; }
+
+/* line 1212, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-toggle-up:before,
+.fa-caret-square-o-up:before {
+  content: ""; }
+
+/* line 1216, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-toggle-right:before,
+.fa-caret-square-o-right:before {
+  content: ""; }
+
+/* line 1220, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-euro:before,
+.fa-eur:before {
+  content: ""; }
+
+/* line 1224, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-gbp:before {
+  content: ""; }
+
+/* line 1228, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-dollar:before,
+.fa-usd:before {
+  content: ""; }
+
+/* line 1232, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-rupee:before,
+.fa-inr:before {
+  content: ""; }
+
+/* line 1236, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-cny:before,
+.fa-rmb:before,
+.fa-yen:before,
+.fa-jpy:before {
+  content: ""; }
+
+/* line 1240, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-ruble:before,
+.fa-rouble:before,
+.fa-rub:before {
+  content: ""; }
+
+/* line 1244, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-won:before,
+.fa-krw:before {
+  content: ""; }
+
+/* line 1248, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-bitcoin:before,
+.fa-btc:before {
+  content: ""; }
+
+/* line 1252, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-file:before {
+  content: ""; }
+
+/* line 1256, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-file-text:before {
+  content: ""; }
+
+/* line 1260, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-sort-alpha-asc:before {
+  content: ""; }
+
+/* line 1264, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-sort-alpha-desc:before {
+  content: ""; }
+
+/* line 1268, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-sort-amount-asc:before {
+  content: ""; }
+
+/* line 1272, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-sort-amount-desc:before {
+  content: ""; }
+
+/* line 1276, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-sort-numeric-asc:before {
+  content: ""; }
+
+/* line 1280, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-sort-numeric-desc:before {
+  content: ""; }
+
+/* line 1284, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-thumbs-up:before {
+  content: ""; }
+
+/* line 1288, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-thumbs-down:before {
+  content: ""; }
+
+/* line 1292, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-youtube-square:before {
+  content: ""; }
+
+/* line 1296, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-youtube:before {
+  content: ""; }
+
+/* line 1300, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-xing:before {
+  content: ""; }
+
+/* line 1304, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-xing-square:before {
+  content: ""; }
+
+/* line 1308, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-youtube-play:before {
+  content: ""; }
+
+/* line 1312, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-dropbox:before {
+  content: ""; }
+
+/* line 1316, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-stack-overflow:before {
+  content: ""; }
+
+/* line 1320, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-instagram:before {
+  content: ""; }
+
+/* line 1324, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-flickr:before {
+  content: ""; }
+
+/* line 1328, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-adn:before {
+  content: ""; }
+
+/* line 1332, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-bitbucket:before {
+  content: ""; }
+
+/* line 1336, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-bitbucket-square:before {
+  content: ""; }
+
+/* line 1340, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-tumblr:before {
+  content: ""; }
+
+/* line 1344, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-tumblr-square:before {
+  content: ""; }
+
+/* line 1348, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-long-arrow-down:before {
+  content: ""; }
+
+/* line 1352, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-long-arrow-up:before {
+  content: ""; }
+
+/* line 1356, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-long-arrow-left:before {
+  content: ""; }
+
+/* line 1360, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-long-arrow-right:before {
+  content: ""; }
+
+/* line 1364, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-apple:before {
+  content: ""; }
+
+/* line 1368, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-windows:before {
+  content: ""; }
+
+/* line 1372, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-android:before {
+  content: ""; }
+
+/* line 1376, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-linux:before {
+  content: ""; }
+
+/* line 1380, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-dribbble:before {
+  content: ""; }
+
+/* line 1384, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-skype:before {
+  content: ""; }
+
+/* line 1388, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-foursquare:before {
+  content: ""; }
+
+/* line 1392, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-trello:before {
+  content: ""; }
+
+/* line 1396, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-female:before {
+  content: ""; }
+
+/* line 1400, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-male:before {
+  content: ""; }
+
+/* line 1404, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-gittip:before {
+  content: ""; }
+
+/* line 1408, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-sun-o:before {
+  content: ""; }
+
+/* line 1412, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-moon-o:before {
+  content: ""; }
+
+/* line 1416, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-archive:before {
+  content: ""; }
+
+/* line 1420, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-bug:before {
+  content: ""; }
+
+/* line 1424, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-vk:before {
+  content: ""; }
+
+/* line 1428, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-weibo:before {
+  content: ""; }
+
+/* line 1432, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-renren:before {
+  content: ""; }
+
+/* line 1436, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-pagelines:before {
+  content: ""; }
+
+/* line 1440, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-stack-exchange:before {
+  content: ""; }
+
+/* line 1444, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-arrow-circle-o-right:before {
+  content: ""; }
+
+/* line 1448, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-arrow-circle-o-left:before {
+  content: ""; }
+
+/* line 1452, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-toggle-left:before,
+.fa-caret-square-o-left:before {
+  content: ""; }
+
+/* line 1456, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-dot-circle-o:before {
+  content: ""; }
+
+/* line 1460, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-wheelchair:before {
+  content: ""; }
+
+/* line 1464, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-vimeo-square:before {
+  content: ""; }
+
+/* line 1468, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-turkish-lira:before,
+.fa-try:before {
+  content: ""; }
+
+/* line 1472, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-plus-square-o:before {
+  content: ""; }
+
+/* line 1476, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-space-shuttle:before {
+  content: ""; }
+
+/* line 1480, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-slack:before {
+  content: ""; }
+
+/* line 1484, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-envelope-square:before {
+  content: ""; }
+
+/* line 1488, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-wordpress:before {
+  content: ""; }
+
+/* line 1492, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-openid:before {
+  content: ""; }
+
+/* line 1496, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-institution:before,
+.fa-bank:before,
+.fa-university:before {
+  content: ""; }
+
+/* line 1500, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-mortar-board:before,
+.fa-graduation-cap:before {
+  content: ""; }
+
+/* line 1504, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-yahoo:before {
+  content: ""; }
+
+/* line 1508, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-google:before {
+  content: ""; }
+
+/* line 1512, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-reddit:before {
+  content: ""; }
+
+/* line 1516, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-reddit-square:before {
+  content: ""; }
+
+/* line 1520, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-stumbleupon-circle:before {
+  content: ""; }
+
+/* line 1524, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-stumbleupon:before {
+  content: ""; }
+
+/* line 1528, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-delicious:before {
+  content: ""; }
+
+/* line 1532, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-digg:before {
+  content: ""; }
+
+/* line 1536, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-pied-piper:before {
+  content: ""; }
+
+/* line 1540, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-pied-piper-alt:before {
+  content: ""; }
+
+/* line 1544, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-drupal:before {
+  content: ""; }
+
+/* line 1548, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-joomla:before {
+  content: ""; }
+
+/* line 1552, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-language:before {
+  content: ""; }
+
+/* line 1556, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-fax:before {
+  content: ""; }
+
+/* line 1560, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-building:before {
+  content: ""; }
+
+/* line 1564, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-child:before {
+  content: ""; }
+
+/* line 1568, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-paw:before {
+  content: ""; }
+
+/* line 1572, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-spoon:before {
+  content: ""; }
+
+/* line 1576, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-cube:before {
+  content: ""; }
+
+/* line 1580, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-cubes:before {
+  content: ""; }
+
+/* line 1584, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-behance:before {
+  content: ""; }
+
+/* line 1588, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-behance-square:before {
+  content: ""; }
+
+/* line 1592, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-steam:before {
+  content: ""; }
+
+/* line 1596, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-steam-square:before {
+  content: ""; }
+
+/* line 1600, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-recycle:before {
+  content: ""; }
+
+/* line 1604, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-automobile:before,
+.fa-car:before {
+  content: ""; }
+
+/* line 1608, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-cab:before,
+.fa-taxi:before {
+  content: ""; }
+
+/* line 1612, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-tree:before {
+  content: ""; }
+
+/* line 1616, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-spotify:before {
+  content: ""; }
+
+/* line 1620, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-deviantart:before {
+  content: ""; }
+
+/* line 1624, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-soundcloud:before {
+  content: ""; }
+
+/* line 1628, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-database:before {
+  content: ""; }
+
+/* line 1632, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-file-pdf-o:before {
+  content: ""; }
+
+/* line 1636, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-file-word-o:before {
+  content: ""; }
+
+/* line 1640, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-file-excel-o:before {
+  content: ""; }
+
+/* line 1644, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-file-powerpoint-o:before {
+  content: ""; }
+
+/* line 1648, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-file-photo-o:before,
+.fa-file-picture-o:before,
+.fa-file-image-o:before {
+  content: ""; }
+
+/* line 1652, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-file-zip-o:before,
+.fa-file-archive-o:before {
+  content: ""; }
+
+/* line 1656, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-file-sound-o:before,
+.fa-file-audio-o:before {
+  content: ""; }
+
+/* line 1660, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-file-movie-o:before,
+.fa-file-video-o:before {
+  content: ""; }
+
+/* line 1664, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-file-code-o:before {
+  content: ""; }
+
+/* line 1668, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-vine:before {
+  content: ""; }
+
+/* line 1672, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-codepen:before {
+  content: ""; }
+
+/* line 1676, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-jsfiddle:before {
+  content: ""; }
+
+/* line 1680, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-life-bouy:before,
+.fa-life-buoy:before,
+.fa-life-saver:before,
+.fa-support:before,
+.fa-life-ring:before {
+  content: ""; }
+
+/* line 1684, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-circle-o-notch:before {
+  content: ""; }
+
+/* line 1688, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-ra:before,
+.fa-rebel:before {
+  content: ""; }
+
+/* line 1692, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-ge:before,
+.fa-empire:before {
+  content: ""; }
+
+/* line 1696, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-git-square:before {
+  content: ""; }
+
+/* line 1700, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-git:before {
+  content: ""; }
+
+/* line 1704, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-hacker-news:before {
+  content: ""; }
+
+/* line 1708, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-tencent-weibo:before {
+  content: ""; }
+
+/* line 1712, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-qq:before {
+  content: ""; }
+
+/* line 1716, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-wechat:before,
+.fa-weixin:before {
+  content: ""; }
+
+/* line 1720, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-send:before,
+.fa-paper-plane:before {
+  content: ""; }
+
+/* line 1724, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-send-o:before,
+.fa-paper-plane-o:before {
+  content: ""; }
+
+/* line 1728, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-history:before {
+  content: ""; }
+
+/* line 1732, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-circle-thin:before {
+  content: ""; }
+
+/* line 1736, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-header:before {
+  content: ""; }
+
+/* line 1740, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-paragraph:before {
+  content: ""; }
+
+/* line 1744, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-sliders:before {
+  content: ""; }
+
+/* line 1748, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-share-alt:before {
+  content: ""; }
+
+/* line 1752, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-share-alt-square:before {
+  content: ""; }
+
+/* line 1756, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-bomb:before {
+  content: ""; }
+
+/* line 1760, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-soccer-ball-o:before,
+.fa-futbol-o:before {
+  content: ""; }
+
+/* line 1764, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-tty:before {
+  content: ""; }
+
+/* line 1768, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-binoculars:before {
+  content: ""; }
+
+/* line 1772, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-plug:before {
+  content: ""; }
+
+/* line 1776, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-slideshare:before {
+  content: ""; }
+
+/* line 1780, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-twitch:before {
+  content: ""; }
+
+/* line 1784, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-yelp:before {
+  content: ""; }
+
+/* line 1788, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-newspaper-o:before {
+  content: ""; }
+
+/* line 1792, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-wifi:before {
+  content: ""; }
+
+/* line 1796, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-calculator:before {
+  content: ""; }
+
+/* line 1800, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-paypal:before {
+  content: ""; }
+
+/* line 1804, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-google-wallet:before {
+  content: ""; }
+
+/* line 1808, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-cc-visa:before {
+  content: ""; }
+
+/* line 1812, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-cc-mastercard:before {
+  content: ""; }
+
+/* line 1816, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-cc-discover:before {
+  content: ""; }
+
+/* line 1820, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-cc-amex:before {
+  content: ""; }
+
+/* line 1824, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-cc-paypal:before {
+  content: ""; }
+
+/* line 1828, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-cc-stripe:before {
+  content: ""; }
+
+/* line 1832, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-bell-slash:before {
+  content: ""; }
+
+/* line 1836, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-bell-slash-o:before {
+  content: ""; }
+
+/* line 1840, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-trash:before {
+  content: ""; }
+
+/* line 1844, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-copyright:before {
+  content: ""; }
+
+/* line 1848, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-at:before {
+  content: ""; }
+
+/* line 1852, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-eyedropper:before {
+  content: ""; }
+
+/* line 1856, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-paint-brush:before {
+  content: ""; }
+
+/* line 1860, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-birthday-cake:before {
+  content: ""; }
+
+/* line 1864, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-area-chart:before {
+  content: ""; }
+
+/* line 1868, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-pie-chart:before {
+  content: ""; }
+
+/* line 1872, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-line-chart:before {
+  content: ""; }
+
+/* line 1876, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-lastfm:before {
+  content: ""; }
+
+/* line 1880, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-lastfm-square:before {
+  content: ""; }
+
+/* line 1884, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-toggle-off:before {
+  content: ""; }
+
+/* line 1888, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-toggle-on:before {
+  content: ""; }
+
+/* line 1892, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-bicycle:before {
+  content: ""; }
+
+/* line 1896, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-bus:before {
+  content: ""; }
+
+/* line 1900, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-ioxhost:before {
+  content: ""; }
+
+/* line 1904, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-angellist:before {
+  content: ""; }
+
+/* line 1908, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-cc:before {
+  content: ""; }
+
+/* line 1912, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-shekel:before,
+.fa-sheqel:before,
+.fa-ils:before {
+  content: ""; }
+
+/* line 1916, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/users/lcastelnuovo/php-oop/admin/font-awesome/scss/_icons.scss */
+.fa-meanpath:before {
+  content: ""; }
+
+/*# sourceMappingURL=font-awesome.css.map */
