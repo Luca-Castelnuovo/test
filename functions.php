@@ -175,8 +175,9 @@ function my_project($project_id)
             echo '<li><a href="/users/' . $_SESSION['user_name'] . '/' . $project_name . '/' . $file_name . '">' . $file_name . '</a></li>';
         }
         echo '</ul>';
-        echo '<a href="/home"></a>';
+        echo '<a href="/home">Back</a>';
     } else {
         echo "<p>You don't have any files in this project.</p>";
+        echo '<a href="/home">Back</a>';
     }
 }
