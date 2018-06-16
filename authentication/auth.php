@@ -74,5 +74,6 @@ function sendmail($to, $subject, $message, $from) {
 //	else return 0;
 
     $array = [$to, $subject, $message, $from];
-    var_dump();
+    var_dump($array);
+    exit;
 }
