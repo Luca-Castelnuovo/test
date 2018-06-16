@@ -10,7 +10,7 @@ $mysqli = new mysqli($config['servername'], $config['username'], $config['passwo
 function alert()
 {
     if (isset($_GET['alert'])) {
-        echo "<script>alert('{$_GET['alert']}');</script>";
+        echo "<script>alertify.alert('{$_GET['alert'])}');</script>";
     }
 }
 
