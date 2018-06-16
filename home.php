@@ -22,7 +22,7 @@
             <?php //if (isset($_GET['project'])) {my_project($_GET['project']);} else {my_projects();} ?>
             <h2>Your Projects:</h2>
             <ul>
-                <li><a href="?project=1">test1</a> <a class='dropdown-trigger btn' href='#' data-target='dropdown1' style="float: right">Drop Me!</a></li>
+                <li><a href="?project=1"><b>test1</b></a> <a class='dropdown-trigger btn' href='#' data-target='dropdown1' style="float: right">Drop Me!</a></li>
             </ul>
             <br><a href="/?logout">Log Out</a>
         </div>
