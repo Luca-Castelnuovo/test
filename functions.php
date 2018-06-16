@@ -162,7 +162,7 @@ function my_projects()
     } else {
         echo "<p>You don't have any projects.</p>";
     }
-    echo '<a href="/?logout">Log Out</a>';
+    echo '<br><a href="/?logout">Log Out</a>';
 }
 
 function my_project($project_id)
@@ -179,5 +179,5 @@ function my_project($project_id)
     } else {
         echo "<p>You don't have any files in this project.</p>";
     }
-    echo '<a href="/home">Back</a>';
+    echo '<br><a href="/home">Back</a>';
 }
