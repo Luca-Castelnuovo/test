@@ -4,8 +4,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/authentication/functions.php");
 
 //GET - user submitted data using AJAX
 //POST - in case user does not support javascript, we'll use POST instead
-$username = ($_GET['name']) ? $_GET['name'] : $_POST['name'];
-$password = ($_GET['email']) ?$_GET['email'] : $_POST['email'];
+$username = ($_GET['username']) ? $_GET['username'] : $_POST['username'];
+$password = ($_GET['password']) ?$_GET['password'] : $_POST['password'];
 
 //flag to indicate which method it uses. If POST set it to 1
 if ($_POST) $post=1;
@@ -57,7 +57,7 @@ if (!$errors) {
 } else {
 	//display the errors message
 	for ($i=0; $i<count($errors); $i++) echo $errors[$i] . '<br/>';
-	echo '<a href="form.php">Back</a>';
+	echo '<a href="index.php">Back</a>';
 	exit;
 }
 
