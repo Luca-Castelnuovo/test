@@ -131,6 +131,6 @@ function logout($alert)
     $_SESSION = array();
     session_destroy();
     $_SESSION['alert'] = $alert;
-    header('Location: /authentication/');
+    header('Location: /');
     exit;
 }
