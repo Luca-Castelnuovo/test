@@ -18,8 +18,8 @@
     <div class="wrapper">
         <form class="login" method="post" action="auth.php">
             <p class="title">Log in</p>
-            <input placeholder="Username" type="text" name="username" autocomplete="off" class="text" autofocus> <i class="fa fa-user"></i>
-            <input placeholder="Password" type="password" name="password" autocomplete="off" class="text"> <i class="fa fa-key"></i>
+            <input placeholder="Username" type="text" name="username" autocomplete="off" class="text" id="username" autofocus> <i class="fa fa-user"></i>
+            <input placeholder="Password" type="password" name="password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>
             <button id="submit"><i class="spinner"></i> <span class="state">Log in</span></button>
         </form>
     </div>

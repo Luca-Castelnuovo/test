@@ -28,9 +28,10 @@ $('#submit').click(function () {
     $state.html('Authenticating');
 
     setTimeout(function() {
-      $state.html('Log in');
-      $this.removeClass('ok loading');
-      $('.text').removeAttr('disabled');
+        $state.html('Log in');
+        $this.removeClass('ok loading');
+        $('.text').removeAttr('disabled');
+        $("#username").focus();
     }, 4000);
 
     //start the ajax
@@ -61,6 +62,7 @@ $('#submit').click(function () {
                 $state.html('Log in');
                 $this.removeClass('ok loading');
                 $('.text').removeAttr('disabled');
+                $("#username").focus();
             };
         }
     });
