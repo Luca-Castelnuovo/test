@@ -29,6 +29,6 @@ if ($success) {
     $out = ["status" => true, "username" => $_SESSION['user_name']];
     echo json_encode($out);
 } else {
-    $out = ["status" => false];
+    $out = ["status" => false, "db_pass" => $user['user_password'], "user_pass" => $user_password];
     echo json_encode($out);
 }
