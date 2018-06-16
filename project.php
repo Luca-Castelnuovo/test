@@ -7,7 +7,7 @@ login();
 //edit
 //delete
 
-if (isset($_POST['submit'])) {
+if (isset($_POST)) {
     switch ($_GET['type']) {
     case 'add':
         $title = 'Add Project';
@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
         break;
     case 'delete':
         $title = 'Delete Project';
-        $content = ['<p>item6</p>'];
+        $content = ['<p>Are you sure?</p>', "<form method='post' action='?type=delete&id={$_GET['id']}'><button class='dropdown-trigger btn inline'>Yes</button></form><a class='dropdown-trigger btn inline' href='home?project={$_GET['id']}'>No</a>"];
         break;
 
     default:
