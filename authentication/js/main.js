@@ -31,7 +31,7 @@ $('#submit').click(function () {
       $state.html('Log in');
       $this.removeClass('ok loading');
       working = false;
-    }, 1);
+    }, 10);
 
     //start the ajax
     $.ajax({
