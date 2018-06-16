@@ -65,6 +65,20 @@ function csrf_val($post_token)
     }
 }
 
+//validate_csrf
+function csrf_val_ajax($token)
+{
+    if (!isset($_SESSION['token'])) {
+        return false;
+    }
+
+    if (!(hash_equals($_SESSION['token'], $post_token))) {
+        return false;
+    } else {
+        unset($_SESSION['token']);
+    }
+}
+
 //check if user has been logged in
 function login()
 {
