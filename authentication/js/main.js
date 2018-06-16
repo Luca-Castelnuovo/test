@@ -15,5 +15,5 @@ $('.login').on('submit', function(e) {
       $this.removeClass('ok loading');
       working = false;
     }, 4000);
-  }, 3000);
+  }, 1000);
 });
