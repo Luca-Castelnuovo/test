@@ -26,7 +26,7 @@ if ($result->num_rows != 0) {
 }
 
 
-echo var_dump($user);
+echo var_dump($result);
 
 
 if ($success) {
