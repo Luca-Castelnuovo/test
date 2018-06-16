@@ -27,7 +27,6 @@ $('#submit').click(function () {
     $this.addClass('loading');
     $state.html('Authenticating');
 
-
     //start the ajax
     $.ajax({
         //this is the php file that processes the data and send mail
