@@ -125,3 +125,15 @@ function login_admin()
         exit;
     }
 }
+
+
+function login_user($owner)
+{
+    login();
+
+    if ($_SESSION['user_name'] != $owner) {
+        $_SESSION['alert'] = 'This page is only availible for ' . $owner . '!';
+        header("location: /authentication/");
+        exit;
+    }
+}
