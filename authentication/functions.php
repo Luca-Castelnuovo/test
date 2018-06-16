@@ -59,15 +59,11 @@ function csrf_gen()
 function csrf_val($post_token)
 {
     if (!isset($_SESSION['token'])) {
-        $_SESSION['alert'] = 'CSRF error!';
-        header('Location: /authentication/');
-        exit;
+        logout('CSRF error!');
     }
 
     if (!(hash_equals($_SESSION['token'], $post_token))) {
-        $_SESSION['alert'] = 'CSRF error!';
-        header('Location: /authentication/');
-        exit;
+        logout('CSRF error!');
     } else {
         unset($_SESSION['token']);
     }
@@ -77,24 +73,16 @@ function csrf_val($post_token)
 function login()
 {
     if ($_SESSION['logged_in'] != 1) {
-        $_SESSION['return_url'] = $_SERVER['REQUEST_URI'];
-        $_SESSION['alert'] = 'Please Log In!';
-        header("location: /authentication/?logout");
-        exit;
-    }
+        logout('Please Log In!');
 
     //check if account is active
     if ($_SESSION['active'] != 1) {
-        $_SESSION['alert'] = 'Your Account is not active or is temporarily disables';
-        header('Location: /authentication/?logout');
-        exit;
+        logout('Your Account is  inactive or is temporarily disabled!');
     }
 
     //auto logout after 10min no activity
     if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
-        $_SESSION['alert'] = 'Your session is expired!';
-        header('Location: /authentication/?logout');
-        exit;
+        logout('Your session has expired!');
     } else {
         $_SESSION['LAST_ACTIVITY'] = time();
     }
@@ -109,9 +97,7 @@ function login()
 
     //check if session is stolen
     if ($_SESSION['ip'] != ip_rem()) {
-        $_SESSION['alert'] = 'Hack attempt detected!';
-        header('Location: /authentication/?logout');
-        exit;
+        logout('Hack attempt detected!');
     }
 }
 
@@ -136,4 +122,15 @@ function login_user($owner)
         header('location:' . $_SESSION['home']);
         exit;
     }
+}
+
+function logout($alert)
+{
+    if ( isset( $_COOKIE[session_name()] ) )
+    setcookie( session_name(), “”, time()-3600, “/” );
+    $_SESSION = array();
+    session_destroy();
+    $_SESSION['alert'] = $alert;
+    header('Location: /authentication/');
+    exit;
 }
