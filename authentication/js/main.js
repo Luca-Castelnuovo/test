@@ -64,11 +64,11 @@ $('#submit').click(function () {
         success: function (response) {
             if (response == 1) {
                 //if auth.php returned 1/true
-                alert('ajax success');
+                window.open("https://test.lucacastelnuovo.nl/success","_self")
 
             } else {
                 //if auth.php returned 0/false
-                alert('ajax error')
+                window.open("https://test.lucacastelnuovo.nl/error","_self")
             };
         }
     });
