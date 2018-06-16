@@ -3,17 +3,17 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 
 $success = false;
 
-$username = clean_data($_GET['username']);
-$password = clean_data($_GET['password']);
+$user_name = clean_data($_GET['username']);
+$user_password = clean_data($_GET['password']);
 
-$result = $mysqli->query("SELECT * FROM users WHERE username='$username'");
+$result = $mysqli->query("SELECT * FROM users WHERE user_name='$user_name'");
 
 if ($result->num_rows != 0) {
     $user = $result->fetch_assoc();
-    if (password_verify($password, $user['password'])) {
-        $ip = $_SESSION['ip'] = ip();
-        $username = $_SESSION['user_name'] = $user['username'];
-        $_SESSION['active'] = $user['active'];
+    if (password_verify($user_password, $user['user_password'])) {
+        $_SESSION['ip'] = ip() = $ip;
+        $_SESSION['user_name'] = $user['user_name'] = $username;
+        $_SESSION['user_active'] = $user['user_active'];
         $_SESSION['user_type'] = $user['user_type'];
         $_SESSION['logged_in'] = true;
 
