@@ -114,3 +114,14 @@ function login()
         exit;
     }
 }
+
+function login_admin()
+{
+    login();
+
+    if ($_SESSION['user_type'] != 1) {
+        $_SESSION['alert'] = 'This page is only availible for administrators!';
+        header("location: /authentication/");
+        exit;
+    }
+}
