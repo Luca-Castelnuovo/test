@@ -1,5 +1,6 @@
 <?php
-
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/authentication/functions.php");
+login();
 ?>
 <!DOCTYPE html>
 <html lang="en">
