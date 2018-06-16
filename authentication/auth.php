@@ -73,6 +73,6 @@ function sendmail($to, $subject, $message, $from) {
 //	if ($result) return 1;
 //	else return 0;
 
-    $array = [$to, $subject, $message, $from]
+    $array = [$to, $subject, $message, $from];
     var_dump();
 }
