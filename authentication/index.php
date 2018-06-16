@@ -27,11 +27,12 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/authentication/init.php");
         <meta content="origin-when-crossorigin" name="referrer">
         <link href="/images/favicon.ico" rel="shortcut icon">
         <link as="style" href="css/style.min.css" onload='this.rel="stylesheet"' rel="preload">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 
     <body>
         <div class="wrapper">
-            <form class="login">
+            <form class="login" method="post">
                 <p class="title">Log in</p>
                 <input placeholder="Username" type="text"> <i class="fa fa-user"></i> <input placeholder="Password" type="password"> <button><i class="spinner"></i> <span class="state">Log in</span></button>
             </form>
