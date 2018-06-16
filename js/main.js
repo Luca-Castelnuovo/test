@@ -55,7 +55,7 @@ $('#submit').click(function () {
                 $state.html('Welcome back!');
                 setTimeout(function () {
                     //window.open("https://test.lucacastelnuovo.nl/users/" + username, "_self")
-                    window.open("https://test.lucacastelnuovo.nl/users/home", "_self")
+                    window.open("https://test.lucacastelnuovo.nl/home", "_self")
                 }, 1000)
             } else {
                 //if process.php returned 0/false
