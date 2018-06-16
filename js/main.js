@@ -47,6 +47,7 @@ $('#submit').click(function () {
         dataType: 'JSON',
         success: function (response) {
             var success = response.status;
+            var username = response.username;
             if (success) {
                 //if process.php returned 1/true
                 $this.addClass('ok');
