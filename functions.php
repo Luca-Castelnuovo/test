@@ -7,10 +7,10 @@ $mysqli = new mysqli($config['servername'], $config['username'], $config['passwo
 
 
 //display alert
-function alert()
+function alert($alert)
 {
-    if (isset($_GET['alert'])) {
-        echo "<script>alertify.alert('{$_GET['alert']}');</script>";
+    if (isset($alert)) {
+        echo "<script>alertify.alert('{$alert}');</script>";
     }
 }
 
@@ -124,6 +124,6 @@ function logout($alert)
     }
     $_SESSION = array();
     session_destroy();
-    header('Location: /');
+    header('Location: /?alert='. $alert);
     exit;
 }
