@@ -93,7 +93,7 @@ if (isset($_GET['submit'])) {
             ?>
             <input placeholder="Password" type="password" name="password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>
             <?php if ($show_button) {
-                    echo '<button id="submit"><span class="state">Submit</span></button>';
+                    echo '<button id="submit"><i class="spinner"></i> <span class="state">Log in</span></button>';
                 }
             ?>
        </form>
