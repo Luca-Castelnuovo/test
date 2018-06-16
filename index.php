@@ -27,7 +27,6 @@
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/alertify.js"></script>
     <?php alert($_GET['alert']); ?>
 </body>
 
