@@ -151,7 +151,7 @@ function my_projects()
 {
     global $mysqli;
     $result = $mysqli->query("SELECT * FROM projects WHERE owner_id='{$_SESSION['user_id']}'");
-    echo '<h2>Projects:</h2><table><tr><td class="inline"><a class="waves-effect waves-light btn" href="project?type=new">New</a></td>';
+    echo '<h2>Projects:</h2><table>';
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $project_id  = $row["id"];
@@ -164,7 +164,7 @@ function my_projects()
                 </ul>";
         }
     }
-    echo '</tr></table><br><a href="/?logout">Log Out</a>';
+    echo '</tr></table><br><a href="/?logout">Back</a><a href="project?type=new" style="float: right">New Project</a>';
 }
 
 function my_project($project_id)
@@ -183,5 +183,5 @@ function my_project($project_id)
                 </ul>";
         }
     }
-    echo '</tr></table><br><a href="/home">Back</a><a href="/home" style="float: right">New</a>';
+    echo '</tr></table><br><a href="home">Back</a><a href="file?type=new" style="float: right">New File</a>';
 }
