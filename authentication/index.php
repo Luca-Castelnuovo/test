@@ -22,10 +22,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/authentication/init.php");
         <meta content="website" property="og:type">
         <meta content="Luca Castelnuovo" property="og:site_name">
         <link href="https://lucacastelnuovo.nl" rel="canonical">
-
         <title>Test - Luca Castelnuovo</title>
         <meta content="origin-when-crossorigin" name="referrer">
-        <link href="/images/favicon.ico" rel="shortcut icon">
+
         <link as="style" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" onload='this.rel="stylesheet"' rel="preload">
         <link as="style" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" onload='this.rel="stylesheet"' rel="preload">
         <link as="style" href="css/style.min.css" onload='this.rel="stylesheet"' rel="preload">
