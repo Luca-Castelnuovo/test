@@ -67,8 +67,9 @@ $('#submit').click(function () {
                 }, 1000)
             };
         }
+    });
 
-        if (!rd) {
+    if (!rd) {
         console.log(rd);
         setTimeout(function () {
             $this.addClass('error');
@@ -81,7 +82,6 @@ $('#submit').click(function () {
             }, 1000)
         }, 4000)
     }
-    });
 
     //cancel the submit button default behaviours
     return false;
