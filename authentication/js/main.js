@@ -28,7 +28,7 @@ $('#submit').click(function () {
     $state.html('Authenticating');
 
     //start the ajax
-    $.ajax({
+    $.delay(2000).ajax({
         //this is the php file that processes the data and send mail
         url: "auth.php",
 
