@@ -1,8 +1,4 @@
-<?php
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
-//login_user('test');
-login();
-?>
+<?php require_once ($_SERVER['DOCUMENT_ROOT'] . "/functions.php"); login_user('test'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
