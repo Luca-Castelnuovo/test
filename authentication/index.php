@@ -33,18 +33,10 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/authentication/init.php");
         <div class="wrapper">
             <form class="login">
                 <p class="title">Log in</p>
-                <input placeholder="Username" type="text"> <i class="fa fa-user"></i> <input placeholder="Password" type="password"> <i class="fa fa-key"></i> <a href="#">Forgot your password?</a> <button><i class="spinner"></i> <span class="state">Log in</span></button>
+                <input placeholder="Username" type="text"> <i class="fa fa-user"></i> <input placeholder="Password" type="password"> <button><i class="spinner"></i> <span class="state">Log in</span></button>
             </form>
-
-
-            <footer>
-                <a href="http://boudra.me/" target="blank">boudra.me</a>
-            </footer>
         </div>
-        <script src="js/main.min.js">
-
-
-        </script>
+        <script src="js/main.min.js"></script>
     </body>
 
     </html>
