@@ -151,15 +151,20 @@ function my_projects()
 {
     global $mysqli;
     $result = $mysqli->query("SELECT * FROM projects WHERE owner_id='{$_SESSION['user_id']}'");
+    echo '<h2>Projects:</h2>';
     if ($result->num_rows > 0) {
-        echo '<h2>Your Projects:</h2>';
-        echo '<ul>';
+        echo '<table><tr><td class="inline"><a class="waves-effect waves-light btn" href="project?type=new">New</a></td>';
         while ($row = $result->fetch_assoc()) {
             $project_id  = $row["id"];
             $project_name  = $row["project_name"];
-            echo '<li><a href="?project=' . $project_id . '">' . $project_name . '</a></li>';
+            echo "<td class='inline'><a class='dropdown-trigger btn' href='?project={$project_id}' data-target='{$project_id}'>{$project_name}</a></td>";
+            echo "<ul id='{$project_id}' class='dropdown-content'>
+                    <li><a href='?project=1'>files</a></li>
+                    <li><a href='project?type=edit&id={$project_id}'>edit</a></li>
+                    <li><a href='project?type=delete&id={$project_id}'>delete</a></li>
+                </ul>";
         }
-        echo '</ul>';
+        echo '</tr></table>';
     } else {
         echo "<p>You don't have any projects.</p>";
     }
