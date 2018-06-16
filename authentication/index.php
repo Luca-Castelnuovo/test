@@ -33,8 +33,7 @@
             <p class="title">Log in</p>
             <input placeholder="Username" type="text" name="username" autocomplete="off" required="required" class="text" autofocus> <i class="fa fa-user"></i>
             <input placeholder="Password" type="password" name="password" autocomplete="off" required="required" class="text"> <i class="fa fa-key"></i>
-            <input type="submit" id="submit"/>
-<!--            <button name="submit"><i class="spinner"></i> <span class="state">Log in</span></button>-->
+            <button id="submit"><i class="spinner"></i> <span class="state">Log in</span></button>
         </form>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
