@@ -22,7 +22,7 @@ if (!$errors) {
 
     //check pass and username (for post)
     if (true) {
-        echo 1;
+        echo 'post';
     }
 	} else {
 		//check pass and username (for ajax)
