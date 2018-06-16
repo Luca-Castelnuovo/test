@@ -67,7 +67,7 @@ $('#submit').click(function () {
                 alert('succ');
 
                 //if process.php returned 0/false (send mail failed)
-            } else alert('error');
+            } else alert('errrot');
         }
     });
 
