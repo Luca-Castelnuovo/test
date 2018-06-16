@@ -38,6 +38,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/authentication/init.php");
             </form>
         </div>
         <script src="js/main.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     </body>
 
     </html>
