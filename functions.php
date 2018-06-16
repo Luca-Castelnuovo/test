@@ -10,12 +10,7 @@ $mysqli = new mysqli($config['servername'], $config['username'], $config['passwo
 function alert()
 {
     if (isset($_GET['alert'])) {
-        echo "<script>swal({
-          type: 'error',
-          title: 'Oops...',
-          text: 'Something went wrong!',
-          footer: '<a href>Why do I have this issue?</a>',
-        })</script>";
+        echo "<script>alert({$_GET['alert']});</script>";
     }
 }
 
