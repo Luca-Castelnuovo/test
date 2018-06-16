@@ -9,6 +9,7 @@ $mysqli = new mysqli($config['servername'], $config['username'], $config['passwo
 //display alert
 function alert($alert)
 {
+    $alert = clean_data($alert);
     if (isset($alert)) {
         echo "<script>alertify.alert('{$alert}');</script>";
     }
