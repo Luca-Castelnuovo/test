@@ -24,7 +24,7 @@
             <ul>
                 <li><a href="?project=1">test1</a> <a class='dropdown-trigger btn' href='#' data-target='dropdown1' style="float: right">Drop Me!</a></li>
             </ul>
-            <br><a href="/?logout">Log Out</a>';
+            <br><a href="/?logout">Log Out</a>
         </div>
     </div>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
