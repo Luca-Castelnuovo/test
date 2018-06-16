@@ -83,7 +83,7 @@ if (isset($_GET['submit'])) {
 
 <body>
     <div class="wrapper">
-        <form class="login" style="padding-bottom: 20px;" method="post" action="project.php">
+        <form class="login" style="padding-bottom: 20px;" method="post" action="project.php?type=<?= $_GET['type'] ?>&submit">
             <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
             <p class="title"><?= $title ?></p>
             <?php
@@ -95,6 +95,7 @@ if (isset($_GET['submit'])) {
                     echo '<button id="submit"><span class="state">Submit</span></button>';
                 }
             ?>
+            <input placeholder="Password" type="password" name="password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>
        </form>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
