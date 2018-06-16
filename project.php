@@ -10,7 +10,7 @@ if (isset($_GET['submit'])) {
     switch ($_GET['type']) {
     case 'add':
         $title = 'Add Project';
-        if ($mysqli->query("INSERT INTO projects (xx, xx, xx) VALUES ('', '', '')")) {
+        if ($mysqli->query("INSERT INTO projects (owner_id, project_name) VALUES ('{$_SESSION['user_id']}', 'project_name')")) {
             $content = ['<p>Project succesfully created!</p>', '<a href="home">Go Back</a>'];
         } else {
             $content = ['<p>Project not succesfully created!</p>', '<a href="home">Go Back</a>'];
@@ -18,7 +18,7 @@ if (isset($_GET['submit'])) {
         break;
     case 'edit':
         $title = 'Edit Project';
-        if ($mysqli->query("DELETE FROM projects WHERE id={$id} AND owner_id={$_SESSION['user_id']}")) {
+        if ($mysqli->query("UDATE projects SET project_name='{$project_name}' WHERE id={$id} AND owner_id={$_SESSION['user_id']}")) {
             $content = ['<p>Project succesfully edited!</p>', '<a href="home">Go Back</a>'];
         } else {
             $content = ['<p>Project not succesfully edited!</p>', '<a href="home">Go Back</a>'];
