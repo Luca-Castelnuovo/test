@@ -11,14 +11,8 @@ function alert($alert, $url = null)
 {
     if (isset($alert)) {
         $alert = clean_data($alert);
-        //echo "<script>alert('{$alert}'); location.replace('https://test.lucacastelnuovo.nl/{$url}');</script>";
-        echo "<script>location.replace('https://test.lucacastelnuovo.nl/{$url}');</script>";
+        echo "<script>alert('{$alert}'); location.replace('https://test.lucacastelnuovo.nl/{$url}');</script>";
     }
-}
-
-function alert_set($alert)
-{
-    alert($alert, "/users/{$_SESSION['user_name']}");
 }
 
 //clean user data
@@ -122,17 +116,7 @@ function login_admin()
     login();
 
     if (!$_SESSION['user_type']) {
-        alert_set('This page is only availible for administrators!');
-    }
-}
-
-
-function login_user($owner)
-{
-    login();
-
-    if ($_SESSION['user_name'] != $owner) {
-        alert_set('This page is only availible for ' . $owner . '!');
+        logout('This page is only availible for administrators!');
     }
 }
 
@@ -143,7 +127,8 @@ function logout($alert)
     }
     $_SESSION = array();
     session_destroy();
-    header('Location: /?alert='. $alert);
+    //header('Location: /?alert='. $alert);
+    header('Location: /');
     exit;
 }
 
