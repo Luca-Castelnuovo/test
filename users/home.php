@@ -17,12 +17,15 @@
 </head>
 
 <body>
-    <div class="wrapper login">
-        <a href="/?logout">
-            <h1><?= $_SESSION['user_name'] ?> user</h1>
-        </a>
-        <h3>Your Projects:</h3>
-        <?php ($_GET['project']) ? $_GET['project'] : null; my_projects($project); ?>
+    <div class="wrapper">
+        <div class="login">
+            <a href="/?logout">
+                <h1>
+                    <?= $_SESSION['user_name'] ?> user</h1>
+            </a>
+            <h3>Your Projects:</h3>
+            <?php ($_GET['project']) ? $_GET['project'] : null; my_projects($project); ?>
+        </div>
     </div>
 
 </body>
