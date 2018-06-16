@@ -126,8 +126,9 @@ function login_user($owner)
 
 function logout($alert)
 {
-    if ( isset( $_COOKIE[session_name()] ) )
-    setcookie( session_name(), “”, time()-3600, “/” );
+    if (isset($_COOKIE[session_name()])) {
+        setcookie(session_name(), “”, time()-3600, “/” );
+    }
     $_SESSION = array();
     session_destroy();
     $_SESSION['alert'] = $alert;
