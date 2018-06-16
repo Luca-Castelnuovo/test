@@ -7,9 +7,10 @@ $mysqli = new mysqli($config['servername'], $config['username'], $config['passwo
 
 
 //display alert
-function alert()
+function alert($alert)
 {
-    echo" <script>swal('Good job!','You clicked the button!','success')</script>";
+    clean_data($alert);
+    echo "<script>swal({$alert})</script>";
 }
 
 
@@ -66,7 +67,7 @@ function csrf_val($post_token)
 function login()
 {
     if (!$_SESSION['logged_in']) {
-        logout('Please Log In!');
+        logout('Please Log In!','error');
     }
 
     //check if account is active
@@ -121,8 +122,6 @@ function logout($alert)
     }
     $_SESSION = array();
     session_destroy();
-    session_start();
-    $_SESSION['alert'] = $alert;
-    header('Location: /');
+    header('Location: /' . $alert);
     exit;
 }
