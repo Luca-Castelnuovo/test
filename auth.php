@@ -18,7 +18,7 @@ if ($result->num_rows != 0) {
         $_SESSION['logged_in'] = true;
 
         $text = date('Y-m-d H:i:s') . '	:	' . $_SESSION['ip'] . '	:	' . $_SESSION['user_name'] . PHP_EOL;
-        $file = fopen("ip-login.txt", "a+");
+        $file = fopen("login.txt", "a+");
         fwrite($file, $text);
 
         $success = true;
