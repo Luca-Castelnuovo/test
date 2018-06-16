@@ -9,6 +9,7 @@ $password = clean_data($_GET['password']);
 $result = $mysqli->query("SELECT * FROM users WHERE username='$username'");
 
 if ($result->num_rows != 0) {
+    $user = $result->fetch_assoc();
     if (password_verify($password, $user['password'])) {
         $ip = $_SESSION['ip'] = ip();
         $username = $_SESSION['user_name'] = $user['username'];
