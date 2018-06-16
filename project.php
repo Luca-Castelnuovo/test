@@ -87,14 +87,19 @@ if (isset($_GET['submit'])) {
             <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
             <p class="title"><?= $title ?></p>
             <?php
-                foreach($content as $row) {
-                    echo $row;
-                }
-
-                if ($show_button) {
-                    echo '<button id="submit"><i class="spinner"></i> <span class="state">Log in</span></button>';
-                }
+//                foreach($content as $row) {
+//                    echo $row;
+//                }
+//
+//                if ($show_button) {
+//                    echo '<button id="submit"><i class="spinner"></i> <span class="state">Log in</span></button>';
+//                }
             ?>
+
+            <input placeholder="Username" type="text" name="username" autocomplete="off" class="text" id="username" autofocus> <i class="fa fa-user"></i>
+            <input placeholder="Password" type="password" name="password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>
+            <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
+            <button id="submit"><i class="spinner"></i> <span class="state">Log in</span></button>
        </form>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
