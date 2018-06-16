@@ -1,5 +1,10 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . "/authentication/init.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/authentication/functions.php");
+
+if (isset($_POST['submit'])) {
+
+}
+
 ?>
     <!DOCTYPE html>
 
@@ -32,9 +37,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/authentication/init.php");
 
     <body>
         <div class="wrapper">
-            <form class="login">
+            <form class="login" method="post">
                 <p class="title">Log in</p>
-                <input placeholder="Username" type="text" autocomplete="off" required="required" autofocus> <i class="fa fa-user"></i> <input placeholder="Password" type="password" autocomplete="off" required="required"> <i class="fa fa-key"></i> <button><i class="spinner"></i> <span class="state">Log in</span></button>
+                <input placeholder="Username" type="text" autocomplete="off" required="required" autofocus> <i class="fa fa-user"></i> <input placeholder="Password" type="password" autocomplete="off" required="required"> <i class="fa fa-key"></i> <button name="submit"><i class="spinner"></i> <span class="state">Log in</span></button>
             </form>
         </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
