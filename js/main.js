@@ -30,7 +30,7 @@ $('#submit').click(function () {
     setTimeout(function() {
       $state.html('Log in');
       $this.removeClass('ok loading');
-      working = false;
+      $('.text').attr('disabled', 'false');
     }, 4000);
 
     //start the ajax
