@@ -27,16 +27,16 @@ $('#submit').click(function () {
     $this.addClass('loading');
     $state.html('Authenticating');
 
-//    setTimeout(function () {
-//        $this.addClass('error');
-//        $state.html('Connection timed out!');
-//        setTimeout(function () {
-//            $state.html('Log in');
-//            $this.removeClass('ok loading error');
-//            $('.text').removeAttr('disabled');
-//            $("#username").focus();
-//        }, 1000)
-//    }, 4000)
+    setTimeout(function () {
+        $this.addClass('error');
+        $state.html('Connection timed out!');
+        setTimeout(function () {
+            $state.html('Log in');
+            $this.removeClass('ok loading error');
+            $('.text').removeAttr('disabled');
+            $("#username").focus();
+        }, 1000)
+    }, 4000)
 
     //start the ajax
     $.ajax({
