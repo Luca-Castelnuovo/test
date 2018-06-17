@@ -12,7 +12,7 @@ if ($_SESSION['auth_code_valid'] && $_SESSION['auth_code_id'] === 1) {
     $js = 'auth.js';
     $title = 'Invite Code';
     $button_text = 'Check Invite Code';
-    $content = ['<input placeholder="Invite Code" type="text" name="auth_code" autocomplete="off" class="text" autofocus value="' . $_GET['auth_code'] . '"> <i class="fa fa-barcode"></i>'];
+    $content = ['<input placeholder="Invite Code" type="text" name="auth_code" id="auth_code" autocomplete="off" class="text" autofocus value="' . $_GET['auth_code'] . '"> <i class="fa fa-barcode"></i>'];
 }
 
 ?>

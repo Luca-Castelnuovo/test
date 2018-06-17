@@ -70,6 +70,7 @@ $('#submit').click(function () {
                     $this.removeClass('error loading');
                     $state.html('Check Invite Code');
                     $('.text').removeAttr('disabled');
+                    $('#auth_code').focus();
                 }, 1000)
             };
         }
