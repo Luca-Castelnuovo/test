@@ -1,6 +1,4 @@
-# test
-
-todo
+# todo
     - make spinners voor edit/new files/projects
         - project
             - create
