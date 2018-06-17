@@ -13,7 +13,7 @@ if (isset($_GET['submit'])) {
         $title = 'Add Project';
         $project_name = clean_data($_POST['project_name']);
         if (sql("INSERT INTO projects (owner_id, project_name) VALUES ('{$_SESSION['user_id']}', '{$project_name}')")) {
-            mkdir("users/{$_SESSION['user_name']}/{$project_name}", 0770);
+            mkdir("users/{$_SESSION['user_name']}/{$project_name}");
             $content = ['<p>Project succesfully created!</p>', '<a href="home">Go Back</a>'];
         } else {
             $content = ['<p>Project not succesfully created!</p>', '<a href="home">Go Back</a>'];
