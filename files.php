@@ -48,7 +48,7 @@ if (isset($_GET['submit'])) {
         csrf_val(clean_data($_POST['CSRFtoken']));
         $title = 'Edit Project';
         $file_content = $mysqli->escape_string($_POST['file_content']);
-        if (/*write to file*/) {
+        if (/*write to file*/true) {
             $content = ['<p>File succesfully updated!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
         } else {
             $content = ['<p>File not succesfully updated!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
