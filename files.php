@@ -22,7 +22,6 @@ if (isset($_GET['submit'])) {
         csrf_val(clean_data($_POST['CSRFtoken']));
         $title = 'Add Project';
         $file_name = clean_data($_POST['file_name']);
-        echo "INSERT INTO files (owner_id, project_id, file_name) VALUES ('{$_SESSION['user_id']}', '{$project_id}', '{$file_name}')";exit;
         if (sql("INSERT INTO files (owner_id, project_id, file_name) VALUES ('{$_SESSION['user_id']}', '{$project_id}', '{$file_name}')")) {
             fopen("users/{$_SESSION['user_name']}/{$file_name}", "w");
             fclose("users/{$_SESSION['user_name']}/{$file_name}");
