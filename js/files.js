@@ -2,23 +2,33 @@
 $('#submit').click(function () {
 
     //Get the data from all the fields
-    var username = $('input[name=user_name]');
-    var password = $('input[name=user_password]');
+    var project_type = $('input[name=type]');
+    var project_id = $('input[name=id]');
+    var project_name = $('input[name=project_name]');
+    var project_delete = $('input[name=project_delete]');
     var CSRFtoken = $('input[name=CSRFtoken]');
 
-    //Ensure non empty inputs
-    if (username.val() == '') {
-        username.addClass('hightlight');
-        return false;
-    } else username.removeClass('hightlight');
+    var success_response = '';
+    var error_response = '';
 
-    if (password.val() == '') {
-        password.addClass('hightlight');
+    if (project_type.val() == 'add') {
+        success_response = 'Project succesfully created!';
+        error_response = 'Project not created!';
+    } else {
+        success_response = 'Project succesfully deleted!';
+        error_response = 'Project not deleted!';
+    }
+
+    //Ensure non empty inputs
+    if (project_name.val() == '') {
+        project_name.addClass('hightlight');
         return false;
-    } else password.removeClass('hightlight');
+    } else project_name.removeClass('hightlight');
+
 
     //organize the data properly
-    var data = 'username=' + username.val() + '&password=' + password.val() + '&CSRFtoken=' + CSRFtoken.val() + '&type=login';
+    var data = 'project_id=' + project_id.val() + '&project_name=' + project_name.val() +'&CSRFtoken=' + CSRFtoken.val() + '&type=projects' + '&project_type=' + project_type.val() + '&project_delete=' + project_delete.val();
+    console.log(data);
 
     //disabled all the text fields
     $('.text').attr('disabled', 'true');
@@ -27,8 +37,7 @@ $('#submit').click(function () {
     var $this = $('.login'),
         $state = $this.find('button > .state');
     $this.addClass('loading');
-    $state.html('Authenticating');
-
+    $state.html('Proccessing');
 
     //start the ajax
     $.ajax({
@@ -51,16 +60,16 @@ $('#submit').click(function () {
             if (success) {
                 //if process.php returned 1/true
                 $this.addClass('ok');
-                $state.html('Welcome back!');
+                $state.html(success_response);
                 setTimeout(function () {
                     window.location.replace("/home");
                 }, 500)
             } else {
                 //if process.php returned 0/false
                 $this.addClass('error');
-                $state.html('Username and Password did not match!');
+                $state.html(error_response);
                 setTimeout(function () {
-                    window.location.replace("/?logout");
+                    window.location.replace("/home");
                 }, 1000)
             };
         }

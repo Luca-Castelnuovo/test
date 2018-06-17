@@ -108,6 +108,10 @@ switch ($_GET['type']) {
         }
         break;
 
+    case 'files':
+
+        break;
+
     default:
         error(0);
 }
