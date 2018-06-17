@@ -21,21 +21,25 @@ if (isset($_GET['submit'])) {
     case 'add':
         csrf_val(clean_data($_POST['CSRFtoken']));
         $title = 'Add Project';
-        $project_name = clean_data($_POST['project_name']);
-        if (sql("INSERT INTO files (owner_id, project_name) VALUES ('{$_SESSION['user_id']}', '{$project_name}')")) {
-            $content = ['<p>Project succesfully created!</p>', '<a href="home">Go Back</a>'];
+        $file_name = clean_data($_POST['file_name']);
+        if (sql("INSERT INTO files (owner_id, project_id, file_name) VALUES ('{$_SESSION['user_id']}', '{$project_id}', '{$file_name}')")) {
+            fopen("users/{$_SESSION['user_name']}/{$file_name}", "w");
+            fclose("users/{$_SESSION['user_name']}/{$file_name}");
+            $content = ['<p>File succesfully created!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
         } else {
-            $content = ['<p>Project not succesfully created!</p>', '<a href="home">Go Back</a>'];
+            $content = ['<p>FIle not succesfully created!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
         }
         break;
     case 'edit':
         csrf_val(clean_data($_POST['CSRFtoken']));
         $title = 'Edit Project';
-        $project_name = clean_data($_POST['project_name']);
-        if (sql("UPDATE files SET project_name='{$project_name}' WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
-            $content = ['<p>Project succesfully edited!</p>', '<a href="home">Go Back</a>'];
+        $file_name = clean_data($_POST['file_name']);
+        $file_content = $mysqli->escape_string($_POST['file_content']);
+        if (sql("UPDATE files SET file_name='{$file_name}' WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
+            //write to file
+            $content = ['<p>File succesfully updated!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
         } else {
-            $content = ['<p>Project not succesfully edited!</p>', '<a href="home">Go Back</a>'];
+            $content = ['<p>File not succesfully updated!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
         }
         break;
     case 'delete':
@@ -45,9 +49,9 @@ if (isset($_GET['submit'])) {
         $file_name = $files['file_name'];
         if (sql("DELETE FROM files WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
             unlink("users/{$_SESSION['user_name']}/{$file_name}");
-            $content = ['<p>Project succesfully deleted!</p>', '<a href="home">Go Back</a>'];
+            $content = ['<p>File succesfully deleted!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
         } else {
-            $content = ['<p>Project not succesfully deleted!</p>', '<a href="home">Go Back</a>'];
+            $content = ['<p>File not succesfully deleted!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
         }
         break;
 
@@ -61,9 +65,8 @@ if (isset($_GET['submit'])) {
     case 'add':
         $title = 'Add File';
 
-        //make radio buttons for (js,css,html)
-        $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" autofocus> <i class="fa fa-user"></i>'];
-
+        //make a textarea for code
+        $content = ['<input placeholder="File Name" type="text" name="file_name" autocomplete="off" class="text" autofocus> <i class="fa fa-user"></i>'];
         break;
     case 'edit':
         $title = 'Edit File';
@@ -72,9 +75,7 @@ if (isset($_GET['submit'])) {
         $file_content = $files['file_content'];
 
         //make a textarea for code
-        $content = ['<input placeholder="Project Name" type="text" name="file_name" autocomplete="off" class="text" value="' . $file_name . '" autofocus> <i class="fa fa-user"></i>', ''];
-
-
+        $content = ['<input placeholder="Project Name" type="text" name="file_name" autocomplete="off" class="text" value="' . $file_name . '" autofocus> <i class="fa fa-user"></i>'];
         break;
     case 'delete':
         $title = 'Delete File';
@@ -107,7 +108,7 @@ if (isset($_GET['submit'])) {
 
 <body>
     <div class="wrapper">
-        <form class="login" method="post" action="files?type=<?= $_GET['type'] ?>&id=<?= $_GET['id'] ?>&submit">
+        <form class="login" method="post" action="files?type=<?= $_GET['type'] ?>&id=<?= $_GET['id'] ?>&id=<?= $_GET['project_id'] ?>&submit">
             <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
             <p class="title"><?= $title ?></p>
             <?php
