@@ -7,7 +7,7 @@ if ($_SESSION['auth_code_valid'] && $_SESSION['auth_code_id'] === 1) {
     $title = 'Register';
     $button_text = 'Submit';
     $type = 'register';
-    $content = ['<input placeholder="Username" type="text" name="user_name" autocomplete="off" class="text" id="username" autofocus> <i class="fa fa-user"></i>', '<input placeholder="Password" type="password" name="user_password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>', '<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>', '<script src="js/register.js"></script>'];
+    $content = ['<input placeholder="Username" type="text" name="user_name" autocomplete="off" class="text" id="username" autofocus> <i class="fa fa-user"></i>', '<input placeholder="Password" type="password" name="user_password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>'];
 } else {
     $js = 'auth.js'
     $title = 'Invite Code';
