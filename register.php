@@ -1,7 +1,7 @@
 <?php
 //<input placeholder="Username" type="text" name="username" autocomplete="off" class="text" id="username" autofocus> <i class="fa fa-user"></i>
 //<input placeholder="Password" type="password" name="password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>
-?>
+require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php"); ?>
 <!DOCTYPE html>
 
 <html lang="en">
