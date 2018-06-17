@@ -20,12 +20,6 @@ RewriteRule ^ - [L]
     Deny from all
 </Files>
 
-# block access to .html
-<Files ~ "\.html$">
-    Order allow,deny
-    Deny from all
-</Files>
-
 # allow access to robots.txt
 <FilesMatch robots\.txt>
     Allow from all
