@@ -45,10 +45,12 @@ if (isset($_GET['submit'])) {
     case 'delete':
         csrf_val(clean_data($_GET['CSRFtoken']));
         $title = 'Delete Project';
-        $files = sql("SELECT file_name FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
+        $files = sql("SELECT file_name,file_type FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
         $file_name = $files['file_name'];
+        $file_type = $files['file_type'];
+        $file = $file_name . $file_type;
         if (sql("DELETE FROM files WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
-            unlink("users/{$_SESSION['user_name']}/{$file_name}");
+            unlink("users/{$_SESSION['user_name']}/{$file}");
             $content = ['<p>File succesfully deleted!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
         } else {
             $content = ['<p>File not succesfully deleted!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
