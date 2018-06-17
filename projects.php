@@ -1,76 +1,28 @@
 <?php
-
 require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 login();
 
-$id = clean_data($_GET['id']);
-
-if (isset($_GET['submit'])) {
+$show_button = true;
+switch ($_GET['type']) {
+case 'add':
+    $title = 'Add Project';
+    $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" autofocus> <i class="fa fa-user"></i>'];
+    break;
+case 'edit':
+    $title = 'Edit Project';
+    $projects = sql("SELECT project_name FROM projects WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
+    $project_name = $projects['project_name'];
+    $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" value="' . $project_name . '" autofocus> <i class="fa fa-user"></i>'];
+    break;
+case 'delete':
+    $title = 'Delete Project';
+    $content = ["<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css'>", "<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js'></script>", "<p>Are you sure?</p>", "<div lass='inline'><a class='dropdown-trigger btn' href='?type=delete&id={$id}&submit&CSRFtoken=" . csrf_gen() . "'>Yes</a><a class='dropdown-trigger btn' href='home?project={$id}'>No</a></div>"];
     $show_button = false;
-    switch ($_GET['type']) {
-    case 'add':
-        csrf_val(clean_data($_POST['CSRFtoken']));
-        $title = 'Add Project';
-        $project_name = clean_data($_POST['project_name']);
-        if (sql("INSERT INTO projects (owner_id, project_name) VALUES ('{$_SESSION['user_id']}', '{$project_name}')")) {
-            mkdir("users/{$_SESSION['user_name']}/{$project_name}");
-            $content = ['<p>Project succesfully created!</p>', '<a href="home">Go Back</a>'];
-        } else {
-            $content = ['<p>Project not succesfully created!</p>', '<a href="home">Go Back</a>'];
-        }
-        break;
-    case 'edit':
-        csrf_val(clean_data($_POST['CSRFtoken']));
-        $title = 'Edit Project';
-        $project_name = clean_data($_POST['project_name']);
-        if (sql("UPDATE projects SET project_name='{$project_name}' WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
-            $content = ['<p>Project succesfully edited!</p>', '<a href="home">Go Back</a>'];
-        } else {
-            $content = ['<p>Project not succesfully edited!</p>', '<a href="home">Go Back</a>'];
-        }
-        break;
-    case 'delete':
-        csrf_val(clean_data($_GET['CSRFtoken']));
-        $title = 'Delete Project';
-        $projects = sql("SELECT project_name FROM projects WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
-        $project_name = $projects['project_name'];
-        if (sql("DELETE FROM projects WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
-            if(!empty($project_name)) {
-                rrmdir("users/{$_SESSION['user_name']}/{$project_name}");
-            }
-            $content = ['<p>Project succesfully deleted!</p>', '<a href="home">Go Back</a>'];
-        } else {
-            $content = ['<p>Project not succesfully deleted!</p>', '<a href="home">Go Back</a>'];
-        }
-        break;
+    break;
 
-    default:
-        logout('Hack attempt detected!');
-        break;
-    }
-} else {
-    $show_button = true;
-    switch ($_GET['type']) {
-    case 'add':
-        $title = 'Add Project';
-        $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" autofocus> <i class="fa fa-user"></i>'];
-        break;
-    case 'edit':
-        $title = 'Edit Project';
-        $projects = sql("SELECT project_name FROM projects WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
-        $project_name = $projects['project_name'];
-        $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" value="' . $project_name . '" autofocus> <i class="fa fa-user"></i>'];
-        break;
-    case 'delete':
-        $title = 'Delete Project';
-        $content = ["<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css'>", "<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js'></script>", "<p>Are you sure?</p>", "<div class='inline'><a class='dropdown-trigger btn' href='?type=delete&id={$id}&submit&CSRFtoken=" . csrf_gen() . "'>Yes</a><a class='dropdown-trigger btn' href='home?project={$id}'>No</a></div>"];
-        $show_button = false;
-        break;
-
-    default:
-        logout('Hack attempt detected!');
-        break;
-    }
+default:
+    logout('Hack attempt detected!');
+    break;
 }
 
 ?>
@@ -92,7 +44,9 @@ if (isset($_GET['submit'])) {
 
 <body>
     <div class="wrapper">
-        <form class="login" method="post" action="projects?type=<?= $_GET['type'] ?>&id=<?= $_GET['id'] ?>&submit">
+        <form class="login">
+            <input type="hidden" name="project_type" value="<?= $_GET['type'] ?>"/>
+            <input type="hidden" name="project_id" value="<?= $_GET['id'] ?>"/>
             <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
             <p class="title"><?= $title ?></p>
             <?php
