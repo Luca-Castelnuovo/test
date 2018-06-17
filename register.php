@@ -42,7 +42,7 @@ if ($_SESSION['auth_code_valid'] && $_SESSION['auth_code_id'] === 1) {
         </form>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <?php echo "<script src='js/{$js}'></script>" ?>
+    <?php echo "<script src='js/{$js}'></script>"; ?>
 </body>
 
 </html>
