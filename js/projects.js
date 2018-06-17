@@ -25,6 +25,16 @@ $('#submit').click(function () {
     $this.addClass('loading');
     $state.html('Authenticating');
 
+    var success_response = '';
+    var error_response = '';
+
+    if (project_type == 'add') {
+        success_response = 'Project succesfully created!';
+        error_response = 'Project not succesfully created!';
+    } else {
+        success_response = 'Project succesfully edited!';
+        error_response = 'Project not succesfully edited!';
+    }
 
     //start the ajax
     $.ajax({
@@ -47,16 +57,16 @@ $('#submit').click(function () {
             if (success) {
                 //if process.php returned 1/true
                 $this.addClass('ok');
-                $state.html('Welcome back!');
+                $state.html(success_response);
                 setTimeout(function () {
                     window.location.replace("/home");
                 }, 500)
             } else {
                 //if process.php returned 0/false
                 $this.addClass('error');
-                $state.html('Username and Password did not match!');
+                $state.html(error_response);
                 setTimeout(function () {
-                    window.location.replace("/?logout");
+                    window.location.replace("/home");
                 }, 1000)
             };
         }
