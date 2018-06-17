@@ -131,7 +131,7 @@ function reset_()
     $_SESSION = array();
     session_destroy();
     //header("Location: {$_SERVER['REQUEST_URI']}");
-    echo $_SERVER['REQUEST_URI'];
+    echo __FILE__;;
 }
 
 function my_projects()
