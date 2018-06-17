@@ -17,7 +17,7 @@
     <div class="wrapper">
         <form class="login" method="post" action="auth.php">
             <p class="title">Admin Panel</p>
-            <input placeholder="Email for invite" type="email" name="user_email" autocomplete="off" class="text" autofocus> <i class="fa fa-email"></i>
+            <input placeholder="Email for invite" type="email" name="user_email" autocomplete="off" class="text" autofocus> <i class="fa fa-envelope"></i>
             <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
             <button id="submit"><i class="spinner"></i> <span class="state">Send Invite</span></button>
         </form>
