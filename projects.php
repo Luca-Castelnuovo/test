@@ -5,14 +5,14 @@ login();
 switch ($_GET['type']) {
 case 'add':
     $title = 'Add Project';
-    $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" autofocus> <i class="fa fa-user"></i>'];
+    $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" autofocus> <i class="fa fa-file"></i>'];
     $button_text = 'Add my project';
     break;
 case 'delete':
     $project_id = clean_data($_GET['project_id']);
     $title = 'Delete Project';
-    $content = ["<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css'>", "<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js'></script>", "<p>Are you sure?</p>", "<div class='inline'>", "<a class='dropdown-trigger btn' href='home'>No</a></div>"];
-    $button_text = 'Yes, delete my project';
+    $content = ['<input placeholder="To confirm type `delete`" type="text" name="project_delete" autocomplete="off" class="text" autofocus> <i class="fa fa-trash"></i>'];
+    $button_text = 'Submit';
     break;
 
 default:
