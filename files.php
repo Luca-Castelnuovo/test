@@ -43,7 +43,6 @@ if (isset($_GET['submit'])) {
         $files = sql("SELECT file FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
         $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
         $project_name = $projects['project_name'];
-        echo $project_name; exit;
         $file = "users/{$_SESSION['user_name']}/{$project_name}/{$files['file']}";
         $file_open = fopen($file, "w");
         if (fwrite($file_open, $file_content)) {
@@ -83,7 +82,9 @@ if (isset($_GET['submit'])) {
     case 'edit':
         $title = 'Edit File';
         $files = sql("SELECT file FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
-        $file = "users/{$_SESSION['user_name']}/{$files['file']}";
+        $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
+        $project_name = $projects['project_name'];
+        $file = "users/{$_SESSION['user_name']}/{$project_name}/{$files['file']}";
         $file_open = fopen($file, "r");
         $file_content = fread($file_open,filesize($file));
         fclose($file);
