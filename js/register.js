@@ -27,7 +27,7 @@ $('#submit').click(function () {
     var $this = $('.login'),
         $state = $this.find('button > .state');
     $this.addClass('loading');
-    $state.html('Authenticating');
+    $state.html('Regestering User');
 
 
     //start the ajax
@@ -58,7 +58,7 @@ $('#submit').click(function () {
             } else {
                 //if process.php returned 0/false
                 $this.addClass('error');
-                $state.html('Invite Code Invalid!');
+                $state.html('Account not Created!');
                 setTimeout(function () {
                     window.location.replace("/register");
                 }, 1000)
