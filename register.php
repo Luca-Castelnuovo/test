@@ -31,7 +31,7 @@ if ($_GET['auth_code'] == 'valid') {
 
 <body>
     <div class="wrapper">
-        <form class="login" method="post" action="?submit&type=<?= $type ?>">
+        <form class="login">
             <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
             <p class="title"><?= $title ?></p>
             <?php foreach($content as $row) {echo $row;}?>
