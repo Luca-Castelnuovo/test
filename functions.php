@@ -180,7 +180,7 @@ function my_project($project_id)
                 </ul>";
         }
     }
-    echo '</tr></table><br><a href="home">Go Back</a><a href="files?type=add?projectid=' . $project_id . '" style="float: right">New File</a>';
+    echo '</tr></table><br><a href="home">Go Back</a><a href="files?type=add&projectid=' . $project_id . '" style="float: right">New File</a>';
 }
 
 
