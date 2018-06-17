@@ -67,7 +67,7 @@ $('#submit').click(function () {
                 $this.addClass('error');
                 $state.html('Invalid Invite Code!');
                 setTimeout(function () {
-                    location.reload();
+                    $('.text').removeAttr('disabled');
                 }, 1000)
             };
         }
