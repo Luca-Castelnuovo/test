@@ -10,7 +10,9 @@ if (isset($submit)) {
 
     switch ($type) {
     case 'register':
-        if (sql("DELETE FROM projects WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
+        $user_name = clean_data($_GET['user_name']);
+        $user_password = clean_data($_GET['user_password']);
+        if (sql("INSERT INTO users (user_name, user_password) VALUES ('{$user_name}', '{$user_password}')")) {
             $content = ['<p>Account succesfully created!</p>', '<a href="/">Login</a>'];
         } else {
             $content = ['<p>Account not succesfully created! (I fucked up lel XD)</p>', '<a href="/">Go Back</a>'];
@@ -22,7 +24,7 @@ if (isset($submit)) {
             $title = 'Register';
             $button = 'Submit';
             $type = 'register';
-            $content = ['<input placeholder="Username" type="text" name="username" autocomplete="off" class="text" id="username" autofocus> <i class="fa fa-user"></i>', '<input placeholder="Password" type="password" name="password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>', '<input type="hidden" name="auth_code" value="' . $_GET['auth_code'] . '">'];
+            $content = ['<input placeholder="Username" type="text" name="username" autocomplete="off" class="text" id="username" autofocus> <i class="fa fa-user"></i>', '<input placeholder="Password" type="password" name="user_password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>', '<input type="hidden" name="auth_code" value="' . $_GET['auth_code'] . '">'];
         } else {
             $content = ['<p>Invite Code is not valid!</p>', '<a href="/">Go Back</a>'];
         }
