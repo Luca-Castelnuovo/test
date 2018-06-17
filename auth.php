@@ -80,9 +80,9 @@ function auth($input_code, $input_type, $input_code_id)
         $auth_valid = $auth["valid"];
         $auth_type = $auth["type"];
         $auth_used = $auth["used"];
+        $auth_ip = ip();
         if (!($auth_created >= $auth_valid) && !$auth_used && $auth_type == $input_type) {
-            $auth_ip = ip();
-            sql("UPDATE codes SET used='1',ip='{$auth_ip}' WHERE code='{$auth_code}'");
+            sql("UPDATE codes SET used='1',ip='{$auth_ip}' WHERE code='{$input_code}'");
             $_SESSION['auth_code_valid'] = true;
             $_SESSION['auth_code_id'] = $input_code_id;
             return true;
