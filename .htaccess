@@ -1,8 +1,5 @@
 # custom error pages
-#ErrorDocument 400 /scripts/error.php?code=400
-#ErrorDocument 401 /scripts/error.php?code=401
-#ErrorDocument 403 /scripts/error.php?code=403
-#ErrorDocument 404 /scripts/error.php?code=404
+ErrorDocument 404 /home
 
 # turn mod_rewrite on
 RewriteEngine On
