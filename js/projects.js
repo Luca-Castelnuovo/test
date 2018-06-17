@@ -27,7 +27,7 @@ $('#submit').click(function () {
 
 
     //organize the data properly
-    var data = 'project_id=' + project_id.val() + '&project_name=' + project_name.val() +'&CSRFtoken=' + CSRFtoken.val() + '&type=projects' + '&project_type=' + project_type.val() + '&project_delete=' + project_delete.val();
+    var data = 'project_id=' + project_id.val() + '&project_name=' + project_name.val() + '&CSRFtoken=' + CSRFtoken.val() + '&type=projects' + '&project_type=' + project_type.val() + '&project_delete=' + project_delete.val();
     console.log(data);
 
     //disabled all the text fields
@@ -71,7 +71,8 @@ $('#submit').click(function () {
                 setTimeout(function () {
                     window.location.replace("/home");
                 }, 1000)
-            };
+            }
+            ;
         }
     });
 

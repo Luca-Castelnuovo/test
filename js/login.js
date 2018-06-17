@@ -62,7 +62,8 @@ $('#submit').click(function () {
                 setTimeout(function () {
                     window.location.replace("/?logout");
                 }, 1000)
-            };
+            }
+            ;
         }
     });
 

@@ -36,17 +36,26 @@ switch ($_GET['type']) {
         break;
 
     case 'register_auth':
-        if (auth($_GET['auth_code'], 'register', 1, 0)) {$_SESSION['input_code'] = $_GET['auth_code']; success();} else {error(2);}
+        if (auth($_GET['auth_code'], 'register', 1, 0)) {
+            $_SESSION['input_code'] = $_GET['auth_code'];
+            success();
+        } else {
+            error(2);
+        }
         break;
 
     case 'register':
         if ($_SESSION['auth_code_valid'] && $_SESSION['auth_code_id'] === 1) {
             $input_code = $_SESSION['input_code'];
-            if (empty($_GET['user_name']) || empty($_GET['user_password'])) {error(6);}
+            if (empty($_GET['user_name']) || empty($_GET['user_password'])) {
+                error(6);
+            }
             $user_name = clean_data($_GET['user_name']);
             $user_password = password_hash(clean_data($_GET['user_password']), PASSWORD_BCRYPT);
             $check_existing_user = sql("SELECT id FROM users WHERE user_name='{$user_name}'");
-            if ($check_existing_user->num_rows > 0) {error(9);}
+            if ($check_existing_user->num_rows > 0) {
+                error(9);
+            }
             sql("UPDATE codes SET used='1',user='{$user_name}' WHERE code='{$input_code}'");
             sql("INSERT INTO users (user_name, user_password) VALUES ('{$user_name}', '{$user_password}')");
             unset($_SESSION['input_code']);
@@ -73,7 +82,7 @@ switch ($_GET['type']) {
         break;
 
     case 'projects':
-        switch($_GET['project_type']) {
+        switch ($_GET['project_type']) {
             case 'add':
                 $project_name = clean_data($_GET['project_name']);
                 if (sql("INSERT INTO projects (owner_id, project_name) VALUES ('{$_SESSION['user_id']}', '{$project_name}')")) {
@@ -91,7 +100,7 @@ switch ($_GET['type']) {
                 $project_name = $projects['project_name'];
                 if ($project_delete == 'delete') {
                     if (sql("DELETE FROM projects WHERE id='{$project_id}' AND owner_id='{$_SESSION['user_id']}'")) {
-                        if(!empty($project_name)) {
+                        if (!empty($project_name)) {
                             rrmdir("users/{$_SESSION['user_name']}/{$project_name}");
                         }
                         success();
@@ -99,7 +108,7 @@ switch ($_GET['type']) {
                         error(0);
                     }
                 } else {
-                   error(0);
+                    error(0);
                 }
                 break;
             default:
@@ -112,7 +121,7 @@ switch ($_GET['type']) {
         $file_id = clean_data($_GET['file_id']);
         $file_name = clean_data($_GET['file_name']);
 
-        switch($_GET['file_type']) {
+        switch ($_GET['file_type']) {
             case 'add':
                 $file_lang = clean_data($_POST['file_lang']);
                 switch ($file_lang) {
@@ -130,7 +139,10 @@ switch ($_GET['type']) {
                 }
 
                 $project = sql("SELECT id FROM projects WHERE id='{$project_id}' AND owner_id='{$_SESSION['user_id']}'");
-                if ($project->num_rows == 0) {header('Location: /home');exit;}
+                if ($project->num_rows == 0) {
+                    header('Location: /home');
+                    exit;
+                }
 
                 if (sql("INSERT INTO files (owner_id, project_id, file) VALUES ('{$_SESSION['user_id']}', '{$project_id}', '{$file_name_lang}')")) {
                     $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
@@ -145,7 +157,7 @@ switch ($_GET['type']) {
 
                 break;
             case 'edit':
-                $file_content = $_POST['file_content'].PHP_EOL;
+                $file_content = $_POST['file_content'] . PHP_EOL;
                 $files = sql("SELECT file FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
                 $file_name = $files['file'];
                 $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'",
@@ -220,6 +232,6 @@ function auth($input_code, $input_type, $input_code_id, $deactive_immediatly = 1
             return false;
         }
     } else {
-       return false;
+        return false;
     }
 }

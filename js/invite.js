@@ -49,7 +49,8 @@ $('#submit').click(function () {
                     $this.removeClass('loading error');
                     $state.html('Generate Invite Code');
                 }, 500)
-            };
+            }
+            ;
         }
     });
 

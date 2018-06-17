@@ -73,7 +73,8 @@ $('#submit').click(function () {
                     $('.text').removeAttr('disabled');
                     window.location.replace("/register?reset");
                 }, 1000)
-            };
+            }
+            ;
         }
     });
 

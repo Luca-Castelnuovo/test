@@ -75,6 +75,7 @@ function csrf_val_ajax($token)
         return true;
     } else {
         unset($_SESSION['token']);
+        return false;
     }
 }
 
@@ -123,7 +124,7 @@ function login_admin()
 function logout($alert)
 {
     if (isset($_COOKIE[session_name()])) {
-        setcookie(session_name(), “”, time()-3600, “/”);
+        setcookie(session_name(), “”, time() - 3600, “ / ”);
     }
     $_SESSION = array();
     session_destroy();
@@ -135,7 +136,7 @@ function logout($alert)
 function reset_()
 {
     if (isset($_COOKIE[session_name()])) {
-        setcookie(session_name(), “”, time()-3600, “/”);
+        setcookie(session_name(), “”, time() - 3600, “ / ”);
     }
     $_SESSION = array();
     session_destroy();
@@ -145,12 +146,11 @@ function reset_()
 
 function my_projects()
 {
-    global $mysqli;
     $result = sql("SELECT * FROM projects WHERE owner_id='{$_SESSION['user_id']}'");
     echo '<h2>Projects:</h2><table>';
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            $project_id  = $row["id"];
+            $project_id = $row["id"];
             $project_name = $row["project_name"];
             echo "<td class='inline'><a class='dropdown-trigger btn' href='?project={$project_id}' data-target='{$project_id}'>{$project_name}</a></td>";
             echo "<ul id='{$project_id}' class='dropdown-content'>
@@ -164,9 +164,11 @@ function my_projects()
 
 function my_project($project_id)
 {
-    global $mysqli;
     $project = sql("SELECT id FROM projects WHERE id='{$project_id}' AND owner_id='{$_SESSION['user_id']}'");
-    if ($project->num_rows == 0) {header('Location: /home');exit;}
+    if ($project->num_rows == 0) {
+        header('Location: /home');
+        exit;
+    }
 
     $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
     $project_name = $projects['project_name'];
@@ -175,9 +177,9 @@ function my_project($project_id)
     echo '<h2>Files:</h2><table><tr><td class="inline">';
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            $file_id  = $row["id"];
-            $project_id  = $row["project_id"];
-            $file  = $row["file"];
+            $file_id = $row["id"];
+            $project_id = $row["project_id"];
+            $file = $row["file"];
             echo "<td class='inline'><a class='dropdown-trigger btn' href='?project={$file_id}' data-target='{$file_id}'>{$file}</a></td>";
             echo "<ul id='{$file_id}' class='dropdown-content'>
                     <li><a href='users/{$_SESSION['user_name']}/{$project_name}/{$file}' target='_blank'>view</a></li>
@@ -202,17 +204,18 @@ function sql($query, $return_value = false)
     }
 }
 
-function rrmdir($dir) {
-   if (is_dir($dir)) {
-     $objects = scandir($dir);
-     foreach ($objects as $object) {
-       if ($object != "." && $object != "..") {
-         if (is_dir($dir."/".$object))
-           rrmdir($dir."/".$object);
-         else
-           unlink($dir."/".$object);
-       }
-     }
-     rmdir($dir);
-   }
- }
+function rrmdir($dir)
+{
+    if (is_dir($dir)) {
+        $objects = scandir($dir);
+        foreach ($objects as $object) {
+            if ($object != "." && $object != "..") {
+                if (is_dir($dir . "/" . $object))
+                    rrmdir($dir . "/" . $object);
+                else
+                    unlink($dir . "/" . $object);
+            }
+        }
+        rmdir($dir);
+    }
+}
