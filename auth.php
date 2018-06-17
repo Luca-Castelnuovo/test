@@ -25,7 +25,7 @@ if ($result->num_rows != 0) {
         $file = fopen("login.txt", "a+");
         fwrite($file, $text);
 
-        success($_SESSION['user_name']);
+        success();
     } else {
         error();
     }
@@ -40,7 +40,7 @@ function error()
     exit;
 }
 
-function success($username)
+function success()
 {
     $out = ["status" => true];
     echo json_encode($out);
