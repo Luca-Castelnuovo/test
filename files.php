@@ -68,7 +68,7 @@ if (isset($_GET['submit'])) {
         $title = 'Add File';
 
         //make a textarea for code
-        $content = ['<input placeholder="File Name" type="text" name="file_name" autocomplete="off" class="text" autofocus> <i class="fa fa-file"></i>'];
+        $content = ['<input placeholder="File Name" type="text" name="file_name" autocomplete="off" class="text" autofocus> <i class="fa fa-file"></i>', '<br><p>Please choose a file type</p>', '<p><label><input name="html" type="radio" checked> <span>HTML</span></label></p>', '<p><label><input name="css" type="radio"> <span>CSS</span></label></p>', '<p><label><input name="js" type="radio"> <span>JavaScript</span></label></p>'];
         break;
     case 'edit':
         $title = 'Edit File';
