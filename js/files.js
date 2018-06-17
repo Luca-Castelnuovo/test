@@ -2,9 +2,9 @@
 $('#submit').click(function () {
 
     //Get the data from all the fields
-    var file_type = $('input[name=type]');
+    var project_id = $('input[name=project_id]');
     var file_id = $('input[name=id]');
-    var file_name = $('input[name=file_name]');
+    var file_type = $('input[name=type]');
 
     var file_content = $('input[name=file_delete]');
     var file_delete = $('input[name=file_delete]');
