@@ -12,7 +12,7 @@ if (isset($_GET['submit'])) {
         csrf_val(clean_data($_POST['CSRFtoken']));
         $title = 'Add Project';
         $project_name = clean_data($_POST['project_name']);
-        if ($mysqli->query("INSERT INTO projects (owner_id, project_name) VALUES ('{$_SESSION['user_id']}', '{$project_name}')")) {
+        if (sql("INSERT INTO projects (owner_id, project_name) VALUES ('{$_SESSION['user_id']}', '{$project_name}')")) {
             $content = ['<p>Project succesfully created!</p>', '<a href="home">Go Back</a>'];
         } else {
             $content = ['<p>Project not succesfully created!</p>', '<a href="home">Go Back</a>'];
@@ -22,7 +22,7 @@ if (isset($_GET['submit'])) {
         csrf_val(clean_data($_POST['CSRFtoken']));
         $title = 'Edit Project';
         $project_name = clean_data($_POST['project_name']);
-        if ($mysqli->query("UPDATE projects SET project_name='{$project_name}' WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
+        if (sql("UPDATE projects SET project_name='{$project_name}' WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
             $content = ['<p>Project succesfully edited!</p>', '<a href="home">Go Back</a>'];
         } else {
             $content = ['<p>Project not succesfully edited!</p>', '<a href="home">Go Back</a>'];
@@ -31,7 +31,7 @@ if (isset($_GET['submit'])) {
     case 'delete':
         csrf_val(clean_data($_GET['CSRFtoken']));
         $title = 'Delete Project';
-        if ($mysqli->query("DELETE FROM projects WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
+        if (sql("DELETE FROM projects WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
             $content = ['<p>Project succesfully deleted!</p>', '<a href="home">Go Back</a>'];
         } else {
             $content = ['<p>Project not succesfully deleted!</p>', '<a href="home">Go Back</a>'];

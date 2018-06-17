@@ -10,10 +10,9 @@ if (csrf_val_ajax(clean_data($_GET['CSRFtoken']))) {
     error();
 }
 
-$result = $mysqli->query("SELECT * FROM users WHERE user_name='$user_name'");
+$user = sql("SELECT * FROM users WHERE user_name='$user_name'", true);
 
 if ($result->num_rows != 0) {
-    $user = $result->fetch_assoc();
     if (password_verify($user_password, $user['user_password'])) {
         $_SESSION['ip'] = ip();
         $_SESSION['user_name'] = $user['user_name'];
