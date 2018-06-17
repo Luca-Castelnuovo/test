@@ -3,11 +3,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 login();
 
 if (isset($_GET['submit'])) {
-    $show_button = false;
     switch ($_GET['type']) {
     case 'add':
-        csrf_val(clean_data($_POST['CSRFtoken']));
-        $title = 'Add Project';
         $file_name = clean_data($_POST['file_name']);
         $file_type = clean_data($_POST['lang']);
         switch ($file_type) {
@@ -37,8 +34,6 @@ if (isset($_GET['submit'])) {
         }
         break;
     case 'edit':
-        csrf_val(clean_data($_POST['CSRFtoken']));
-        $title = 'Edit Project';
         $file_content = $_POST['file_content'].PHP_EOL;
         $files = sql("SELECT file FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
         $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
@@ -54,8 +49,6 @@ if (isset($_GET['submit'])) {
         }
         break;
     case 'delete':
-        csrf_val(clean_data($_GET['CSRFtoken']));
-        $title = 'Delete Project';
         $files = sql("SELECT file FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
         $file = $files['file'];
         $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
@@ -76,7 +69,7 @@ $show_button = true;
 switch ($_GET['type']) {
 case 'add':
     $title = 'Add File';
-    $content = ['<input placeholder="File Name" type="text" name="file_name" autocomplete="off" class="text" autofocus> <i class="fa fa-file"></i>', '<br><p>Please choose a file type</p>', '<p><label><input checked name="lang" type="radio" value="html"> <span>HTML</span></label></p>', '<p><label><input name="lang" type="radio" value="css"> <span>CSS</span></label></p>', '<p><label><input name="lang" type="radio" value="js"> <span>JavaScript</span></label></p>'];
+    $content = ['<input placeholder="File Name" type="text" name="file_name" autocomplete="off" class="text" autofocus> <i class="fa fa-file"></i>', '<br><p>Please choose a file type</p>', '<p><label><input checked name="file_lang" type="radio" value="html"> <span>HTML</span></label></p>', '<p><label><input name="file_lang" type="radio" value="css"> <span>CSS</span></label></p>', '<p><label><input name="file_lang" type="radio" value="js"> <span>JavaScript</span></label></p>'];
     break;
 
 case 'edit':
