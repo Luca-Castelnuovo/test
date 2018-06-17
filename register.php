@@ -4,7 +4,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 $type = clean_data($_GET['type']);
 $button_show = true;
 
-if (isset($_GET['submit'])) {
+if ($_GET['auth_code'] = 'valid') {
     csrf_val(clean_data($_GET['CSRFtoken']));
 
     switch ($type) {
@@ -22,7 +22,9 @@ if (isset($_GET['submit'])) {
 
     default:
         //check auth code here
-        if (sql("")) {
+        $code = clean_data($_GET['auth_code']);
+        $auth = sql("SELECT valid,created,type,used FROM codes WHERE code='{$code}'", true);
+        if () {
             $title = 'Register';
             $button_text = 'Submit';
             $type = 'register';
