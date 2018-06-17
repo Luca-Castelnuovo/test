@@ -47,7 +47,10 @@ $('#submit').click(function () {
                 $this.addClass('ok');
                 $state.html('Invite Send!');
                 setTimeout(function () {
-                    window.location.replace("/home");
+                    $this.removeClass('loading ok');
+                    $state.html('Sent Invite');
+                    $('.text').removeAttr('disabled');
+                    $('.text').focus();
                 }, 500)
             } else {
                 //if process.php returned 0/false
@@ -55,7 +58,7 @@ $('#submit').click(function () {
                 $state.html('Invite not Sent!');
                 setTimeout(function () {
                     $this.removeClass('loading error');
-                    $state.html('Invite Sent');
+                    $state.html('Send Invite');
                     $('.text').removeAttr('disabled');
                     $('.text').focus();
                 }, 500)

@@ -64,9 +64,7 @@ switch ($_GET['type']) {
             $user_email = clean_data($_GET['user_email']);
             $code = gen(256);
             $created = date("d/m/Y h:i:s");
-            $subject = 'Invite test.lucacastelnuovo.nl';
-            $message = '<body><h2>Dear Sir/Madam,</h2><p>You have been invited to join <a href="https://test.lucacastelnuovo.nl">test.lucacastelnuovo.nl</a></p><p>To accept the invite just <a href="https://test.lucacastelnuovo.nl/register?auth_code=' . $code . '">click here!</a></p><br><p>Kind regards,<br>Luca Castelnuovo</p></body>';
-            mail_send($user_email, $subject, $message);
+            $_SESION['invite_response'] = '<a href="https://test.lucacastelnuovo.nl/register?auth_code=' . $code . '">https://test.lucacastelnuovo.nl/register?auth_code=' . $code . '</a><br><br><a href="/home">Go Back</a><a href="/admin" style="float:right;">Send Another Invite</a>';
             sql("INSERT INTO codes (code, valid, created, type) VALUES ('{$code}', '7', '{$created}', 'register')");
             success();
         } else {
