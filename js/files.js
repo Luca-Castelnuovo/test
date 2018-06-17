@@ -23,8 +23,8 @@ $('#submit').click(function () {
         error_response = 'File not deleted!';
     }
     if (file_type.val() == 'edit') {
-        success_response = 'File succesfully edited!';
-        error_response = 'File not edited!';
+        success_response = 'File succesfully saved!';
+        error_response = 'File not saved!';
     }
 
     //Ensure non empty inputs
