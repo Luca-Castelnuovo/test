@@ -54,7 +54,7 @@ $('#submit').click(function () {
                 $state.html('Welcome back!');
                 setTimeout(function () {
                     window.location.replace("/home");
-                }, 1000)
+                }, 500)
             } else {
                 //if process.php returned 0/false
                 $this.addClass('error');
