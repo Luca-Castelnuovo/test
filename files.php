@@ -93,7 +93,7 @@ case 'edit':
 
 case 'delete':
     $title = 'Delete File';
-    $content = ['<input placeholder="To confirm type `delete` else type `no`" type="text" name="project_delete" autocomplete="off" class="text" autofocus> <i class="fa fa-trash"></i>'];
+    $content = ['<input placeholder="To confirm type `delete` else type `no`" type="text" name="file_delete" autocomplete="off" class="text" autofocus> <i class="fa fa-trash"></i>'];
     $button_text = 'Submit';
     break;
 
