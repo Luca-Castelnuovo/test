@@ -183,7 +183,7 @@ switch ($_GET['type']) {
                 $project_name = $projects['project_name'];
                 $files = sql("SELECT file FROM files WHERE id='{$file_id}'AND owner_id='{$_SESSION['user_id']}'", true);
                 $file_name = $files['file'];
-                if ($project_delete == 'delete') {
+                if ($file_delete == 'delete') {
                     if (sql("DELETE FROM files WHERE id='{$file_id}' AND owner_id='{$_SESSION['user_id']}'")) {
                         unlink("users/{$_SESSION['user_name']}/{$project_name}/{$file_name}");
                         success();
