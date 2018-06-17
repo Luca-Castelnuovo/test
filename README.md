@@ -1,3 +1,3 @@
 # todo
     - css make an X on error instead ov 'vinkje'
-    - css create class .highlight
+    - if i press css it creates a html file
