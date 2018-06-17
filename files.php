@@ -41,7 +41,7 @@ if (isset($_GET['submit'])) {
         $files = sql("SELECT file FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
         $file = "users/{$_SESSION['user_name']}/{$files['file']}";
         $file = fopen($file, "w");
-        if (fwrite($file, $file_content);) {
+        if (fwrite($file, $file_content)) {
             fclose($file);
             $content = ['<p>File succesfully updated!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
         } else {
