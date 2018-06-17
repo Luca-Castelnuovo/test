@@ -22,6 +22,20 @@ if (isset($_GET['submit'])) {
         csrf_val(clean_data($_POST['CSRFtoken']));
         $title = 'Add Project';
         $file_name = clean_data($_POST['file_name']);
+        $file_type = clean_data($_POST['file_type']);
+        switch ($file_type) {
+            case 'html':
+                $file = $file_name . '.html';
+                break;
+            case 'css':
+                $file = $file_name . '.css';
+                break;
+            case 'js':
+                $file = $file_name . '.js';
+                break;
+            default:
+                logout('Hack attempt detected!');
+        }
         if (sql("INSERT INTO files (owner_id, project_id, file_name) VALUES ('{$_SESSION['user_id']}', '{$project_id}', '{$file_name}')")) {
             fopen("users/{$_SESSION['user_name']}/{$file_name}", "w");
             fclose("users/{$_SESSION['user_name']}/{$file_name}");
