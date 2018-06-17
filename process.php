@@ -72,9 +72,46 @@ switch ($_GET['type']) {
         }
         break;
 
+    case 'projects':
+        $project_id = clean_data($_GET['id']);
+        switch($_GET['sub_type']) {
+            case 'add':
+                $project_name = clean_data($_GET['project_name']);
+                if (sql("INSERT INTO projects (owner_id, project_name) VALUES ('{$_SESSION['user_id']}', '{$project_name}')")) {
+                    mkdir("users/{$_SESSION['user_name']}/{$project_name}");
+                    success();
+                } else {
+                    error(0);
+                }
+
+                break;
+            case 'edit':
+                $project_name = clean_data($_GET['project_name']);
+                if (sql("UPDATE projects SET project_name='{$project_name}' WHERE id='{$project_id}' AND owner_id='{$_SESSION['user_id']}'")) {
+                    success();
+                } else {
+                    error(0);
+                }
+                break;
+            case 'delete':
+                $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
+                $project_name = $projects['project_name'];
+                if (sql("DELETE FROM projects WHERE id='{$project_id}' AND owner_id='{$_SESSION['user_id']}'")) {
+                    if(!empty($project_name)) {
+                        rrmdir("users/{$_SESSION['user_name']}/{$project_name}");
+                    }
+                    success();
+                } else {
+                    error(0);
+                }
+                break;
+            default:
+                error(0);
+        }
+        break;
+
     default:
         error(0);
-        break;
 }
 
 function error($error_code = null)
