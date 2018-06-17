@@ -93,8 +93,8 @@ case 'edit':
 
 case 'delete':
     $title = 'Delete File';
-    $content = ["<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css'>", "<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js'></script>", "<p>Are you sure?</p>", "<div lass='inline'><a class='dropdown-trigger btn' href='?type=delete&project_id={$project_id}&id={$id}&submit&CSRFtoken=" . csrf_gen() . "'>Yes</a><a class='dropdown-trigger btn' href='home?project={$project_id}'>No</a></div>"];
-    $show_button = false;
+    $content = ['<input placeholder="To confirm type `delete` else type `no`" type="text" name="project_delete" autocomplete="off" class="text" autofocus> <i class="fa fa-trash"></i>'];
+    $button_text = 'Submit';
     break;
 
 default:
@@ -122,20 +122,13 @@ default:
 <body>
     <div class="wrapper">
         <form class="login">
+            <input type="hidden" name="project_id" value="<?= clean_data($_GET['project_id']) ?>"/>
             <input type="hidden" name="type" value="<?= clean_data($_GET['type']) ?>"/>
             <input type="hidden" name="id" value="<?= clean_data($_GET['id']) ?>"/>
-            <input type="hidden" name="project_id" value="<?= clean_data($_GET['project_id']) ?>"/>
             <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
             <p class="title"><?= $title ?></p>
-            <?php
-                foreach($content as $row) {
-                    echo $row;
-                }
-
-                if ($show_button) {
-                    echo '<button id="submit"><span class="state">Submit</span></button>';
-                }
-            ?>
+            <?php foreach($content as $row) {echo $row; } ?>
+            <button id="submit"><span class="state"><?= $button_text ?></span></button>
         </form>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
