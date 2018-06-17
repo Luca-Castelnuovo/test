@@ -41,7 +41,10 @@ if (isset($_GET['submit'])) {
     case 'delete':
         csrf_val(clean_data($_GET['CSRFtoken']));
         $title = 'Delete Project';
+        $files = sql("SELECT file_name FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
+        $file_name = $files['file_name'];
         if (sql("DELETE FROM files WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
+            unlink("users/{$_SESSION['user_name']}/{$file_name}");
             $content = ['<p>Project succesfully deleted!</p>', '<a href="home">Go Back</a>'];
         } else {
             $content = ['<p>Project not succesfully deleted!</p>', '<a href="home">Go Back</a>'];
@@ -59,7 +62,6 @@ if (isset($_GET['submit'])) {
         $title = 'Add File';
 
         //make radio buttons for (js,css,html)
-        //maybe make a file upload?
         $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" autofocus> <i class="fa fa-user"></i>'];
 
         break;
@@ -70,7 +72,7 @@ if (isset($_GET['submit'])) {
         $file_content = $files['file_content'];
 
         //make a textarea for code
-        $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" value="' . $file_name . '" autofocus> <i class="fa fa-user"></i>'];
+        $content = ['<input placeholder="Project Name" type="text" name="file_name" autocomplete="off" class="text" value="' . $file_name . '" autofocus> <i class="fa fa-user"></i>', ''];
 
 
         break;
