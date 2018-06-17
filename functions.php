@@ -144,12 +144,12 @@ function my_projects()
             echo "<td class='inline'><a class='dropdown-trigger btn' href='?project={$project_id}' data-target='{$project_id}'>{$project_name}</a></td>";
             echo "<ul id='{$project_id}' class='dropdown-content'>
                     <li><a href='?project={$project_id}'>files</a></li>
-                    <li><a href='project?type=edit&id={$project_id}'>edit</a></li>
-                    <li><a href='project?type=delete&id={$project_id}'>delete</a></li>
+                    <li><a href='projects?type=edit&id={$project_id}'>edit</a></li>
+                    <li><a href='projects?type=delete&id={$project_id}'>delete</a></li>
                 </ul>";
         }
     }
-    echo '</tr></table><br><a href="/?logout">Log Out</a><a href="project?type=add" style="float: right">New Project</a>';
+    echo '</tr></table><br><a href="/?logout">Log Out</a><a href="projects?type=add" style="float: right">New Project</a>';
 }
 
 function my_project($project_id)
