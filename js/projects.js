@@ -2,7 +2,6 @@
 $('#submit').click(function () {
 
     //Get the data from all the fields
-    var project_type = $('input[name=project_type]');
     var project_id = $('input[name=project_id]');
     var project_name = $('input[name=project_name]');
     var CSRFtoken = $('input[name=CSRFtoken]');
@@ -14,7 +13,7 @@ $('#submit').click(function () {
     } else project_name.removeClass('hightlight');
 
     //organize the data properly
-    var data = 'project_id=' + project_id.val() + '&project_name=' + project_name.val() +'&CSRFtoken=' + CSRFtoken.val() + '&type=projects' + '&project_type=' + project_type.val();
+    var data = 'project_id=' + project_id.val() + '&project_name=' + project_name.val() +'&CSRFtoken=' + CSRFtoken.val() + '&type=projects' + '&project_type=add';
     console.log(data);
 
     //disabled all the text fields
