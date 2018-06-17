@@ -115,7 +115,7 @@ function login_admin()
 {
     login();
 
-    if ($_SESSION['user_type']) {
+    if (!$_SESSION['user_type']) {
         logout('This area is restricted to adminisrators');
     }
 }

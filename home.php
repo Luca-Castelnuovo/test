@@ -1,4 +1,4 @@
-<?php require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php"); login(); echo $_SESSION['user_type'];?>
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php"); login();?>
 <!DOCTYPE html>
 <html lang="en">
 
