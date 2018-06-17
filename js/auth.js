@@ -59,7 +59,7 @@ $('#submit').click(function () {
                 $this.addClass('ok');
                 $state.html('Invite Code Authorized!');
                 setTimeout(function () {
-                    $this.removeClass('ok loading');
+                    $this.removeClass('loading ok');
                     $state.html('Submit');
                     window.location.replace("/register");
                 }, 500)
@@ -68,7 +68,7 @@ $('#submit').click(function () {
                 $this.addClass('error');
                 $state.html('Invalid Invite Code!');
                 setTimeout(function () {
-                    $this.removeClass('error loading');
+                    $this.removeClass('loading error');
                     $state.html('Check Invite Code');
                     $('.text').removeAttr('disabled');
                     $('#auth_code').focus();
