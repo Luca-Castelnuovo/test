@@ -2,8 +2,8 @@
 $('#submit').click(function () {
 
     //Get the data from all the fields
-    var username = $('input[name=username]');
-    var password = $('input[name=password]');
+    var username = $('input[name=user_name]');
+    var password = $('input[name=user_password]');
     var CSRFtoken = $('input[name=CSRFtoken]');
 
     //Ensure non empty inputs
