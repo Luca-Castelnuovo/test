@@ -18,7 +18,7 @@ $('#submit').click(function () {
     } else password.removeClass('hightlight');
 
     //organize the data properly
-    var data = 'username=' + username.val() + '&password=' + password.val() + '&CSRFtoken=' + CSRFtoken.val() + '&type=register';
+    var data = 'user_name=' + username.val() + '&user_password=' + password.val() + '&CSRFtoken=' + CSRFtoken.val() + '&type=register';
 
     //disabled all the text fields
     $('.text').attr('disabled', 'true');
