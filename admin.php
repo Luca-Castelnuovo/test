@@ -16,7 +16,7 @@ login_admin(); ?>
 
 <body>
 <div class="wrapper">
-    <form class="login" style="padding-bottom: 20px">
+    <form class="login pd-20">
         <p class="title">Admin Panel</p>
         <?php if (isset($_SESSION['invite_response'])) {
             echo $_SESSION['invite_response'];

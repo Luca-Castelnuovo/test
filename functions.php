@@ -147,7 +147,7 @@ function reset_()
 function my_projects()
 {
     $result = sql("SELECT * FROM projects WHERE owner_id='{$_SESSION['user_id']}'");
-    echo '<h2 style="text-transform: uppercase">Projects:</h2><table>';
+    echo '<h2 class="uppercase">Projects:</h2><table>';
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $project_id = $row["id"];
@@ -159,7 +159,7 @@ function my_projects()
                 </ul>";
         }
     }
-    echo '</tr></table><br><a href="/?logout">Log Out</a><a href="projects?type=add" style="float: right">New Project</a>';
+    echo '</tr></table><br><a href="/?logout">Log Out</a><a href="projects?type=add" class="fl-rt">New Project</a>';
 }
 
 function my_project($project_id)
@@ -174,7 +174,7 @@ function my_project($project_id)
     $project_name = $projects['project_name'];
 
     $result = sql("SELECT * FROM files WHERE project_id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'");
-    echo '<h2 style="text-transform: uppercase">' . $project_name . ':</h2><table><tr><td class="inline">';
+    echo '<h2 class="uppercase">' . $project_name . ':</h2><table><tr><td class="inline">';
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $file_id = $row["id"];
@@ -188,7 +188,7 @@ function my_project($project_id)
                 </ul>";
         }
     }
-    echo '</tr></table><br><a href="home">Go Back</a><a href="files?type=add&project_id=' . $project_id . '" style="float: right">New File</a>';
+    echo '</tr></table><br><a href="home">Go Back</a><a href="files?type=add&project_id=' . $project_id . '" class="fl-rt">New File</a>';
 }
 
 
