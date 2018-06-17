@@ -2,6 +2,7 @@
 $('#submit').click(function () {
 
     //Get the data from all the fields
+    var auth_code = $('input[name=auth_code]');
     var username = $('input[name=username]');
     var password = $('input[name=password]');
     var CSRFtoken = $('input[name=CSRFtoken]');
@@ -17,8 +18,13 @@ $('#submit').click(function () {
         return false;
     } else password.removeClass('hightlight');
 
+    if (auth_code.val() == '') {
+        auth_code.addClass('hightlight');
+        return false;
+    } else auth_code.removeClass('hightlight');
+
     //organize the data properly
-    var data = 'username=' + username.val() + '&password=' + password.val() + '&CSRFtoken=' + CSRFtoken.val() + 'type=login';
+    var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=register_auth' + '&auth_code=' + auth_code.val();
 
     //disabled all the text fields
     $('.text').attr('disabled', 'true');
@@ -27,7 +33,7 @@ $('#submit').click(function () {
     var $this = $('.login'),
         $state = $this.find('button > .state');
     $this.addClass('loading');
-    $state.html('Authenticating');
+    $state.html('Checking Code');
 
 
     //start the ajax
@@ -51,16 +57,17 @@ $('#submit').click(function () {
             if (success) {
                 //if process.php returned 1/true
                 $this.addClass('ok');
-                $state.html('Welcome back!');
+                $state.html('Invite Code Authorized!');
                 setTimeout(function () {
-                    window.open("/home", "_self");
-                }, 1000)
+                    $this.removeClass('ok loading');
+                    $state.html('Submit!');
+                }, 500)
             } else {
                 //if process.php returned 0/false
                 $this.addClass('error');
-                $state.html('Username and Password did not match!');
+                $state.html('Invalid Invite Code!');
                 setTimeout(function () {
-                    window.open("/?logout", "_self");
+                    window.open("/", "_self");
                 }, 1000)
             };
         }
