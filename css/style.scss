@@ -90,9 +90,10 @@ input.hightlight {
         border-radius: 0;
         border-top-color: transparent;
         border-right-color: transparent;
+        border-left-color: transparent;
         height: 20px;
         animation: none;
-        //transform: rotateZ(45deg);
+        transform: rotateZ(45deg);
       }
     }
   }
