@@ -179,5 +179,7 @@ function sql($query, $return_value = false)
     if ($return_value) {
         $array = $result->fetch_assoc();
         return $array;
+    } else {
+        return $result;
     }
 }
