@@ -66,7 +66,7 @@ if (isset($_GET['submit'])) {
         $title = 'Add File';
 
         //make a textarea for code
-        $content = ['<input placeholder="File Name" type="text" name="file_name" autocomplete="off" class="text" autofocus> <i class="fa fa-upload"></i>'];
+        $content = ['<input placeholder="File Name" type="text" name="file_name" autocomplete="off" class="text" autofocus> <i class="fa fa-file-alt"></i>'];
         break;
     case 'edit':
         $title = 'Edit File';
@@ -75,7 +75,7 @@ if (isset($_GET['submit'])) {
         $file_content = $files['file_content'];
 
         //make a textarea for code
-        $content = ['<input placeholder="Project Name" type="text" name="file_name" autocomplete="off" class="text" value="' . $file_name . '" autofocus> <i class="fa fa-upload"></i>'];
+        $content = ['<input placeholder="Project Name" type="text" name="file_name" autocomplete="off" class="text" value="' . $file_name . '" autofocus> <i class="fa fa-code"></i>'];
         break;
     case 'delete':
         $title = 'Delete File';
