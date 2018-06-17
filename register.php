@@ -10,6 +10,7 @@ if (isset($submit)) {
 
     switch ($type) {
     case 'register':
+        //check auth code here again
         $user_name = clean_data($_GET['user_name']);
         $user_password = clean_data($_GET['user_password']);
         if (sql("INSERT INTO users (user_name, user_password) VALUES ('{$user_name}', '{$user_password}')")) {
@@ -20,7 +21,8 @@ if (isset($submit)) {
         break;
 
     default:
-        if (sql("DELETE FROM projects WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
+        //check auth code here
+        if (sql("")) {
             $title = 'Register';
             $button = 'Submit';
             $type = 'register';
