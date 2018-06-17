@@ -34,7 +34,7 @@ switch ($_GET['type']) {
             error();
         }
         break;
-    case 'register_check':
+    case 'register_auth':
         $code = clean_data($_GET['auth_code']);
         $auth = sql("SELECT valid,created,type,used FROM codes WHERE code='{$code}'");
 
