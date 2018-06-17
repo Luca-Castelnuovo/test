@@ -36,9 +36,9 @@ if (isset($_GET['submit'])) {
             default:
                 logout('Hack attempt detected!');
         }
-        if (sql("INSERT INTO files (owner_id, project_id, file_name) VALUES ('{$_SESSION['user_id']}', '{$project_id}', '{$file_name}')")) {
-            fopen("users/{$_SESSION['user_name']}/{$file_name}", "w");
-            fclose("users/{$_SESSION['user_name']}/{$file_name}");
+        if (sql("INSERT INTO files (owner_id, project_id, file) VALUES ('{$_SESSION['user_id']}', '{$project_id}', '{$file}')")) {
+            fopen("users/{$_SESSION['user_name']}/{$file}", "w");
+            fclose("users/{$_SESSION['user_name']}/{$file}");
             $content = ['<p>File succesfully created!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
         } else {
             $content = ['<p>FIle not succesfully created!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
@@ -47,10 +47,8 @@ if (isset($_GET['submit'])) {
     case 'edit':
         csrf_val(clean_data($_POST['CSRFtoken']));
         $title = 'Edit Project';
-        $file_name = clean_data($_POST['file_name']);
         $file_content = $mysqli->escape_string($_POST['file_content']);
-        if (sql("UPDATE files SET file_name='{$file_name}' WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
-            //write to file
+        if (/*write to file*/) {
             $content = ['<p>File succesfully updated!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
         } else {
             $content = ['<p>File not succesfully updated!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
@@ -60,9 +58,7 @@ if (isset($_GET['submit'])) {
         csrf_val(clean_data($_GET['CSRFtoken']));
         $title = 'Delete Project';
         $files = sql("SELECT file_name,file_type FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
-        $file_name = $files['file_name'];
-        $file_type = $files['file_type'];
-        $file = $file_name . $file_type;
+        $file = $files['file'];
         if (sql("DELETE FROM files WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
             unlink("users/{$_SESSION['user_name']}/{$file}");
             $content = ['<p>File succesfully deleted!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
