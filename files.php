@@ -109,7 +109,7 @@ if (isset($_GET['submit'])) {
 
 <body>
     <div class="wrapper">
-        <form class="login" method="post" action="files?type=<?= $_GET['type'] ?>&id=<?= $_GET['id'] ?>&id=<?= $_GET['project_id'] ?>&submit">
+        <form class="login" method="post" action="files?type=<?= $_GET['type'] ?>&id=<?= $_GET['id'] ?>&project_id=<?= $_GET['project_id'] ?>&submit">
             <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
             <p class="title"><?= $title ?></p>
             <?php
