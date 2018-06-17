@@ -2,7 +2,7 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 
 if (csrf_val_ajax(clean_data($_GET['CSRFtoken']))) {
-    //error(8);
+    error(7);
 }
 
 switch ($_GET['type']) {
@@ -26,7 +26,7 @@ switch ($_GET['type']) {
                 $file = fopen("login.txt", "a+");
                 fwrite($file, $text);
 
-                success(7);
+                success();
             } else {
                 error(6);
             }
@@ -62,9 +62,14 @@ switch ($_GET['type']) {
 
         break;
     case 'register':
-        $user_name = clean_data($_GET['user_name']);
-        $user_password = clean_data($_GET['user_password']);
-        sql("INSERT INTO users (user_name, user_password) VALUES ('{$user_name}', '{$user_password}')");
+        if ($_SESSION['auth_code_valid'] && $_SESSION['auth_code_id'] === 1) {
+            $user_name = clean_data($_GET['user_name']);
+            $user_password = clean_data($_GET['user_password']);
+            sql("INSERT INTO users (user_name, user_password) VALUES ('{$user_name}', '{$user_password}')");
+            success();
+        } else {
+            error(8);
+        }
         break;
 
     default:
