@@ -27,7 +27,7 @@ $('#submit').click(function () {
     //organize the data properly
     var data = 'project_id=' + project_id.val() + '&project_name=' + project_name.val() +'&CSRFtoken=' + CSRFtoken.val() + '&type=projects' + '&project_type=' + project_type.val();
 
-    console.log(project_type);
+    console.log(project_type.val());
     return false;
     //disabled all the text fields
     $('.text').attr('disabled', 'true');
