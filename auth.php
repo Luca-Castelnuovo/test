@@ -36,7 +36,7 @@ switch ($_GET['type']) {
         break;
 
     case 'register_auth':
-        if (auth($_GET['auth_code'], 'register', 1, 0)) {($_SESSION['input_code'] = $_GET['auth_code']; success();} else {error(2);}
+        if (auth($_GET['auth_code'], 'register', 1, 0)) {$_SESSION['input_code'] = $_GET['auth_code']; success();} else {error(2);}
         break;
 
     case 'register':
