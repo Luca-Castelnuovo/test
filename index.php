@@ -1,4 +1,4 @@
-<?php require_once ($_SERVER['DOCUMENT_ROOT'] . "/functions.php"); if(isset($_GET['logout'])){logout('You are succesfully logged out!');} ?>
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php"); if(isset($_GET['logout'])){logout('You are succesfully logged out!');} ?>
 <!DOCTYPE html>
 
 <html lang="en">
