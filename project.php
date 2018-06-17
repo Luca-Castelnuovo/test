@@ -88,7 +88,7 @@ if (isset($_GET['submit'])) {
 
 <body>
     <div class="wrapper">
-        <form class="login" method="post" action="project.php?type=<?= $_GET['type'] ?>&submit">
+        <form class="login" method="post" action="project.php?type=<?= $_GET['type'] ?>&id=<?= $_GET['id'] ?>&submit">
             <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
             <p class="title"><?= $title ?></p>
             <?php
