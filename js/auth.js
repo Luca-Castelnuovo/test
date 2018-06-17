@@ -68,7 +68,7 @@ $('#submit').click(function () {
                 $state.html('Invalid Invite Code!');
                 setTimeout(function () {
                     $this.removeClass('error loading');
-                    $state.html('Check Autherazation Code');
+                    $state.html('Check Invite Code');
                     $('.text').removeAttr('disabled');
                 }, 1000)
             };
