@@ -2,8 +2,8 @@
 $('#submit').click(function () {
 
     //Get the data from all the fields
-    var project_type = $('input[name=project_type]');
-    var project_id = $('input[name=project_id]');
+    var project_type = $('input[name=type]');
+    var project_id = $('input[name=id]');
     var project_name = $('input[name=project_name]');
     var CSRFtoken = $('input[name=CSRFtoken]');
 
