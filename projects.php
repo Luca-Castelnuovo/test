@@ -9,14 +9,16 @@ case 'add':
     $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" autofocus> <i class="fa fa-user"></i>'];
     break;
 case 'edit':
+    $project_id = clean_data($_GET['project_id']);
     $title = 'Edit Project';
-    $projects = sql("SELECT project_name FROM projects WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
+    $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
     $project_name = $projects['project_name'];
     $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" value="' . $project_name . '" autofocus> <i class="fa fa-user"></i>'];
     break;
 case 'delete':
+    $project_id = clean_data($_GET['project_id']);
     $title = 'Delete Project';
-    $content = ["<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css'>", "<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js'></script>", "<p>Are you sure?</p>", "<div lass='inline'><a class='dropdown-trigger btn' href='?type=delete&id={$id}&submit&CSRFtoken=" . csrf_gen() . "'>Yes</a><a class='dropdown-trigger btn' href='home?project={$id}'>No</a></div>"];
+    $content = ["<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css'>", "<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js'></script>", "<p>Are you sure?</p>", "<div lass='inline'><a class='dropdown-trigger btn' href='?type=delete&id={$project_id}&submit&CSRFtoken=" . csrf_gen() . "'>Yes</a><a class='dropdown-trigger btn' href='home?project={$project_id}'>No</a></div>"];
     $show_button = false;
     break;
 
