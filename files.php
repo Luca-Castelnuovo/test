@@ -27,8 +27,10 @@ if (isset($_GET['submit'])) {
                 logout('Hack attempt detected!');
         }
         if (sql("INSERT INTO files (owner_id, project_id, file) VALUES ('{$_SESSION['user_id']}', '{$project_id}', '{$file}')")) {
-            fopen("users/{$_SESSION['user_name']}/{$file}", "w");
-            fclose("users/{$_SESSION['user_name']}/{$file}");
+            $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
+            $project_name = $projects['project_name'];
+            fopen("users/{$_SESSION['user_name']}/{$project_name}/{$file}", "w");
+            fclose("users/{$_SESSION['user_name']}/{$project_name}/{$file}");
             $content = ['<p>File succesfully created!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
         } else {
             $content = ['<p>File not succesfully created!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
@@ -39,7 +41,9 @@ if (isset($_GET['submit'])) {
         $title = 'Edit Project';
         $file_content = $_POST['file_content'].PHP_EOL;
         $files = sql("SELECT file FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
-        $file = "users/{$_SESSION['user_name']}/{$files['file']}";
+        $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
+        $project_name = $projects['project_name'];
+        $file = "users/{$_SESSION['user_name']}/{$project_name}/{$files['file']}";
         $file_open = fopen($file, "w");
         if (fwrite($file_open, $file_content)) {
             fclose($file);
@@ -54,8 +58,10 @@ if (isset($_GET['submit'])) {
         $title = 'Delete Project';
         $files = sql("SELECT file FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
         $file = $files['file'];
+        $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
+        $project_name = $projects['project_name'];
         if (sql("DELETE FROM files WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
-            unlink("users/{$_SESSION['user_name']}/{$file}");
+            unlink("users/{$_SESSION['user_name']}/{$project_name}/{$file}");
             $content = ['<p>File succesfully deleted!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
         } else {
             $content = ['<p>File not succesfully deleted!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
