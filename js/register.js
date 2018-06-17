@@ -58,10 +58,13 @@ $('#submit').click(function () {
             } else {
                 //if process.php returned 0/false
                 $this.addClass('error');
-                $state.html('Account not Created!');
+                $state.html('Account not Created! Please try again!');
                 setTimeout(function () {
-                    window.location.replace("/register");
-                }, 1000)
+                    $this.removeClass('loading error');
+                    $state.html('Submit');
+                    $('.text').removeAttr('disabled');
+                    $('#user_name').focus();
+                }, 1500)
             };
         }
     });
