@@ -1,7 +1,42 @@
 <?php
-//<input placeholder="Username" type="text" name="username" autocomplete="off" class="text" id="username" autofocus> <i class="fa fa-user"></i>
-//<input placeholder="Password" type="password" name="password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>
-require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php"); ?>
+require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
+
+
+$type = clean_data($_GET['type']);
+$submit = clean_data($_GET['submit']);
+
+if (isset($submit)) {
+    csrf_val(clean_data($_POST['CSRFtoken']));
+
+    switch ($type) {
+    case 'register':
+        if (sql("DELETE FROM projects WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
+            $content = ['<p>Account succesfully created!</p>', '<a href="/">Login</a>'];
+        } else {
+            $content = ['<p>Account not succesfully created! (I fucked up lel XD)</p>', '<a href="/">Go Back</a>'];
+        }
+        break;
+
+    default:
+        if (sql("DELETE FROM projects WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
+            $title = 'Register';
+            $button = 'Submit';
+            $type = 'register';
+            $content = ['<input placeholder="Username" type="text" name="username" autocomplete="off" class="text" id="username" autofocus> <i class="fa fa-user"></i>', '<input placeholder="Password" type="password" name="password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>', '<input type="hidden" name="auth_code" value="' . $_GET['auth_code'] . '">'];
+        } else {
+            $content = ['<p>Invite Code is not valid!</p>', '<a href="/">Go Back</a>'];
+        }
+    }
+
+} else {
+    $title = 'Invite Code';
+    $button = 'Check Invite Code';
+    $content = ['<input placeholder="Invite Code" type="text" name="auth_code" autocomplete="off" class="text" autofocus> <i class="fa fa-barcode"></i>'];
+}
+
+?>
+
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -10,7 +45,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php"); ?>
     <meta charset="utf-8">
     <meta content="width=device-width,initial-scale=1,shrink-to-fit=no" name="viewport">
     <link href=https://lucacastelnuovo.nl/images/favicon.ico rel="shortcut icon">
-    <title>Register</title>
+    <title><?= $title ?></title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
@@ -18,15 +53,13 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php"); ?>
 
 <body>
     <div class="wrapper">
-        <form class="login" method="post" action="auth.php">
-            <p class="title">Register</p>
-            <input placeholder="Authorization Code" type="text" name="authcode" autocomplete="off" class="text" id="authcode" autofocus> <i class="fa fa-barcode"></i>
+        <form class="login" method="post" action="?submit&type=<?= $type ?>">
             <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
-            <button id="submit"><i class="spinner"></i> <span class="state">Check Authorization Code</span></button>
+            <p class="title"><?= $title ?></p>
+            <?php foreach($content as $row) {echo $row;} ?>
+            <button id="submit"><i class="spinner"></i> <span class="state"><?= $button ?></span></button>
         </form>
     </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="js/main.js"></script>
 </body>
 
 </html>
