@@ -35,7 +35,9 @@ if (isset($_GET['submit'])) {
         $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
         $project_name = $projects['project_name'];
         if (sql("DELETE FROM projects WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
-            rrmdir("users/{$_SESSION['user_name']}/{$project_name}");
+            if(!empty($project_name)) {
+                rrmdir("users/{$_SESSION['user_name']}/{$project_name}");
+            }
             $content = ['<p>Project succesfully deleted!</p>', '<a href="home">Go Back</a>'];
         } else {
             $content = ['<p>Project not succesfully deleted!</p>', '<a href="home">Go Back</a>'];
