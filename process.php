@@ -123,7 +123,7 @@ switch ($_GET['type']) {
 
         switch ($_GET['file_type']) {
             case 'add':
-                $file_lang = clean_data($_POST['file_lang']);
+                $file_lang = clean_data($_GET['file_lang']);
                 switch ($file_lang) {
                     case 'html':
                         $file_name_lang = $file_name . '.html';
