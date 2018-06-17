@@ -26,20 +26,19 @@ if (isset($_GET['submit'])) {
             default:
                 logout('Hack attempt detected!');
         }
-        $project = sql("SELECT owner_id FROM prohects WHERE id='{$project_id}'", true);
-        $owner_id = $project['owner_id'];
-        if ($_SESSION['user_id'] = $owner_id) {
-            if (sql("INSERT INTO files (owner_id, project_id, file) VALUES ('{$_SESSION['user_id']}', '{$project_id}', '{$file}')")) {
-                $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
-                $project_name = $projects['project_name'];
-                fopen("users/{$_SESSION['user_name']}/{$project_name}/{$file}", "w");
-                fclose("users/{$_SESSION['user_name']}/{$project_name}/{$file}");
-                $content = ['<p>File succesfully created!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
-            } else {
-                $content = ['<p>File not succesfully created!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
-            }
-        } else {
+        $project = sql("SELECT owner_id FROM prohects WHERE id='{$project_id}'");
+        if ($project->num_rows = 0) {
             $content = ['<p>You don\'t have access!</p>', '<a href="home">Go Back</a>'];
+        }
+
+        if (sql("INSERT INTO files (owner_id, project_id, file) VALUES ('{$_SESSION['user_id']}', '{$project_id}', '{$file}')")) {
+            $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
+            $project_name = $projects['project_name'];
+            fopen("users/{$_SESSION['user_name']}/{$project_name}/{$file}", "w");
+            fclose("users/{$_SESSION['user_name']}/{$project_name}/{$file}");
+            $content = ['<p>File succesfully created!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
+        } else {
+            $content = ['<p>File not succesfully created!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
         }
         break;
     case 'edit':
