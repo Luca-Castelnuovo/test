@@ -36,7 +36,7 @@ if (isset($_GET['submit'])) {
 } else {
     $title = 'Invite Code';
     $button_text = 'Check Invite Code';
-    $content = ['<input placeholder="Invite Code" type="text" name="auth_code" autocomplete="off" class="text" autofocus> <i class="fa fa-barcode"></i>'];
+    $content = ['<input placeholder="Invite Code" type="text" name="auth_code" autocomplete="off" class="text" autofocus value="' . $_GET['auth_code'] . '"> <i class="fa fa-barcode"></i>'];
 }
 
 ?>
