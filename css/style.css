@@ -75,6 +75,7 @@ input.hightlight {
     background-color: #cc0000; }
     /* line 89, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
     .login.error button .spinner {
+      border-radius: 0;
       animation: none;
       width: 25%;
       background: -webkit-linear-gradient(bottom left, #fff, #aaa, #fff);
