@@ -4,9 +4,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 if(isset($_GET['reset'])){reset_();}
 
 if ($_SESSION['auth_code_valid'] && $_SESSION['auth_code_id'] === 1) {
-    unset($_SESSION['auth_code_valid']);
-    unset($_SESSION['auth_code_id']);
-    $_SESSION['auth_code_id_confirm'] = 1;
     $js = 'register.js';
     $title = 'Register';
     $button_text = 'Submit';
