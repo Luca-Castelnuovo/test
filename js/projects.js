@@ -37,7 +37,7 @@ $('#submit').click(function () {
     var $this = $('.login'),
         $state = $this.find('button > .state');
     $this.addClass('loading');
-    $state.html('Authenticating');
+    $state.html('Proccessing');
 
     //start the ajax
     $.ajax({
