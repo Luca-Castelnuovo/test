@@ -25,7 +25,6 @@
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="js/login.js"></script>
-    <?php alert($_GET['alert']); ?>
 </body>
 
 </html>
