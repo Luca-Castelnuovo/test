@@ -155,7 +155,7 @@ function my_projects()
 function my_project($project_id)
 {
     global $mysqli;
-    $result = sql("SELECT * FROM files WHERE project_id='{$project_id}'");
+    $result = sql("SELECT * FROM files WHERE project_id='{$project_id}' AND owner_id='{$_SESSION['user_id']}'");
     echo '<h2>Files:</h2><table><tr><td class="inline">';
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
