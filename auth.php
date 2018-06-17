@@ -36,7 +36,27 @@ switch ($_GET['type']) {
         break;
     case 'register_check':
         $code = clean_data($_GET['auth_code']);
-        $auth = sql("SELECT valid,created,type,used FROM codes WHERE code='{$code}'", true);
+        $auth = sql("SELECT valid,created,type,used FROM codes WHERE code='{$code}'");
+
+        if ($auth->num_rows == 0) {
+            error();
+        } elseif ($auth->num_rows == 1) {
+            $auth = $auth->fetch_assoc();
+            $created = $auth["created"];
+            $valid = $auth["valid"];
+            $type = $auth["type"];
+            $used = $auth["used"];
+            if (!($created >= $valid) && !$used && $type == 'register') {
+                $ip = ip();
+                sql("UPDATE codes SET used='1',ip='$ip' WHERE code='$code'");
+                success();
+            } else {
+                error();
+            }
+        } else {
+            error();
+        }
+
 
         break;
     case 'register':
