@@ -35,31 +35,7 @@ switch ($_GET['type']) {
         }
         break;
     case 'register_auth':
-        $code = clean_data($_GET['auth_code']);
-        $auth = sql("SELECT valid,created,type,used FROM codes WHERE code='{$code}'");
-
-        if ($auth->num_rows == 0) {
-            error(4);
-        } elseif ($auth->num_rows == 1) {
-            $auth = $auth->fetch_assoc();
-            $created = $auth["created"];
-            $valid = $auth["valid"];
-            $type = $auth["type"];
-            $used = $auth["used"];
-            if (!($created >= $valid) && !$used && $type == 'register') {
-                $ip = ip();
-                sql("UPDATE codes SET used='1',ip='{$ip}' WHERE code='{$code}'");
-                $_SESSION['auth_code_valid'] = true;
-                $_SESSION['auth_code_id'] = 1;
-                success();
-            } else {
-                error(3);
-            }
-        } else {
-            error(2);
-        }
-
-
+        if (auth($_GET['auth_code'], 'register', 1)) {success();} else {error();}
         break;
     case 'register':
         if ($_SESSION['auth_code_valid'] && $_SESSION['auth_code_id'] === 1) {
@@ -91,4 +67,30 @@ function success()
     $out = ["status" => true];
     echo json_encode($out);
     exit;
+}
+
+function auth($input_code, $input_type, $input_code_id)
+{
+    $input_code = clean_data($input_code);
+    $auth = sql("SELECT valid,created,type,used FROM codes WHERE code='{$input_code}'");
+    if ($auth->num_rows == 0) {
+        return false;
+    } elseif ($auth->num_rows == 1) {
+        $auth = $auth->fetch_assoc();
+        $auth_created = $auth["created"];
+        $auth_valid = $auth["valid"];
+        $auth_type = $auth["type"];
+        $auth_used = $auth["used"];
+        if (!($auth_created >= $auth_valid) && !$auth_used && $auth_type == $input_type) {
+            $auth_ip = ip();
+            sql("UPDATE codes SET used='1',ip='{$auth_ip}' WHERE code='{$auth_code}'");
+            $_SESSION['auth_code_valid'] = true;
+            $_SESSION['auth_code_id'] = $input_code_id;
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+       return false;
+    }
 }
