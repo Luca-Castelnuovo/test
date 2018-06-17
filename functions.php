@@ -167,7 +167,7 @@ function my_project($project_id)
 {
     global $mysqli;
     $project = sql("SELECT id FROM projects WHERE id='{$project_id}' AND owner_id='{$_SESSION['user_id']}'");
-    if ($project->num_rows = 0) {header('Location: /home');exit;}
+    if ($project->num_rows == 0) {header('Location: /home');exit;}
 
     $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
     $project_name = $projects['project_name'];
