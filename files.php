@@ -40,8 +40,8 @@ if (isset($_GET['submit'])) {
         $file_content = $mysqli->escape_string($_POST['file_content']);
         $files = sql("SELECT file FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
         $file = "users/{$_SESSION['user_name']}/{$files['file']}";
-        $file = fopen($file, "w");
-        if (fwrite($file, $file_content)) {
+        $file_open = fopen($file, "w");
+        if (fwrite($file_open, $file_content)) {
             fclose($file);
             $content = ['<p>File succesfully updated!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
         } else {
@@ -77,9 +77,10 @@ if (isset($_GET['submit'])) {
         $title = 'Edit File';
         $files = sql("SELECT file FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
         $file = "users/{$_SESSION['user_name']}/{$files['file']}";
-        $file = fopen($file, "r");
-        $file_content = fread($file,filesize($file));
+        $file_open = fopen($file, "r");
+        $file_content = fread($file_open,filesize($file));
         fclose($file);
+        echo
         $content = ['<textarea class="text" name="file_content" rows="50" cols="50" placeholder="Enter your code here...">' . $file_content . '</textarea>'];
         break;
     case 'delete':
