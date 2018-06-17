@@ -16,7 +16,7 @@ $('#submit').click(function () {
     var success_response = '';
     var error_response = '';
 
-    if (project_type == 'add') {
+    if (project_type.val() == 'add') {
         success_response = 'Project succesfully created!';
         error_response = 'Project not succesfully created!';
     } else {
@@ -27,7 +27,7 @@ $('#submit').click(function () {
     //organize the data properly
     var data = 'project_id=' + project_id.val() + '&project_name=' + project_name.val() +'&CSRFtoken=' + CSRFtoken.val() + '&type=projects' + '&project_type=' + project_type.val();
 
-    console.log(project_type.val());
+    console.log(success_response);
     return false;
     //disabled all the text fields
     $('.text').attr('disabled', 'true');
