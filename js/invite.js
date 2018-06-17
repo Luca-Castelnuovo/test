@@ -7,9 +7,6 @@ $('#submit').click(function () {
     //organize the data properly
     var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=invite';
 
-    //disabled all the text fields
-    $('.text').attr('disabled', 'true');
-
     //start the loader
     var $this = $('.login'),
         $state = $this.find('button > .state');
@@ -42,8 +39,7 @@ $('#submit').click(function () {
                 setTimeout(function () {
                     $this.removeClass('loading ok');
                     $state.html('Generate Invite Code');
-                    $('.text').removeAttr('disabled');
-                    $('.text').focus();
+                    location.reload();
                 }, 500)
             } else {
                 //if process.php returned 0/false
@@ -52,8 +48,6 @@ $('#submit').click(function () {
                 setTimeout(function () {
                     $this.removeClass('loading error');
                     $state.html('Generate Invite Code');
-                    $('.text').removeAttr('disabled');
-                    $('.text').focus();
                 }, 500)
             };
         }
