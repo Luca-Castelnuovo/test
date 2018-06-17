@@ -2,7 +2,7 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 
 if (csrf_val_ajax(clean_data($_GET['CSRFtoken']))) {
-    error(7);
+    error(5);
 }
 
 switch ($_GET['type']) {
@@ -27,15 +27,17 @@ switch ($_GET['type']) {
 
                 success();
             } else {
-                error(6);
+                error(4);
             }
         } else {
-            error(5);
+            error(3);
         }
         break;
+
     case 'register_auth':
-        if (auth($_GET['auth_code'], 'register', 1)) {success();} else {error();}
+        if (auth($_GET['auth_code'], 'register', 1)) {success();} else {error(2);}
         break;
+
     case 'register':
         if ($_SESSION['auth_code_valid'] && $_SESSION['auth_code_id'] === 1) {
             $user_name = clean_data($_GET['user_name']);
@@ -43,12 +45,12 @@ switch ($_GET['type']) {
             sql("INSERT INTO users (user_name, user_password) VALUES ('{$user_name}', '{$user_password}')");
             success();
         } else {
-            error(8);
+            error(1);
         }
         break;
 
     default:
-        error(1);
+        error(0);
         break;
 }
 
