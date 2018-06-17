@@ -13,20 +13,6 @@ $('#submit').click(function () {
         return false;
     } else project_name.removeClass('hightlight');
 
-    //organize the data properly
-    var data = 'project_id=' + project_id.val() + '&project_name=' + project_name.val() +'&CSRFtoken=' + CSRFtoken.val() + '&type=projects' + '&project_type=' + project_type.val();
-
-    console.log(data);
-    return false;
-    //disabled all the text fields
-    $('.text').attr('disabled', 'true');
-
-    //start the loader
-    var $this = $('.login'),
-        $state = $this.find('button > .state');
-    $this.addClass('loading');
-    $state.html('Authenticating');
-
     var success_response = '';
     var error_response = '';
 
@@ -37,6 +23,20 @@ $('#submit').click(function () {
         success_response = 'Project succesfully edited!';
         error_response = 'Project not succesfully edited!';
     }
+
+    //organize the data properly
+    var data = 'project_id=' + project_id.val() + '&project_name=' + project_name.val() +'&CSRFtoken=' + CSRFtoken.val() + '&type=projects' + '&project_type=' + project_type.val();
+
+    console.log(project_type);
+    return false;
+    //disabled all the text fields
+    $('.text').attr('disabled', 'true');
+
+    //start the loader
+    var $this = $('.login'),
+        $state = $this.find('button > .state');
+    $this.addClass('loading');
+    $state.html('Authenticating');
 
     //start the ajax
     $.ajax({
