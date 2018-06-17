@@ -34,8 +34,15 @@ switch ($_GET['type']) {
             error();
         }
         break;
-    case 'register':
+    case 'register_check':
+        $code = clean_data($_GET['auth_code']);
+        $auth = sql("SELECT valid,created,type,used FROM codes WHERE code='{$code}'", true);
 
+        break;
+    case 'register':
+        $user_name = clean_data($_GET['user_name']);
+        $user_password = clean_data($_GET['user_password']);
+        sql("INSERT INTO users (user_name, user_password) VALUES ('{$user_name}', '{$user_password}')");
         break;
 
     default:

@@ -5,36 +5,10 @@ $type = clean_data($_GET['type']);
 $button_show = true;
 
 if ($_GET['auth_code'] = 'valid') {
-    csrf_val(clean_data($_GET['CSRFtoken']));
-
-    switch ($type) {
-    case 'register':
-        //check auth code here again
-        $user_name = clean_data($_GET['user_name']);
-        $user_password = clean_data($_GET['user_password']);
-        if (sql("INSERT INTO users (user_name, user_password) VALUES ('{$user_name}', '{$user_password}')")) {
-            $content = ['<p>Account succesfully created!</p>', '<a href="/">Login</a>'];
-        } else {
-            $content = ['<p>Account not succesfully created! (I fucked up lel XD)</p>', '<a href="/">Go Back</a>'];
-            $button_show = false;
-        }
-        break;
-
-    default:
-        //check auth code here
-        $code = clean_data($_GET['auth_code']);
-        $auth = sql("SELECT valid,created,type,used FROM codes WHERE code='{$code}'", true);
-        if () {
-            $title = 'Register';
-            $button_text = 'Submit';
-            $type = 'register';
-            $content = ['<input placeholder="Username" type="text" name="username" autocomplete="off" class="text" id="username" autofocus> <i class="fa fa-user"></i>', '<input placeholder="Password" type="password" name="user_password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>', '<input type="hidden" name="auth_code" value="' . $_GET['auth_code'] . '">'];
-        } else {
-            $content = ['<p>Invite Code is not valid!</p>', '<a href="/">Go Back</a>'];
-            $button_show = false;
-        }
-    }
-
+    $title = 'Register';
+    $button_text = 'Submit';
+    $type = 'register';
+    $content = ['<input placeholder="Username" type="text" name="user_name" autocomplete="off" class="text" id="username" autofocus> <i class="fa fa-user"></i>', '<input placeholder="Password" type="password" name="user_password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>', '<input type="hidden" name="auth_code" value="' . $_GET['auth_code'] . '">'];
 } else {
     $title = 'Invite Code';
     $button_text = 'Check Invite Code';
