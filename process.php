@@ -179,13 +179,17 @@ switch ($_GET['type']) {
                 break;
             case 'delete':
                 $file_delete = clean_data($_GET['file_delete']);
-                $files = sql("SELECT file FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
-                $file_name = $files['file'];
                 $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
                 $project_name = $projects['project_name'];
-                if (sql("DELETE FROM files WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
-                    unlink("users/{$_SESSION['user_name']}/{$project_name}/{$file_name}");
-                    success();
+                $files = sql("SELECT file FROM files WHERE id='{$file_id}'AND owner_id='{$_SESSION['user_id']}'", true);
+                $file_name = $files['file'];
+                if ($project_delete == 'delete') {
+                    if (sql("DELETE FROM files WHERE id='{$file_id}' AND owner_id='{$_SESSION['user_id']}'")) {
+                        unlink("users/{$_SESSION['user_name']}/{$project_name}/{$file_name}");
+                        success();
+                    } else {
+                        error(0);
+                    }
                 } else {
                     error(0);
                 }
