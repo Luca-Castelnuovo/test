@@ -43,7 +43,7 @@ switch ($_GET['type']) {
             unset($_SESSION['auth_code_id_confirm']);
             if (empty($_GET['user_name']) || empty($_GET['user_password'])) {error(6);}
             $user_name = clean_data($_GET['user_name']);
-            $user_password = clean_data($_GET['user_password']);
+            $user_password = password_hash(clean_data($_GET['user_password']), PASSWORD_BCRYPT);
             sql("INSERT INTO users (user_name, user_password) VALUES ('{$user_name}', '{$user_password}')");
             success();
         } else {
