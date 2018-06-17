@@ -111,6 +111,15 @@ function login()
     }
 }
 
+function login_admin()
+{
+    login();
+
+    if ($_SESSION['user_type']) {
+        logout('This area is restricted to adminisrators');
+    }
+}
+
 function logout($alert)
 {
     if (isset($_COOKIE[session_name()])) {
