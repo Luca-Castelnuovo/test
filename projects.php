@@ -11,7 +11,7 @@ case 'add':
 case 'edit':
     $title = 'Edit Project';
     $projects = sql("SELECT project_name FROM projects WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
-    $project_name = $projects['project_name'];
+    $eproject_name = $projects['project_name'];
     $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" value="' . $project_name . '" autofocus> <i class="fa fa-user"></i>'];
     break;
 case 'delete':
