@@ -52,6 +52,7 @@ switch ($_GET['type']) {
             unset($_SESSION['input_code']);
             unset($_SESSION['auth_code_id']);
             unset($_SESSION['auth_code_valid']);
+            mkdir("users/{$user_name}", 0770);
             success();
         } else {
             error(1);
