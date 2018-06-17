@@ -14,11 +14,16 @@ $('#submit').click(function () {
     var error_response = '';
 
     if (file_type.val() == 'add') {
-        success_response = 'Project succesfully created!';
-        error_response = 'Project not created!';
-    } else {
-        success_response = 'Project succesfully deleted!';
-        error_response = 'Project not deleted!';
+        success_response = 'File succesfully created!';
+        error_response = 'File not created!';
+    }
+    if (file_type.val() == 'delete') {
+        success_response = 'File succesfully deleted!';
+        error_response = 'File not deleted!';
+    }
+    if (file_type.val() == 'edit') {
+        success_response = 'File succesfully edited!';
+        error_response = 'File not edited!';
     }
 
     //Ensure non empty inputs
@@ -26,7 +31,6 @@ $('#submit').click(function () {
         file_name.addClass('hightlight');
         return false;
     } else file_name.removeClass('hightlight');
-
 
     //organize the data properly
     var data = 'file_id=' + file_id.val() + '&file_name=' + file_name.val() + '&CSRFtoken=' + CSRFtoken.val() + '&type=projects' + '&file_type=' + file_type.val() + '&file_delete=' + file_delete.val();
