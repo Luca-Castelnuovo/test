@@ -41,7 +41,7 @@ if (isset($_GET['submit'])) {
             fclose("users/{$_SESSION['user_name']}/{$file}");
             $content = ['<p>File succesfully created!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
         } else {
-            $content = ['<p>FIle not succesfully created!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
+            $content = ['<p>File not succesfully created!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
         }
         break;
     case 'edit':
