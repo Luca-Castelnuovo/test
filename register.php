@@ -38,6 +38,8 @@ if ($_GET['auth_code'] == 'valid') {
             <button id="submit"><i class="spinner"></i> <span class="state"><?= $button_text ?></span></button>
         </form>
     </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="js/register.js"></script>
 </body>
 
 </html>
