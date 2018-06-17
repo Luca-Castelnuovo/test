@@ -5,7 +5,8 @@ $('#submit').click(function () {
     var project_id = $('input[name=project_id]');
     var file_id = $('input[name=id]');
     var file_type = $('input[name=type]');
-
+    var file_name = $('input[name=file_name]');
+    var file_lang = $('input[name=file_lang]');
     var file_content = $('input[name=file_delete]');
     var file_delete = $('input[name=file_delete]');
     var CSRFtoken = $('input[name=CSRFtoken]');
@@ -68,14 +69,14 @@ $('#submit').click(function () {
                 $this.addClass('ok');
                 $state.html(success_response);
                 setTimeout(function () {
-                    window.location.replace("/home");
+                    window.location.replace("/home?project=" + project_id.val());
                 }, 500)
             } else {
                 //if process.php returned 0/false
                 $this.addClass('error');
                 $state.html(error_response);
                 setTimeout(function () {
-                    window.location.replace("/home");
+                    window.location.replace("/home?project=" + project_id.val());
                 }, 1000)
             }
             ;
