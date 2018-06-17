@@ -60,7 +60,8 @@ $('#submit').click(function () {
                 $state.html('Invite Code Authorized!');
                 setTimeout(function () {
                     $this.removeClass('ok loading');
-                    $state.html('Submit!');
+                    $state.html('Submit');
+                    location.reload();
                 }, 500)
             } else {
                 //if process.php returned 0/false
