@@ -22,7 +22,7 @@ if (isset($_GET['submit'])) {
         csrf_val(clean_data($_POST['CSRFtoken']));
         $title = 'Add Project';
         $file_name = clean_data($_POST['file_name']);
-        $file_type = clean_data($_POST['file_type']);
+        $file_type = clean_data($_POST['lang']);
         switch ($file_type) {
             case 'html':
                 $file = $file_name . '.html';
