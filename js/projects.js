@@ -7,6 +7,17 @@ $('#submit').click(function () {
     var project_name = $('input[name=project_name]');
     var CSRFtoken = $('input[name=CSRFtoken]');
 
+    var success_response = '';
+    var error_response = '';
+
+    if (project_type.val() == 'add') {
+        success_response = 'Project succesfully created!';
+        error_response = 'Project not succesfully created!';
+    } else {
+        success_response = 'Project succesfully deleted!';
+        error_response = 'Project not succesfully deleted!';
+    }
+
     //Ensure non empty inputs
     if (project_name.val() == '') {
         project_name.addClass('hightlight');
@@ -48,14 +59,14 @@ $('#submit').click(function () {
             if (success) {
                 //if process.php returned 1/true
                 $this.addClass('ok');
-                $state.html('Project succesfully created!');
+                $state.html(success_response);
                 setTimeout(function () {
                     window.location.replace("/home");
                 }, 500)
             } else {
                 //if process.php returned 0/false
                 $this.addClass('error');
-                $state.html('Project not succesfully created!');
+                $state.html(error_response);
                 setTimeout(function () {
                     window.location.replace("/home");
                 }, 1000)
