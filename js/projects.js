@@ -2,23 +2,19 @@
 $('#submit').click(function () {
 
     //Get the data from all the fields
-    var project_id = $('input[name=user_name]');
-    var project_name = $('input[name=user_password]');
+    var project_type = $('input[name=project_type]');
+    var project_id = $('input[name=project_id]');
+    var project_name = $('input[name=project_name]');
     var CSRFtoken = $('input[name=CSRFtoken]');
 
     //Ensure non empty inputs
-    if (username.val() == '') {
-        username.addClass('hightlight');
+    if (project_name.val() == '') {
+        project_name.addClass('hightlight');
         return false;
-    } else username.removeClass('hightlight');
-
-    if (password.val() == '') {
-        password.addClass('hightlight');
-        return false;
-    } else password.removeClass('hightlight');
+    } else project_name.removeClass('hightlight');
 
     //organize the data properly
-    var data = 'username=' + username.val() + '&password=' + password.val() + '&CSRFtoken=' + CSRFtoken.val() + '&type=login';
+    var data = 'project_id=' + project_id.val() + '&project_name=' + project_name.val() +'&CSRFtoken=' + CSRFtoken.val() + '&type=projects' + '&project_type=' + project_type.val();
 
     //disabled all the text fields
     $('.text').attr('disabled', 'true');
