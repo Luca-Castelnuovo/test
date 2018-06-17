@@ -52,7 +52,8 @@ if (isset($_GET['submit'])) {
         $title = 'Edit Project';
         $result = $mysqli->query("SELECT project_name FROME projects WHERE id={$id} AND owner_id={$_SESSION['user_id']}");
         $user = $result->fetch_assoc();
-        $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" value="' . $user['project_name'] . '" autofocus> <i class="fa fa-user"></i>'];
+        $project_name = $user['project_name'];
+        $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" value="' . $project_name . '" autofocus> <i class="fa fa-user"></i>'];
         break;
     case 'delete':
         $title = 'Delete Project';
