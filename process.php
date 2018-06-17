@@ -73,10 +73,11 @@ switch ($_GET['type']) {
         break;
 
     case 'projects':
-        $project_id = clean_data($_GET['id']);
-        switch($_GET['sub_type']) {
+        $project_id = clean_data($_GET['project_id']);
+        $project_name = clean_data($_GET['project_name']);
+
+        switch($_GET['project_type']) {
             case 'add':
-                $project_name = clean_data($_GET['project_name']);
                 if (sql("INSERT INTO projects (owner_id, project_name) VALUES ('{$_SESSION['user_id']}', '{$project_name}')")) {
                     mkdir("users/{$_SESSION['user_name']}/{$project_name}");
                     success();
@@ -86,7 +87,6 @@ switch ($_GET['type']) {
 
                 break;
             case 'edit':
-                $project_name = clean_data($_GET['project_name']);
                 if (sql("UPDATE projects SET project_name='{$project_name}' WHERE id='{$project_id}' AND owner_id='{$_SESSION['user_id']}'")) {
                     success();
                 } else {
