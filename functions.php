@@ -186,7 +186,7 @@ function my_project($project_id)
                 </ul>";
         }
     }
-    echo '</tr></table><br><a href="home">Go Back</a><a href="files?type=add&project_id=' . $project_id . '" style="float: right">New File</a><a href="projects?type=delete&project_id=' . $project_id . '" style="float: right">Delete Project</a>';
+    echo '</tr></table><br><a href="home">Go Back</a><a href="projects?type=delete&project_id=' . $project_id . '" style="float: right">Delete Project</a>    <a href="files?type=add&project_id=' . $project_id . '" style="float: right">New File</a>';
 }
 
 
