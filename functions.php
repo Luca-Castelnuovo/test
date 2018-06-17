@@ -111,15 +111,6 @@ function login()
     }
 }
 
-function login_admin()
-{
-    login();
-
-    if (!$_SESSION['user_type']) {
-        logout('This page is only availible for administrators!');
-    }
-}
-
 function logout($alert)
 {
     if (isset($_COOKIE[session_name()])) {
