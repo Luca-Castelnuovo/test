@@ -21,7 +21,7 @@ $('#submit').click(function () {
     var $this = $('.login'),
         $state = $this.find('button > .state');
     $this.addClass('loading');
-    $state.html('Registering User');
+    $state.html('Sending Invite');
 
 
     //start the ajax
@@ -52,10 +52,10 @@ $('#submit').click(function () {
             } else {
                 //if process.php returned 0/false
                 $this.addClass('error');
-                $state.html('Invite not Send!');
+                $state.html('Invite not Sent!');
                 setTimeout(function () {
                     $this.removeClass('loading error');
-                    $state.html('Send Invite');
+                    $state.html('Invite Sent');
                     $('.text').removeAttr('disabled');
                     $('.text').focus();
                 }, 500)
