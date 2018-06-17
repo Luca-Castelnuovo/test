@@ -22,7 +22,7 @@ if (isset($_GET['submit'])) {
         csrf_val(clean_data($_POST['CSRFtoken']));
         $title = 'Edit Project';
         $project_name = clean_data($_POST['project_name']);
-        if ($mysqli->query("UPDATE projects SET project_name = {$project_name} WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
+        if ($mysqli->query("UPDATE projects SET project_name='{$project_name}' WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
             $content = ['<p>Project succesfully edited!</p>', '<a href="home">Go Back</a>'];
         } else {
             $content = ['<p>Project not succesfully edited!</p>', '<a href="home">Go Back</a>'];
