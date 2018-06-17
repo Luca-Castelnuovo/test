@@ -63,8 +63,8 @@ switch ($_GET['type']) {
             $user_email = clean_data($_GET['user_email']);
             $code = gen(256);
             $created = date("d/m/Y h:i:s");
-            $_SESION['invite_response'] = '<a href="https://test.lucacastelnuovo.nl/register?auth_code=' . $code . '">https://test.lucacastelnuovo.nl/register?auth_code=' . $code . '</a><br><br><a href="/home">Go Back</a><a href="/admin" style="float:right;">Send Another Invite</a>';
             sql("INSERT INTO codes (code, valid, created, type) VALUES ('{$code}', '7', '{$created}', 'register')");
+            $_SESION['invite_response'] = '<a href="https://test.lucacastelnuovo.nl/register?auth_code=' . $code . '">https://test.lucacastelnuovo.nl/register?auth_code=' . $code . '</a><br><br><a href="/home">Go Back</a><a href="/admin" style="float:right;">Send Another Invite</a>';
             success();
         } else {
             error(1);
