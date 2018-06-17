@@ -1,7 +1,7 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 
-if ($_GET['auth_code'] = 'valid') {
+if ($_GET['auth_code'] == 'valid') {
     $title = 'Register';
     $button_text = 'Submit';
     $type = 'register';
