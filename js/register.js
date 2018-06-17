@@ -60,10 +60,7 @@ $('#submit').click(function () {
                 $this.addClass('error');
                 $state.html('Account not Created! Please try again!');
                 setTimeout(function () {
-                    $this.removeClass('loading error');
-                    $state.html('Submit');
-                    $('.text').removeAttr('disabled');
-                    $('#user_name').focus();
+                    window.location.replace("/register");
                 }, 1500)
             };
         }

@@ -36,17 +36,20 @@ switch ($_GET['type']) {
         break;
 
     case 'register_auth':
-        if (auth($_GET['auth_code'], 'register', 1)) {success();} else {error(2);}
+        if (auth($_GET['auth_code'], 'register', 1, 0)) {($_SESSION['input_code'] = $_GET['auth_code']; success();} else {error(2);}
         break;
 
     case 'register':
         if ($_SESSION['auth_code_id_confirm'] === 1) {
+            $input_code = $_SESSION['input_code'];
+            unset($_SESSION['input_code']);
             unset($_SESSION['auth_code_id_confirm']);
             if (empty($_GET['user_name']) || empty($_GET['user_password'])) {error(6);}
             $user_name = clean_data($_GET['user_name']);
             $user_password = password_hash(clean_data($_GET['user_password']), PASSWORD_BCRYPT);
             $check_existing_user = sql("SELECT id FROM users WHERE user_name='{$user_name}'");
             if ($check_existing_user->num_rows > 0) {error(9);}
+            sql("UPDATE codes SET used='1',user='{$user_name}' WHERE code='{$input_code}'");
             sql("INSERT INTO users (user_name, user_password) VALUES ('{$user_name}', '{$user_password}')");
             success();
         } else {
@@ -90,7 +93,7 @@ function success()
     exit;
 }
 
-function auth($input_code, $input_type, $input_code_id)
+function auth($input_code, $input_type, $input_code_id, $deactive_immediatly = 1)
 {
     $input_code = clean_data($input_code);
     $auth = sql("SELECT valid,created,type,used FROM codes WHERE code='{$input_code}'");
