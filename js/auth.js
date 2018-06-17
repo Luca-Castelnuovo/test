@@ -39,7 +39,7 @@ $('#submit').click(function () {
     //start the ajax
     $.ajax({
         //this is the php file that processes the data
-        url: "auth.php",
+        url: "process.php",
 
         //GET method is used
         type: "GET",

@@ -15,7 +15,7 @@
 
 <body>
     <div class="wrapper">
-        <form class="login" method="post" action="auth.php">
+        <form class="login">
             <p class="title">Log in</p>
             <input placeholder="Username" type="text" name="user_name" autocomplete="off" class="text" id="username" autofocus> <i class="fa fa-user"></i>
             <input placeholder="Password" type="password" name="user_password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>
