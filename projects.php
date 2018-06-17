@@ -40,7 +40,7 @@ default:
 <body>
     <div class="wrapper">
         <form class="login">
-               <input type="hidden" name="type" value="<?= clean_data($_GET['type']) ?>"/>
+            <input type="hidden" name="type" value="<?= clean_data($_GET['type']) ?>"/>
             <input type="hidden" name="id" value="<?= clean_data($_GET['id']) ?>"/>
             <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
             <p class="title"><?= $title ?></p>

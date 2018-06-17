@@ -105,6 +105,37 @@ if (isset($_GET['submit'])) {
     }
 }
 
+
+$show_button = true;
+switch ($_GET['type']) {
+case 'add':
+    $title = 'Add File';
+    $content = ['<input placeholder="File Name" type="text" name="file_name" autocomplete="off" class="text" autofocus> <i class="fa fa-file"></i>', '<br><p>Please choose a file type</p>', '<p><label><input checked name="lang" type="radio" value="html"> <span>HTML</span></label></p>', '<p><label><input name="lang" type="radio" value="css"> <span>CSS</span></label></p>', '<p><label><input name="lang" type="radio" value="js"> <span>JavaScript</span></label></p>'];
+    break;
+
+case 'edit':
+    $title = 'Edit File';
+    $files = sql("SELECT file FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
+    $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
+    $project_name = $projects['project_name'];
+    $file = "users/{$_SESSION['user_name']}/{$project_name}/{$files['file']}";
+    $file_open = fopen($file, "r");
+    $file_content = fread($file_open,filesize($file));
+    fclose($file);
+    $content = ['<textarea class="text" name="file_content" rows="50" cols="50" placeholder="Enter your code here...">' . $file_content . '</textarea>'];
+    break;
+
+case 'delete':
+    $title = 'Delete File';
+    $content = ["<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css'>", "<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js'></script>", "<p>Are you sure?</p>", "<div lass='inline'><a class='dropdown-trigger btn' href='?type=delete&project_id={$project_id}&id={$id}&submit&CSRFtoken=" . csrf_gen() . "'>Yes</a><a class='dropdown-trigger btn' href='home?project={$project_id}'>No</a></div>"];
+    $show_button = false;
+    break;
+
+default:
+    logout('Hack attempt detected!');
+    break;
+}
+
 ?>
 
 
@@ -124,7 +155,7 @@ if (isset($_GET['submit'])) {
 
 <body>
     <div class="wrapper">
-        <form class="login" method="post" action="files?type=<?= $_GET['type'] ?>&id=<?= $_GET['id'] ?>&project_id=<?= $_GET['project_id'] ?>&submit">
+        <form class="login" method="post" action="files?type=<?= clean_data($_GET['type']) ?>&id=<?= clean_data($$_GET['id']) ?>&project_id=<?= clean_data($$_GET['project_id']) ?>">
             <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
             <p class="title"><?= $title ?></p>
             <?php
