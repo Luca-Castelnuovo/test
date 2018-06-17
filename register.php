@@ -2,11 +2,10 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 
 $type = clean_data($_GET['type']);
-$submit = clean_data($_GET['submit']);
 $button_show = true;
 
-if (isset($submit)) {
-    //csrf_val(clean_data($_GET['CSRFtoken']));
+if (isset($_GET['submit'])) {
+    csrf_val(clean_data($_GET['CSRFtoken']));
 
     switch ($type) {
     case 'register':
