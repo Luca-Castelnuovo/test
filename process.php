@@ -148,8 +148,8 @@ switch ($_GET['type']) {
                     $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
                     $project_name = $projects['project_name'];
                     if (!empty($project_name)) {
-                        fopen("users/{$_SESSION['user_name']}/{$project_name}/{$file}", "w");
-                        fclose("users/{$_SESSION['user_name']}/{$project_name}/{$file}");
+                        fopen("users/{$_SESSION['user_name']}/{$project_name}/{$file_name_lang}", "w");
+                        fclose("users/{$_SESSION['user_name']}/{$project_name}/{$file_name_lang}");
                         success();
                     } else {
                         error(1);
