@@ -167,6 +167,8 @@ function my_project($project_id)
 {
     global $mysqli;
     $result = sql("SELECT * FROM files WHERE project_id='{$project_id}' AND owner_id='{$_SESSION['user_id']}'");
+    $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
+    $project_name = $projects['project_name'];
     echo '<h2>Files:</h2><table><tr><td class="inline">';
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
@@ -175,7 +177,7 @@ function my_project($project_id)
             $file  = $row["file"];
             echo "<td class='inline'><a class='dropdown-trigger btn' href='?project={$file_id}' data-target='{$file_id}'>{$file}</a></td>";
             echo "<ul id='{$file_id}' class='dropdown-content'>
-                    <li><a href='users/{$_SESSION['user_name']}/{$file}' target='_blank'>view</a></li>
+                    <li><a href='users/{$_SESSION['user_name']}/{$project_name}/{$file}' target='_blank'>view</a></li>
                     <li><a href='files?type=edit&id={$file_id}&project_id={$project_id}'>edit</a></li>
                     <li><a href='files?type=delete&id={$file_id}&project_id={$project_id}'>delete</a></li>
                 </ul>";
