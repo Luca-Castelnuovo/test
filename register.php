@@ -1,9 +1,6 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 
-$type = clean_data($_GET['type']);
-$button_show = true;
-
 if ($_GET['auth_code'] = 'valid') {
     $title = 'Register';
     $button_text = 'Submit';
@@ -37,7 +34,8 @@ if ($_GET['auth_code'] = 'valid') {
         <form class="login" method="post" action="?submit&type=<?= $type ?>">
             <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
             <p class="title"><?= $title ?></p>
-            <?php foreach($content as $row) {echo $row;} if ($button_show) {echo '<button id="submit"><i class="spinner"></i> <span class="state">' . $button_text . '</span></button>';}?>
+            <?php foreach($content as $row) {echo $row;}?>
+            <button id="submit"><i class="spinner"></i> <span class="state"><?= $button_text ?></span></button>
         </form>
     </div>
 </body>
