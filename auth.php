@@ -25,7 +25,9 @@ if ($result->num_rows != 0) {
         $file = fopen("login.txt", "a+");
         fwrite($file, $text);
 
-        success();
+        $out = ["status" => true];
+        echo json_encode($out);
+        exit;
     } else {
         error();
     }
@@ -36,13 +38,6 @@ if ($result->num_rows != 0) {
 function error()
 {
     $out = ["status" => false];
-    echo json_encode($out);
-    exit;
-}
-
-function success()
-{
-    $out = ["status" => true];
     echo json_encode($out);
     exit;
 }
