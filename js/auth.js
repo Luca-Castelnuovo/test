@@ -61,7 +61,7 @@ $('#submit').click(function () {
                 setTimeout(function () {
                     $this.removeClass('ok loading');
                     $state.html('Submit');
-                    location.reload();
+                    window.location.replace("/register");
                 }, 500)
             } else {
                 //if process.php returned 0/false
@@ -71,7 +71,7 @@ $('#submit').click(function () {
                     $this.removeClass('error loading');
                     $state.html('Check Invite Code');
                     $('.text').removeAttr('disabled');
-                    window.open("/register?reset", "_self");
+                    window.location.replace("/register?reset");
                 }, 1000)
             };
         }
