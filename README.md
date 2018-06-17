@@ -8,5 +8,5 @@
             - edit
             - create
             - delete
-    - make an X on error instead ov 'vinkje'
+    - css make an X on error instead ov 'vinkje'
     - css create class .highlight
