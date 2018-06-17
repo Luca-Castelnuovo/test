@@ -155,7 +155,6 @@ function my_projects()
             echo "<td class='inline'><a class='dropdown-trigger btn' href='?project={$project_id}' data-target='{$project_id}'>{$project_name}</a></td>";
             echo "<ul id='{$project_id}' class='dropdown-content'>
                     <li><a href='?project={$project_id}'>files</a></li>
-                    <li><a href='projects?type=edit&project_id={$project_id}'>edit</a></li>
                     <li><a href='projects?type=delete&project_id={$project_id}'>delete</a></li>
                 </ul>";
         }
@@ -182,6 +181,7 @@ function my_project($project_id)
             echo "<td class='inline'><a class='dropdown-trigger btn' href='?project={$file_id}' data-target='{$file_id}'>{$file}</a></td>";
             echo "<ul id='{$file_id}' class='dropdown-content'>
                     <li><a href='users/{$_SESSION['user_name']}/{$project_name}/{$file}' target='_blank'>view</a></li>
+                    <li><a href='files?type=edit&id={$file_id}&project_id={$project_id}'>edit</a></li>
                     <li><a href='files?type=delete&id={$file_id}&project_id={$project_id}'>delete</a></li>
                 </ul>";
         }
