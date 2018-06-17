@@ -50,7 +50,7 @@ switch ($_GET['type']) {
             if (empty($_GET['user_name']) || empty($_GET['user_password'])) {
                 error(6);
             }
-            $user_name = clean_data($_GET['user_name']);
+            $user_name = strtolower(clean_data($_GET['user_name']));
             $user_password = password_hash(clean_data($_GET['user_password']), PASSWORD_BCRYPT);
             $check_existing_user = sql("SELECT id FROM users WHERE user_name='{$user_name}'");
             if ($check_existing_user->num_rows > 0) {
