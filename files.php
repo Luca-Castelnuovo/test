@@ -59,6 +59,7 @@ if (isset($_GET['submit'])) {
         $title = 'Delete Project';
         $files = sql("SELECT file_name,file_type FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
         $file = $files['file'];
+        echo "DELETE FROM files WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}";exit;
         if (sql("DELETE FROM files WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
             unlink("users/{$_SESSION['user_name']}/{$file}");
             $content = ['<p>File succesfully deleted!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
