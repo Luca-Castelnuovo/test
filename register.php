@@ -3,13 +3,13 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 
 if ($_SESSION['auth_code_valid'] && $_SESSION['auth_code_id'] === 1) {
     unset($_SESSION['auth_code_valid']);
-    $js = 'register.js'
+    $js = 'register.js';
     $title = 'Register';
     $button_text = 'Submit';
     $type = 'register';
     $content = ['<input placeholder="Username" type="text" name="user_name" autocomplete="off" class="text" id="username" autofocus> <i class="fa fa-user"></i>', '<input placeholder="Password" type="password" name="user_password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>'];
 } else {
-    $js = 'auth.js'
+    $js = 'auth.js';
     $title = 'Invite Code';
     $button_text = 'Check Invite Code';
     $content = ['<input placeholder="Invite Code" type="text" name="auth_code" autocomplete="off" class="text" autofocus value="' . $_GET['auth_code'] . '"> <i class="fa fa-barcode"></i>'];
