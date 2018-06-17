@@ -80,7 +80,7 @@ input.hightlight {
       border-right-color: transparent;
       height: 20px;
       animation: none;
-      transform: rotateZ(-45deg); }
+      transform: rotateZ(45deg); }
   /* line 100, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
   .login input {
     display: block;
@@ -168,28 +168,14 @@ input.hightlight {
     border-bottom-width: 4px; }
 
 /* line 200, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
-footer {
-  display: block;
-  padding-top: 50px;
-  text-align: center;
-  color: #ddd;
-  font-weight: normal;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.2);
-  font-size: 0.8em; }
-  /* line 208, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
-  footer a, footer a:link {
-    color: #fff;
-    text-decoration: none; }
-
-/* line 214, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
 .inline {
   display: inline-block; }
 
-/* line 218, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+/* line 204, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
 .inline .btn {
   background-color: transparent !important; }
 
-/* line 222, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+/* line 208, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
 .dropdown-content li > a, .dropdown-content li > span {
   color: #2196F3 !important; }
 
