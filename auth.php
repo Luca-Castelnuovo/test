@@ -42,9 +42,6 @@ switch ($_GET['type']) {
     case 'register':
         if ($_SESSION['auth_code_valid'] && $_SESSION['auth_code_id'] === 1) {
             $input_code = $_SESSION['input_code'];
-            unset($_SESSION['input_code']);
-            unset($_SESSION['auth_code_id']);
-            unset($_SESSION['auth_code_valid']);
             if (empty($_GET['user_name']) || empty($_GET['user_password'])) {error(6);}
             $user_name = clean_data($_GET['user_name']);
             $user_password = password_hash(clean_data($_GET['user_password']), PASSWORD_BCRYPT);
@@ -52,6 +49,9 @@ switch ($_GET['type']) {
             if ($check_existing_user->num_rows > 0) {error(9);}
             sql("UPDATE codes SET used='1',user='{$user_name}' WHERE code='{$input_code}'");
             sql("INSERT INTO users (user_name, user_password) VALUES ('{$user_name}', '{$user_password}')");
+            unset($_SESSION['input_code']);
+            unset($_SESSION['auth_code_id']);
+            unset($_SESSION['auth_code_valid']);
             success();
         } else {
             error(1);
