@@ -35,7 +35,8 @@ $('#submit').click(function () {
         success_response = 'Project succesfully edited!';
         error_response = 'Project not succesfully edited!';
     }
-    console.log(project_type); return false;
+    console.log(project_type);
+    return false;
     //start the ajax
     $.ajax({
         //this is the php file that processes the data
