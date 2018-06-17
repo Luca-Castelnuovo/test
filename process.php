@@ -147,9 +147,13 @@ switch ($_GET['type']) {
                 if (sql("INSERT INTO files (owner_id, project_id, file) VALUES ('{$_SESSION['user_id']}', '{$project_id}', '{$file_name_lang}')")) {
                     $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
                     $project_name = $projects['project_name'];
-                    fopen("users/{$_SESSION['user_name']}/{$project_name}/{$file}", "w");
-                    fclose("users/{$_SESSION['user_name']}/{$project_name}/{$file}");
-                    success();
+                    if (!empty($project_name)) {
+                        fopen("users/{$_SESSION['user_name']}/{$project_name}/{$file}", "w");
+                        fclose("users/{$_SESSION['user_name']}/{$project_name}/{$file}");
+                        success();
+                    } else {
+                        error(1);
+                    }
                 } else {
                     error(1);
                 }
