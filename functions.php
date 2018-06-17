@@ -166,6 +166,9 @@ function my_projects()
 function my_project($project_id)
 {
     global $mysqli;
+    $project = sql("SELECT id FROM projects WHERE id='{$project_id}' AND owner_id='{$_SESSION['user_id']}'");
+    if ($project->num_rows = 0) {$content = ['<p>You don\'t have access!</p>', '<a href="home">Go Back</a>'];}
+
     $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
     $project_name = $projects['project_name'];
     echo '<h2>Files:</h2><table><tr><td class="inline">';

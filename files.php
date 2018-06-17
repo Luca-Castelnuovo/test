@@ -26,10 +26,8 @@ if (isset($_GET['submit'])) {
             default:
                 logout('Hack attempt detected!');
         }
-        $project = sql("SELECT owner_id FROM prohects WHERE id='{$project_id}'");
-        if ($project->num_rows = 0) {
-            $content = ['<p>You don\'t have access!</p>', '<a href="home">Go Back</a>'];
-        }
+        $project = sql("SELECT id FROM projects WHERE id='{$project_id}' AND owner_id='{$_SESSION['user_id']}'");
+        if ($project->num_rows = 0) {$content = ['<p>You don\'t have access!</p>', '<a href="home">Go Back</a>'];}
 
         if (sql("INSERT INTO files (owner_id, project_id, file) VALUES ('{$_SESSION['user_id']}', '{$project_id}', '{$file}')")) {
             $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
