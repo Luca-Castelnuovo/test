@@ -6,7 +6,7 @@ $submit = clean_data($_GET['submit']);
 $button_show = true;
 
 if (isset($submit)) {
-    csrf_val(clean_data($_POST['CSRFtoken']));
+    csrf_val(clean_data($_GET['CSRFtoken']));
 
     switch ($type) {
     case 'register':
