@@ -170,3 +170,14 @@ function my_project($project_id)
     }
     echo '</tr></table><br><a href="home">Go Back</a><a href="file?type=add" style="float: right">New File</a>';
 }
+
+
+function sql($query, $return_value = false)
+{
+    global $mysqli;
+    $result = $mysqli->query($query);
+    if ($return_value) {
+        $array = $result->fetch_assoc();
+        return $array;
+    }
+}
