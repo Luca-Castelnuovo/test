@@ -50,6 +50,7 @@ switch ($_GET['type']) {
                 $ip = ip();
                 sql("UPDATE codes SET used='1',ip='$ip' WHERE code='$code'");
                 $_SESSION['auth_code_valid'] = true;
+                $_SESSION['auth_code_id'] = 1;
                 success();
             } else {
                 error();

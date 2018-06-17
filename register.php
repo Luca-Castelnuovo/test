@@ -1,7 +1,7 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 
-if ($_SESSION['auth_code_valid']) {
+if ($_SESSION['auth_code_valid'] && $_SESSION['auth_code_id'] === 1) {
     unset($_SESSION['auth_code_valid']);
     $title = 'Register';
     $button_text = 'Submit';
