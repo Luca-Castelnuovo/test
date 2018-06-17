@@ -2,9 +2,8 @@
 $('#submit').click(function () {
 
     //Get the data from all the fields
-    var auth_code = $('input[name=auth_code]');
-    var username = $('input[name=username]');
-    var password = $('input[name=password]');
+    var username = $('input[name=user_name]');
+    var password = $('input[name=user_password]');
     var CSRFtoken = $('input[name=CSRFtoken]');
 
     //Ensure non empty inputs
@@ -18,13 +17,8 @@ $('#submit').click(function () {
         return false;
     } else password.removeClass('hightlight');
 
-    if (auth_code.val() == '') {
-        auth_code.addClass('hightlight');
-        return false;
-    } else auth_code.removeClass('hightlight');
-
     //organize the data properly
-    var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=register_auth' + '&auth_code=' + auth_code.val();
+    var data = 'username=' + username.val() + '&password=' + password.val() + '&CSRFtoken=' + CSRFtoken.val() + '&type=register';
 
     //disabled all the text fields
     $('.text').attr('disabled', 'true');
@@ -33,7 +27,7 @@ $('#submit').click(function () {
     var $this = $('.login'),
         $state = $this.find('button > .state');
     $this.addClass('loading');
-    $state.html('Checking Code');
+    $state.html('Authenticating');
 
 
     //start the ajax
@@ -57,17 +51,16 @@ $('#submit').click(function () {
             if (success) {
                 //if process.php returned 1/true
                 $this.addClass('ok');
-                $state.html('Invite Code Authorized!');
+                $state.html('Account Created!');
                 setTimeout(function () {
-                    $this.removeClass('ok loading');
-                    $state.html('Submit!');
-                }, 500)
+                    window.open("/", "_self");
+                }, 1000)
             } else {
                 //if process.php returned 0/false
                 $this.addClass('error');
-                $state.html('Invalid Invite Code!');
+                $state.html('Invite Code Invalid!');
                 setTimeout(function () {
-                    window.open("/", "_self");
+                    window.open("/register", "_self");
                 }, 1000)
             };
         }
