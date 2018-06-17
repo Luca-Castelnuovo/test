@@ -61,7 +61,7 @@ $('#submit').click(function () {
                 $state.html('Account not Created! Please try again!');
                 setTimeout(function () {
                     window.location.replace("/register");
-                }, 1500)
+                }, 1000)
             };
         }
     });
