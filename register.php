@@ -1,9 +1,9 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 
-
 $type = clean_data($_GET['type']);
 $submit = clean_data($_GET['submit']);
+$button_show = true;
 
 if (isset($submit)) {
     csrf_val(clean_data($_POST['CSRFtoken']));
@@ -17,6 +17,7 @@ if (isset($submit)) {
             $content = ['<p>Account succesfully created!</p>', '<a href="/">Login</a>'];
         } else {
             $content = ['<p>Account not succesfully created! (I fucked up lel XD)</p>', '<a href="/">Go Back</a>'];
+            $button_show = false;
         }
         break;
 
@@ -24,17 +25,18 @@ if (isset($submit)) {
         //check auth code here
         if (sql("")) {
             $title = 'Register';
-            $button = 'Submit';
+            $button_text = 'Submit';
             $type = 'register';
             $content = ['<input placeholder="Username" type="text" name="username" autocomplete="off" class="text" id="username" autofocus> <i class="fa fa-user"></i>', '<input placeholder="Password" type="password" name="user_password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>', '<input type="hidden" name="auth_code" value="' . $_GET['auth_code'] . '">'];
         } else {
             $content = ['<p>Invite Code is not valid!</p>', '<a href="/">Go Back</a>'];
+            $button_show = false;
         }
     }
 
 } else {
     $title = 'Invite Code';
-    $button = 'Check Invite Code';
+    $button_text = 'Check Invite Code';
     $content = ['<input placeholder="Invite Code" type="text" name="auth_code" autocomplete="off" class="text" autofocus> <i class="fa fa-barcode"></i>'];
 }
 
@@ -60,8 +62,7 @@ if (isset($submit)) {
         <form class="login" method="post" action="?submit&type=<?= $type ?>">
             <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
             <p class="title"><?= $title ?></p>
-            <?php foreach($content as $row) {echo $row;} ?>
-            <button id="submit"><i class="spinner"></i> <span class="state"><?= $button ?></span></button>
+            <?php foreach($content as $row) {echo $row;} if ($button_show) {echo '<button id="submit"><i class="spinner"></i> <span class="state">' . $button_text . '</span></button>';}?>
         </form>
     </div>
 </body>
