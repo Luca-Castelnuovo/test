@@ -7,7 +7,7 @@ $('#submit').click(function () {
     var file_type = $('input[name=type]');
     var file_name = $('input[name=file_name]');
     var file_lang = $('input[name=file_lang]');
-    var file_content = $('#file_content').text();
+    var file_content = $('textarea#file_content');
     var file_delete = $('input[name=file_delete]');
     var CSRFtoken = $('input[name=CSRFtoken]');
 
@@ -34,7 +34,7 @@ $('#submit').click(function () {
     } else file_name.removeClass('hightlight');
 
     //organize the data properly
-    var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=files' + '&file_type=' + file_type.val() + '&project_id=' + project_id.val() + '&file_id=' + file_id.val() +'&file_name=' + file_name.val() + '&file_lang=' + file_lang.val() + '&file_content=' + file_content + '&file_delete=' + file_delete.val();
+    var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=files' + '&file_type=' + file_type.val() + '&project_id=' + project_id.val() + '&file_id=' + file_id.val() +'&file_name=' + file_name.val() + '&file_lang=' + file_lang.val() + '&file_content=' + file_content.val() + '&file_delete=' + file_delete.val();
     console.log(data);
 
     //disabled all the text fields
