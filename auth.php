@@ -68,6 +68,7 @@ switch ($_GET['type']) {
         break;
 
     default:
+        error();
         break;
 }
 
