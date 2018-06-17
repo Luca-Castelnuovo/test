@@ -13,6 +13,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 login();
 
 $id = clean_data($_GET['id']);
+$project_id = clean_data($_GET['project_id']);
 
 if (isset($_GET['submit'])) {
     $show_button = false;
@@ -64,7 +65,7 @@ if (isset($_GET['submit'])) {
         break;
     case 'edit':
         $title = 'Edit File';
-        $files = sql("SELECT project_name FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
+        $files = sql("SELECT * FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
         $file_name = $files['file_name'];
         $file_content = $files['file_content'];
 
@@ -75,7 +76,7 @@ if (isset($_GET['submit'])) {
         break;
     case 'delete':
         $title = 'Delete File';
-        $content = ["<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css'>", "<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js'></script>", "<p>Are you sure?</p>", "<div class='inline'><a class='dropdown-trigger btn' href='?type=delete&id={$id}&submit&CSRFtoken=" . csrf_gen() . "'>Yes</a><a class='dropdown-trigger btn' href='#' onclick='window.history.back();'>No</a></div>"];
+        $content = ["<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css'>", "<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js'></script>", "<p>Are you sure?</p>", "<div class='inline'><a class='dropdown-trigger btn' href='?type=delete&id={$id}&submit&CSRFtoken=" . csrf_gen() . "'>Yes</a><a class='dropdown-trigger btn' href='home?project={$project_id}'>No</a></div>"];
         $show_button = false;
         break;
 
