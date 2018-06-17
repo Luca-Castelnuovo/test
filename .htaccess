@@ -1,5 +1,5 @@
 # custom error pages
-ErrorDocument 404 /home
+#ErrorDocument 404 /home
 
 # turn mod_rewrite on
 RewriteEngine On
