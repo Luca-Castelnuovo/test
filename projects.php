@@ -9,7 +9,6 @@ case 'add':
     $button_text = 'Add my project';
     break;
 case 'delete':
-    $project_id = clean_data($_GET['project_id']);
     $title = 'Delete Project';
     $content = ['<input placeholder="To confirm type `delete` else type `no`" type="text" name="project_delete" autocomplete="off" class="text" autofocus> <i class="fa fa-trash"></i>'];
     $button_text = 'Submit';

@@ -2,9 +2,6 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 login();
 
-$id = clean_data($_GET['id']);
-$project_id = clean_data($_GET['project_id']);
-
 if (isset($_GET['submit'])) {
     $show_button = false;
     switch ($_GET['type']) {
@@ -70,41 +67,10 @@ if (isset($_GET['submit'])) {
             $content = ['<p>File not succesfully deleted!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
         }
         break;
-
-    default:
-        logout('Hack attempt detected!');
-        break;
-    }
-} else {
-    $show_button = true;
-    switch ($_GET['type']) {
-    case 'add':
-        $title = 'Add File';
-        $content = ['<input placeholder="File Name" type="text" name="file_name" autocomplete="off" class="text" autofocus> <i class="fa fa-file"></i>', '<br><p>Please choose a file type</p>', '<p><label><input checked name="lang" type="radio" value="html"> <span>HTML</span></label></p>', '<p><label><input name="lang" type="radio" value="css"> <span>CSS</span></label></p>', '<p><label><input name="lang" type="radio" value="js"> <span>JavaScript</span></label></p>'];
-        break;
-    case 'edit':
-        $title = 'Edit File';
-        $files = sql("SELECT file FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
-        $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
-        $project_name = $projects['project_name'];
-        $file = "users/{$_SESSION['user_name']}/{$project_name}/{$files['file']}";
-        $file_open = fopen($file, "r");
-        $file_content = fread($file_open,filesize($file));
-        fclose($file);
-        $content = ['<textarea class="text" name="file_content" rows="50" cols="50" placeholder="Enter your code here...">' . $file_content . '</textarea>'];
-        break;
-    case 'delete':
-        $title = 'Delete File';
-        $content = ["<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css'>", "<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js'></script>", "<p>Are you sure?</p>", "<div class='inline'><a class='dropdown-trigger btn' href='?type=delete&project_id={$project_id}&id={$id}&submit&CSRFtoken=" . csrf_gen() . "'>Yes</a><a class='dropdown-trigger btn' href='home?project={$project_id}'>No</a></div>"];
-        $show_button = false;
-        break;
-
-    default:
-        logout('Hack attempt detected!');
-        break;
-    }
 }
 
+$id = clean_data($_GET['id']);
+$project_id = clean_data($_GET['project_id']);
 
 $show_button = true;
 switch ($_GET['type']) {
@@ -155,7 +121,10 @@ default:
 
 <body>
     <div class="wrapper">
-        <form class="login" method="post" action="files?type=<?= clean_data($_GET['type']) ?>&id=<?= clean_data($$_GET['id']) ?>&project_id=<?= clean_data($$_GET['project_id']) ?>">
+        <form class="login">
+            <input type="hidden" name="type" value="<?= clean_data($_GET['type']) ?>"/>
+            <input type="hidden" name="id" value="<?= clean_data($_GET['id']) ?>"/>
+            <input type="hidden" name="project_id" value="<?= clean_data($_GET['project_id']) ?>"/>
             <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
             <p class="title"><?= $title ?></p>
             <?php
