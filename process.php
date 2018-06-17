@@ -73,12 +73,9 @@ switch ($_GET['type']) {
         break;
 
     case 'projects':
-        $project_id = clean_data($_GET['project_id']);
-        $project_name = clean_data($_GET['project_name']);
-        $project_delete = clean_data($_GET['project_delete']);
-
         switch($_GET['project_type']) {
             case 'add':
+                $project_name = clean_data($_GET['project_name']);
                 if (sql("INSERT INTO projects (owner_id, project_name) VALUES ('{$_SESSION['user_id']}', '{$project_name}')")) {
                     mkdir("users/{$_SESSION['user_name']}/{$project_name}");
                     success();
@@ -88,6 +85,8 @@ switch ($_GET['type']) {
 
                 break;
             case 'delete':
+                $project_id = clean_data($_GET['project_id']);
+                $project_delete = clean_data($_GET['project_delete']);
                 $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
                 $project_name = $projects['project_name'];
                 if ($project_delete == 'delete') {
@@ -109,7 +108,75 @@ switch ($_GET['type']) {
         break;
 
     case 'files':
+        $project_id = clean_data($_GET['project_id']);
+        $file_id = clean_data($_GET['file_id']);
+        $file_name = clean_data($_GET['file_name']);
 
+        switch($_GET['file_type']) {
+            case 'add':
+                $file_lang = clean_data($_POST['file_lang']);
+                switch ($file_lang) {
+                    case 'html':
+                        $file_name_lang = $file_name . '.html';
+                        break;
+                    case 'css':
+                        $file_name_lang = $file_name . '.css';
+                        break;
+                    case 'js':
+                        $file_name_lang = $file_name . '.js';
+                        break;
+                    default:
+                        logout('Hack attempt detected!');
+                }
+
+                $project = sql("SELECT id FROM projects WHERE id='{$project_id}' AND owner_id='{$_SESSION['user_id']}'");
+                if ($project->num_rows == 0) {header('Location: /home');exit;}
+
+                if (sql("INSERT INTO files (owner_id, project_id, file) VALUES ('{$_SESSION['user_id']}', '{$project_id}', '{$file}')")) {
+                    $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
+                    $project_name = $projects['project_name'];
+                    fopen("users/{$_SESSION['user_name']}/{$project_name}/{$file}", "w");
+                    fclose("users/{$_SESSION['user_name']}/{$project_name}/{$file}");
+                    success();
+                } else {
+                    error(1);
+                }
+
+
+                break;
+            case 'edit':
+                $file_content = $_POST['file_content'].PHP_EOL;
+                $files = sql("SELECT file FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
+                $file_name = $files['file'];
+                $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'",
+                    true);
+                $project_name = $projects['project_name'];
+                $file_path_full = "users/{$_SESSION['user_name']}/{$project_name}/{$files['file']}";
+                $file_open = fopen($file_path_full, "w");
+                if (fwrite($file_open, $file_content)) {
+                    fclose($file_path_full);
+                    success();
+                } else {
+                    fclose($file_path_full);
+                    error(1);
+                }
+                break;
+            case 'delete':
+                $file_delete = clean_data($_GET['file_delete']);
+                $files = sql("SELECT file FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
+                $file_name = $files['file'];
+                $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
+                $project_name = $projects['project_name'];
+                if (sql("DELETE FROM files WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
+                    unlink("users/{$_SESSION['user_name']}/{$project_name}/{$file_name}");
+                    success();
+                } else {
+                    error(0);
+                }
+                break;
+            default:
+                error(0);
+        }
         break;
 
     default:
