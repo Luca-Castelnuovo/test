@@ -87,13 +87,17 @@ input.hightlight {
     button {
       background-color: #cc0000;
       .spinner {
-        border-radius: 0;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        border-left-color: transparent;
-        height: 20px;
+        //border-radius: 0;
+        //border-top-color: transparent;
+        //border-right-color: transparent;
+        //border-left-color: transparent;
+        //height: 20px;
         animation: none;
-        transform: rotateZ(45deg);
+        //transform: rotateZ(45deg);
+        width:25%;
+        background: -webkit-linear-gradient(bottom left, #fff, #aaa, #fff);
+        background: -o-linear-gradient(bottom left, #fff, #aaa, #fff);
+        background: linear-gradient(to top right, #fff, #aaa, #fff);
       }
     }
   }
