@@ -1,5 +1,14 @@
 <?php
 
+
+//LOG IP AND USERNAME OF EVRYTHING THAT HAPPENS IN THIS FILE
+//LOG IP AND USERNAME OF EVRYTHING THAT HAPPENS IN THIS FILE
+//LOG IP AND USERNAME OF EVRYTHING THAT HAPPENS IN THIS FILE
+//LOG IP AND USERNAME OF EVRYTHING THAT HAPPENS IN THIS FILE
+//LOG IP AND USERNAME OF EVRYTHING THAT HAPPENS IN THIS FILE
+//LOG IP AND USERNAME OF EVRYTHING THAT HAPPENS IN THIS FILE
+
+
 require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 login();
 
@@ -12,7 +21,7 @@ if (isset($_GET['submit'])) {
         csrf_val(clean_data($_POST['CSRFtoken']));
         $title = 'Add Project';
         $project_name = clean_data($_POST['project_name']);
-        if (sql("INSERT INTO projects (owner_id, project_name) VALUES ('{$_SESSION['user_id']}', '{$project_name}')")) {
+        if (sql("INSERT INTO files (owner_id, project_name) VALUES ('{$_SESSION['user_id']}', '{$project_name}')")) {
             $content = ['<p>Project succesfully created!</p>', '<a href="home">Go Back</a>'];
         } else {
             $content = ['<p>Project not succesfully created!</p>', '<a href="home">Go Back</a>'];
@@ -22,7 +31,7 @@ if (isset($_GET['submit'])) {
         csrf_val(clean_data($_POST['CSRFtoken']));
         $title = 'Edit Project';
         $project_name = clean_data($_POST['project_name']);
-        if (sql("UPDATE projects SET project_name='{$project_name}' WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
+        if (sql("UPDATE files SET project_name='{$project_name}' WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
             $content = ['<p>Project succesfully edited!</p>', '<a href="home">Go Back</a>'];
         } else {
             $content = ['<p>Project not succesfully edited!</p>', '<a href="home">Go Back</a>'];
@@ -31,7 +40,7 @@ if (isset($_GET['submit'])) {
     case 'delete':
         csrf_val(clean_data($_GET['CSRFtoken']));
         $title = 'Delete Project';
-        if (sql("DELETE FROM projects WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
+        if (sql("DELETE FROM files WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
             $content = ['<p>Project succesfully deleted!</p>', '<a href="home">Go Back</a>'];
         } else {
             $content = ['<p>Project not succesfully deleted!</p>', '<a href="home">Go Back</a>'];
@@ -47,13 +56,22 @@ if (isset($_GET['submit'])) {
     switch ($_GET['type']) {
     case 'add':
         $title = 'Add File';
+
+        //make radio buttons for (js,css,html)
+        //maybe make a file upload?
         $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" autofocus> <i class="fa fa-user"></i>'];
+
         break;
     case 'edit':
         $title = 'Edit File';
-        $projects = sql("SELECT project_name FROM projects WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
-        $project_name = $projects['project_name'];
-        $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" value="' . $project_name . '" autofocus> <i class="fa fa-user"></i>'];
+        $files = sql("SELECT project_name FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
+        $file_name = $files['file_name'];
+        $file_content = $files['file_content'];
+
+        //make a textarea for code
+        $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" value="' . $file_name . '" autofocus> <i class="fa fa-user"></i>'];
+
+
         break;
     case 'delete':
         $title = 'Delete File';
@@ -86,7 +104,7 @@ if (isset($_GET['submit'])) {
 
 <body>
     <div class="wrapper">
-        <form class="login" method="post" action="projects?type=<?= $_GET['type'] ?>&id=<?= $_GET['id'] ?>&submit">
+        <form class="login" method="post" action="files?type=<?= $_GET['type'] ?>&id=<?= $_GET['id'] ?>&submit">
             <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
             <p class="title"><?= $title ?></p>
             <?php
