@@ -32,6 +32,8 @@ if (isset($_GET['submit'])) {
     case 'delete':
         csrf_val(clean_data($_GET['CSRFtoken']));
         $title = 'Delete Project';
+        $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
+        $project_name = $projects['project_name'];
         if (sql("DELETE FROM projects WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
             rrmdir("users/{$_SESSION['user_name']}/{$project_name}");
             $content = ['<p>Project succesfully deleted!</p>', '<a href="home">Go Back</a>'];
