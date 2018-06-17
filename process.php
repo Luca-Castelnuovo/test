@@ -95,7 +95,7 @@ switch ($_GET['type']) {
                         if(!empty($project_name)) {
                             rrmdir("users/{$_SESSION['user_name']}/{$project_name}");
                         }
-                        header('Location: /home');
+                        success();
                     } else {
                         error(0);
                     }
