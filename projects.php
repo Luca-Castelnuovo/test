@@ -11,7 +11,7 @@ case 'add':
 case 'delete':
     $project_id = clean_data($_GET['project_id']);
     $title = 'Delete Project';
-    $content = ["<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css'>", "<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js'></script>", "<p>Are you sure?</p>", "<div class='inline'>", "<a class='dropdown-trigger btn' href='process?type=projects&project_type=delete&id={$project_id}&CSRFtoken=" . csrf_gen() . "'>Yes</a><a class='dropdown-trigger btn' href='home?project={$project_id}'>No</a></div>"];
+    $content = ["<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css'>", "<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js'></script>", "<p>Are you sure?</p>", "<div class='inline'>", "<a class='dropdown-trigger btn' href='process?type=projects&project_type=delete&id={$project_id}&CSRFtoken=" . csrf_gen() . "'>Yes</a><a class='dropdown-trigger btn' href='home'>No</a></div>"];
     $show_button = false;
     break;
 
