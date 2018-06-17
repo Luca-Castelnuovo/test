@@ -2,7 +2,7 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 
 if (csrf_val_ajax(clean_data($_GET['CSRFtoken']))) {
-    error(8);
+    //error(8);
 }
 
 switch ($_GET['type']) {
