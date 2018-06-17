@@ -173,7 +173,7 @@ function my_project($project_id)
             $file_id  = $row["id"];
             $project_id  = $row["project_id"];
             $file  = $row["file"];
-            echo "<td class='inline'><a class='dropdown-trigger btn' href='?project={$file_id}' data-target='{$file_id}'>{$file_name}</a></td>";
+            echo "<td class='inline'><a class='dropdown-trigger btn' href='?project={$file_id}' data-target='{$file_id}'>{$file}</a></td>";
             echo "<ul id='{$file_id}' class='dropdown-content'>
                     <li><a href='users/{$_SESSION['user_name']}/{$file}'>view</a></li>
                     <li><a href='files?type=edit&id={$file_id}&project_id={$project_id}'>edit</a></li>
