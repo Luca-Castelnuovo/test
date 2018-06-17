@@ -139,17 +139,13 @@ switch ($_GET['type']) {
                 }
 
                 $project = sql("SELECT id FROM projects WHERE id='{$project_id}' AND owner_id='{$_SESSION['user_id']}'");
-                if ($project->num_rows == 0) {
-                    header('Location: /home');
-                    exit;
-                }
+                if ($project->num_rows == 0) {header('Location: /home');exit;}
 
                 if (sql("INSERT INTO files (owner_id, project_id, file) VALUES ('{$_SESSION['user_id']}', '{$project_id}', '{$file_name_lang}')")) {
                     $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
-                    $project_name = $projects['project_name'];
-                    if (!empty($project_name)) {
-                        fopen("users/{$_SESSION['user_name']}/{$project_name}/{$file_name_lang}", "w");
-                        fclose("users/{$_SESSION['user_name']}/{$project_name}/{$file_name_lang}");
+                    if (!empty($projects['project_name'])) {
+                        fopen("users/{$_SESSION['user_name']}/{$projects['project_name']}/{$file_name_lang}", "w");
+                        fclose("users/{$_SESSION['user_name']}/{$projects['project_name']}/{$file_name_lang}");
                         success();
                     } else {
                         error(1);
@@ -157,8 +153,6 @@ switch ($_GET['type']) {
                 } else {
                     error(1);
                 }
-
-
                 break;
             case 'edit':
                 $file_content = $_GET['file_content'] . PHP_EOL;
