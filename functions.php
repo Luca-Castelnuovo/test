@@ -130,8 +130,8 @@ function reset_()
     }
     $_SESSION = array();
     session_destroy();
-    //header("Location: {$_SERVER['REQUEST_URI']}");
-    echo $_SERVER['PHP_SELF'];
+    $trimmed = str_replace('.php', '', $_SERVER['PHP_SELF']);
+    header("Location: {$trimmed}");
 }
 
 function my_projects()
