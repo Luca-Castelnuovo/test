@@ -56,7 +56,7 @@ switch ($_GET['type']) {
 
 <body>
 <div class="wrapper">
-    <form class="login">
+    <form class="login <?php if($title == 'edit') {echo 'edit';} ?>">
         <input type="hidden" name="project_id" value="<?= clean_data($_GET['project_id']) ?>"/>
         <input type="hidden" name="type" value="<?= clean_data($_GET['type']) ?>"/>
         <input type="hidden" name="id" value="<?= clean_data($_GET['id']) ?>"/>
