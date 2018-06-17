@@ -86,13 +86,6 @@ switch ($_GET['type']) {
                 }
 
                 break;
-            case 'edit':
-                if (sql("UPDATE projects SET project_name='{$project_name}' WHERE id='{$project_id}' AND owner_id='{$_SESSION['user_id']}'")) {
-                    success();
-                } else {
-                    error(0);
-                }
-                break;
             case 'delete':
                 $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
                 $project_name = $projects['project_name'];

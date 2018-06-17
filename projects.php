@@ -8,13 +8,6 @@ case 'add':
     $title = 'Add Project';
     $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" autofocus> <i class="fa fa-user"></i>'];
     break;
-case 'edit':
-    $project_id = clean_data($_GET['project_id']);
-    $title = 'Edit Project';
-    $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
-    $project_name = $projects['project_name'];
-    $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" value="' . $project_name . '" autofocus> <i class="fa fa-user"></i>'];
-    break;
 case 'delete':
     $project_id = clean_data($_GET['project_id']);
     $title = 'Delete Project';

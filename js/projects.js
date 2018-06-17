@@ -13,17 +13,6 @@ $('#submit').click(function () {
         return false;
     } else project_name.removeClass('hightlight');
 
-    var success_response = '';
-    var error_response = '';
-
-    if (project_type.val() == 'add') {
-        success_response = 'Project succesfully created!';
-        error_response = 'Project not succesfully created!';
-    } else {
-        success_response = 'Project succesfully edited!';
-        error_response = 'Project not succesfully edited!';
-    }
-
     //organize the data properly
     var data = 'project_id=' + project_id.val() + '&project_name=' + project_name.val() +'&CSRFtoken=' + CSRFtoken.val() + '&type=projects' + '&project_type=' + project_type.val();
     console.log(data);
@@ -58,14 +47,14 @@ $('#submit').click(function () {
             if (success) {
                 //if process.php returned 1/true
                 $this.addClass('ok');
-                $state.html(success_response);
+                $state.html('Project succesfully created!');
                 setTimeout(function () {
                     window.location.replace("/home");
                 }, 500)
             } else {
                 //if process.php returned 0/false
                 $this.addClass('error');
-                $state.html(error_response);
+                $state.html('Project not succesfully created!');
                 setTimeout(function () {
                     window.location.replace("/home");
                 }, 1000)
