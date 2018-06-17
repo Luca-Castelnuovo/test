@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Please enter your password
+AuthUserFile /Users/LucaCastelnuovo/Documents/github/testAPI/API/api_auth/.htpasswd
+Require valid-user
