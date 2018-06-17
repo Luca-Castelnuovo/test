@@ -5,6 +5,7 @@ $('#submit').click(function () {
     var project_type = $('input[name=type]');
     var project_id = $('input[name=id]');
     var project_name = $('input[name=project_name]');
+    var project_delete = $('input[name=project_delete]');
     var CSRFtoken = $('input[name=CSRFtoken]');
 
     var success_response = '';
@@ -12,10 +13,10 @@ $('#submit').click(function () {
 
     if (project_type.val() == 'add') {
         success_response = 'Project succesfully created!';
-        error_response = 'Project not succesfully created!';
+        error_response = 'Project not created!';
     } else {
         success_response = 'Project succesfully deleted!';
-        error_response = 'Project not succesfully deleted!';
+        error_response = 'Project not deleted!';
     }
 
     //Ensure non empty inputs
@@ -26,7 +27,7 @@ $('#submit').click(function () {
 
 
     //organize the data properly
-    var data = 'project_id=' + project_id.val() + '&project_name=' + project_name.val() +'&CSRFtoken=' + CSRFtoken.val() + '&type=projects' + '&project_type=' + project_type.val();
+    var data = 'project_id=' + project_id.val() + '&project_name=' + project_name.val() +'&CSRFtoken=' + CSRFtoken.val() + '&type=projects' + '&project_type=' + project_type.val() + '&project_delete=' + project_delete.val();
     console.log(data);
 
     //disabled all the text fields

@@ -75,6 +75,7 @@ switch ($_GET['type']) {
     case 'projects':
         $project_id = clean_data($_GET['project_id']);
         $project_name = clean_data($_GET['project_name']);
+        $project_delete = clean_data($_GET['project_delete']);
 
         switch($_GET['project_type']) {
             case 'add':
@@ -89,13 +90,17 @@ switch ($_GET['type']) {
             case 'delete':
                 $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
                 $project_name = $projects['project_name'];
-                if (sql("DELETE FROM projects WHERE id='{$project_id}' AND owner_id='{$_SESSION['user_id']}'")) {
-                    if(!empty($project_name)) {
-                        rrmdir("users/{$_SESSION['user_name']}/{$project_name}");
+                if ($project_delete == 'delete') {
+                    if (sql("DELETE FROM projects WHERE id='{$project_id}' AND owner_id='{$_SESSION['user_id']}'")) {
+                        if(!empty($project_name)) {
+                            rrmdir("users/{$_SESSION['user_name']}/{$project_name}");
+                        }
+                        header('Location: /home');
+                    } else {
+                        error(0);
                     }
-                    header('Location: /home');
                 } else {
-                    error(0);
+                   error(0);
                 }
                 break;
             default:
