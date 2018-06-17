@@ -53,7 +53,7 @@ $('#submit').click(function () {
                 $this.addClass('ok');
                 $state.html('Account Created!');
                 setTimeout(function () {
-                    window.location.replace("/register");
+                    window.location.replace("/");
                 }, 1000)
             } else {
                 //if process.php returned 0/false
