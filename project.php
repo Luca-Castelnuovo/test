@@ -21,7 +21,7 @@ if (isset($_GET['submit'])) {
     case 'edit':
         csrf_val(clean_data($_POST['CSRFtoken']));
         $title = 'Edit Project';
-        if ($mysqli->query("UDATE projects SET project_name='{$project_name}' WHERE id={$id} AND owner_id={$_SESSION['user_id']}")) {
+        if ($mysqli->query("UDATE projects SET project_name='{$project_name}' WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
             $content = ['<p>Project succesfully edited!</p>', '<a href="home">Go Back</a>'];
         } else {
             $content = ['<p>Project not succesfully edited!</p>', '<a href="home">Go Back</a>'];
@@ -30,7 +30,7 @@ if (isset($_GET['submit'])) {
     case 'delete':
         csrf_val(clean_data($_GET['CSRFtoken']));
         $title = 'Delete Project';
-        if ($mysqli->query("DELETE FROM projects WHERE id={$id} AND owner_id={$_SESSION['user_id']}")) {
+        if ($mysqli->query("DELETE FROM projects WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
             $content = ['<p>Project succesfully deleted!</p>', '<a href="home">Go Back</a>'];
         } else {
             $content = ['<p>Project not succesfully deleted!</p>', '<a href="home">Go Back</a>'];
@@ -50,7 +50,7 @@ if (isset($_GET['submit'])) {
         break;
     case 'edit':
         $title = 'Edit Project';
-        $result = $mysqli->query("SELECT project_name FROME projects WHERE id={$id} AND owner_id={$_SESSION['user_id']}");
+        $result = $mysqli->query("SELECT project_name FROME projects WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'");
         $user = $result->fetch_assoc();
         $project_name = $user['project_name'];
         $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" value="' . $project_name . '" autofocus> <i class="fa fa-user"></i>'];
