@@ -10,6 +10,7 @@ switch ($_GET['type']) {
     case 'add':
         $title = 'Add File';
         $content = ['<input placeholder="File Name" type="text" name="file_name" autocomplete="off" class="text" autofocus> <i class="fa fa-file"></i>', '<br><p>Please choose a file type</p>', '<p><label><input checked name="file_lang" type="radio" value="html"> <span>HTML</span></label></p>', '<p><label><input name="file_lang" type="radio" value="css"> <span>CSS</span></label></p>', '<p><label><input name="file_lang" type="radio" value="js"> <span>JavaScript</span></label></p>'];
+        $button_text = 'Create File';
         break;
 
     case 'edit':
@@ -22,6 +23,7 @@ switch ($_GET['type']) {
         $file_content = fread($file_open, filesize($file));
         fclose($file);
         $content = ['<textarea class="text" name="file_content" rows="50" cols="50" placeholder="Enter your code here...">' . $file_content . '</textarea>'];
+        $button_text = 'Save File';
         break;
 
     case 'delete':
