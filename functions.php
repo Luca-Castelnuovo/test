@@ -147,7 +147,7 @@ function reset_()
 function my_projects()
 {
     $result = sql("SELECT * FROM projects WHERE owner_id='{$_SESSION['user_id']}'");
-    echo '<h2>Projects:</h2><table>';
+    echo '<h2 style="text-transform: uppercase">Projects:</h2><table>';
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $project_id = $row["id"];
