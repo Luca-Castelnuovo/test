@@ -161,13 +161,10 @@ switch ($_GET['type']) {
 
                 break;
             case 'edit':
-                $file_content = $_POST['file_content'] . PHP_EOL;
-                $files = sql("SELECT file FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
-                $file_name = $files['file'];
-                $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'",
-                    true);
-                $project_name = $projects['project_name'];
-                $file_path_full = "users/{$_SESSION['user_name']}/{$project_name}/{$files['file']}";
+                $file_content = $_GET['file_content'] . PHP_EOL;
+                $files = sql("SELECT file FROM files WHERE id='{$file_id}'AND owner_id='{$_SESSION['user_id']}'", true);
+                $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
+                $file_path_full = "users/{$_SESSION['user_name']}/{$projects['project_name']}/{$files['file']}";
                 $file_open = fopen($file_path_full, "w");
                 if (fwrite($file_open, $file_content)) {
                     fclose($file_path_full);
@@ -180,12 +177,10 @@ switch ($_GET['type']) {
             case 'delete':
                 $file_delete = clean_data($_GET['file_delete']);
                 $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
-                $project_name = $projects['project_name'];
                 $files = sql("SELECT file FROM files WHERE id='{$file_id}'AND owner_id='{$_SESSION['user_id']}'", true);
-                $file_name = $files['file'];
                 if ($file_delete == 'delete') {
                     if (sql("DELETE FROM files WHERE id='{$file_id}' AND owner_id='{$_SESSION['user_id']}'")) {
-                        unlink("users/{$_SESSION['user_name']}/{$project_name}/{$file_name}");
+                        unlink("users/{$_SESSION['user_name']}/{$projects['project_name']}/{$files['file']}");
                         success();
                     } else {
                         error(0);
