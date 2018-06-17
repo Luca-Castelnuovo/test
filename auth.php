@@ -2,7 +2,7 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 
 if (csrf_val_ajax(clean_data($_GET['CSRFtoken']))) {
-    error();
+    error(8);
 }
 
 switch ($_GET['type']) {
@@ -26,12 +26,12 @@ switch ($_GET['type']) {
                 $file = fopen("login.txt", "a+");
                 fwrite($file, $text);
 
-                success();
+                success(7);
             } else {
-                error();
+                error(6);
             }
         } else {
-            error();
+            error(5);
         }
         break;
     case 'register_auth':
@@ -39,7 +39,7 @@ switch ($_GET['type']) {
         $auth = sql("SELECT valid,created,type,used FROM codes WHERE code='{$code}'");
 
         if ($auth->num_rows == 0) {
-            error();
+            error(4);
         } elseif ($auth->num_rows == 1) {
             $auth = $auth->fetch_assoc();
             $created = $auth["created"];
@@ -53,10 +53,10 @@ switch ($_GET['type']) {
                 $_SESSION['auth_code_id'] = 1;
                 success();
             } else {
-                error();
+                error(3);
             }
         } else {
-            error();
+            error(2);
         }
 
 
@@ -68,13 +68,13 @@ switch ($_GET['type']) {
         break;
 
     default:
-        error();
+        error(1);
         break;
 }
 
-function error()
+function error($error_code = null)
 {
-    $out = ["status" => false];
+    $out = ["status" => false, "error_code" => {$error_code}];
     echo json_encode($out);
     exit;
 }
