@@ -71,7 +71,7 @@ $('#submit').click(function () {
                     $this.removeClass('error loading');
                     $state.html('Check Invite Code');
                     $('.text').removeAttr('disabled');
-                    $('#auth_code').focus();
+                    window.open("/register?reset", "_self");
                 }, 1000)
             };
         }
