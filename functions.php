@@ -174,7 +174,7 @@ function my_project($project_id)
     $project_name = $projects['project_name'];
 
     $result = sql("SELECT * FROM files WHERE project_id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'");
-    echo '<h2>Files:</h2><table><tr><td class="inline">';
+    echo '<h2>' . $project_name . ':</h2><table><tr><td class="inline">';
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $file_id = $row["id"];
