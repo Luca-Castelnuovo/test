@@ -19,7 +19,8 @@ $('#submit').click(function () {
 
     //organize the data properly
     var data = 'username=' + username.val() + '&password=' + password.val() + '&CSRFtoken=' + CSRFtoken.val() + 'type=login';
-
+    console.log(data);
+    return false;
     //disabled all the text fields
     $('.text').attr('disabled', 'true');
 
