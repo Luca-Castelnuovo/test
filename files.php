@@ -56,9 +56,9 @@ if (isset($_GET['submit'])) {
         $file = $files['file'];
         if (sql("DELETE FROM files WHERE id='{$id}' AND owner_id='{$_SESSION['user_id']}'")) {
             unlink("users/{$_SESSION['user_name']}/{$file}");
-            $content = ['<p>File succesfully deleted!</p>', '<a href="home?project_id=' . $project_id . '">Go Back</a>'];
+            $content = ['<p>File succesfully deleted!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
         } else {
-            $content = ['<p>File not succesfully deleted!</p>', '<a href="home?project_id=' . $project_id . '">Go Back</a>'];
+            $content = ['<p>File not succesfully deleted!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
         }
         break;
 
