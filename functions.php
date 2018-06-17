@@ -167,7 +167,7 @@ function my_project($project_id)
 {
     global $mysqli;
     $result = sql("SELECT * FROM files WHERE project_id='{$project_id}' AND owner_id='{$_SESSION['user_id']}'");
-    if ($result->num_rows > 0) {header('Location: /home');}
+    if ($result->num_rows = 0) {header('Location: /home');}
     $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
     $project_name = $projects['project_name'];
     echo '<h2>Files:</h2><table><tr><td class="inline">';
