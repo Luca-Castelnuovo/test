@@ -46,9 +46,10 @@ switch ($_GET['type']) {
             $valid = $auth["valid"];
             $type = $auth["type"];
             $used = $auth["used"];
-            if (!($created >= $valid) && !$used && $type == 'register_auth') {
+            if (!($created >= $valid) && !$used && $type == 'register') {
                 $ip = ip();
-                sql("UPDATE codes SET type='register' WHERE code='$code'");
+                sql("UPDATE codes SET used='1',ip='$ip' WHERE code='$code'");
+                $_SESSION['register_allow'] = true;
                 success();
             } else {
                 error();

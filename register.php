@@ -1,11 +1,12 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 
-if (isset($_GET['register'])) {
+if ($_SESSION['register_allow']) {
+    unset($_SESSION['register_allow']);
     $title = 'Register';
     $button_text = 'Submit';
     $type = 'register';
-    $content = ['<input placeholder="Username" type="text" name="user_name" autocomplete="off" class="text" id="username" autofocus> <i class="fa fa-user"></i>', '<input placeholder="Password" type="password" name="user_password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>', '<input type="hidden" name="auth_code" value="' . $_GET['auth_code'] . '">'];
+    $content = ['<input placeholder="Username" type="text" name="user_name" autocomplete="off" class="text" id="username" autofocus> <i class="fa fa-user"></i>', '<input placeholder="Password" type="password" name="user_password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>'];
 } else {
     $title = 'Invite Code';
     $button_text = 'Check Invite Code';
