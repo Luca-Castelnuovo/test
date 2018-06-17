@@ -2,16 +2,18 @@
 $('#submit').click(function () {
 
     //Get the data from all the fields
-    var project_type = $('input[name=type]');
-    var project_id = $('input[name=id]');
-    var project_name = $('input[name=project_name]');
-    var project_delete = $('input[name=project_delete]');
+    var file_type = $('input[name=type]');
+    var file_id = $('input[name=id]');
+    var file_name = $('input[name=file_name]');
+
+    var file_content = $('input[name=file_delete]');
+    var file_delete = $('input[name=file_delete]');
     var CSRFtoken = $('input[name=CSRFtoken]');
 
     var success_response = '';
     var error_response = '';
 
-    if (project_type.val() == 'add') {
+    if (file_type.val() == 'add') {
         success_response = 'Project succesfully created!';
         error_response = 'Project not created!';
     } else {
@@ -20,14 +22,14 @@ $('#submit').click(function () {
     }
 
     //Ensure non empty inputs
-    if (project_name.val() == '') {
-        project_name.addClass('hightlight');
+    if (file_name.val() == '') {
+        file_name.addClass('hightlight');
         return false;
-    } else project_name.removeClass('hightlight');
+    } else file_name.removeClass('hightlight');
 
 
     //organize the data properly
-    var data = 'project_id=' + project_id.val() + '&project_name=' + project_name.val() + '&CSRFtoken=' + CSRFtoken.val() + '&type=projects' + '&project_type=' + project_type.val() + '&project_delete=' + project_delete.val();
+    var data = 'file_id=' + file_id.val() + '&file_name=' + file_name.val() + '&CSRFtoken=' + CSRFtoken.val() + '&type=projects' + '&file_type=' + file_type.val() + '&file_delete=' + file_delete.val();
     console.log(data);
 
     //disabled all the text fields
