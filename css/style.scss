@@ -39,6 +39,14 @@ body {
   left: 0;
 }
 
+.edit {
+   max-width: none !important;
+}
+
+input.highlight {
+    background-color: red;
+}
+
 .login {
 
   border-radius: 5px;
