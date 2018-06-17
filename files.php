@@ -38,9 +38,14 @@ if (isset($_GET['submit'])) {
         csrf_val(clean_data($_POST['CSRFtoken']));
         $title = 'Edit Project';
         $file_content = $mysqli->escape_string($_POST['file_content']);
-        if (/*write to file*/true) {
+        $files = sql("SELECT file FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
+        $file = "users/{$_SESSION['user_name']}/{$files['file']}";
+        $file = fopen($file, "w");
+        if (fwrite($file, $file_content);) {
+            fclose($file);
             $content = ['<p>File succesfully updated!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
         } else {
+            fclose($file);
             $content = ['<p>File not succesfully updated!</p>', '<a href="home?project=' . $project_id . '">Go Back</a>'];
         }
         break;
@@ -66,18 +71,16 @@ if (isset($_GET['submit'])) {
     switch ($_GET['type']) {
     case 'add':
         $title = 'Add File';
-
-        //make a textarea for code
         $content = ['<input placeholder="File Name" type="text" name="file_name" autocomplete="off" class="text" autofocus> <i class="fa fa-file"></i>', '<br><p>Please choose a file type</p>', '<p><label><input checked name="lang" type="radio" value="html"> <span>HTML</span></label></p>', '<p><label><input name="lang" type="radio" value="css"> <span>CSS</span></label></p>', '<p><label><input name="lang" type="radio" value="js"> <span>JavaScript</span></label></p>'];
         break;
     case 'edit':
         $title = 'Edit File';
-        $files = sql("SELECT * FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
-        $file_name = $files['file_name'];
-        $file_content = $files['file_content'];
-
-        //make a textarea for code
-        $content = ['<input placeholder="Project Name" type="text" name="file_name" autocomplete="off" class="text" value="' . $file_name . '" autofocus> <i class="fa fa-code"></i>'];
+        $files = sql("SELECT file FROM files WHERE id='{$id}'AND owner_id='{$_SESSION['user_id']}'", true);
+        $file = "users/{$_SESSION['user_name']}/{$files['file']}";
+        $file = fopen($file, "r");
+        $file_content = fread($file,filesize($file));
+        fclose($file);
+        $content = ['<textarea class="text" name="file_content" rows="50" cols="50" placeholder="Enter your code here...">' . $file_content . '</textarea>'];
         break;
     case 'delete':
         $title = 'Delete File';
