@@ -54,8 +54,7 @@ switch ($_GET['type']) {
 
     case 'invite':
         if ($_SESSION['user_type']) {
-            unset($_SESSION['auth_code_id_confirm']);
-            if (empty($_GET['user_name']) || empty($_GET['user_password'])) {error(6);}
+            if (empty($_GET['user_email'])) {error(6);}
             $user_email = clean_data($_GET['user_email']);
             $code = gen(256);
             $created = date("d/m/Y h:i:s");
