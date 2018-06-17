@@ -53,14 +53,14 @@ $('#submit').click(function () {
                 $this.addClass('ok');
                 $state.html('Welcome back!');
                 setTimeout(function () {
-                    window.open("/home", "_self");
+                    window.location.replace("/home");
                 }, 1000)
             } else {
                 //if process.php returned 0/false
                 $this.addClass('error');
                 $state.html('Username and Password did not match!');
                 setTimeout(function () {
-                    window.open("/?logout", "_self");
+                    window.location.replace("/?logout");
                 }, 1000)
             };
         }

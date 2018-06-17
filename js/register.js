@@ -53,14 +53,14 @@ $('#submit').click(function () {
                 $this.addClass('ok');
                 $state.html('Account Created!');
                 setTimeout(function () {
-                    window.open("/", "_self");
+                    window.location.replace("/register");
                 }, 1000)
             } else {
                 //if process.php returned 0/false
                 $this.addClass('error');
                 $state.html('Invite Code Invalid!');
                 setTimeout(function () {
-                    window.open("/register", "_self");
+                    window.location.replace("/register");
                 }, 1000)
             };
         }
