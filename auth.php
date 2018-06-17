@@ -39,7 +39,8 @@ switch ($_GET['type']) {
         break;
 
     case 'register':
-        if ($_SESSION['auth_code_valid'] && $_SESSION['auth_code_id'] === 1) {
+        if ($_SESSION['auth_code_id_confirm'] === 1) {
+            unset($_SESSION['auth_code_id_confirm']);
             $user_name = clean_data($_GET['user_name']);
             $user_password = clean_data($_GET['user_password']);
             sql("INSERT INTO users (user_name, user_password) VALUES ('{$user_name}', '{$user_password}')");

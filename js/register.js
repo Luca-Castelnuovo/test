@@ -27,7 +27,7 @@ $('#submit').click(function () {
     var $this = $('.login'),
         $state = $this.find('button > .state');
     $this.addClass('loading');
-    $state.html('Regestering User');
+    $state.html('Registering User');
 
 
     //start the ajax
