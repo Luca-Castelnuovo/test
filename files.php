@@ -80,7 +80,6 @@ if (isset($_GET['submit'])) {
         $file_open = fopen($file, "r");
         $file_content = fread($file_open,filesize($file));
         fclose($file);
-        echo
         $content = ['<textarea class="text" name="file_content" rows="50" cols="50" placeholder="Enter your code here...">' . $file_content . '</textarea>'];
         break;
     case 'delete':
