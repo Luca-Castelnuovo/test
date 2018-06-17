@@ -194,3 +194,13 @@ function sql($query, $return_value = false)
         return $result;
     }
 }
+
+function mail_send($to, $subject, $content)
+{
+    $headers = array(
+        'From: no-reply@lucacastelnuovo.nl',
+        'Content-Type:text/html',
+        'Reply-To: no-reply@lucacastelnuovo.nl'
+    );
+    mail($to, $subject, $content, implode("\r\n", $headers));
+}
