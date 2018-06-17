@@ -123,6 +123,16 @@ function logout($alert)
     exit;
 }
 
+function reset_()
+{
+    if (isset($_COOKIE[session_name()])) {
+        setcookie(session_name(), “”, time()-3600, “/”);
+    }
+    $_SESSION = array();
+    session_destroy();
+    header("Refresh:0");
+}
+
 function my_projects()
 {
     global $mysqli;
