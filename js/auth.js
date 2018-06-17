@@ -67,7 +67,7 @@ $('#submit').click(function () {
                 $this.addClass('error');
                 $state.html('Invalid Invite Code!');
                 setTimeout(function () {
-                    window.open("/", "_self");
+                    location.reload();
                 }, 1000)
             };
         }
