@@ -22,7 +22,7 @@ switch ($_GET['type']) {
         $file_open = fopen($file, "r");
         $file_content = fread($file_open, filesize($file));
         fclose($file);
-        $content = ['<textarea class="text" name="file_content" rows="50" cols="50" placeholder="Enter your code here...">' . $file_content . '</textarea>'];
+        $content = ['<textarea class="text" name="file_content" rows="50" cols="50" placeholder="Enter your code here..." id="file_content">' . $file_content . '</textarea>'];
         $button_text = 'Save File';
         break;
 
