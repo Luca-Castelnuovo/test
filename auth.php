@@ -41,7 +41,6 @@ switch ($_GET['type']) {
             $user_name = clean_data($_GET['user_name']);
             $user_password = clean_data($_GET['user_password']);
             sql("INSERT INTO users (user_name, user_password) VALUES ('{$user_name}', '{$user_password}')");
-            sql("UPDATE codes SET user='{$user_name}' WHERE code='{$code}'");
             success();
         } else {
             error(8);
