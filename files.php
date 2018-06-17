@@ -2,37 +2,6 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 login();
 
-
-
-        $file_name = clean_data($_POST['file_name']);
-        $file_type = clean_data($_POST['lang']);
-        switch ($file_type) {
-            case 'html':
-                $file = $file_name . '.html';
-                break;
-            case 'css':
-                $file = $file_name . '.css';
-                break;
-            case 'js':
-                $file = $file_name . '.js';
-                break;
-            default:
-                logout('Hack attempt detected!');
-        }
-        $project = sql("SELECT id FROM projects WHERE id='{$project_id}' AND owner_id='{$_SESSION['user_id']}'");
-        if ($project->num_rows == 0) {header('Location: /home');exit;}
-
-        if (sql("INSERT INTO files (owner_id, project_id, file) VALUES ('{$_SESSION['user_id']}', '{$project_id}', '{$file}')")) {
-            $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
-            $project_name = $projects['project_name'];
-            fopen("users/{$_SESSION['user_name']}/{$project_name}/{$file}", "w");
-            fclose("users/{$_SESSION['user_name']}/{$project_name}/{$file}");
-            success();
-        } else {
-            error(1);
-        }
-
-
 $id = clean_data($_GET['id']);
 $project_id = clean_data($_GET['project_id']);
 
