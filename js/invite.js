@@ -2,17 +2,10 @@
 $('#submit').click(function () {
 
     //Get the data from all the fields
-    var user_email = $('input[name=email]');
     var CSRFtoken = $('input[name=CSRFtoken]');
 
-    //Ensure non empty inputs
-    if (user_email.val() == '') {
-        user_email.addClass('hightlight');
-        return false;
-    } else user_email.removeClass('hightlight');
-
     //organize the data properly
-    var data = 'user_email=' + user_email.val() + '&CSRFtoken=' + CSRFtoken.val() + '&type=invite';
+    var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=invite';
 
     //disabled all the text fields
     $('.text').attr('disabled', 'true');
@@ -21,7 +14,7 @@ $('#submit').click(function () {
     var $this = $('.login'),
         $state = $this.find('button > .state');
     $this.addClass('loading');
-    $state.html('Sending Invite');
+    $state.html('Generating Invite Code');
 
 
     //start the ajax
@@ -45,20 +38,20 @@ $('#submit').click(function () {
             if (success) {
                 //if process.php returned 1/true
                 $this.addClass('ok');
-                $state.html('Invite Send!');
+                $state.html('Invite Code Generated');
                 setTimeout(function () {
                     $this.removeClass('loading ok');
-                    $state.html('Sent Invite');
+                    $state.html('Generate Invite Code');
                     $('.text').removeAttr('disabled');
                     $('.text').focus();
                 }, 500)
             } else {
                 //if process.php returned 0/false
                 $this.addClass('error');
-                $state.html('Invite not Sent!');
+                $state.html('Invite Code not Generated');
                 setTimeout(function () {
                     $this.removeClass('loading error');
-                    $state.html('Send Invite');
+                    $state.html('Generate Invite Code');
                     $('.text').removeAttr('disabled');
                     $('.text').focus();
                 }, 500)
