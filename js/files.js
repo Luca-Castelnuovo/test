@@ -8,7 +8,7 @@ $('#submit').click(function () {
     var file_name = $('input[name=file_name]');
     var file_lang = $('input[name=file_lang]:checked');
     var file_delete = $('input[name=file_delete]');
-	var file_content = $("textarea[name='request']");
+	var file_content = $("textarea[name='file_content']");
     var CSRFtoken = $('input[name=CSRFtoken]');
 
     var success_response = '';
