@@ -8,23 +8,22 @@ $('#submit').click(function () {
     var file_name = $('input[name=file_name]');
     var file_lang = $('input[name=file_lang]:checked');
     var file_delete = $('input[name=file_delete]');
-	var file_content = $("textarea[name='file_content']");
+	var file_content_html = $("textarea[name='file_content']");
     var CSRFtoken = $('input[name=CSRFtoken]');
 
     var success_response = '';
     var error_response = '';
 
-	//disabled all the text fields
     $('.text').attr('disabled', 'true');
 
-    //start the loader
-    var $this = $('.login'),
-        $state = $this.find('button > .state');
+    var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=files' + '&file_type=' + file_type.val() + '&project_id=' + project_id.val() + '&file_id=' + file_id.val() +'&file_name=' + file_name.val() + '&file_lang=' + file_lang.val() +  '&file_delete=' + file_delete.val();
+    console.log(data);
+
+	var $this = $('.login'),$state = $this.find('button > .state');
     $this.addClass('loading');
     $state.html('Proccessing');
 
     if (file_type.val() == 'add') {
-		//Ensure non empty inputs
 		if (file_name.val() == '') {
 			file_name.addClass('hightlight');
 			return false;
@@ -37,56 +36,62 @@ $('#submit').click(function () {
         error_response = 'File not deleted!';
     }
     if (file_type.val() == 'edit') {
-        //Ensure non empty inputs
-		if (file_content.val() == '') {
-			file_content.addClass('hightlight');
+		if (file_content_html.val() == '') {
+			file_content_html.addClass('hightlight');
 			return false;
-		} else file_name.removeClass('hightlight');
+		} else file_content_html.removeClass('hightlight');
 		success_response = 'File saved!';
         error_response = 'File not saved!';
     }
 
-    //organize the data properly
-    var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=files' + '&file_type=' + file_type.val() + '&project_id=' + project_id.val() + '&file_id=' + file_id.val() +'&file_name=' + file_name.val() + '&file_lang=' + file_lang.val() +  '&file_delete=' + file_delete.val() + '&file_content=' + file_content.val();
-    console.log(data);
-	return false;
-
-    //start the ajax
-    $.ajax({
-        //this is the php file that processes the data
-        url: "process.php",
-
-        //GET method is used
-        type: "GET",
-
-        //pass the data
-        data: data,
-
-        //Do not cache the page
-        cache: false,
-
-        //success
-        dataType: 'JSON',
-        success: function (response) {
-            var success = response.status;
-            if (success) {
-                //if process.php returned 1/true
-                $this.addClass('ok');
-                $state.html(success_response);
-                setTimeout(function () {
-                    window.location.replace("/home?project=" + project_id.val());
-                }, 500)
-            } else {
-                //if process.php returned 0/false
-                $this.addClass('error');
-                $state.html(error_response);
-                setTimeout(function () {
-                    window.location.replace("/home?project=" + project_id.val());
-                }, 1000)
-            }
-            ;
-        }
-    });
+	if (file_type.val() == 'edit') {
+		$.ajax({
+			url: "process.php?" + data,
+			type: 'POST',
+			data: jQuery.param({file_content: file_content_html}),
+			cache: false,
+			contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+			success: function (response) {
+				$this.addClass('ok');
+				$state.html(success_response);
+				setTimeout(function () {
+					window.location.replace("/home?project=" + project_id.val());
+				}, 500)
+			},
+			error: function () {
+				$this.addClass('error');
+				$state.html(error_response);
+				setTimeout(function () {
+						window.location.replace("/home?project=" + project_id.val());
+				}, 1000)
+			}
+		});
+	} else {
+		$.ajax({
+			url: "process.php",
+			type: "GET",
+			data: data,
+			cache: false,
+			dataType: 'JSON',
+			success: function (response) {
+				var success = response.status;
+				if (success) {
+					$this.addClass('ok');
+					$state.html(success_response);
+					setTimeout(function () {
+						window.location.replace("/home?project=" + project_id.val());
+					}, 500)
+				} else {
+					$this.addClass('error');
+					$state.html(error_response);
+					setTimeout(function () {
+						window.location.replace("/home?project=" + project_id.val());
+					}, 1000)
+				}
+				;
+			}
+		});
+	}
 
     //cancel the submit button default behaviours
     return false;
