@@ -8,6 +8,7 @@ $('#submit').click(function () {
     var file_name = $('input[name=file_name]');
     var file_lang = $('input[name=file_lang]:checked');
     var file_delete = $('input[name=file_delete]');
+	var file_content = $("textarea[name='request']");
     var CSRFtoken = $('input[name=CSRFtoken]');
 
     var success_response = '';
@@ -43,7 +44,7 @@ $('#submit').click(function () {
     } else file_name.removeClass('hightlight');
 
     //organize the data properly
-    var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=files' + '&file_type=' + file_type.val() + '&project_id=' + project_id.val() + '&file_id=' + file_id.val() +'&file_name=' + file_name.val() + '&file_lang=' + file_lang.val() +  '&file_delete=' + file_delete.val();
+    var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=files' + '&file_type=' + file_type.val() + '&project_id=' + project_id.val() + '&file_id=' + file_id.val() +'&file_name=' + file_name.val() + '&file_lang=' + file_lang.val() +  '&file_delete=' + file_delete.val() + '&file_content=' + file_content.val();
     console.log(data);
 
     //start the ajax
