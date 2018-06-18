@@ -5,16 +5,6 @@ session_start();
 $config = parse_ini_file('/var/www/test/config.ini');
 $mysqli = new mysqli($config['servername'], $config['username'], $config['password'], $config['dbname']);
 
-
-//display alert
-function alert($alert, $url = null)
-{
-    if (isset($alert)) {
-        $alert = clean_data($alert);
-        echo "<script>alert('{$alert}'); location.replace('https://test.lucacastelnuovo.nl/{$url}');</script>";
-    }
-}
-
 //clean user data
 function clean_data($data)
 {
@@ -54,11 +44,11 @@ function csrf_gen()
 function csrf_val($post_token)
 {
     if (!isset($_SESSION['token'])) {
-        logout('CSRF error!');
+        logout();
     }
 
     if (!(hash_equals($_SESSION['token'], $post_token))) {
-        logout('CSRF error!');
+        logout();
     } else {
         unset($_SESSION['token']);
     }
@@ -83,17 +73,17 @@ function csrf_val_ajax($token)
 function login()
 {
     if (!$_SESSION['logged_in']) {
-        logout('Please Log In!');
+        logout();
     }
 
     //check if account is active
     if (!$_SESSION['user_active']) {
-        logout('Your Account is  inactive or is temporarily disabled!');
+        logout();
     }
 
     //auto logout after 10min no activity
     if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
-        logout('Your session has expired!');
+        logout();
     } else {
         $_SESSION['LAST_ACTIVITY'] = time();
     }
@@ -108,7 +98,7 @@ function login()
 
     //check if session is stolen
     if ($_SESSION['ip'] != ip()) {
-        logout('Hack attempt detected!');
+        logout();
     }
 }
 
@@ -117,18 +107,17 @@ function login_admin()
     login();
 
     if (!$_SESSION['user_type']) {
-        logout('This area is restricted to adminisrators');
+        logout();
     }
 }
 
-function logout($alert)
+function logout()
 {
     if (isset($_COOKIE[session_name()])) {
         setcookie(session_name(), “”, time() - 3600, “/”);
     }
     $_SESSION = array();
     session_destroy();
-    //header('Location: /?alert='. $alert);
     header('Location: /');
     exit;
 }
