@@ -64,7 +64,7 @@ switch ($_GET['type']) {
         <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
         <?php ?>
         <p class="title"><?= $title ?></p>
-        <?php foreach ($content as $row) {echo $row . "\r\n";} ?>
+        <?php foreach ($content as $row) {echo $row;} ?>
         <button id="submit"><span class="state"><?= $button_text ?></span></button>
     </form>
 </div>
