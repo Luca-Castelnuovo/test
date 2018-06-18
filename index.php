@@ -18,7 +18,7 @@ if (isset($_GET['logout'])) {
 
 <body>
 <div class="wrapper">
-    <form class="login">
+    <form class="login" method="post">
         <p class="title">Log in</p>
         <input placeholder="Username" type="text" name="user_name" autocomplete="off" class="text" id="username"
                autofocus> <i class="fa fa-user"></i>
