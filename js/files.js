@@ -24,6 +24,11 @@ $('#submit').click(function () {
     $state.html('Proccessing');
 
     if (file_type.val() == 'add') {
+		//Ensure non empty inputs
+		if (file_name.val() == '') {
+			file_name.addClass('hightlight');
+			return false;
+		} else file_name.removeClass('hightlight');
         success_response = 'File created!';
         error_response = 'File not created!';
     }
@@ -32,16 +37,14 @@ $('#submit').click(function () {
         error_response = 'File not deleted!';
     }
     if (file_type.val() == 'edit') {
-        //return true;
+        //Ensure non empty inputs
+		if (file_content.val() == '') {
+			file_content.addClass('hightlight');
+			return false;
+		} else file_name.removeClass('hightlight');
 		success_response = 'File saved!';
         error_response = 'File not saved!';
     }
-
-    //Ensure non empty inputs
-    if (file_name.val() == '') {
-        file_name.addClass('hightlight');
-        return false;
-    } else file_name.removeClass('hightlight');
 
     //organize the data properly
     var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=files' + '&file_type=' + file_type.val() + '&project_id=' + project_id.val() + '&file_id=' + file_id.val() +'&file_name=' + file_name.val() + '&file_lang=' + file_lang.val() +  '&file_delete=' + file_delete.val() + '&file_content=' + file_content.val();
