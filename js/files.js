@@ -49,6 +49,7 @@ $('#submit').click(function () {
     //organize the data properly
     var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=files' + '&file_type=' + file_type.val() + '&project_id=' + project_id.val() + '&file_id=' + file_id.val() +'&file_name=' + file_name.val() + '&file_lang=' + file_lang.val() +  '&file_delete=' + file_delete.val() + '&file_content=' + file_content.val();
     console.log(data);
+	return false;
 
     //start the ajax
     $.ajax({
