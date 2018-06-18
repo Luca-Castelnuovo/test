@@ -15,14 +15,14 @@ $('#submit').click(function () {
     var error_response = '';
 
     if (file_type.val() == 'add') {
-        success_response = 'File succesfully created!';
-        error_response = 'File not created!';
-    }
-    if (file_type.val() == 'delete') {
         return true;
     }
+    if (file_type.val() == 'delete') {
+        success_response = 'File deleted!';
+        error_response = 'File not deleted!';
+    }
     if (file_type.val() == 'edit') {
-        success_response = 'File succesfully saved!';
+        success_response = 'File saved!';
         error_response = 'File not saved!';
     }
 
