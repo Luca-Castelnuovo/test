@@ -19,8 +19,7 @@ $('#submit').click(function () {
         error_response = 'File not created!';
     }
     if (file_type.val() == 'delete') {
-        success_response = 'File succesfully deleted!';
-        error_response = 'File not deleted!';
+        return true;
     }
     if (file_type.val() == 'edit') {
         success_response = 'File succesfully saved!';
