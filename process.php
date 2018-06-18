@@ -7,7 +7,7 @@ if (csrf_val_ajax(clean_data($_GET['CSRFtoken']))) {
 
 switch ($_GET['type']) {
     case 'login':
-        $user_name = clean_data($_GET['username']);
+        $user_name = strtolower(clean_data($_GET['username']));
         $user_password = clean_data($_GET['password']);
 
         $user = sql("SELECT * FROM users WHERE user_name='{$user_name}'");
