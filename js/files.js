@@ -14,6 +14,15 @@ $('#submit').click(function () {
     var success_response = '';
     var error_response = '';
 
+	//disabled all the text fields
+    $('.text').attr('disabled', 'true');
+
+    //start the loader
+    var $this = $('.login'),
+        $state = $this.find('button > .state');
+    $this.addClass('loading');
+    $state.html('Proccessing');
+
     if (file_type.val() == 'add') {
         return true;
     }
@@ -35,15 +44,6 @@ $('#submit').click(function () {
     //organize the data properly
     var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=files' + '&file_type=' + file_type.val() + '&project_id=' + project_id.val() + '&file_id=' + file_id.val() +'&file_name=' + file_name.val() + '&file_lang=' + file_lang.val() + '&file_content=' + file_content.val() + '&file_delete=' + file_delete.val();
     console.log(data);
-
-    //disabled all the text fields
-    $('.text').attr('disabled', 'true');
-
-    //start the loader
-    var $this = $('.login'),
-        $state = $this.find('button > .state');
-    $this.addClass('loading');
-    $state.html('Proccessing');
 
     //start the ajax
     $.ajax({
