@@ -31,7 +31,9 @@ $('#submit').click(function () {
         error_response = 'File not deleted!';
     }
     if (file_type.val() == 'edit') {
-        return true;
+        //return true;
+		success_response = 'File saved!';
+        error_response = 'File not saved!';
     }
 
     //Ensure non empty inputs
