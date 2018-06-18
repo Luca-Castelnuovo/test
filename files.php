@@ -64,7 +64,7 @@ switch ($_GET['type']) {
                 <input type="hidden" name="type" value="<?= clean_data($_GET['type']) ?>" />
                 <input type="hidden" name="id" value="<?= clean_data($_GET['id']) ?>" />
                 <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>" />
-                <?php ?>
+                <?php } ?>
                 <p class="title">
                     <?= $title ?>
                 </p>
