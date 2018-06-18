@@ -23,15 +23,15 @@ $('#submit').click(function () {
     $state.html('Proccessing');
 
     if (file_type.val() == 'add') {
-        return true;
+        success_response = 'File created!';
+        error_response = 'File not created!';
     }
     if (file_type.val() == 'delete') {
         success_response = 'File deleted!';
         error_response = 'File not deleted!';
     }
     if (file_type.val() == 'edit') {
-        success_response = 'File saved!';
-        error_response = 'File not saved!';
+        return true;
     }
 
     //Ensure non empty inputs
