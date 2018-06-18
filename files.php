@@ -48,9 +48,7 @@ switch ($_GET['type']) {
 		<meta charset="utf-8">
 		<meta content="width=device-width,initial-scale=1,shrink-to-fit=no" name="viewport">
 		<link href=https://lucacastelnuovo.nl/images/favicon.ico rel="shortcut icon">
-		<title>
-			<?= $title ?>
-		</title>
+		<title><?= $title ?></title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
@@ -63,17 +61,12 @@ switch ($_GET['type']) {
 				<input type="hidden" name="type" value="<?= clean_data($_GET['type']) ?>" />
 				<input type="hidden" name="id" value="<?= clean_data($_GET['id']) ?>" />
 				<input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>" />
-				<p class="title">
-					<?= $title ?>
-				</p>
+				<p class="title"><?= $title ?></p>
 				<?php foreach($content as $row) {echo $row;} ?>
 				<button id="submit"><span class="state"><?= $button_text ?></span></button>
 			</form>
 		</div>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
-
-
-		</script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script src="js/files.js"></script>
 	</body>
 
