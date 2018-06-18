@@ -38,8 +38,6 @@ switch ($_GET['type']) {
 }
 
 ?>
-
-
 	<!DOCTYPE html>
 
 	<html lang="en">
