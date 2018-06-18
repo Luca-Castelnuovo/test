@@ -1,7 +1,4 @@
-//if submit button is clicked
 $('#submit').click(function () {
-
-    //Get the data from all the fields
     var project_id = $('input[name=project_id]');
     var file_id = $('input[name=id]');
     var file_type = $('input[name=type]');
@@ -93,6 +90,5 @@ $('#submit').click(function () {
 		});
 	}
 
-    //cancel the submit button default behaviours
     return false;
 });

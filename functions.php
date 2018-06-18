@@ -5,7 +5,6 @@ session_start();
 $config = parse_ini_file('/var/www/test/config.ini');
 $mysqli = new mysqli($config['servername'], $config['username'], $config['password'], $config['dbname']);
 
-//clean user data
 function clean_data($data)
 {
     global $mysqli;
@@ -16,20 +15,17 @@ function clean_data($data)
     return $data;
 }
 
-//get user ip
 function ip()
 {
     return $_SERVER['REMOTE_ADDR'];
 }
 
-//random gen
 function gen($length)
 {
     $length = $length / 2;
     return bin2hex(random_bytes($length));
 }
 
-//generate_csrf
 function csrf_gen()
 {
     if (isset($_SESSION['token'])) {
@@ -40,7 +36,6 @@ function csrf_gen()
     }
 }
 
-//validate_csrf
 function csrf_val($post_token)
 {
     if (!isset($_SESSION['token'])) {
@@ -54,7 +49,6 @@ function csrf_val($post_token)
     }
 }
 
-//validate_csrf
 function csrf_val_ajax($token)
 {
     if (!isset($_SESSION['token'])) {
@@ -69,26 +63,22 @@ function csrf_val_ajax($token)
     }
 }
 
-//check if user has been logged in
 function login()
 {
     if (!$_SESSION['logged_in']) {
         logout();
     }
 
-    //check if account is active
     if (!$_SESSION['user_active']) {
         logout();
     }
 
-    //auto logout after 10min no activity
     if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
         logout();
     } else {
         $_SESSION['LAST_ACTIVITY'] = time();
     }
 
-    //regenerate session id (sec against session stealing)
     if (!isset($_SESSION['CREATED'])) {
         $_SESSION['CREATED'] = time();
     } elseif (time() - $_SESSION['CREATED'] > 600) {
@@ -96,7 +86,6 @@ function login()
         $_SESSION['CREATED'] = time();
     }
 
-    //check if session is stolen
     if ($_SESSION['ip'] != ip()) {
         logout();
     }
@@ -179,7 +168,6 @@ function my_project($project_id)
     }
     echo '</tr></table><br><a href="home">Go Back</a><a href="files?type=add&project_id=' . $project_id . '" class="fl-rt">New File</a>';
 }
-
 
 function sql($query, $return_value = false)
 {
