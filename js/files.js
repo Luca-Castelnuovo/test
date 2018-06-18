@@ -48,7 +48,7 @@ $('#submit').click(function () {
 		$.ajax({
 			url: "process.php?" + data,
 			type: 'POST',
-			data: jQuery.param({file_content: file_content_html}),
+			data: jQuery.param({file_content: file_content_html.val()}),
 			cache: false,
 			contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
 			success: function (response) {
