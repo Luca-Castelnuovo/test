@@ -202,19 +202,6 @@ function head($title)
 {
     echo '
     <head>
-        <meta content="Luca Castelnuovo" name=author>
-		<meta content="Luca Castelnuovo is a 15 years old developer from The Netherlands" name=description>
-		<meta content="Luca, Castelnuovo, young, developer, the netherlands, soest, lucacastelnuovo, techassistants soest, webdevelopment, Luca Castelnuovo, tech assistants, techassistant, tasoest, betasterren, and aannemersbedrijf" name=keywords>
-		<meta content=summary name=twitter:card>
-		<meta content=@LucaCastelnuovo name=twitter:site>
-		<meta content=@LucaCastelnuovo property=twitter:creator>
-		<meta content=https://test.lucacastelnuovo.nl property=og:url>
-		<meta content="Luca Castelnuovo" property=og:title>
-		<meta content="Luca Castelnuovo is a 15 years old developer from The Netherlands." property=og:description>
-		<meta content=https://lucacastelnuovo.nl/images/favicon.ico property=og:image>
-		<meta content=website property=og:type>
-		<meta content="Luca Castelnuovo" property=og:site_name>
-		<link href=https://test.lucacastelnuovo.nl rel=canonical>
 		<title>' . $title . '</title>
 		<meta charset=utf-8>
 		<meta content="ie=edge" http-equiv=x-ua-compatible>
