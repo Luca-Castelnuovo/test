@@ -11,9 +11,7 @@ RewriteCond %{REQUEST_FILENAME} !-f [OR]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ - [L]
 
-#home?project
-RewriteRule ^home/([a-zA-Z0-9]+)/$ home.php?project=$1
-RewriteRule ^home([a-zA-Z0-9]+)/$ home.php?project=$1
+RewriteRule ^home/([-\w]+)$ home.php?project=$1 [NC,L]
 
 # block access to .txt
 <Files ~ "\.txt$">
