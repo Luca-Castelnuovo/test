@@ -8,7 +8,7 @@ if (isset($_SESSION['invite_response'])) {
 	$content = echo "<a class='dropdown-trigger btn' href='https://test.lucacastelnuovo.nl/register?auth_code={$_SESSION['invite_response']}'>Registration link</a>";
 	unset($_SESSION['invite_response']);
 } elseif (isset($_GET['login_log'])) {
-	$log_file_content = ;
+	$log_file_content = '';
 	$content = '<pre>' . $log_file_content . '</pre>';
 } elseif (isset($_GET['users'])) {
 	//query all users
