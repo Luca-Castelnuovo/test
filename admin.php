@@ -1,4 +1,10 @@
-<?php require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");login_admin(); ?>
+<?php
+require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
+login_admin();
+
+
+
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -17,7 +23,7 @@
         <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
         <div class="inline">
         	<a class='dropdown-trigger btn' href='?login_log'>Login Log</a>
-        	<a class='dropdown-trigger btn' href='?gen_code' id="submit">Generate Invite Code</a>
+        	<a class='dropdown-trigger btn' href='#' id="submit">Generate Invite Code</a>
         </div>
     </form>
 </div>
