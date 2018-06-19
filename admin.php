@@ -2,7 +2,26 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 login_admin();
 
+$back_button = true;
 
+if (isset($_SESSION['invite_response'])) {
+	$content = echo "<a class='dropdown-trigger btn' href='https://test.lucacastelnuovo.nl/register?auth_code={$_SESSION['invite_response']}'>Registration link</a>";
+	unset($_SESSION['invite_response']);
+} elseif (isset($_GET['login_log'])) {
+	$log_file_content = ;
+	$content = '<pre>' . $log_file_content . '</pre>';
+} elseif (isset($_GET['users'])) {
+	//query all users
+	//give a overview of users
+	//option per user (deactivate/activate, delete, view projects)
+} else {
+	$content = "<a class='dropdown-trigger btn' href='#' id='submit'>Generate Invite Code</a><a class='dropdown-trigger btn' href='?users'>Users</a><a class='dropdown-trigger btn' href='?login_log'>Login Log</a><a class='dropdown-trigger btn' href='/home'>Back</a>";
+	$back_button = false;
+}
+
+if ($back_button) {
+	$content = $content . "<a class='dropdown-trigger btn' href='/admin'>Back</a>";
+}
 
 ?>
 <!DOCTYPE html>
@@ -17,15 +36,8 @@ login_admin();
         <p class="title">Admin Panel</p>
         <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
         <div class="inline">
-			<?php
-			if (isset($_SESSION['invite_response'])) {
-				echo "<a class='dropdown-trigger btn' href='https://test.lucacastelnuovo.nl/register?auth_code={$_SESSION['invite_response']}'>Registration link</a>";
-				unset($_SESSION['invite_response']);
-			} ?>
-        	<a class='dropdown-trigger btn' href='#' id="submit">Generate Invite Code</a>
-        	<a class='dropdown-trigger btn' href='?users'>Users</a>
-        	<a class='dropdown-trigger btn' href='?login_log'>Login Log</a>
-        	<a class='dropdown-trigger btn' href='/home'>Back</a>
+			<?= $content ?>
+
         </div>
     </form>
 </div>
