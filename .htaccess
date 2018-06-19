@@ -23,5 +23,3 @@ RewriteRule ^home/([-\w]+)$ home.php?project=$1 [NC,L]
 <FilesMatch robots\.txt>
     Allow from all
 </FilesMatch>
-
-eee
