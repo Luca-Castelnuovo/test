@@ -15,15 +15,17 @@ login_admin();
 <div class="wrapper">
     <form class="login pd-20">
         <p class="title">Admin Panel</p>
-        <?php
-		if (isset($_SESSION['invite_response'])) {
-			echo $_SESSION['invite_response'];
-			unset($_SESSION['invite_response']);
-		} ?>
         <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
         <div class="inline">
-        	<a class='dropdown-trigger btn' href='?login_log'>Login Log</a>
+			<?php
+			if (isset($_SESSION['invite_response'])) {
+				echo "<a class='dropdown-trigger btn' href='{$_SESSION['invite_response']}'>Registration link</a>";
+				unset($_SESSION['invite_response']);
+			} ?>
         	<a class='dropdown-trigger btn' href='#' id="submit">Generate Invite Code</a>
+        	<a class='dropdown-trigger btn' href='?users'>Users</a>
+        	<a class='dropdown-trigger btn' href='?login_log'>Login Log</a>
+        	<a class='dropdown-trigger btn' href='/home'>Back</a>
         </div>
     </form>
 </div>

@@ -74,7 +74,7 @@ switch ($_GET['type']) {
             $code = gen(256);
             $created = date("d/m/Y h:i:s");
             sql("INSERT INTO codes (code, valid, created, type) VALUES ('{$code}', '7', '{$created}', 'register')");
-            $_SESSION['invite_response'] = '<a href="https://test.lucacastelnuovo.nl/register?auth_code=' . $code . '">Copy Link</a><br><br><a href="/home">Go Back</a><a href="/admin" class="fl-rt">Send Another Invite</a>';
+            $_SESSION['invite_response'] = $code;
             success();
         } else {
             error(1);
