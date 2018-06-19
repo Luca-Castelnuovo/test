@@ -1,5 +1,5 @@
 # custom error pages
-#ErrorDocument 404 /home
+ErrorDocument 404 /error?e=404
 
 # turn mod_rewrite on
 RewriteEngine On
@@ -21,3 +21,17 @@ RewriteRule ^ - [L]
 <FilesMatch robots\.txt>
     Allow from all
 </FilesMatch>
+
+#cleanvars
+
+#home?project
+RewriteRule ^home/([0-9]*)$ /home?project=$1 [L]
+
+#home?project
+#RewriteRule ^home/([0-9]*)$ /home?project=$1 [L]
+
+#home?project
+#RewriteRule ^home/([0-9]*)$ /home?project=$1 [L]
+
+#home?project
+#RewriteRule ^home/([0-9]*)$ /home?project=$1 [L]
