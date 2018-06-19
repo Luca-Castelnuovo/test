@@ -15,8 +15,8 @@
 			unset($_SESSION['invite_response']);
 		} ?>
         <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
-        <a class='dropdown-trigger btn' href='?login_log'>Login Log</a>
-        <a class='dropdown-trigger btn' href='?gen_code' id="submit">Generate Invite Code</a>
+        <a class='dropdown-trigger btn inline' href='?login_log'>Login Log</a>
+        <a class='dropdown-trigger btn inline' href='?gen_code' id="submit">Generate Invite Code</a>
     </form>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
