@@ -9,16 +9,20 @@
 <div class="wrapper">
     <form class="login pd-20">
         <p class="title">Admin Panel</p>
-        <?php if (isset($_SESSION['invite_response'])) {
-            echo $_SESSION['invite_response'];
-            unset($_SESSION['invite_response']);
-        } else {
-            echo '<input type="hidden" name="CSRFtoken" value="' . csrf_gen() . '"/><button id="submit"><i class="spinner"></i> <span class="state">Generate Invite Code</span></button>';
-        } ?>
+        <?php
+		if (isset($_SESSION['invite_response'])) {
+			echo $_SESSION['invite_response'];
+			unset($_SESSION['invite_response']);
+		} ?>
+        <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
+        <a class='dropdown-trigger btn' href='?login_log'>Login Log</a>
+        <a class='dropdown-trigger btn' href='?gen_code' id="submit">Generate Invite Code</a>
     </form>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="js/invite.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 </body>
 
 </html>
