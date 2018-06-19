@@ -4,11 +4,8 @@ $('#submit').click(function () {
 
 	var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=invite';
 
-    var $this = $('.login'),
-        $state = $this.find('button > .state');
-    $this.addClass('loading');
-    $state.html('Generating Invite Code');
-
+    var $this = $('.login'), $state = $this.find('a > .state');
+    $state.html('Generating Code');
 
     $.ajax({
         url: "process.php",
@@ -19,19 +16,15 @@ $('#submit').click(function () {
         success: function (response) {
             var success = response.status;
             if (success) {
-                $this.addClass('ok');
-                $state.html('Invite Code Generated');
+                $state.html('Code Generated');
                 setTimeout(function () {
-                    $this.removeClass('loading ok');
-                    $state.html('Generate Invite Code');
+                    $state.html('Generate Code');
                     location.reload();
                 }, 500)
             } else {
-                $this.addClass('error');
-                $state.html('Invite Code not Generated');
+                $state.html('Code not Generated');
                 setTimeout(function () {
-                    $this.removeClass('loading error');
-                    $state.html('Generate Invite Code');
+                    $state.html('Generate Code');
                 }, 500)
             }
             ;
