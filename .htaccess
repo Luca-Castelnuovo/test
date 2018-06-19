@@ -25,4 +25,4 @@ RewriteRule ^ - [L]
 #cleanvars
 
 #home?project
-RewriteRule ^home(.*)$ home.php?project=$1 [L]
+RewriteRule ^/home(.*)$ home.php?project=$1 [L]
