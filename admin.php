@@ -19,7 +19,7 @@ login_admin();
         <div class="inline">
 			<?php
 			if (isset($_SESSION['invite_response'])) {
-				echo "<a class='dropdown-trigger btn' href='{$_SESSION['invite_response']}'>Registration link</a>";
+				echo "<a class='dropdown-trigger btn' href='https://test.lucacastelnuovo.nl/register?auth_code={$_SESSION['invite_response']}'>Registration link</a>";
 				unset($_SESSION['invite_response']);
 			} ?>
         	<a class='dropdown-trigger btn' href='#' id="submit">Generate Invite Code</a>
