@@ -137,7 +137,8 @@ function my_projects()
                 </ul>";
         }
     }
-    echo '</tr></table><br><a href="/?logout">Log Out</a><a href="projects?type=add" class="fl-rt">New Project</a>';
+	if ($_SESSION['user_type']) {$admin='      <a href="/admin">Admin</a>';}
+    echo '</tr></table><br><a href="/?logout">Log Out</a> ' . $admin . '  <a href="projects?type=add" class="fl-rt">New Project</a>';
 }
 
 function my_project($project_id)
@@ -197,7 +198,6 @@ function rrmdir($dir)
     }
 }
 
-//<head> tags for a html file
 function head($title)
 {
     echo '
