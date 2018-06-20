@@ -7,6 +7,7 @@ if (csrf_val_ajax(clean_data($_GET['CSRFtoken']))) {
 
 switch ($_GET['type']) {
     case 'login':
+        if (empty($_GET['user_name']) || empty($_GET['user_password'])) {error(10);}
         $user_name = strtolower(clean_data($_GET['username']));
         $user_password = clean_data($_GET['password']);
 
@@ -36,6 +37,7 @@ switch ($_GET['type']) {
         break;
 
     case 'register_auth':
+        if (empty($_GET['auth_code'])) {error(10);}
         if (auth($_GET['auth_code'], 'register', 1, 0)) {
             $_SESSION['input_code'] = $_GET['auth_code'];
             $_SESSION['auth_code_valid'] = true;
@@ -81,6 +83,7 @@ switch ($_GET['type']) {
                 }
                 break;
             case 'active':
+                if (empty($_GET['user_id'])) {error(10);}
                 if ($_SESSION['user_type']) {
                     $user = sql("SELECT user_active FROM users WHERE id='{$user_id}'",true);
                     if($user['user_active']) {
@@ -95,6 +98,7 @@ switch ($_GET['type']) {
                 }
                 break;
             case 'delete':
+                if (empty($_GET['user_id'])) {error(10);}
                 if ($_SESSION['user_type']) {
                     sql("DELETE FROM users WHERE id='{$user_id}'");
                     header('Location: /admin?users');
@@ -111,6 +115,7 @@ switch ($_GET['type']) {
     case 'projects':
         switch ($_GET['project_type']) {
             case 'add':
+                if (empty($_GET['project_name'])) {error(10);}
                 $project_name = strtolower(clean_data($_GET['project_name']));
                 if (sql("INSERT INTO projects (owner_id, project_name) VALUES ('{$_SESSION['user_id']}', '{$project_name}')")) {
                     mkdir("users/{$_SESSION['user_name']}/{$project_name}");
@@ -121,6 +126,7 @@ switch ($_GET['type']) {
 
                 break;
             case 'delete':
+                if (empty($_GET['project_id']) || empty($_GET['project_delete'])) {error(10);}
                 $project_id = clean_data($_GET['project_id']);
                 $project_delete = clean_data($_GET['project_delete']);
                 $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
@@ -150,6 +156,7 @@ switch ($_GET['type']) {
 
         switch ($_GET['file_type']) {
             case 'add':
+                if (empty($_GET['file_lang']) || empty($_GET['project_id']) || empty($_GET['file_name'])) {error(10);}
                 $file_lang = clean_data($_GET['file_lang']);
                 switch ($file_lang) {
                     case 'html':
@@ -182,6 +189,7 @@ switch ($_GET['type']) {
                 }
                 break;
             case 'edit':
+                if (empty($_GET['project_id']) || empty($_GET['file_id'])) {error(10);}
                 $file_content = $_POST['file_content'] . PHP_EOL;
                 $files = sql("SELECT file FROM files WHERE id='{$file_id}'AND owner_id='{$_SESSION['user_id']}'", true);
                 $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
@@ -196,6 +204,7 @@ switch ($_GET['type']) {
                 }
                 break;
             case 'delete':
+                if (empty($_GET['project_id']) || empty($_GET['file_id'])) {error(10);}
                 $file_delete = clean_data($_GET['file_delete']);
                 $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
                 $files = sql("SELECT file FROM files WHERE id='{$file_id}'AND owner_id='{$_SESSION['user_id']}'", true);
