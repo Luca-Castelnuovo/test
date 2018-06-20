@@ -69,7 +69,9 @@ function login()
         logout();
     }
 
-    if (!$_SESSION['user_active']) {
+    $active = sql("SELECT user_active FROM users WHERE id='{$_SESSION['user_id']}'",true);
+    $active = $active['user_active'];
+    if (!$active) {
         logout();
     }
 
