@@ -66,9 +66,9 @@ switch ($_GET['type']) {
 
     case 'admin':
         switch($_GET['admin_type']) {
+            $user_id = clean_data($_GET['user_id']);
             case 'invite':
                 if ($_SESSION['user_type']) {
-                    $user_email = clean_data($_GET['user_email']);
                     $code = gen(256);
                     $created = date("d/m/Y h:i:s");
                     sql("INSERT INTO codes (code, valid, created, type) VALUES ('{$code}', '7', '{$created}', 'register')");
@@ -80,11 +80,12 @@ switch ($_GET['type']) {
                 break;
             case 'active':
                 if ($_SESSION['user_type']) {
-                    $user_email = clean_data($_GET['user_email']);
-                    $code = gen(256);
-                    $created = date("d/m/Y h:i:s");
-                    sql("INSERT INTO codes (code, valid, created, type) VALUES ('{$code}', '7', '{$created}', 'register')");
-                    $_SESSION['invite_response'] = $code;
+                    $user = sql("SELECT user_active FROM users WHERE id='{$user_id}'",true);
+                    if($user['user_active']) {
+                        sql("UPDATE users SET user_active='0' WHERE id='{$user_id}'");
+                    } else {
+                        sql("UPDATE users SET user_active='1' WHERE id='{$user_id}'");
+                    }
                     success();
                 } else {
                     error(16);
@@ -92,11 +93,7 @@ switch ($_GET['type']) {
                 break;
             case 'delete':
                 if ($_SESSION['user_type']) {
-                    $user_email = clean_data($_GET['user_email']);
-                    $code = gen(256);
-                    $created = date("d/m/Y h:i:s");
-                    sql("INSERT INTO codes (code, valid, created, type) VALUES ('{$code}', '7', '{$created}', 'register')");
-                    $_SESSION['invite_response'] = $code;
+                    sql("DELETE FROM users WHERE id='{$user_id}'");
                     success();
                 } else {
                     error(17);
