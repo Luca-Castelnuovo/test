@@ -11,7 +11,7 @@ if (isset($_SESSION['invite_response'])) {
 } elseif (isset($_GET['login_log'])) {
     $type = 'login_log';
     $log_file_content = file_get_contents('login.txt');
-    $content = '<textarea class="admin log" rows="30" cols="50"><pre>' . $log_file_content . '</pre></textarea>';
+    $content = '<textarea class="admin log" rows="30" cols="50">' . $log_file_content . '</textarea>';
 } elseif (isset($_GET['users'])) {
     $type = 'users';
     //query all users
