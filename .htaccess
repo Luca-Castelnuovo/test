@@ -22,5 +22,5 @@ RewriteRule ^ - [L]
     Allow from all
 </FilesMatch>
 
-RewriteRule ^test\/([a-zA-Z0-9]+)$ /test?get=$1
-RewriteRule ^test\/([a-zA-Z0-9]+)/$ /test?get=$1
+RewriteRule ^test\/([a-zA-Z0-9]+)$ test?get=$1
+RewriteRule ^test\/([a-zA-Z0-9]+)/$ test?get=$1
