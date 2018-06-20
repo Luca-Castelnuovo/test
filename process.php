@@ -78,7 +78,29 @@ switch ($_GET['type']) {
                     error(7);
                 }
                 break;
-            case 'users':
+            case 'active':
+                if ($_SESSION['user_type']) {
+                    $user_email = clean_data($_GET['user_email']);
+                    $code = gen(256);
+                    $created = date("d/m/Y h:i:s");
+                    sql("INSERT INTO codes (code, valid, created, type) VALUES ('{$code}', '7', '{$created}', 'register')");
+                    $_SESSION['invite_response'] = $code;
+                    success();
+                } else {
+                    error(16);
+                }
+                break;
+            case 'delete':
+                if ($_SESSION['user_type']) {
+                    $user_email = clean_data($_GET['user_email']);
+                    $code = gen(256);
+                    $created = date("d/m/Y h:i:s");
+                    sql("INSERT INTO codes (code, valid, created, type) VALUES ('{$code}', '7', '{$created}', 'register')");
+                    $_SESSION['invite_response'] = $code;
+                    success();
+                } else {
+                    error(17);
+                }
                 break;
             default:
                 error(15);
