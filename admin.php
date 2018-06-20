@@ -16,7 +16,7 @@ if (isset($_SESSION['invite_response'])) {
     $title = 'Login Logs';
 } elseif (isset($_GET['users'])) {
     $type = 'users';
-    $result = sql("SELECT * FROM users");
+    $result = sql("SELECT * FROM users ORDER BY user_name");
     if ($result->num_rows > 0) {
         $content = [];
         while ($row = $result->fetch_assoc()) {
