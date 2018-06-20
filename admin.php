@@ -8,7 +8,7 @@ if (isset($_SESSION['invite_response'])) {
     $type = 'code_response';
     $content = "<a class='dropdown-trigger btn' href='https://test.lucacastelnuovo.nl/register?auth_code={$_SESSION['invite_response']}'>Registration link</a>";
     unset($_SESSION['invite_response']);
-    $title = 'Admin Panel';
+    $title = 'Registration Cod';
 } elseif (isset($_GET['login_log'])) {
     $type = 'login_log';
     $log_file_content = file_get_contents('login.txt');
