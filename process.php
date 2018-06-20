@@ -65,8 +65,8 @@ switch ($_GET['type']) {
         break;
 
     case 'admin':
+        $user_id = clean_data($_GET['user_id']);
         switch($_GET['admin_type']) {
-            $user_id = clean_data($_GET['user_id']);
             case 'invite':
                 if ($_SESSION['user_type']) {
                     $code = gen(256);
