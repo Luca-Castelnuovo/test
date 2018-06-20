@@ -86,7 +86,8 @@ switch ($_GET['type']) {
                     } else {
                         sql("UPDATE users SET user_active='1' WHERE id='{$user_id}'");
                     }
-                    success();
+                    header('Location: /admin?users');
+                    exit;
                 } else {
                     error(16);
                 }
@@ -94,7 +95,8 @@ switch ($_GET['type']) {
             case 'delete':
                 if ($_SESSION['user_type']) {
                     sql("DELETE FROM users WHERE id='{$user_id}'");
-                    success();
+                    header('Location: /admin?users');
+                    exit;
                 } else {
                     error(17);
                 }
