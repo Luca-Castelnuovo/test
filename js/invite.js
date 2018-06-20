@@ -2,7 +2,7 @@ $('#submit').click(function () {
 
     var CSRFtoken = $('input[name=CSRFtoken]');
 
-	var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=invite';
+    var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=admin&admin_type=invite';
 
     var $this = $('.login'), $state = $this.find('a > .state');
     $state.html('Generating Code');
