@@ -84,7 +84,7 @@ switch ($_GET['type']) {
     case 'projects':
         switch ($_GET['project_type']) {
             case 'add':
-                $project_name = clean_data($_GET['project_name']);
+                $project_name = strtolower(clean_data($_GET['project_name']));
                 if (sql("INSERT INTO projects (owner_id, project_name) VALUES ('{$_SESSION['user_id']}', '{$project_name}')")) {
                     mkdir("users/{$_SESSION['user_name']}/{$project_name}");
                     success();
@@ -119,7 +119,7 @@ switch ($_GET['type']) {
     case 'files':
         $project_id = clean_data($_GET['project_id']);
         $file_id = clean_data($_GET['file_id']);
-        $file_name = clean_data($_GET['file_name']);
+        $file_name = strtolower(clean_data($_GET['file_name']));
 
         switch ($_GET['file_type']) {
             case 'add':
