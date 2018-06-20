@@ -139,12 +139,12 @@ function my_projects()
             echo "<td class='inline'><a class='dropdown-trigger btn' href='/home/{$project_id}' data-target='{$project_id}'>{$project_name}</a></td>";
             echo "<ul id='{$project_id}' class='dropdown-content'>
                     <li><a href='/home/{$project_id}'>files</a></li>
-                    <li><a href='projects?type=delete&id={$project_id}'>delete</a></li>
+                    <li><a href='/projects/delete/{$project_id}'>delete</a></li>
                 </ul>";
         }
     }
 	if ($_SESSION['user_type']) {$admin='      <a href="/admin">Admin</a>';}
-    echo '</tr></table><br><a href="/?logout">Log Out</a> ' . $admin . '  <a href="projects?type=add" class="fl-rt">New Project</a>';
+    echo '</tr></table><br><a href="/?logout">Log Out</a> ' . $admin . '  <a href="/projects/add" class="fl-rt">New Project</a>';
 }
 
 function my_project($project_id)
