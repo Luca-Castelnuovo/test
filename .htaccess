@@ -6,6 +6,7 @@ RewriteEngine On
 
 #clean url
 RewriteRule ^home/([0-9]+)/$ home.php?project=$1
+RewriteRule ^home/([0-9]+)$ home.php?project=$1
 
 #RewriteRule ^home/([0-9]+)/$ home.php?project=$1
 #RewriteRule ^home/([0-9]+)/$ home.php?project=$1
@@ -15,6 +16,7 @@ RewriteRule ^home/([0-9]+)/$ home.php?project=$1
 #RewriteRule ^home/([0-9]+)/$ home.php?project=$1
 
 RewriteRule ^register/([a-zA-Z0-9]+)/$ register.php?auth_code=$1
+RewriteRule ^register/([a-zA-Z0-9]+)$ register.php?auth_code=$1
 
 # remove .php extensions from files
 RewriteCond %{DOCUMENT_ROOT}/$1\.php -f
