@@ -61,6 +61,7 @@ if ($back_button) {
 <script src="js/invite.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<script>$('.dropdown-trigger').dropdown();</script>
 </body>
 
 </html>
