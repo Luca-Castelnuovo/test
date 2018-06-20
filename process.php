@@ -255,8 +255,8 @@ switch ($_GET['type']) {
 
 function error($error_code = null)
 {
-    $out = ["status" => false, "error_code" => $error_code];
-    //$out = ["status" => false];
+    //$out = ["status" => false, "error_code" => $error_code];
+    $out = ["status" => false];
     echo json_encode($out);
     exit;
 }
