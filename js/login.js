@@ -15,7 +15,6 @@ $('#submit').click(function () {
     } else password.removeClass('hightlight');
 
     var data = 'user_name=' + username.val() + '&user_password=' + password.val() + '&CSRFtoken=' + CSRFtoken.val() + '&type=login';
-    console.log(data);return false;
 
     $('.text').attr('disabled', 'true');
 
