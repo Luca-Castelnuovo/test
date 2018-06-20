@@ -5,11 +5,7 @@
 RewriteEngine On
 
 # remove .php extensions from files
-RewriteCond %{DOCUMENT_ROOT}/$1\.php -f
-RewriteRule ^(.+?)/?$ /$1.php [L]
-RewriteCond %{REQUEST_FILENAME} !-f [OR]
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ - [L]
+
 
 # block access to .txt
 <Files ~ "\.txt$">
