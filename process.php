@@ -10,8 +10,8 @@ switch ($_GET['type']) {
         if (empty($_GET['user_name']) || empty($_GET['user_password'])) {
             error(10);
         }
-        $user_name = strtolower(clean_data($_GET['username']));
-        $user_password = clean_data($_GET['password']);
+        $user_name = strtolower(clean_data($_GET['user_name']));
+        $user_password = clean_data($_GET['user_password']);
 
         $user = sql("SELECT * FROM users WHERE user_name='{$user_name}'");
 
