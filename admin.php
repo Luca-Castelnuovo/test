@@ -25,7 +25,7 @@ if (isset($_SESSION['invite_response'])) {
             $user_type = $row["user_type"];
             $user_active = $row["user_active"];
             if($user_active) {$user_status = 'Deactivate';} else {$user_status = 'Activate';}
-            array_push($content,"<a class='dropdown-trigger btn' href='#' data-target='{$user_id}'>{$user_name}</a>","<ul id='{$user_id}' class='dropdown-content'><li><a href='?users&type=t_active&id={$user_id}'>{$user_status}</a></li><li><a href='?users&type=delete&id={$user_id}'>Delete</a></li></ul>");
+            array_push($content,"<a class='dropdown-trigger btn' href='#' data-target='{$user_id}'>{$user_name}</a>","<ul id='{$user_id}' class='dropdown-content'><li><a href='?users&type=active&id={$user_id}'>{$user_status}</a></li><li><a href='?users&type=delete&id={$user_id}'>Delete</a></li></ul>");
         }
     }
     $title = 'All Users';
