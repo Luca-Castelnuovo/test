@@ -8,13 +8,11 @@ RewriteEngine On
 RewriteRule ^home/([0-9]+)/$ home.php?project=$1
 RewriteRule ^home/([0-9]+)$ home.php?project=$1
 
-#RewriteRule ^home/([0-9]+)/$ home.php?project=$1
-#RewriteRule ^home/([0-9]+)/$ home.php?project=$1
+RewriteRule ^projects/([a-zA-Z]+)/$ projects.php?type=$1
+RewriteRule ^projects/([a-zA-Z]+)$ projects.php?type=$1
 
-#RewriteRule ^home/([0-9]+)/$ home.php?project=$1
-#RewriteRule ^home/([0-9]+)/$ home.php?project=$1
-#RewriteRule ^home/([0-9]+)/$ home.php?project=$1
-
+RewriteRule ^projects/([a-zA-Z]+)/([0-9]+)$ projects.php?type=$1&id=$2
+RewriteRule ^projects/([a-zA-Z]+)/([0-9]+)/$ projects.php?type=$1&id=$2
 RewriteRule ^register/([a-zA-Z0-9]+)/$ register.php?auth_code=$1
 RewriteRule ^register/([a-zA-Z0-9]+)$ register.php?auth_code=$1
 
