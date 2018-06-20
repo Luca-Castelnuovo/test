@@ -23,7 +23,7 @@ if (isset($_SESSION['invite_response'])) {
             $user_name = $row["user_name"];
             $user_type = $row["user_type"];
             $user_active = $row["user_active"];
-            if($user_active) {$user_status = 'Deactivate'} else {$user_status = 'Activate'}
+            if($user_active) {$user_status = 'Deactivate';} else {$user_status = 'Activate';}
             $content = "<td class='inline'><a class='dropdown-trigger btn' href='?project={$user_id}' data-target='{$user_id}'>{$user_name}</a></td>";
             $content = $content . "<ul id='{$user_id}' class='dropdown-content'>
                     <li><a href='?users&type=t_active&id={$user_id}'>{$user_status}</a></li>
