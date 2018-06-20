@@ -17,6 +17,8 @@ if (isset($_SESSION['invite_response'])) {
 } elseif (isset($_GET['users'])) {
     $type = 'users';
     $result = sql("SELECT * FROM users");
+    $row = $result->fetch_assoc()
+    var_dump($row);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $user_id = $row["id"];
