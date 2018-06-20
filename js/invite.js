@@ -1,10 +1,8 @@
-$('#submit_delete').click(function () {
+$('#submit').click(function () {
 
     var CSRFtoken = $('input[name=CSRFtoken]');
-    var user_id = $('input[name=id]');
-    var user_delete = $('input[name=delete]');
 
-    var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=admin&admin_type=delete' + 'user_id= ' + user_id.val() + 'user_delete=' + user_delete.val();
+    var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=admin&admin_type=invite';
 
     $.ajax({
         url: "process.php",
