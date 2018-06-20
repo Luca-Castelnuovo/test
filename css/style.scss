@@ -222,3 +222,8 @@ textarea {
 .dropdown-content li > span {
     color: $primary !important;
 }
+
+.admin.log {
+    height: auto !important;
+    max-width: none !important;
+}
