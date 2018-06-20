@@ -218,6 +218,7 @@ switch ($_GET['type']) {
                 $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
                 $file_path_full = "users/{$_SESSION['user_name']}/{$projects['project_name']}/{$files['file']}";
                 $file_open = fopen($file_path_full, "w");
+                $file_content = "\xEF\xBB\xBF" . $file_content;
                 if (fwrite($file_open, $file_content)) {
                     fclose($file_path_full);
                     success();
