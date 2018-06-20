@@ -40,7 +40,7 @@ $('#submit').click(function () {
                 }, 1000)
             } else {
                 $this.addClass('error');
-                $state.html('Account not Created! Please try again!');
+                $state.html('Username is taken. Please choose another!');
                 setTimeout(function () {
                     window.location.replace("/register");
                 }, 1000)
