@@ -11,8 +11,6 @@ RewriteCond %{REQUEST_FILENAME} !-f [OR]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ - [L]
 
-RewriteRule ^home/([-\w]+)$ home.php?project=$1 [NC,L]
-
 # block access to .txt
 <Files ~ "\.txt$">
     Order allow,deny
@@ -23,3 +21,6 @@ RewriteRule ^home/([-\w]+)$ home.php?project=$1 [NC,L]
 <FilesMatch robots\.txt>
     Allow from all
 </FilesMatch>
+
+RewriteRule ^test\/([a-zA-Z0-9]+)$ test.php?get=$1
+RewriteRule ^test\/([a-zA-Z0-9]+)/$ test.php?get=$1
