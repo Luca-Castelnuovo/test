@@ -69,7 +69,7 @@ function login()
         logout();
     }
 
-    $active = sql("SELECT user_active FROM users WHERE id='{$_SESSION['user_id']}'",true);
+    $active = sql("SELECT user_active FROM users WHERE id='{$_SESSION['user_id']}'", true);
     $active = $active['user_active'];
     if (!$active) {
         logout();
@@ -143,7 +143,9 @@ function my_projects()
                 </ul>";
         }
     }
-	if ($_SESSION['user_type']) {$admin='      <a href="/admin">Admin</a>';}
+    if ($_SESSION['user_type']) {
+        $admin = '      <a href="/admin">Admin</a>';
+    }
     echo '</tr></table><br><a href="/?logout">Log Out</a> ' . $admin . '  <a href="/projects/add" class="fl-rt">New Project</a>';
 }
 

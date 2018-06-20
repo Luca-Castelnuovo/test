@@ -1,7 +1,9 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 
-if (isset($_GET['reset'])) {reset_();}
+if (isset($_GET['reset'])) {
+    reset_();
+}
 
 if ($_SESSION['auth_code_valid'] && $_SESSION['auth_code_id'] === 1) {
     $js = 'register.min.js';

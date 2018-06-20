@@ -25,8 +25,12 @@ if (isset($_SESSION['invite_response'])) {
             $user_name = $row["user_name"];
             $user_type = $row["user_type"];
             $user_active = $row["user_active"];
-            if($user_active) {$user_status = 'Deactivate';} else {$user_status = 'Activate';}
-            array_push($content,"<a class='dropdown-trigger btn' href='#' data-target='{$user_id}'>{$user_name}</a>","<ul id='{$user_id}' class='dropdown-content'><li><a href='process?type=admin&admin_type=active&user_id={$user_id}&CSRFtoken={$csrftoken}'>{$user_status}</a></li><li><a onclick='return confirm(\"Are you sure?\")' href='process?type=admin&admin_type=delete&user_id={$user_id}&CSRFtoken={$csrftoken}'>Delete</a></li></ul>");
+            if ($user_active) {
+                $user_status = 'Deactivate';
+            } else {
+                $user_status = 'Activate';
+            }
+            array_push($content, "<a class='dropdown-trigger btn' href='#' data-target='{$user_id}'>{$user_name}</a>", "<ul id='{$user_id}' class='dropdown-content'><li><a href='process?type=admin&admin_type=active&user_id={$user_id}&CSRFtoken={$csrftoken}'>{$user_status}</a></li><li><a onclick='return confirm(\"Are you sure?\")' href='process?type=admin&admin_type=delete&user_id={$user_id}&CSRFtoken={$csrftoken}'>Delete</a></li></ul>");
         }
     }
     $title = 'All Users';
@@ -38,7 +42,7 @@ if (isset($_SESSION['invite_response'])) {
 }
 
 if ($back_button) {
-    array_push($content,"<a class='dropdown-trigger btn' href='/admin'>Back</a>");
+    array_push($content, "<a class='dropdown-trigger btn' href='/admin'>Back</a>");
 }
 
 ?>
@@ -50,12 +54,16 @@ if ($back_button) {
 
 <body>
 <div class="wrapper">
-    <form class="login pd-20 <?php if($type == 'login_log') {echo 'admin log';}?>">
+    <form class="login pd-20 <?php if ($type == 'login_log') {
+        echo 'admin log';
+    } ?>">
         <p class="title"><?= $title ?></p>
         <input type="hidden" name="CSRFtoken" value="<?= $csrftoken ?>"/>
-        <input type="hidden" name="id" value="<?= clean_data($_GET['id']) ?>" />
+        <input type="hidden" name="id" value="<?= clean_data($_GET['id']) ?>"/>
         <div class="inline">
-            <?php foreach($content as $row) {echo $row;} ?>
+            <?php foreach ($content as $row) {
+                echo $row;
+            } ?>
         </div>
     </form>
 </div>

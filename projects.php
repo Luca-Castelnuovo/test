@@ -15,7 +15,7 @@ switch ($_GET['type']) {
         break;
 
     default:
-        logout('Hack attempt detected!');
+        logout();
         break;
 }
 
