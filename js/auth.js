@@ -1,19 +1,7 @@
 $('#submit').click(function () {
 
     var auth_code = $('input[name=auth_code]');
-    var username = $('input[name=username]');
-    var password = $('input[name=password]');
     var CSRFtoken = $('input[name=CSRFtoken]');
-
-    if (username.val() == '') {
-        username.addClass('hightlight');
-        return false;
-    } else username.removeClass('hightlight');
-
-    if (password.val() == '') {
-        password.addClass('hightlight');
-        return false;
-    } else password.removeClass('hightlight');
 
     if (auth_code.val() == '') {
         auth_code.addClass('hightlight');
