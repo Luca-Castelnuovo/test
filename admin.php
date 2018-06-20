@@ -30,6 +30,9 @@ if (isset($_SESSION['invite_response'])) {
         }
     }
     $title = 'All Users';
+} elseif (isset($_GET['delete'])) {
+    array_push($content,'<input placeholder="To confirm type `delete` else type `no`" type="text" name="delete" autocomplete="off" class="text" autofocus> <i class="fa fa-trash"></i>', '<button id="submit"><span class="state">Delete User</span></button>');
+    $back_button = false;
 } else {
     $type = 'default';
     $content = ["<a class='dropdown-trigger btn' href='#' id='submit'>Generate Invite Code</a><a class='dropdown-trigger btn' href='?users'>Users</a><a class='dropdown-trigger btn' href='?login_log'>Login Log</a><a class='dropdown-trigger btn' href='/home'>Back</a>"];
