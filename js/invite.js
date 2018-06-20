@@ -5,7 +5,7 @@ $('#submit').click(function () {
     var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=admin&admin_type=invite';
 
     $.ajax({
-        url: "process.php",
+        url: "/process.php",
         type: "GET",
         data: data,
         cache: false,

@@ -38,6 +38,8 @@ switch ($_GET['type']) {
     case 'register_auth':
         if (auth($_GET['auth_code'], 'register', 1, 0)) {
             $_SESSION['input_code'] = $_GET['auth_code'];
+            $_SESSION['auth_code_valid'] = true;
+            $_SESSION['auth_code_id'] = $input_code_id;
             success();
         } else {
             error(11);
@@ -247,8 +249,6 @@ function auth($input_code, $input_type, $input_code_id, $deactive_immediatly = 1
         $auth_ip = ip();
         if (!($auth_created >= $auth_valid) && !$auth_used && $auth_type == $input_type) {
             sql("UPDATE codes SET used='{$deactive_immediatly}',ip='{$auth_ip}' WHERE code='{$input_code}'");
-            $_SESSION['auth_code_valid'] = true;
-            $_SESSION['auth_code_id'] = $input_code_id;
             return true;
         } else {
             return false;

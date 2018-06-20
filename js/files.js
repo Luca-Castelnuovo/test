@@ -43,7 +43,7 @@ $('#submit').click(function () {
 
 	if (file_type.val() == 'edit') {
 		$.ajax({
-			url: "process.php?" + data,
+			url: "/process.php?" + data,
 			type: 'POST',
 			data: jQuery.param({file_content: file_content_html.val()}),
 			cache: false,
@@ -65,7 +65,7 @@ $('#submit').click(function () {
 		});
 	} else {
 		$.ajax({
-			url: "process.php",
+			url: "/process.php",
 			type: "GET",
 			data: data,
 			cache: false,

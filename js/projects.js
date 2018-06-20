@@ -34,7 +34,7 @@ $('#submit').click(function () {
     $state.html('Proccessing');
 
     $.ajax({
-        url: "process.php",
+        url: "/process.php",
         type: "GET",
         data: data,
         cache: false,

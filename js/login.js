@@ -25,7 +25,7 @@ $('#submit').click(function () {
 
 
     $.ajax({
-        url: "process.php",
+        url: "/process.php",
         type: "GET",
         data: data,
         cache: false,
