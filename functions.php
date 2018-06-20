@@ -173,7 +173,7 @@ function my_project($project_id)
                 </ul>";
         }
     }
-    echo '</tr></table><br><a href="home">Go Back</a><a href="files?type=add&project_id=' . $project_id . '" class="fl-rt">New File</a>';
+    echo '</tr></table><br><a href="/home">Go Back</a><a href="files?type=add&project_id=' . $project_id . '" class="fl-rt">New File</a>';
 }
 
 function sql($query, $return_value = false)
