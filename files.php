@@ -46,9 +46,7 @@ switch ($_GET['type']) {
 
 <body>
 <div class="wrapper">
-    <form class="login <?php if ($_GET['type'] == 'edit') {
-        echo 'edit';
-    } ?>" method="post">
+    <form class="login <?php if ($_GET['type'] == 'edit') {echo 'edit';} ?>" method="post">
         <input type="hidden" name="project_id" value="<?= clean_data($_GET['project_id']) ?>"/>
         <input type="hidden" name="type" value="<?= clean_data($_GET['type']) ?>"/>
         <input type="hidden" name="id" value="<?= clean_data($_GET['id']) ?>"/>

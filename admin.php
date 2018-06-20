@@ -55,7 +55,7 @@ if ($back_button) {
 <body>
 <div class="wrapper">
     <form class="login pd-20 <?php if ($type == 'login_log') {
-        echo 'admin log';
+        echo 'remove';
     } ?>">
         <p class="title"><?= $title ?></p>
         <input type="hidden" name="CSRFtoken" value="<?= $csrftoken ?>"/>
