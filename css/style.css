@@ -198,4 +198,9 @@ textarea {
   max-width: none !important;
   width: auto !important; }
 
+/* line 231, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+.admin.log textarea {
+  height: auto !important;
+  width: auto !important; }
+
 /*# sourceMappingURL=style.css.map */
