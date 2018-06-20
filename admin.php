@@ -16,20 +16,22 @@ if (isset($_SESSION['invite_response'])) {
     $title = 'Login Logs';
 } elseif (isset($_GET['users'])) {
     $type = 'users';
-    $result = sql("SELECT * FROM projects WHERE owner_id='{$_SESSION['user_id']}'");
-    echo '<h2 class="uppercase">Projects:</h2><table>';
+    $result = sql("SELECT * FROM users");
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            $project_id = $row["id"];
-            $project_name = $row["project_name"];
-            echo "<td class='inline'><a class='dropdown-trigger btn' href='?project={$project_id}' data-target='{$project_id}'>{$project_name}</a></td>";
-            echo "<ul id='{$project_id}' class='dropdown-content'>
-                    <li><a href='?project={$project_id}'>files</a></li>
-                    <li><a href='projects?type=delete&id={$project_id}'>delete</a></li>
+            $user_id = $row["id"];
+            $user_name = $row["user_name"];
+            $user_type = $row["user_type"];
+            $user_active = $row["user_active"];
+            if($user_active) {$user_status = 'Deactivate'} else {$user_status = 'Activate'}
+            $content = "<td class='inline'><a class='dropdown-trigger btn' href='?project={$user_id}' data-target='{$user_id}'>{$user_name}</a></td>";
+            $content = $content . "<ul id='{$user_id}' class='dropdown-content'>
+                    <li><a href='?users&type=t_active&id={$user_id}'>{$user_status}</a></li>
+                    <li><a href='?users&type=delete&id={$user_id}'>Delete</a></li>
                 </ul>";
         }
     }
-    echo '</tr></table><br><a href="/?logout">Log Out</a> ' . $admin . '  <a href="projects?type=add" class="fl-rt">New Project</a>';
+    $content = $content . '</tr></table>';
     $title = 'All Users';
 } else {
     $type = 'default';
