@@ -3,12 +3,12 @@
 
 <html lang="en">
 
-<?php head('Error' . $error); ?>
+<?php head('Error - ' . $error); ?>
 
 <body>
     <div class="wrapper">
        <div class="login pd-20">
-            <p class="title"><?= 'Error' . $error ?></p>
+            <p class="title"><?= 'Error - ' . $error ?></p>
             <a href="home">Home</a>
         </div>
     </div>
