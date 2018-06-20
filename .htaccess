@@ -22,4 +22,4 @@ RewriteRule ^ - [L]
     Allow from all
 </FilesMatch>
 
-RewriteRule ^test\/([-\w]+)$ test.php?get=$1[NC,L]
+RewriteRule ^test/test$ test.php?get=shirt [QSA]
