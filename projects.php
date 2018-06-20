@@ -42,7 +42,7 @@ switch ($_GET['type']) {
     </form>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="js/projects.min.js"></script>
+<script src="/js/projects.min.js"></script>
 </body>
 
 </html>
