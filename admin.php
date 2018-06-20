@@ -5,7 +5,7 @@ login_admin();
 $back_button = true;
 
 if (isset($_SESSION['invite_response'])) {
-    $content = echo "<a class='dropdown-trigger btn' href='https://test.lucacastelnuovo.nl/register?auth_code={$_SESSION['invite_response']}'>Registration link</a>";
+    $content = "<a class='dropdown-trigger btn' href='https://test.lucacastelnuovo.nl/register?auth_code={$_SESSION['invite_response']}'>Registration link</a>";
     unset($_SESSION['invite_response']);
 } elseif (isset($_GET['login_log'])) {
     $log_file_content = file_get_contents('login.txt');
@@ -36,8 +36,7 @@ if ($back_button) {
         <p class="title">Admin Panel</p>
         <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
         <div class="inline">
-			<?= $content ?>
-
+            <?= $content ?>
         </div>
     </form>
 </div>
