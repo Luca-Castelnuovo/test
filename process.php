@@ -17,7 +17,7 @@ switch ($_GET['type']) {
 
         if ($user->num_rows != 0) {
             $user = $user->fetch_assoc();
-            if (password_verify($user_password, $user['user_password']) || true) {
+            if (password_verify($user_password, $user['user_password'])) {
                 $_SESSION['ip'] = ip();
                 $_SESSION['logged_in'] = 1;
                 $_SESSION['user_id'] = $user['id'];
