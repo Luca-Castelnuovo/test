@@ -1,5 +1,4 @@
 # todo
-file/project registration strtolower
 set max number of files per project and max projects
 
 places for clean url
