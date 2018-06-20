@@ -2,7 +2,7 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
 
 if (csrf_val_ajax(clean_data($_GET['CSRFtoken']))) {
-    error(5);
+    error(14);
 }
 
 switch ($_GET['type']) {
@@ -28,10 +28,10 @@ switch ($_GET['type']) {
 
                 success();
             } else {
-                error(4);
+                error(13);
             }
         } else {
-            error(3);
+            error(12);
         }
         break;
 
@@ -40,7 +40,7 @@ switch ($_GET['type']) {
             $_SESSION['input_code'] = $_GET['auth_code'];
             success();
         } else {
-            error(2);
+            error(11);
         }
         break;
 
@@ -48,7 +48,7 @@ switch ($_GET['type']) {
         if ($_SESSION['auth_code_valid'] && $_SESSION['auth_code_id'] === 1) {
             $input_code = $_SESSION['input_code'];
             if (empty($_GET['user_name']) || empty($_GET['user_password'])) {
-                error(6);
+                error(10);
             }
             $user_name = strtolower(clean_data($_GET['user_name']));
             $user_password = password_hash(clean_data($_GET['user_password']), PASSWORD_BCRYPT);
@@ -64,7 +64,7 @@ switch ($_GET['type']) {
             mkdir("users/{$user_name}", 0770);
             success();
         } else {
-            error(1);
+            error(8);
         }
         break;
 
@@ -77,7 +77,7 @@ switch ($_GET['type']) {
             $_SESSION['invite_response'] = $code;
             success();
         } else {
-            error(1);
+            error(7);
         }
         break;
 
@@ -148,10 +148,10 @@ switch ($_GET['type']) {
                         fclose("users/{$_SESSION['user_name']}/{$projects['project_name']}/{$file_name_lang}");
                         success();
                     } else {
-                        error(1);
+                        error(6);
                     }
                 } else {
-                    error(1);
+                    error(5);
                 }
                 break;
             case 'edit':
@@ -165,7 +165,7 @@ switch ($_GET['type']) {
                     success();
                 } else {
                     fclose($file_path_full);
-                    error(1);
+                    error(4);
                 }
                 break;
             case 'delete':
@@ -177,14 +177,14 @@ switch ($_GET['type']) {
                         unlink("users/{$_SESSION['user_name']}/{$projects['project_name']}/{$files['file']}");
                         success();
                     } else {
-                        error(0);
+                        error(3);
                     }
                 } else {
-                    error(0);
+                    error(2);
                 }
                 break;
             default:
-                error(0);
+                error(1);
         }
         break;
 
