@@ -4,8 +4,17 @@
 # turn mod_rewrite on
 RewriteEngine On
 
-RewriteRule ^test/([a-zA-Z0-9]+)$ test.php?get=$1
-RewriteRule ^test/([a-zA-Z0-9]+)/$ test.php?get=$1
+#clean url
+RewriteRule ^home/([0-9]+)/$ home.php?project=$1
+
+#RewriteRule ^home/([0-9]+)/$ home.php?project=$1
+#RewriteRule ^home/([0-9]+)/$ home.php?project=$1
+
+#RewriteRule ^home/([0-9]+)/$ home.php?project=$1
+#RewriteRule ^home/([0-9]+)/$ home.php?project=$1
+#RewriteRule ^home/([0-9]+)/$ home.php?project=$1
+
+RewriteRule ^register/([0-9]+)/$ register.php?auth_code=$1
 
 # remove .php extensions from files
 RewriteCond %{DOCUMENT_ROOT}/$1\.php -f
