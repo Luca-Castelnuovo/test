@@ -36,8 +36,8 @@ if ($back_button) {
 
 <body>
 <div class="wrapper">
-    <form class="login pd-20">
-        <p class="title <?php if($type == 'login_log') {echo 'login edit';}?>">Admin Panel</p>
+    <form class="login pd-20 <?php if($type == 'login_log') {echo 'edit';}?>">
+        <p class="title">Admin Panel</p>
         <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
         <div class="inline">
             <?= $content ?>
