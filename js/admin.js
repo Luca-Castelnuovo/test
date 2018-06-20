@@ -1,11 +1,10 @@
 $('#submit').click(function () {
 
     var CSRFtoken = $('input[name=CSRFtoken]');
+    var user_id = $('input[name=id]');
+    var admin_type = $('input[name=type]');
 
-    var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=admin&admin_type=invite';
-
-    var $this = $('.login'), $state = $this.find('a > .state');
-    $state.html('Generating Code');
+    var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=admin&admin_type=' + admin_type.val() + 'user_id= ' + user_id.val();
 
     $.ajax({
         url: "process.php",
@@ -16,15 +15,12 @@ $('#submit').click(function () {
         success: function (response) {
             var success = response.status;
             if (success) {
-                $state.html('Code Generated');
                 setTimeout(function () {
-                    $state.html('Generate Code');
                     location.reload();
                 }, 500)
             } else {
-                $state.html('Code not Generated');
                 setTimeout(function () {
-                    $state.html('Generate Code');
+                    location.reload();
                 }, 500)
             }
             ;
