@@ -5,16 +5,20 @@ login_admin();
 $back_button = true;
 
 if (isset($_SESSION['invite_response'])) {
+    $type = 'code_response';
     $content = "<a class='dropdown-trigger btn' href='https://test.lucacastelnuovo.nl/register?auth_code={$_SESSION['invite_response']}'>Registration link</a>";
     unset($_SESSION['invite_response']);
 } elseif (isset($_GET['login_log'])) {
+    $type = 'login_log';
     $log_file_content = file_get_contents('login.txt');
     $content = '<pre>' . $log_file_content . '</pre>';
 } elseif (isset($_GET['users'])) {
+    $type = 'users';
     //query all users
     //give a overview of users
     //option per user (deactivate/activate, delete, view projects)
 } else {
+    $type = 'default';
     $content = "<a class='dropdown-trigger btn' href='#' id='submit'>Generate Invite Code</a><a class='dropdown-trigger btn' href='?users'>Users</a><a class='dropdown-trigger btn' href='?login_log'>Login Log</a><a class='dropdown-trigger btn' href='/home'>Back</a>";
     $back_button = false;
 }
@@ -33,7 +37,7 @@ if ($back_button) {
 <body>
 <div class="wrapper">
     <form class="login pd-20">
-        <p class="title">Admin Panel</p>
+        <p class="title <?php if($type == 'users') {echo 'login edit';}?>">Admin Panel</p>
         <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
         <div class="inline">
             <?= $content ?>
