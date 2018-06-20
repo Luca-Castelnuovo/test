@@ -52,13 +52,15 @@ if ($back_button) {
     <form class="login pd-20 <?php if($type == 'login_log') {echo 'admin log';}?>">
         <p class="title"><?= $title ?></p>
         <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
+        <input type="hidden" name="type" value="<?= clean_data($_GET['type']) ?>" />
+        <input type="hidden" name="id" value="<?= clean_data($_GET['id']) ?>" />
         <div class="inline">
             <?php foreach($content as $row) {echo $row;} ?>
         </div>
     </form>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="js/invite.min.js"></script>
+<script src="js/admin.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 <script>$('.dropdown-trigger').dropdown();</script>
