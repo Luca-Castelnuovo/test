@@ -4,7 +4,8 @@
 # turn mod_rewrite on
 RewriteEngine On
 
-RewriteRule ^test/test$ test.php?get=shirt [QSA]
+RewriteRule ^test/([a-zA-Z0-9]+)$ test.php?get=$1
+RewriteRule ^test/([a-zA-Z0-9]+)/$ test.php?get=$1
 
 # remove .php extensions from files
 RewriteCond %{DOCUMENT_ROOT}/$1\.php -f
