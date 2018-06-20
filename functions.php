@@ -152,7 +152,7 @@ function my_projects()
 function my_project($project_id)
 {
     $project = sql("SELECT id FROM projects WHERE id='{$project_id}' AND owner_id='{$_SESSION['user_id']}'");
-    if ($project->num_rows == 0) {
+    if ($project->num_rows == 0 && !$_SESSION['user_type']) {
         header('Location: /home');
         exit;
     }
