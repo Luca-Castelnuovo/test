@@ -60,10 +60,7 @@ switch ($_GET['type']) {
         <button id="submit"><span class="state"><?= $button_text ?></span></button>
     </form>
 </div>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-<script src="/js/files.min.js"></script>
+<?php footer('files'); ?>
 </body>
 
 </html>
