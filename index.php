@@ -13,9 +13,9 @@ if (isset($_GET['logout'])) {
     <form class="login" method="post">
         <p class="title">Log in</p>
         <input placeholder="Username" type="text" name="user_name" autocomplete="off" class="text" id="username"
-               autofocus>
+               autofocus> <i class="material-icons">account_circle</i>
         <input placeholder="Password" type="password" name="user_password" autocomplete="off" class="text"
-               id="password">
+               id="password"> <i class="material-icons">lock</i>
         <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
         <button id="submit"><i class="spinner"></i> <span class="state">Log in</span></button>
     </form>
