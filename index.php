@@ -13,12 +13,12 @@ if (isset($_GET['logout'])) {
         <form class="login" method="post">
             <p class="title">Log in</p>
 
-            <div class="input-field col s6">
+            <div class="input-field">
                 <label for="username">Username</label>
                 <input type="text" name="user_name" autocomplete="off" class="text" id="username" autofocus>
             </div>
 
-            <div class="input-field col s6">
+            <div class="input-field">
                 <label for="password">Password</label>
                 <input type="password" name="user_password" autocomplete="off" class="text" id="password">
             </div>
