@@ -38,8 +38,7 @@ if ($_SESSION['auth_code_valid']) {
         <button id="submit"><i class="spinner"></i> <span class="state"><?= $button_text ?></span></button>
     </form>
 </div>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<?php echo "<script src='/js/{$js}'></script>"; ?>
+<?php footer($js); ?>
 </body>
 
 </html>
