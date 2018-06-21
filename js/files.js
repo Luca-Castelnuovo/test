@@ -49,14 +49,14 @@ $('#submit').click(function () {
                 $this.addClass('ok');
                 $state.html(success_response);
                 setTimeout(function () {
-                    window.location.replace("/home?project=" + project_id.val());
+                    window.location.replace("/home/" + project_id.val());
                 }, 500)
             },
             error: function () {
                 $this.addClass('error');
                 $state.html(error_response);
                 setTimeout(function () {
-                    window.location.replace("/home?project=" + project_id.val());
+                    window.location.replace("/home/" + project_id.val());
                 }, 1000)
             }
         });
@@ -73,13 +73,13 @@ $('#submit').click(function () {
                     $this.addClass('ok');
                     $state.html(success_response);
                     setTimeout(function () {
-                        window.location.replace("/home?project=" + project_id.val());
+                        window.location.replace("/home/" + project_id.val());
                     }, 500)
                 } else {
                     $this.addClass('error');
                     $state.html(error_response);
                     setTimeout(function () {
-                        window.location.replace("/home?project=" + project_id.val());
+                        window.location.replace("/home/" + project_id.val());
                     }, 1000)
                 }
                 ;
