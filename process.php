@@ -52,7 +52,7 @@ switch ($_GET['type']) {
         break;
 
     case 'register':
-        if ($_SESSION['auth_code_valid'] && $_SESSION['auth_code_id'] === 1) {
+        if ($_SESSION['auth_code_valid']) {
             $input_code = $_SESSION['input_code'];
             if (empty($_GET['user_name']) || empty($_GET['user_password'])) {
                 error(10);
@@ -66,7 +66,6 @@ switch ($_GET['type']) {
             sql("UPDATE codes SET used='1',user='{$user_name}' WHERE code='{$input_code}'");
             sql("INSERT INTO users (user_name, user_password) VALUES ('{$user_name}', '{$user_password}')");
             unset($_SESSION['input_code']);
-            unset($_SESSION['auth_code_id']);
             unset($_SESSION['auth_code_valid']);
             mkdir("users/{$user_name}", 0770);
             success();
