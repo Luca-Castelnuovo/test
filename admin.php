@@ -32,6 +32,7 @@ if (isset($_SESSION['invite_response'])) {
             }
             array_push($content, "<a class='dropdown-trigger btn' href='#' data-target='{$user_id}'>{$user_name}</a>", "<ul id='{$user_id}' class='dropdown-content'><li><a href='process?type=admin&admin_type=active&user_id={$user_id}&CSRFtoken={$csrftoken}'>{$user_status}</a></li><li><a onclick='return confirm(\"Are you sure?\")' href='process?type=admin&admin_type=delete&user_id={$user_id}&CSRFtoken={$csrftoken}'>Delete</a></li></ul>");
         }
+        array_push($content, "<br><br>");
     }
     $title = 'All Users';
 } else {
