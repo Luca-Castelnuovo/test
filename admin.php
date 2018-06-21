@@ -42,7 +42,7 @@ if (isset($_SESSION['invite_response'])) {
 }
 
 if ($back_button) {
-    array_push($content, "<a class='dropdown-trigger btn' href='/admin'>Back</a>");
+    array_push($content, "<br><br><a class='dropdown-trigger btn' href='/admin'>Back</a>");
 }
 
 ?>
