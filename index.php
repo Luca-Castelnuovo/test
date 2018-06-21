@@ -20,8 +20,7 @@ if (isset($_GET['logout'])) {
         <button id="submit"><i class="spinner"></i> <span class="state">Log in</span></button>
     </form>
 </div>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/login.min.js"></script>
+<?php footer('login'); ?>
 </body>
 
 </html>
