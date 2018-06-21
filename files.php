@@ -22,13 +22,13 @@ switch ($_GET['type']) {
         $file_open = fopen($file, "r");
         $file_content = fread($file_open, filesize($file));
         fclose($file);
-        $content = ['<textarea class="text" name="file_content" placeholder="Enter your code here..." rows="30">' . $file_content . '</textarea>'];
+        $content = ['<label for="code">Enter your code here...</label>', '<textarea name="file_content" class="text" id="code" rows="30">' . $file_content . '</textarea>'];
         $button_text = 'Save File';
         break;
 
     case 'delete':
         $title = 'Delete File';
-        $content = ['<input placeholder="To confirm type `delete` else type `no`" type="text" name="file_delete" autocomplete="off" class="text" autofocus>'];
+        $content = ['<label for="delete">To confirm type `delete`</label>', '<input type="text" name="file_delete" class="text validate" id="delete" autocomplete="off" autofocus>'];
         $button_text = 'Submit';
         break;
 
