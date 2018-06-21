@@ -178,22 +178,18 @@ body {
   max-width: none !important; }
 
 /* line 210, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
-input.hightlight {
-  border-color: red !important; }
-
-/* line 214, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
 .uppercase {
   text-transform: uppercase; }
 
-/* line 218, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+/* line 214, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
 .fl-rt {
   float: right; }
 
-/* line 222, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+/* line 218, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
 .pd-20 {
   padding-bottom: 20px !important; }
 
-/* line 226, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+/* line 222, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
 textarea {
   width: 100% !important;
   resize: vertical; }
