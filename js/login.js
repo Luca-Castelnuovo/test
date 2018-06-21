@@ -5,8 +5,8 @@ $('#submit').click(function () {
     var CSRFtoken = $('input[name=CSRFtoken]');
 
     if (username.val() == '') {return false;}
-
     if (password.val() == '') {return false;}
+    if (CSRFtoken.val() == '') {return false;}
 
     var data = 'user_name=' + username.val() + '&user_password=' + password.val() + '&CSRFtoken=' + CSRFtoken.val() + '&type=login';
 
