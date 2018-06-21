@@ -25,14 +25,6 @@ if (isset($_GET['logout'])) {
         </form>
     </div>
     <?php footer('login'); ?>
-
-<label for="file_name">File Name</label>
-<input type="text" name="file_name" autocomplete="off" class="text" autofocus>
-<p>Please choose a file type</p>
-<p><label><input name="file_lang" type="radio" value="html" checked> <span>HTML</span></label></p>
-<p><label><input name="file_lang" type="radio" value="css"> <span>CSS</span></label></p>
-<p><label><input name="file_lang" type="radio" value="js"> <span>JavaScript</span></label></p>
-
 </body>
 
 </html>

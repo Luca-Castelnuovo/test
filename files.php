@@ -9,7 +9,7 @@ $show_button = true;
 switch ($_GET['type']) {
     case 'add':
         $title = 'Add File';
-        $content = ['<input placeholder="File Name" type="text" name="file_name" autocomplete="off" class="text" autofocus>', '<br><p>Please choose a file type</p>', '<p><label><input checked name="file_lang" type="radio" value="html"> <span>HTML</span></label></p>', '<p><label><input name="file_lang" type="radio" value="css"> <span>CSS</span></label></p>', '<p><label><input name="file_lang" type="radio" value="js"> <span>JavaScript</span></label></p>'];
+        $content = ['<label for="file_name">File Name</label>', '<input type="text" name="file_name" class="text validate" id="file_name" autocomplete="off" autofocus>', '<p>Please choose a file type</p>', '<p><label><input name="file_lang" type="radio" value="html" checked> <span>HTML</span></label></p>', '<p><label><input name="file_lang" type="radio" value="css"> <span>CSS</span></label></p>', '<p><label><input name="file_lang" type="radio" value="js"> <span>JavaScript</span></label></p>'];
         $button_text = 'Create File';
         break;
 
