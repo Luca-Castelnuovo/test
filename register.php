@@ -5,7 +5,7 @@ if (isset($_GET['reset'])) {
     reset_();
 }
 
-if ($_SESSION['auth_code_valid'] && $_SESSION['auth_code_id'] === 1) {
+if ($_SESSION['auth_code_valid']) {
     $js = 'register.min.js';
     $title = 'Register';
     $button_text = 'Submit';
