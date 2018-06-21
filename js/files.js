@@ -11,14 +11,8 @@ $('#submit').click(function () {
     var success_response = '';
     var error_response = '';
 
-    $('.text').attr('disabled', 'true');
-
-    var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=files' + '&file_type=' + file_type.val() + '&project_id=' + project_id.val() + '&file_id=' + file_id.val() + '&file_name=' + file_name.val() + '&file_lang=' + file_lang.val() + '&file_delete=' + file_delete.val();
-    console.log(data);
-
-    var $this = $('.login'), $state = $this.find('button > .state');
-    $this.addClass('loading');
-    $state.html('Proccessing');
+    if (file_type.val() == '') {return false;}
+    if (CSRFtoken.val() == '') {return false;}
 
     if (file_type.val() == 'add') {
         if (file_name.val() == '') {
@@ -40,6 +34,15 @@ $('#submit').click(function () {
         success_response = 'File saved!';
         error_response = 'File not saved!';
     }
+
+    var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=files' + '&file_type=' + file_type.val() + '&project_id=' + project_id.val() + '&file_id=' + file_id.val() + '&file_name=' + file_name.val() + '&file_lang=' + file_lang.val() + '&file_delete=' + file_delete.val();
+    console.log(data);
+
+    $('.text').attr('disabled', 'true');
+
+    var $this = $('.login'), $state = $this.find('button > .state');
+    $this.addClass('loading');
+    $state.html('Proccessing');
 
     if (file_type.val() == 'edit') {
         $.ajax({
