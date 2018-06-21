@@ -41,8 +41,7 @@ switch ($_GET['type']) {
         <button id="submit"><span class="state"><?= $button_text ?></span></button>
     </form>
 </div>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/projects.min.js"></script>
+<?php footer('projects'); ?>
 </body>
 
 </html>
