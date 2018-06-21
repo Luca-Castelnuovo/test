@@ -9,23 +9,25 @@ if (isset($_GET['logout'])) {
 <?php head('Log In'); ?>
 
 <body>
-<div class="row">
-    <form class="col s12">
+    <div class="wrapper">
         <div class="row">
-            <div class="input-field col s6">
-                <i class="material-icons prefix">account_circle</i>
-                <input id="password" type="text" class="validate text" name="user_name" autocomplete="off">
-                <label for="password">Username</label>
-            </div>
-            <div class="input-field col s6">
-                  <i class="material-icons prefix">lock</i>
-                <input id="username" type="password" class="validate text" name="user_password" autocomplete="off">
-                <label for="password">Password</label>
-            </div>
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="password" type="text" class="validate text" name="user_name" autocomplete="off">
+                        <label for="password">Username</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">lock</i>
+                        <input id="username" type="password" class="validate text" name="user_password" autocomplete="off">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+            </form>
         </div>
-    </form>
-  </div>
-<?php footer('login'); ?>
+    </div>
+    <?php footer('login'); ?>
 </body>
 
 </html>
