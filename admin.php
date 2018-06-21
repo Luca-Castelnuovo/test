@@ -46,6 +46,7 @@ if ($back_button) {
 }
 
 ?>
+
 <!DOCTYPE html>
 
 <html lang="en">

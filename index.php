@@ -2,6 +2,7 @@
 if (isset($_GET['logout'])) {
     logout();
 } ?>
+
 <!DOCTYPE html>
 
 <html lang="en">

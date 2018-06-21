@@ -15,7 +15,6 @@ if ($_SESSION['auth_code_valid']) {
 
 ?>
 
-
 <!DOCTYPE html>
 
 <html lang="en">
