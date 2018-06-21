@@ -12,6 +12,7 @@ if (isset($_GET['logout'])) {
     <div class="wrapper">
         <div class="row">
             <form class="col s12 login">
+                <p class="title">Log in</p>
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">account_circle</i>
