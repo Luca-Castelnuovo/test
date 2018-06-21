@@ -15,12 +15,12 @@ if (isset($_GET['logout'])) {
 
             <div class="input-field">
                 <label for="username">Username</label>
-                <input type="text" name="user_name" autocomplete="off" class="text" id="username" autofocus>
+                <input type="text" name="user_name" autocomplete="off" class="text" id="username" class="validate" autofocus>
             </div>
 
             <div class="input-field">
                 <label for="password">Password</label>
-                <input type="password" name="user_password" autocomplete="off" class="text" id="password">
+                <input type="password" name="user_password" autocomplete="off" class="text" class="validate" id="password">
             </div>
 
             <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>" />
