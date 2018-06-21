@@ -13,7 +13,7 @@ if (isset($_GET['logout'])) {
         <form class="login" method="post">
             <p class="title">Log in</p>
             <label for="username">Username</label>
-            <input type="text" name="user_name" autocomplete="off" class="text" id="username" autofocus>
+            <input type="text" name="user_name" autocomplete="off" class="text" id="username">
             <label for="password">Password</label>
             <input type="password" name="user_password" autocomplete="off" class="text" id="password">
             <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>" />
