@@ -8,7 +8,7 @@ login(); ?>
 
 <body>
 <div class="wrapper">
-    <div class="login pd-20 remove">
+    <div class="login pd-20">
         <?php if (isset($_GET['project'])) {
             my_project($_GET['project']);
         } else {
