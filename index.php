@@ -14,13 +14,13 @@ if (isset($_GET['logout'])) {
             <p class="title">Log in</p>
 
             <div class="input-field col s6">
-            <label for="username">Username</label>
-            <input type="text" name="user_name" autocomplete="off" class="text" id="username" autofocus>
+                <label for="username">Username</label>
+                <input type="text" name="user_name" autocomplete="off" class="text" id="username" autofocus>
             </div>
 
             <div class="input-field col s6">
-            <label for="password">Password</label>
-            <input type="password" name="user_password" autocomplete="off" class="text" id="password">
+                <label for="password">Password</label>
+                <input type="password" name="user_password" autocomplete="off" class="text" id="password">
             </div>
 
             <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>" />
