@@ -9,7 +9,7 @@ $show_button = true;
 switch ($_GET['type']) {
     case 'add':
         $title = 'Add File';
-        $content = ['<label for="file_name">File Name</label>', '<input type="text" name="file_name" class="text validate" id="file_name" autocomplete="off" autofocus>', '<p>Please choose a file type</p>', '<p><label><input name="file_lang" type="radio" value="html" checked> <span>HTML</span></label></p>', '<p><label><input name="file_lang" type="radio" value="css"> <span>CSS</span></label></p>', '<p><label><input name="file_lang" type="radio" value="js"> <span>JavaScript</span></label></p>'];
+        $content = ['<div class="input-field"><label for="file_name">File Name</label><input type="text" name="file_name" class="text validate" id="file_name" autocomplete="off" autofocus></div>', '<p>Please choose a file type</p>', '<p><label><input name="file_lang" type="radio" value="html" checked> <span>HTML</span></label></p>', '<p><label><input name="file_lang" type="radio" value="css"> <span>CSS</span></label></p>', '<p><label><input name="file_lang" type="radio" value="js"> <span>JavaScript</span></label></p>'];
         $button_text = 'Create File';
         break;
 
@@ -52,9 +52,7 @@ switch ($_GET['type']) {
         <input type="hidden" name="id" value="<?= clean_data($_GET['id']) ?>"/>
         <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
         <p class="title"><?= $title ?></p>
-        <div class="input-field">
-            <?php foreach ($content as $row) {echo $row;} ?>
-        </div>
+        <?php foreach ($content as $row) {echo $row;} ?>
         <button id="submit"><span class="state"><?= $button_text ?></span></button>
     </form>
 </div>
