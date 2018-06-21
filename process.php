@@ -38,39 +38,42 @@ switch ($_GET['type']) {
         }
         break;
 
-    case 'register_auth':
-        if (empty($_GET['auth_code'])) {
-            error(10);
-        }
-        if (auth($_GET['auth_code'], 'register', 0)) {
-            $_SESSION['input_code'] = $_GET['auth_code'];
-            $_SESSION['auth_code_valid'] = true;
-            success();
-        } else {
-            error(11);
-        }
-        break;
-
     case 'register':
-        if ($_SESSION['auth_code_valid']) {
-            $input_code = $_SESSION['input_code'];
-            if (empty($_GET['user_name']) || empty($_GET['user_password'])) {
-                error(10);
-            }
-            $user_name = strtolower(clean_data($_GET['user_name']));
-            $user_password = password_hash(clean_data($_GET['user_password']), PASSWORD_BCRYPT);
-            $check_existing_user = sql("SELECT id FROM users WHERE user_name='{$user_name}'");
-            if ($check_existing_user->num_rows > 0) {
-                error(9);
-            }
-            sql("UPDATE codes SET used='1',user='{$user_name}' WHERE code='{$input_code}'");
-            sql("INSERT INTO users (user_name, user_password) VALUES ('{$user_name}', '{$user_password}')");
-            unset($_SESSION['input_code']);
-            unset($_SESSION['auth_code_valid']);
-            mkdir("users/{$user_name}", 0770);
-            success();
-        } else {
-            error(8);
+        switch ($_GET['register_type']) {
+            case 'invite_code':
+                if (empty($_GET['auth_code'])) {error(10);}
+                if (auth($_GET['auth_code'], 'register', 0)) {
+                    $_SESSION['input_code'] = $_GET['auth_code'];
+                    $_SESSION['auth_code_valid'] = true;
+                    success();
+                } else {
+                    error(11);
+                }
+                break;
+            case 'register':
+                if ($_SESSION['auth_code_valid']) {
+                    $input_code = $_SESSION['input_code'];
+                    if (empty($_GET['user_name']) || empty($_GET['user_password'])) {
+                        error(10);
+                    }
+                    $user_name = strtolower(clean_data($_GET['user_name']));
+                    $user_password = password_hash(clean_data($_GET['user_password']), PASSWORD_BCRYPT);
+                    $check_existing_user = sql("SELECT id FROM users WHERE user_name='{$user_name}'");
+                    if ($check_existing_user->num_rows > 0) {
+                        error(9);
+                    }
+                    sql("UPDATE codes SET used='1',user='{$user_name}' WHERE code='{$input_code}'");
+                    sql("INSERT INTO users (user_name, user_password) VALUES ('{$user_name}', '{$user_password}')");
+                    unset($_SESSION['input_code']);
+                    unset($_SESSION['auth_code_valid']);
+                    mkdir("users/{$user_name}", 0770);
+                    success();
+                } else {
+                    error(8);
+                }
+                break;
+            default:
+                error(15);
         }
         break;
 
