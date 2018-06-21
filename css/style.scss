@@ -87,6 +87,10 @@ body {
 
   input {
     display: block;
+
+      &:focus {
+            border-color: $primary !important;
+      }
   }
 
   a {
