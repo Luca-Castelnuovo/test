@@ -6,11 +6,11 @@ $('#submit').click(function () {
     var project_delete = $('input[name=project_delete]');
     var CSRFtoken = $('input[name=CSRFtoken]');
 
-    if (project_type.val() == '') {return false;}
-    if (CSRFtoken.val() == '') {return false;}
-
     var success_response = '';
     var error_response = '';
+
+    if (project_type.val() == '') {return false;}
+    if (CSRFtoken.val() == '') {return false;}
 
     if (project_type.val() == 'add') {
         if (project_name.val() == '') {return false;}
@@ -30,8 +30,7 @@ $('#submit').click(function () {
 
     $('.text').attr('disabled', 'true');
 
-    var $this = $('.login'),
-        $state = $this.find('button > .state');
+    var $this = $('.login'), $state = $this.find('button > .state');
     $this.addClass('loading');
     $state.html('Proccessing');
 

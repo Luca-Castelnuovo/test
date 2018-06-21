@@ -2,6 +2,8 @@ $('#submit').click(function () {
 
     var CSRFtoken = $('input[name=CSRFtoken]');
 
+    if (CSRFtoken.val() == '') {return false;}
+
     var data = 'CSRFtoken=' + CSRFtoken.val() + '&type=admin&admin_type=invite';
 
     $.ajax({

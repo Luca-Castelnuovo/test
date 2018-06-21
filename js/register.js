@@ -12,6 +12,9 @@ $('#submit').click(function () {
     var url_respone_success = '';
     var url_respone_error = '';
 
+    if (register_type.val() == '') {return false;}
+    if (CSRFtoken.val() == '') {return false;}
+
     if (register_type.val() == 'invite_code') {
         if (auth_code.val() == '') {return false;}
         success_response = 'Invite Code Valid!';
@@ -35,8 +38,7 @@ $('#submit').click(function () {
 
     $('.text').attr('disabled', 'true');
 
-    var $this = $('.login'),
-        $state = $this.find('button > .state');
+    var $this = $('.login'), $state = $this.find('button > .state');
     $this.addClass('loading');
     $state.html(loading_message);
 

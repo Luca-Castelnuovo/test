@@ -12,11 +12,9 @@ $('#submit').click(function () {
 
     $('.text').attr('disabled', 'true');
 
-    var $this = $('.login'),
-        $state = $this.find('button > .state');
+    var $this = $('.login'), $state = $this.find('button > .state');
     $this.addClass('loading');
     $state.html('Authenticating');
-
 
     $.ajax({
         url: "/process.php",
