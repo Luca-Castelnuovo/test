@@ -45,7 +45,6 @@ switch ($_GET['type']) {
         if (auth($_GET['auth_code'], 'register', 0)) {
             $_SESSION['input_code'] = $_GET['auth_code'];
             $_SESSION['auth_code_valid'] = true;
-            $_SESSION['auth_code_id'] = $input_code_id;
             success();
         } else {
             error(11);
