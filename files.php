@@ -51,12 +51,10 @@ switch ($_GET['type']) {
         <input type="hidden" name="type" value="<?= clean_data($_GET['type']) ?>"/>
         <input type="hidden" name="id" value="<?= clean_data($_GET['id']) ?>"/>
         <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
-        <p class="title">
-            <?= $title ?>
-        </p>
-        <?php foreach ($content as $row) {
-            echo $row;
-        } ?>
+        <p class="title"><?= $title ?></p>
+        <div class="input-field">
+            <?php foreach ($content as $row) {echo $row;} ?>
+        </div>
         <button id="submit"><span class="state"><?= $button_text ?></span></button>
     </form>
 </div>
