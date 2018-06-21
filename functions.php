@@ -136,7 +136,7 @@ function my_projects()
         while ($row = $result->fetch_assoc()) {
             $project_id = $row["id"];
             $project_name = $row["project_name"];
-            echo "<td class='inline'><a class='dropdown-trigger btn waves-effect waves-light' href='/home/{$project_id}' data-target='{$project_id}'>{$project_name}</a></td>";
+            echo "<td class='inline'><a class='dropdown-trigger btn' href='/home/{$project_id}' data-target='{$project_id}'>{$project_name}</a></td>";
             echo "<ul id='{$project_id}' class='dropdown-content'>
                     <li><a href='/home/{$project_id}'>files</a></li>
                     <li><a href='/projects/delete/{$project_id}'>delete</a></li>
