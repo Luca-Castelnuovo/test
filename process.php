@@ -129,6 +129,9 @@ switch ($_GET['type']) {
                 if (empty($_GET['project_name'])) {
                     error(10);
                 }
+                $project_owned = sql("SELECT id FROM projects WHERE owner_id='{$_SESSION['user_id']}'");
+                if ($project_owned->num_rows > 10) {error(10);}
+
                 $project_name = strtolower(clean_data($_GET['project_name']));
                 if (sql("INSERT INTO projects (owner_id, project_name) VALUES ('{$_SESSION['user_id']}', '{$project_name}')")) {
                     mkdir("users/{$_SESSION['user_name']}/{$project_name}");
@@ -174,6 +177,9 @@ switch ($_GET['type']) {
                 if (empty($_GET['file_lang']) || empty($_GET['project_id']) || empty($_GET['file_name'])) {
                     error(10);
                 }
+                $files_owned = sql("SELECT id FROM files WHERE owner_id='{$_SESSION['user_id']}'");
+                if ($files_owned->num_rows > 50) {error(10);}
+                
                 $file_lang = clean_data($_GET['file_lang']);
                 switch ($file_lang) {
                     case 'html':
