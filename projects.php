@@ -10,7 +10,7 @@ switch ($_GET['type']) {
         break;
     case 'delete':
         $title = 'Delete Project';
-        $content = ['<label for="delete">To confirm type `delete` else type `no`</label>', '<input type="text" name="project_delete" class="text validate" id="delete" autocomplete="off" autofocus>'];
+        $content = ['<label for="delete">To confirm type `delete`</label>', '<input type="text" name="project_delete" class="text validate" id="delete" autocomplete="off" autofocus>'];
         $button_text = 'Submit';
         break;
 
