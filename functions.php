@@ -210,14 +210,15 @@ function head($title)
 {
     echo '
     <head>
-		<title>' . $title . '</title>
-		<meta charset=utf-8>
-		<meta content="ie=edge" http-equiv=x-ua-compatible>
-		<meta content="width=device-width,initial-scale=1,shrink-to-fit=no" name=viewport>
-		<link href=https://lucacastelnuovo.nl/images/favicon.ico rel="shortcut icon">
-		<link rel="stylesheet" type="text/css" href="/css/style.min.css">
-		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <title>' . $title . '</title>
+    <meta charset=utf-8>
+    <meta content="ie=edge" http-equiv=x-ua-compatible>
+    <meta content="width=device-width,initial-scale=1,shrink-to-fit=no" name=viewport>
+    <link href=https://lucacastelnuovo.nl/images/favicon.ico rel="shortcut icon">
+    <link rel="stylesheet" type="text/css" href="/css/style.min.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>';
 }
 
