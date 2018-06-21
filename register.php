@@ -37,7 +37,7 @@ if ($_SESSION['auth_code_valid']) {
         <button id="submit"><i class="spinner"></i> <span class="state"><?= $button_text ?></span></button>
     </form>
 </div>
-<?php footer($js); ?>
+<?php footer('register'); ?>
 </body>
 
 </html>
