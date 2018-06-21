@@ -17,12 +17,6 @@ $('#submit').click(function () {
         error_response = 'Project not deleted!';
     }
 
-    if (project_name.val() == '') {
-        project_name.addClass('hightlight');
-        return false;
-    } else project_name.removeClass('hightlight');
-
-
     var data = 'project_id=' + project_id.val() + '&project_name=' + project_name.val() + '&CSRFtoken=' + CSRFtoken.val() + '&type=projects' + '&project_type=' + project_type.val() + '&project_delete=' + project_delete.val();
     console.log(data);
 
