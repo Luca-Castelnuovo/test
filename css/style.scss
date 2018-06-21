@@ -60,7 +60,7 @@ input.hightlight {
 }
 
 textarea {
-  width: 100%;
+  width: 100% !important;
   resize: vertical;
 }
 
@@ -225,10 +225,5 @@ textarea {
 
 .remove {
   max-width: none !important;
-  width: auto !important;
-}
-
-.admin.log textarea {
-  height: auto !important;
   width: auto !important;
 }

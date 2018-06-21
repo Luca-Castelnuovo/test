@@ -55,7 +55,7 @@ input.hightlight {
 
 /* line 62, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
 textarea {
-  width: 100%;
+  width: 100% !important;
   resize: vertical; }
 
 /* line 67, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
@@ -196,11 +196,6 @@ textarea {
 /* line 226, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
 .remove {
   max-width: none !important;
-  width: auto !important; }
-
-/* line 231, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
-.admin.log textarea {
-  height: auto !important;
   width: auto !important; }
 
 /*# sourceMappingURL=style.css.map */
