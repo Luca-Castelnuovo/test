@@ -13,9 +13,14 @@ $('#submit').click(function () {
     var error_response = '';
 
     if (project_type.val() == 'add') {
+        if (project_name.val() == '') {return false;}
         success_response = 'Project succesfully created!';
         error_response = 'Project not created!';
-    } else {
+    }
+
+    if (project_type.val() == 'add') {
+        if (project_delete.val() == '') {return false;}
+        if (project_id.val() == '') {return false;}
         success_response = 'Project succesfully deleted!';
         error_response = 'Project not deleted!';
     }
