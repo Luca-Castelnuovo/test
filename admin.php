@@ -36,13 +36,13 @@ if (isset($_SESSION['invite_response'])) {
     $title = 'All Users';
 } else {
     $type = 'default';
-    $content = ["<a class='dropdown-trigger btn' href='#' id='submit'>Generate Invite Code</a><a class='dropdown-trigger btn' href='?users'>Users</a><a class='dropdown-trigger btn' href='?login_log'>Login Log</a><a class='dropdown-trigger btn' href='/home'>Back</a>"];
+    $content = ["<a class='dropdown-trigger btn' href='#' id='submit'>Generate Invite Code</a><a class='dropdown-trigger btn' href='?users'>Users</a><a class='dropdown-trigger btn' href='?login_log'>Login Log</a><br><br><a class='dropdown-trigger btn' href='/home'>Back</a>"];
     $back_button = false;
     $title = 'Admin Panel';
 }
 
 if ($back_button) {
-    array_push($content, "<br><br><a class='dropdown-trigger btn' href='/admin'>Back</a>");
+    array_push($content, "<a class='dropdown-trigger btn' href='/admin'>Back</a>");
 }
 
 ?>
