@@ -9,18 +9,18 @@ $('#submit').click(function () {
     var success_response = '';
     var error_response = '';
 
-    if (project_type.val() == '') {return false;}
-    if (CSRFtoken.val() == '') {return false;}
+    if (project_type.val() == '') {console.log('ptype'); return false;}
+    if (CSRFtoken.val() == '') {console.log('csrf'); return false;}
 
     if (project_type.val() == 'add') {
-        if (project_name.val() == '') {return false;}
+        if (project_name.val() == '') {console.log('pname'); return false;}
         success_response = 'Project succesfully created!';
         error_response = 'Project not created!';
     }
 
     if (project_type.val() == 'add') {
-        if (project_delete.val() == '') {return false;}
-        if (project_id.val() == '') {return false;}
+        if (project_delete.val() == '') {console.log('pdelete'); return false;}
+        if (project_id.val() == '') {console.log('pid'); return false;}
         success_response = 'Project succesfully deleted!';
         error_response = 'Project not deleted!';
     }
