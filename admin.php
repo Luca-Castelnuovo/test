@@ -7,7 +7,7 @@ $csrftoken = csrf_gen();
 
 if (isset($_SESSION['invite_response'])) {
     $type = 'code_response';
-    $content = ["<textarea>https://test.lucacastelnuovo.nl/register?auth_code={$_SESSION['invite_response']}</textarea>"];
+    $content = ["<textarea rows='30' cols='5'>https://test.lucacastelnuovo.nl/register?auth_code={$_SESSION['invite_response']}</textarea>"];
     array_push($content, "<br><br>");
     unset($_SESSION['invite_response']);
     $title = 'Registration Code';
