@@ -192,6 +192,7 @@ body {
 /* line 222, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
 textarea {
   width: 100% !important;
-  resize: vertical; }
+  resize: vertical;
+  height: auto !important; }
 
 /*# sourceMappingURL=style.css.map */
