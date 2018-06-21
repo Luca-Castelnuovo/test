@@ -15,10 +15,7 @@ $('#submit').click(function () {
     if (CSRFtoken.val() == '') {return false;}
 
     if (file_type.val() == 'add') {
-        if (file_name.val() == '') {
-            file_name.addClass('hightlight');
-            return false;
-        } else file_name.removeClass('hightlight');
+        if (file_name.val() == '') {return false;}
         success_response = 'File created!';
         error_response = 'File not created!';
     }
@@ -27,10 +24,7 @@ $('#submit').click(function () {
         error_response = 'File not deleted!';
     }
     if (file_type.val() == 'edit') {
-        if (file_content_html.val() == '') {
-            file_content_html.addClass('hightlight');
-            return false;
-        } else file_content_html.removeClass('hightlight');
+        if (file_content_html.val() == '') {return false;}
         success_response = 'File saved!';
         error_response = 'File not saved!';
     }
