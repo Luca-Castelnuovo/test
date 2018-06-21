@@ -4,15 +4,9 @@ $('#submit').click(function () {
     var password = $('input[name=user_password]');
     var CSRFtoken = $('input[name=CSRFtoken]');
 
-    if (username.val() == '') {
-        username.addClass('hightlight');
-        return false;
-    } else username.removeClass('hightlight');
+    if (username.val() == '') {return false;}
 
-    if (password.val() == '') {
-        password.addClass('hightlight');
-        return false;
-    } else password.removeClass('hightlight');
+    if (password.val() == '') {return false;}
 
     var data = 'user_name=' + username.val() + '&user_password=' + password.val() + '&CSRFtoken=' + CSRFtoken.val() + '&type=login';
 
