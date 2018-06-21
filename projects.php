@@ -5,12 +5,12 @@ login();
 switch ($_GET['type']) {
     case 'add':
         $title = 'Add Project';
-        $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" autofocus> <i class="fa fa-file"></i>'];
+        $content = ['<input placeholder="Project Name" type="text" name="project_name" autocomplete="off" class="text" autofocus>'];
         $button_text = 'Add my project';
         break;
     case 'delete':
         $title = 'Delete Project';
-        $content = ['<input placeholder="To confirm type `delete` else type `no`" type="text" name="project_delete" autocomplete="off" class="text" autofocus> <i class="fa fa-trash"></i>'];
+        $content = ['<input placeholder="To confirm type `delete` else type `no`" type="text" name="project_delete" autocomplete="off" class="text" autofocus>'];
         $button_text = 'Submit';
         break;
 

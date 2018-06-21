@@ -9,7 +9,7 @@ $show_button = true;
 switch ($_GET['type']) {
     case 'add':
         $title = 'Add File';
-        $content = ['<input placeholder="File Name" type="text" name="file_name" autocomplete="off" class="text" autofocus> <i class="fa fa-file"></i>', '<br><p>Please choose a file type</p>', '<p><label><input checked name="file_lang" type="radio" value="html"> <span>HTML</span></label></p>', '<p><label><input name="file_lang" type="radio" value="css"> <span>CSS</span></label></p>', '<p><label><input name="file_lang" type="radio" value="js"> <span>JavaScript</span></label></p>'];
+        $content = ['<input placeholder="File Name" type="text" name="file_name" autocomplete="off" class="text" autofocus>', '<br><p>Please choose a file type</p>', '<p><label><input checked name="file_lang" type="radio" value="html"> <span>HTML</span></label></p>', '<p><label><input name="file_lang" type="radio" value="css"> <span>CSS</span></label></p>', '<p><label><input name="file_lang" type="radio" value="js"> <span>JavaScript</span></label></p>'];
         $button_text = 'Create File';
         break;
 
@@ -28,7 +28,7 @@ switch ($_GET['type']) {
 
     case 'delete':
         $title = 'Delete File';
-        $content = ['<input placeholder="To confirm type `delete` else type `no`" type="text" name="file_delete" autocomplete="off" class="text" autofocus> <i class="fa fa-trash"></i>'];
+        $content = ['<input placeholder="To confirm type `delete` else type `no`" type="text" name="file_delete" autocomplete="off" class="text" autofocus>'];
         $button_text = 'Submit';
         break;
 
