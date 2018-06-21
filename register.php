@@ -10,12 +10,12 @@ if ($_SESSION['auth_code_valid']) {
     $title = 'Register';
     $button_text = 'Submit';
     $type = 'register';
-    $content = ['<input placeholder="Username" type="text" name="user_name" autocomplete="off" class="text" id="username" autofocus> <i class="fa fa-user"></i>', '<input placeholder="Password" type="password" name="user_password" autocomplete="off" class="text" id="password"> <i class="fa fa-key"></i>'];
+    $content = ['<input placeholder="Username" type="text" name="user_name" autocomplete="off" class="text" id="username" autofocus>', '<input placeholder="Password" type="password" name="user_password" autocomplete="off" class="text" id="password">'];
 } else {
     $js = 'auth';
     $title = 'Invite Code';
     $button_text = 'Check Invite Code';
-    $content = ['<input placeholder="Invite Code" type="text" name="auth_code" id="auth_code" autocomplete="off" class="text" autofocus value="' . clean_data($_GET['auth_code']) . '"> <i class="fa fa-barcode"></i>'];
+    $content = ['<input placeholder="Invite Code" type="text" name="auth_code" id="auth_code" autocomplete="off" class="text" autofocus value="' . clean_data($_GET['auth_code']) . '">'];
 }
 
 ?>
