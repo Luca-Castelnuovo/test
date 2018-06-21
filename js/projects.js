@@ -6,6 +6,9 @@ $('#submit').click(function () {
     var project_delete = $('input[name=project_delete]');
     var CSRFtoken = $('input[name=CSRFtoken]');
 
+    if (project_type.val() == '') {return false;}
+    if (CSRFtoken.val() == '') {return false;}
+
     var success_response = '';
     var error_response = '';
 
