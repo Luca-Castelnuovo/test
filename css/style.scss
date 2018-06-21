@@ -204,3 +204,11 @@ input.valid:not([type]), input.valid:not([type]):focus, input[type=text].valid:n
     border-color: $primary !important;
     box-shadow: 0 1px 0 0 $primary !important;
 }
+
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
+    background-color: $primary !important;
+}
+
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
+    border-color: $primary !important;
+}

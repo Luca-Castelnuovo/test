@@ -177,4 +177,12 @@ input.valid:not([type]), input.valid:not([type]):focus, input[type=text].valid:n
   border-color: #2196F3 !important;
   box-shadow: 0 1px 0 0 #2196F3 !important; }
 
+/* line 208, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+[type="radio"]:checked + span:after, [type="radio"].with-gap:checked + span:after {
+  background-color: #2196F3 !important; }
+
+/* line 212, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+[type="radio"]:checked + span:after, [type="radio"].with-gap:checked + span:before, [type="radio"].with-gap:checked + span:after {
+  border-color: #2196F3 !important; }
+
 /*# sourceMappingURL=style.css.map */
