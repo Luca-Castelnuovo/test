@@ -39,31 +39,6 @@ body {
   left: 0;
 }
 
-.edit {
-  max-width: none !important;
-}
-
-input.hightlight {
-  border-color: red !important;
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
-
-.fl-rt {
-  float: right;
-}
-
-.pd-20 {
-  padding-bottom: 20px !important;
-}
-
-textarea {
-  width: 100% !important;
-  resize: vertical;
-}
-
 .login {
 
   border-radius: 5px;
@@ -226,4 +201,29 @@ textarea {
 .remove {
   max-width: none !important;
   width: auto !important;
+}
+
+.edit {
+  max-width: none !important;
+}
+
+input.hightlight {
+  border-color: red !important;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.fl-rt {
+  float: right;
+}
+
+.pd-20 {
+  padding-bottom: 20px !important;
+}
+
+textarea {
+  width: 100% !important;
+  resize: vertical;
 }

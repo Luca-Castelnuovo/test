@@ -34,31 +34,6 @@ body {
   left: 0; }
 
 /* line 42, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
-.edit {
-  max-width: none !important; }
-
-/* line 46, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
-input.hightlight {
-  border-color: red !important; }
-
-/* line 50, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
-.uppercase {
-  text-transform: uppercase; }
-
-/* line 54, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
-.fl-rt {
-  float: right; }
-
-/* line 58, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
-.pd-20 {
-  padding-bottom: 20px !important; }
-
-/* line 62, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
-textarea {
-  width: 100% !important;
-  resize: vertical; }
-
-/* line 67, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
 .login {
   border-radius: 5px;
   padding: 10px 20px 20px 20px;
@@ -68,18 +43,18 @@ textarea {
   position: relative;
   padding-bottom: 80px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3); }
-  /* line 79, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+  /* line 54, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
   .login.loading button {
     max-height: 100%;
     padding-top: 50px; }
-    /* line 82, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+    /* line 57, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
     .login.loading button .spinner {
       opacity: 1;
       top: 40%; }
-  /* line 90, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+  /* line 65, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
   .login.ok button {
     background-color: #8bc34a; }
-    /* line 92, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+    /* line 67, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
     .login.ok button .spinner {
       border-radius: 0;
       border-top-color: transparent;
@@ -87,14 +62,14 @@ textarea {
       height: 20px;
       animation: none;
       transform: rotateZ(-45deg); }
-  /* line 104, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+  /* line 79, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
   .login.error button {
     background-color: #cc0000; }
-    /* line 106, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+    /* line 81, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
     .login.error button .spinner {
       border: none;
       animation: none; }
-  /* line 113, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+  /* line 88, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
   .login input {
     display: block;
     padding: 15px 10px;
@@ -104,7 +79,7 @@ textarea {
     transition: border-width 0.2s ease;
     border-radius: 2px;
     color: #ccc; }
-    /* line 123, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+    /* line 98, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
     .login input + i.fa {
       color: #fff;
       font-size: 1em;
@@ -113,23 +88,23 @@ textarea {
       opacity: 0;
       left: 0;
       transition: all 0.1s ease-in; }
-    /* line 133, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+    /* line 108, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
     .login input:focus {
       outline: none;
       color: #444;
       border-color: #2196F3;
       border-left-width: 35px; }
-      /* line 134, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+      /* line 109, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
       .login input:focus + i.fa {
         opacity: 1;
         left: 30px;
         transition: all 0.25s ease-out; }
-  /* line 147, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+  /* line 122, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
   .login a {
     font-size: 0.8em;
     color: #2196F3;
     text-decoration: none; }
-  /* line 153, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+  /* line 128, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
   .login .title {
     color: #444;
     font-size: 1.2em;
@@ -137,7 +112,7 @@ textarea {
     margin: 10px 0 30px 0;
     border-bottom: 1px solid #eee;
     padding-bottom: 20px; }
-  /* line 162, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+  /* line 137, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
   .login button {
     width: 100%;
     height: 100%;
@@ -156,7 +131,7 @@ textarea {
     transform: rotateZ(0deg);
     transition: all 0.1s ease-out;
     border-bottom-width: 7px; }
-    /* line 182, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+    /* line 157, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
     .login button .spinner {
       display: block;
       width: 40px;
@@ -173,29 +148,54 @@ textarea {
       animation: spinner 0.6s infinite linear;
       transition: top 0.3s 0.3s ease, opacity 0.3s 0.3s ease, border-radius 0.3s ease;
       box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2); }
-  /* line 204, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+  /* line 179, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
   .login:not(.loading) button:hover {
     box-shadow: 0px 1px 3px #2196F3; }
-  /* line 207, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+  /* line 182, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
   .login:not(.loading) button:focus {
     border-bottom-width: 4px; }
 
-/* line 213, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+/* line 188, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
 .inline {
   display: inline-block; }
 
-/* line 217, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+/* line 192, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
 .inline .btn {
   background-color: transparent !important; }
 
-/* line 221, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+/* line 196, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
 .dropdown-content li > a,
 .dropdown-content li > span {
   color: #2196F3 !important; }
 
-/* line 226, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+/* line 201, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
 .remove {
   max-width: none !important;
   width: auto !important; }
+
+/* line 206, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+.edit {
+  max-width: none !important; }
+
+/* line 210, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+input.hightlight {
+  border-color: red !important; }
+
+/* line 214, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+.uppercase {
+  text-transform: uppercase; }
+
+/* line 218, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+.fl-rt {
+  float: right; }
+
+/* line 222, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+.pd-20 {
+  padding-bottom: 20px !important; }
+
+/* line 226, /Users/LucaCastelnuovo/Documents/GitHub .nosync/Test/css/style.scss */
+textarea {
+  width: 100% !important;
+  resize: vertical; }
 
 /*# sourceMappingURL=style.css.map */
