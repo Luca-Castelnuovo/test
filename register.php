@@ -10,7 +10,7 @@ if ($_SESSION['auth_code_valid']) {
     $content = ['<div class="input-field"><label for="username">Username</label><input type="text" name="user_name" class="text validate" id="username" autocomplete="off" required autofocus></div><div class="input-field"><label for="password">Password</label><input type="password" name="user_password" class="text validate" id="password" autocomplete="off" required></div>'];
 } else {
     $type = 'invite_code';
-    $content = ['<div class="input-field"><label for="auth_code">Invite Code</label><input type="text" name="auth_code" class="text validate" id="auth_code" autocomplete="off" value="' . clean_data($_GET['auth_code']) . ' required autofocus></div>'];
+    $content = ['<div class="input-field"><label for="auth_code">Invite Code</label><input type="text" name="auth_code" class="text validate" id="auth_code" autocomplete="off" value="' . clean_data($_GET['auth_code']) . '" required autofocus></div>'];
 }
 
 ?>
