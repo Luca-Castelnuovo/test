@@ -176,6 +176,7 @@ body {
 .remove {
   max-width: none !important;
   width: auto !important;
+  min-width: 320px;
 }
 
 .edit {
