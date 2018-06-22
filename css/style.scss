@@ -212,3 +212,7 @@ input.valid:not([type]), input.valid:not([type]):focus, input[type=text].valid:n
 [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
     border-color: $primary !important;
 }
+
+td,th {
+  padding: 5px !important
+}
