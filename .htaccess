@@ -1,6 +1,3 @@
-# custom error pages
-ErrorDocument 404 /error
-
 # turn mod_rewrite on
 RewriteEngine On
 
