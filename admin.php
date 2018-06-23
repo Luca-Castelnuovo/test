@@ -14,7 +14,7 @@ if (isset($_SESSION['invite_response'])) {
 } elseif (isset($_GET['login_log'])) {
     $type = 'login_log';
     $log_file_content = file_get_contents('login.txt');
-    $content = ['<textarea rows="30" cols="60">' . $log_file_content . '</textarea><br>'];
+    $content = ['<textarea rows="30" cols="60" readonly>' . $log_file_content . '</textarea><br>'];
     $title = 'Login Logs';
 } elseif (isset($_GET['users'])) {
     $type = 'users';
