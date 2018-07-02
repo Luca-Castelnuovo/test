@@ -27,13 +27,13 @@ switch ($_GET['type']) {
 		switch ($mode) {
 		case 'html':
 			$show_preview= '<iframe id=preview></iframe>';
-			$mode_js = '<script src="/js/codemirror/xml-min.js"></script><script src="/js/xml-min.js"></script>';
+			$mode_js = '<script src="/js/codemirror/xml.js"></script><script src="/js/xml.js"></script>';
 			break;
 		case 'css':
-			$mode_js = '<script src="/js/codemirror/css-min.js"></script><script src="/js/css-min.js"></script><style>.CodeMirror{float:none;width:100%;}</style>';
+			$mode_js = '<script src="/js/codemirror/css.js"></script><script src="/js/css.js"></script><style>.CodeMirror{float:none;width:100%;}</style>';
 			break;
 		case 'js':
-			$mode_js = '<script src="/js/codemirror/javascript-min.js"></script><script src="/js/javascript-min.js"></script><style>.CodeMirror{float:none;width:100%;}</style>';
+			$mode_js = '<script src="/js/codemirror/javascript.js"></script><script src="/js/javascript.js"></script><style>.CodeMirror{float:none;width:100%;}</style>';
 			break;
 		}
         $content = ['<textarea name="textarea" class="secret">' . $file_content . '</textarea>', '<div style="display: flex;"><textarea name="file_content" class="text" id="code" placeholder="Enter your code here..."></textarea>', $show_preview, '</div>'];
@@ -60,7 +60,7 @@ switch ($_GET['type']) {
 <head>
     <?php
     head($title, false);
-    if($_GET['type'] == 'edit') {echo '<link rel="stylesheet" href="/css/codemirror-min.css">';}
+    if($_GET['type'] == 'edit') {echo '<link rel="stylesheet" href="/css/codemirror.css">';}
 	?>
 </head>
 
@@ -81,10 +81,10 @@ footer('files');
 
 if($_GET['type'] == 'edit') {
 	//main
-	echo '<script src="/js/codemirror-min.js"></script>';
+	echo '<script src="/js/codemirror.js"></script>';
 
 	//addons
-	echo '<script src="/js/codemirror/closetag-min.js"></script>';
+	echo '<script src="/js/codemirror/closetag.js"></script>';
 
 	//modes
 	echo $mode_js;
