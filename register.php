@@ -27,7 +27,10 @@ if ($_SESSION['auth_code_valid']) {
         <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
         <input type="hidden" name="type" value="<?= $type ?>"/>
         <p class="title"><?= $title ?></p>
-        <?php foreach ($content as $row) {echo $row;} ?>
+        <?php
+        foreach ($content as $row) {
+            echo $row;
+        } ?>
         <button id="submit"><i class="spinner"></i> <span class="state">Submit</span></button>
     </form>
 </div>
