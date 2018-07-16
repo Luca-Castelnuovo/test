@@ -107,9 +107,14 @@ function logout()
     $_SESSION = array();
     if (ini_get("session.use_cookies")) {
         $params = session_get_cookie_params();
-        setcookie(session_name(), '', time() - 42000,
-            $params["path"], $params["domain"],
-            $params["secure"], $params["httponly"]
+        setcookie(
+            session_name(),
+            '',
+            time() - 42000,
+            $params["path"],
+            $params["domain"],
+            $params["secure"],
+            $params["httponly"]
         );
     }
     session_destroy();
@@ -196,10 +201,11 @@ function rrmdir($dir)
         $objects = scandir($dir);
         foreach ($objects as $object) {
             if ($object != "." && $object != "..") {
-                if (is_dir($dir . "/" . $object))
+                if (is_dir($dir . "/" . $object)) {
                     rrmdir($dir . "/" . $object);
-                else
+                } else {
                     unlink($dir . "/" . $object);
+                }
             }
         }
         rmdir($dir);
@@ -227,6 +233,8 @@ function head($title, $displayHead = true)
 
 function footer($specific_js = false)
 {
-    echo '<script src="/js/background.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>';
-    if($specific_js) {echo "<script src= '/js/{$specific_js}.js'></script>";}
+    echo '<script src="https://cdn.lucacastelnuovo.nl/js/vanilla/background.php"></script></script><script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>';
+    if ($specific_js) {
+        echo "<script src= '/js/{$specific_js}.js'></script>";
+    }
 }
