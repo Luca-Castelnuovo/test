@@ -102,6 +102,13 @@ if ($_GET['type'] == 'edit') {
 
     //custom setting
     echo '<script>var contenttext = $("textarea[name=textarea]").val();myCodeMirror.getDoc().setValue(contenttext)</script>';
+
+    //warn before closing page
+    $(document).ready(function(){
+        $(window).on('beforeunload',function(){
+            return '';
+        });
+    });
 } ?>
 </body>
 
