@@ -22,20 +22,20 @@ switch ($_GET['type']) {
         $file_open = fopen($file, "r");
         $file_content = fread($file_open, filesize($file));
         fclose($file);
-		$show_preview = null;
-		$mode = substr($files['file'], strrpos($files['file'], '.') + 1);
-		switch ($mode) {
-		case 'html':
-			$show_preview= '<iframe id=preview></iframe>';
-			$mode_js = '<script src="/js/codemirror/xml.js"></script><script src="/js/xml.js"></script>';
-			break;
-		case 'css':
-			$mode_js = '<script src="/js/codemirror/css.js"></script><script src="/js/css.js"></script><style>.CodeMirror{float:none;width:100%;}</style>';
-			break;
-		case 'js':
-			$mode_js = '<script src="/js/codemirror/javascript.js"></script><script src="/js/javascript.js"></script><style>.CodeMirror{float:none;width:100%;}</style>';
-			break;
-		}
+        $show_preview = null;
+        $mode = substr($files['file'], strrpos($files['file'], '.') + 1);
+        switch ($mode) {
+        case 'html':
+            $show_preview= '<iframe id=preview></iframe>';
+            $mode_js = '<script src="/js/codemirror/xml.js"></script><script src="/js/xml.js"></script>';
+            break;
+        case 'css':
+            $mode_js = '<script src="/js/codemirror/css.js"></script><script src="/js/css.js"></script><style>.CodeMirror{float:none;width:100%;}</style>';
+            break;
+        case 'js':
+            $mode_js = '<script src="/js/codemirror/javascript.js"></script><script src="/js/javascript.js"></script><style>.CodeMirror{float:none;width:100%;}</style>';
+            break;
+        }
         $content = ['<textarea name="textarea" class="secret">' . $file_content . '</textarea>', '<div style="display: flex;"><textarea name="file_content" class="text" id="code" placeholder="Enter your code here..."></textarea>', $show_preview, '</div>'];
         $button_text = 'Save File';
         break;
@@ -60,37 +60,48 @@ switch ($_GET['type']) {
 <head>
     <?php
     head($title, false);
-    if($_GET['type'] == 'edit') {echo '<link rel="stylesheet" href="/css/codemirror.css">';}
-	?>
+    if ($_GET['type'] == 'edit') {
+        echo '<link rel="stylesheet" href="/css/codemirror.css">';
+    }
+    ?>
 </head>
 
 <body>
-<div class="wrapper" <?php if ($_GET['type'] == 'edit') {echo 'style="justify-content:flex-start;"';} ?>>
-    <form class="login <?php if ($_GET['type'] == 'edit') {echo 'edit';} ?>" method="post">
-        <input type="hidden" name="project_id" value="<?= clean_data($_GET['project_id']) ?>"/>
-        <input type="hidden" name="type" value="<?= clean_data($_GET['type']) ?>"/>
-        <input type="hidden" name="id" value="<?= clean_data($_GET['id']) ?>"/>
-        <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
-        <p class="title"><?= $title ?></p>
-        <?php foreach ($content as $row) {echo $row;} ?>
-        <button id="submit"><span class="state"><?= $button_text ?></span></button>
+<div class="wrapper" <?php if ($_GET['type'] == 'edit') {
+        echo 'style="justify-content:flex-start;"';
+    } ?>>
+    <form class="login <?php if ($_GET['type'] == 'edit') {
+        echo 'edit';
+    } ?>" method="post">
+        <div class="loader"><i class="spinner"></i></div>
+        <div class="content">
+            <input type="hidden" name="project_id" value="<?= clean_data($_GET['project_id']) ?>"/>
+            <input type="hidden" name="type" value="<?= clean_data($_GET['type']) ?>"/>
+            <input type="hidden" name="id" value="<?= clean_data($_GET['id']) ?>"/>
+            <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
+            <p class="title"><?= $title ?></p>
+            <?php foreach ($content as $row) {
+        echo $row;
+    } ?>
+            <button id="submit"><span class="state"><?= $button_text ?></span></button>
+        </div>
     </form>
 </div>
 <?php
 footer('files');
 
-if($_GET['type'] == 'edit') {
-	//main
-	echo '<script src="/js/codemirror.js"></script>';
+if ($_GET['type'] == 'edit') {
+    //main
+    echo '<script src="/js/codemirror.js"></script>';
 
-	//addons
-	echo '<script src="/js/codemirror/closetag.js"></script>';
+    //addons
+    echo '<script src="/js/codemirror/closetag.js"></script>';
 
-	//modes
-	echo $mode_js;
+    //modes
+    echo $mode_js;
 
-	//custom setting
-	echo '<script>var contenttext = $("textarea[name=textarea]").val();myCodeMirror.getDoc().setValue(contenttext)</script>';
+    //custom setting
+    echo '<script>var contenttext = $("textarea[name=textarea]").val();myCodeMirror.getDoc().setValue(contenttext)</script>';
 } ?>
 </body>
 

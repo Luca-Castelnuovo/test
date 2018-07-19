@@ -30,14 +30,19 @@ switch ($_GET['type']) {
 <body>
 <div class="wrapper">
     <form class="login">
-        <input type="hidden" name="type" value="<?= clean_data($_GET['type']) ?>"/>
-        <input type="hidden" name="id" value="<?= clean_data($_GET['id']) ?>"/>
-        <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
-        <p class="title"><?= $title ?></p>
-        <div class="input-field">
-            <?php foreach ($content as $row) {echo $row;} ?>
+        <div class="loader"><i class="spinner"></i></div>
+        <div class="content">
+            <input type="hidden" name="type" value="<?= clean_data($_GET['type']) ?>"/>
+            <input type="hidden" name="id" value="<?= clean_data($_GET['id']) ?>"/>
+            <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>"/>
+            <p class="title"><?= $title ?></p>
+            <div class="input-field">
+                <?php foreach ($content as $row) {
+    echo $row;
+} ?>
+            </div>
+            <button id="submit"><span class="state"><?= $button_text ?></span></button>
         </div>
-        <button id="submit"><span class="state"><?= $button_text ?></span></button>
     </form>
 </div>
 <?php footer('projects'); ?>

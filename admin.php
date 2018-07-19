@@ -58,16 +58,19 @@ if ($back_button) {
 <body>
 <div class="wrapper">
     <form class="login pd-20 <?php if ($type == 'login_log') {
-        echo 'remove';
-    } ?>">
+    echo 'remove';
+} ?>">
+    <div class="loader"><i class="spinner"></i></div>
+    <div class="content">
         <p class="title"><?= $title ?></p>
         <input type="hidden" name="CSRFtoken" value="<?= $csrftoken ?>"/>
         <input type="hidden" name="id" value="<?= clean_data($_GET['id']) ?>"/>
         <div class="inline">
-            <?php foreach ($content as $row) {
-                echo $row;
-            } ?>
+        <?php foreach ($content as $row) {
+    echo $row;
+} ?>
         </div>
+    </div>
     </form>
 </div>
 <?php footer('invite'); ?>
