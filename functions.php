@@ -238,7 +238,9 @@ function footer($specific_js = false)
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script src="https://cdn.lucacastelnuovo.nl/php/background.php?background=7"></script>';
     if ($specific_js) {
-        echo "<script src= '/js/{$specific_js}.js'></script>";
+        echo "
+        <script src= '/js/{$specific_js}.js'></script>";
     }
-    echo '<script>setTimeout(stopLoading, 100);</script>';
+    echo '
+    <script>setTimeout(stopLoading, 100);</script>';
 }
