@@ -241,4 +241,5 @@ function footer($specific_js = false)
         echo "<script src= '/js/{$specific_js}.js'></script>";
     }
     echo '<script>setTimeout(stopLoading, 100);</script>';
+    echo "tmp";
 }
