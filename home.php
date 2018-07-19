@@ -8,12 +8,17 @@ login(); ?>
 
 <body>
 <div class="wrapper">
-    <div class="login pd-20 <?php if (isset($_GET['project'])) {echo 'remove';} ?>">
-        <?php if (isset($_GET['project'])) {
-            my_project($_GET['project']);
-        } else {
-            my_projects();
-        } ?>
+    <div class="login pd-20 <?php if (isset($_GET['project'])) {
+    echo 'remove';
+} ?>">
+        <div class="loader"><i class="spinner"></i></div>
+        <div class="content">
+            <?php if (isset($_GET['project'])) {
+    my_project($_GET['project']);
+} else {
+    my_projects();
+} ?>
+        </div>
     </div>
 </div>
 <?php footer(); ?>
