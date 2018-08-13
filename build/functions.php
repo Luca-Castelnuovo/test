@@ -2,7 +2,7 @@
 
 session_start();
 
-$config = parse_ini_file('../config.ini');
+$config = parse_ini_file('/var/www/betasterren.lucacastelnuovo.nl/config.ini');
 $mysqli = new mysqli($config['servername'], $config['username'], $config['password'], $config['dbname']);
 
 function clean_data($data)
