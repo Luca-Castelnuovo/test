@@ -3,7 +3,7 @@
 session_start();
 
 $config = parse_ini_file('/var/www/test.lucacastelnuovo.nl/config.ini');
-$mysqli = new mysqli($config['servername'], $config['username'], $config['password'], $config['dbname']);
+$mysqli = new mysqli($config['db_host'], $config['db_user'], $config['db_password'], $config['db_name']);
 
 function clean_data($data)
 {

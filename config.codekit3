@@ -9,13 +9,6 @@
 	],
 "creatorBuild": "26680",
 "files": {
-	"\/.htaccess": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/.htaccess",
-		"oF": 0
-		},
 	"\/admin.php": {
 		"cB": 0,
 		"ft": 8192,
