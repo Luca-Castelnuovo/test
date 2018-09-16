@@ -41,7 +41,9 @@ switch ($_GET['type']) {
     case 'register':
         switch ($_GET['register_type']) {
             case 'invite_code':
-                if (empty($_GET['auth_code'])) {error(10);}
+                if (empty($_GET['auth_code'])) {
+                    error(10);
+                }
                 if (auth($_GET['auth_code'], 'register', 0)) {
                     $_SESSION['input_code'] = $_GET['auth_code'];
                     $_SESSION['auth_code_valid'] = true;
@@ -62,8 +64,8 @@ switch ($_GET['type']) {
                     if ($check_existing_user->num_rows > 0) {
                         error(9);
                     }
-                    sql("UPDATE codes SET used='1',user='{$user_name}' WHERE code='{$input_code}'");
                     sql("INSERT INTO users (user_name, user_password) VALUES ('{$user_name}', '{$user_password}')");
+                    sql("DELETE FROM codes WHERE code='{$input_code}'");
                     unset($_SESSION['input_code']);
                     unset($_SESSION['auth_code_valid']);
                     mkdir("users/{$user_name}", 0770);
@@ -132,7 +134,9 @@ switch ($_GET['type']) {
                     error(10);
                 }
                 $project_owned = sql("SELECT id FROM projects WHERE owner_id='{$_SESSION['user_id']}'");
-                if ($project_owned->num_rows > 10) {error(10);}
+                if ($project_owned->num_rows > 10) {
+                    error(10);
+                }
 
                 $project_name = strtolower(clean_data($_GET['project_name']));
                 if (sql("INSERT INTO projects (owner_id, project_name) VALUES ('{$_SESSION['user_id']}', '{$project_name}')")) {
@@ -180,7 +184,9 @@ switch ($_GET['type']) {
                     error(10);
                 }
                 $files_owned = sql("SELECT id FROM files WHERE owner_id='{$_SESSION['user_id']}'");
-                if ($files_owned->num_rows > 50) {error(10);}
+                if ($files_owned->num_rows > 50) {
+                    error(10);
+                }
 
                 $file_lang = clean_data($_GET['file_lang']);
                 switch ($file_lang) {
@@ -225,7 +231,7 @@ switch ($_GET['type']) {
                 $projects = sql("SELECT project_name FROM projects WHERE id='{$project_id}'AND owner_id='{$_SESSION['user_id']}'", true);
                 $file_path_full = "users/{$_SESSION['user_name']}/{$projects['project_name']}/{$files['file']}";
                 $file_open = fopen($file_path_full, "w");
-				//$file_content = "\xEF\xBB\xBF" . $file_content;
+                //$file_content = "\xEF\xBB\xBF" . $file_content;
                 if (fwrite($file_open, $file_content)) {
                     fclose($file_path_full);
                     success();
@@ -276,21 +282,19 @@ function success()
     exit;
 }
 
-function auth($input_code, $input_type, $deactive_immediatly = 1)
+function auth($input_code)
 {
     $input_code = clean_data($input_code);
-    $auth = sql("SELECT valid,created,type,used FROM codes WHERE code='{$input_code}'");
+    $auth = sql("SELECT created,type FROM codes WHERE code='{$input_code}'");
     if ($auth->num_rows == 0) {
         return false;
     } elseif ($auth->num_rows == 1) {
         $auth = $auth->fetch_assoc();
         $auth_created = $auth["created"];
-        $auth_valid = $auth["valid"];
         $auth_type = $auth["type"];
-        $auth_used = $auth["used"];
         $auth_ip = ip();
-        if (!($auth_created >= $auth_valid) && !$auth_used && $auth_type == $input_type) {
-            sql("UPDATE codes SET used='{$deactive_immediatly}',ip='{$auth_ip}' WHERE code='{$input_code}'");
+        if (!($auth_created >= 7)) {
+            sql("UPDATE codes SET ip='{$auth_ip}' WHERE code='{$input_code}'");
             return true;
         } else {
             return false;
