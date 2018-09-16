@@ -285,15 +285,13 @@ function success()
 function auth($input_code)
 {
     $input_code = clean_data($input_code);
-    $auth = sql("SELECT created,type FROM codes WHERE code='{$input_code}'");
+    $auth = sql("SELECT created FROM codes WHERE code='{$input_code}'");
     if ($auth->num_rows == 0) {
         return false;
     } elseif ($auth->num_rows == 1) {
         $auth = $auth->fetch_assoc();
-        $auth_created = $auth["created"];
-        $auth_type = $auth["type"];
         $auth_ip = ip();
-        if (!($auth_created >= 7)) {
+        if (!($auth["created"] >= 7)) {
             sql("UPDATE codes SET ip='{$auth_ip}' WHERE code='{$input_code}'");
             return true;
         } else {
