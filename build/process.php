@@ -44,7 +44,7 @@ switch ($_GET['type']) {
                 if (empty($_GET['auth_code'])) {
                     error(10);
                 }
-                if (auth($_GET['auth_code'], 'register', 0)) {
+                if (auth($_GET['auth_code'])) {
                     $_SESSION['input_code'] = $_GET['auth_code'];
                     $_SESSION['auth_code_valid'] = true;
                     success();
@@ -85,8 +85,8 @@ switch ($_GET['type']) {
             case 'invite':
                 if ($_SESSION['user_type']) {
                     $code = gen(256);
-                    $created = date("d/m/Y h:i:s");
-                    sql("INSERT INTO codes (code, valid, created, type) VALUES ('{$code}', '7', '{$created}', 'register')");
+                    $created = date("Y/m/d h:i:s");
+                    sql("INSERT INTO codes (code, created) VALUES ('{$code}', '{$created}')");
                     $_SESSION['invite_response'] = $code;
                     success();
                 } else {
