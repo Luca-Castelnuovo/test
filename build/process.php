@@ -85,8 +85,7 @@ switch ($_GET['type']) {
             case 'invite':
                 if ($_SESSION['user_type']) {
                     $code = gen(256);
-                    $created = date("Y/m/d h:i:s");
-                    sql("INSERT INTO codes (code, created) VALUES ('{$code}', '{$created}')");
+                    sql("INSERT INTO codes (code) VALUES ('{$code}')");
                     $_SESSION['invite_response'] = $code;
                     success();
                 } else {
