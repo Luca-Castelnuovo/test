@@ -234,7 +234,7 @@ function head($title, $displayHead = true)
 function footer($specific_js = false)
 {
     echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.lucacastelnuovo.nl/js/loader.js"></script>
+    <script src="https://cdn.lucacastelnuovo.nl/js/loader.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script src="https://cdn.lucacastelnuovo.nl/php/background.php?background=7"></script>';
     if ($specific_js) {
