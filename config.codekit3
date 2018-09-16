@@ -22,16 +22,6 @@
 		"oAP": "\/build\/build",
 		"oF": 0
 		},
-	"\/css\/codemirror.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "\/build\/css\/codemirror.css",
-		"oF": 0,
-		"oS": 3
-		},
 	"\/favicon.ico": {
 		"cB": 0,
 		"ft": 8192,
@@ -67,135 +57,13 @@
 		"oAP": "\/build\/index.php",
 		"oF": 0
 		},
-	"\/js\/codemirror.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
+	"\/manifest.json": {
+		"ft": 524288,
 		"oA": 0,
-		"oAP": "\/build\/js\/codemirror.js",
+		"oAP": "\/build\/manifest.json",
 		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"\/js\/codemirror\/closetag.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/build\/js\/codemirror\/closetag.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"\/js\/codemirror\/css.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/build\/js\/codemirror\/css.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"\/js\/codemirror\/javascript.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/build\/js\/codemirror\/javascript.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"\/js\/codemirror\/xml.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/build\/js\/codemirror\/xml.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"\/js\/css.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/build\/js\/css.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"\/js\/files.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/build\/js\/files.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"\/js\/invite.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/build\/js\/invite.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"\/js\/javascript.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/build\/js\/javascript.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"\/js\/login.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/build\/js\/login.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"\/js\/projects.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/build\/js\/projects.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"\/js\/register.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/build\/js\/register.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"\/js\/xml.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/build\/js\/xml.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
+		"oO": 0,
+		"oS": 0
 		},
 	"\/process.php": {
 		"cB": 0,
@@ -235,13 +103,6 @@
 		"oA": 0,
 		"oAP": "\/build\/register.php",
 		"oF": 0
-		},
-	"\/robots.txt": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/robots.txt",
-		"oF": 0
 		}
 	},
 "hooks": [
@@ -254,7 +115,7 @@
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "brackets_purple",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 555877016
+	"lastBuiltDate": 558792622
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

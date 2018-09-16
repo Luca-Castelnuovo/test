@@ -27,13 +27,13 @@ switch ($_GET['type']) {
         switch ($mode) {
         case 'html':
             $show_preview= '<iframe id=preview></iframe>';
-            $mode_js = '<script src="/js/codemirror/xml.js"></script><script src="/js/xml.js"></script>';
+            $mode_js = '<script src="https://cdn.lucacastelnuovo.nl/js/test/codemirror/xml.js"></script><script src="/js/xml.js"></script>';
             break;
         case 'css':
-            $mode_js = '<script src="/js/codemirror/css.js"></script><script src="/js/css.js"></script><style>.CodeMirror{float:none;width:100%;}</style>';
+            $mode_js = '<script src="https://cdn.lucacastelnuovo.nl/js/test/codemirror/css.js"></script><script src="/js/css.js"></script><style>.CodeMirror{float:none;width:100%;}</style>';
             break;
         case 'js':
-            $mode_js = '<script src="/js/codemirror/javascript.js"></script><script src="/js/javascript.js"></script><style>.CodeMirror{float:none;width:100%;}</style>';
+            $mode_js = '<script src="https://cdn.lucacastelnuovo.nl/js/test/codemirror/javascript.js"></script><script src="/js/javascript.js"></script><style>.CodeMirror{float:none;width:100%;}</style>';
             break;
         }
         $content = ['<textarea name="textarea" class="secret">' . $file_content . '</textarea>', '<div style="display: flex;"><textarea name="file_content" class="text" id="code" placeholder="Enter your code here..."></textarea>', $show_preview, '</div>'];
@@ -92,10 +92,10 @@ footer('files');
 
 if ($_GET['type'] == 'edit') {
     //main
-    echo '<script src="/js/codemirror.js"></script>';
+    echo '<script src="https://cdn.lucacastelnuovo.nl/js/test/codemirror.js"></script>';
 
     //addons
-    echo '<script src="/js/codemirror/closetag.js"></script>';
+    echo '<script src="https://cdn.lucacastelnuovo.nl/js/test/codemirror/closetag.js"></script>';
 
     //modes
     echo $mode_js;
