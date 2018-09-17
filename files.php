@@ -61,7 +61,7 @@ switch ($_GET['type']) {
     <?php
     head($title, false);
     if ($_GET['type'] == 'edit') {
-        echo '<link rel="stylesheet" href="/css/codemirror.css">';
+        echo '<link rel="stylesheet" href="https://cdn.lucacastelnuovo.nl/css/test/codemirror.css">';
     }
     ?>
 </head>
