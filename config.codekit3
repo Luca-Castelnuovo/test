@@ -16,6 +16,12 @@
 		"oAP": "/build/admin.php",
 		"oF": 0
 		},
+	"/build": {
+		"ft": 65536,
+		"oA": 1,
+		"oAP": "/build/build",
+		"oF": 0
+		},
 	"/favicon.ico": {
 		"cB": 0,
 		"ft": 8192,
