@@ -1,6 +1,7 @@
 <?php
 
-function projects_list($user_id) {
+function projects_list($user_id)
+{
     $user_id = check_data($user_id, true, 'User ID', true, '/home');
 
     $projects = sql_select('projects', 'id,name', "owner_id='{$user_id}'", false);
@@ -10,7 +11,6 @@ function projects_list($user_id) {
     echo '<li class="collection-header"><h4>Projects</h4></li>';
 
     if ($projects->num_rows != 0) {
-
         $CSRFtoken = csrf_gen();
 
         while ($project = $projects->fetch_assoc()) {
@@ -27,7 +27,6 @@ function projects_list($user_id) {
             </li>
 HTML;
         }
-
     } else {
         echo '<li class="collection-item">You don\'t have any projects.</li>';
     }
@@ -36,7 +35,26 @@ HTML;
 }
 
 
-function projects_delete($user_id, $project_id, $CSRFtoken) {
+function rrmdir($dir)
+{
+    if (is_dir($dir)) {
+        $objects = scandir($dir);
+        foreach ($objects as $object) {
+            if ($object != "." && $object != "..") {
+                if (is_dir($dir."/".$object)) {
+                    rrmdir($dir."/".$object);
+                } else {
+                    unlink($dir."/".$object);
+                }
+            }
+        }
+        rmdir($dir);
+    }
+}
+
+
+function projects_delete($user_id, $project_id, $CSRFtoken)
+{
     csrf_val($CSRFtoken, '/home');
 
     $user_id = check_data($user_id, true, 'User ID', true, '/home');
@@ -48,13 +66,17 @@ function projects_delete($user_id, $project_id, $CSRFtoken) {
         redirect('/home', 'Project doesn\'t exist');
     }
 
+    rrmdir("{$_SERVER['DOCUMENT_ROOT']}/users/{$_SESSION['username']}/{$project['name']}");
+
     sql_delete('projects', "owner_id='{$user_id}' AND id='{$project_id}'");
+    sql_delete('files', "owner_id='{$user_id}' AND project_id='{$project_id}'");
 
     redirect('/home', 'Project deleted');
 }
 
 
-function projects_info($user_id, $project_id) {
+function projects_info($user_id, $project_id)
+{
     $user_id = check_data($user_id, true, 'User ID', true, '/home');
     $project_id = check_data($project_id, true, 'Project ID', true, '/home');
 
@@ -71,6 +93,5 @@ function projects_info($user_id, $project_id) {
     <div class="row">
 HTML;
     files_list($user_id, $project_id);
-echo '</div>';
-
+    echo '</div>';
 }
