@@ -7,6 +7,7 @@ function login($access_token) {
         response(false, $error->getMessage());
     }
 
+    $_SESSION['logged_in'] = true;
     $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
     $_SESSION['access_token'] = $access_token;
     $_SESSION['id'] = $user['id'];
