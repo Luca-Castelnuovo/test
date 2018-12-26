@@ -15,18 +15,13 @@ function login($access_token) {
             'username' => $user['username'],
         ]);
 
-        $user_new = sql_query('users', 'id', "user_id='{$user['id']}'", true);
-        $user_id = $user_new['id'];
-
         mkdir("users/{$user['username']}", 0770);
-    } else {
-        $user_id = $user_db['id'];
     }
 
     $_SESSION['logged_in'] = true;
     $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
     $_SESSION['access_token'] = $access_token;
-    $_SESSION['id'] = $user_id;
+    $_SESSION['id'] = sql_query('users', 'id', "user_id='{$user['id']}'", true)['id'];
     $_SESSION['username'] = $user['username'];
 
     redirect('/home', 'You are logged in');
