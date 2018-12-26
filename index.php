@@ -3,11 +3,19 @@
 require($_SERVER['DOCUMENT_ROOT'] . '/includes/init.php');
 
 if (isset($_GET['authenticate'])) {
-    auth_get_authorization_code($GLOBALS['config']->client_id, 'basic:read');
+    try {
+        auth_get_authorization_code($GLOBALS['config']->client_id, 'basic:read');
+    } catch (Exception $error) {
+        redirect('/?reset', $error);
+    }
 }
 
 if (isset($_GET['code'])) {
-    $access_token_request = auth_get_access_token($GLOBALS['config']->client_id, $GLOBALS['config']->client_secret, $_GET['code'], $_GET['state']);
+    try {
+        $access_token_request = auth_get_access_token($GLOBALS['config']->client_id, $GLOBALS['config']->client_secret, $_GET['code'], $_GET['state']);
+    } catch (Exception $error) {
+        redirect('/?reset', $error);
+    }
 
     if ($access_token_request['success']) {
         login($access_token_request['access_token']);
