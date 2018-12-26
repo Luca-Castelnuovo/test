@@ -10,11 +10,6 @@ function login($access_token) {
     $user_db = sql_select('users', 'id,username', "user_id='{$user['id']}'", true);
 
     if (empty($user_db['username'])) {
-        sql_insert('users', [
-            'user_id' => $user['id'],
-            'username' => $user['username'],
-        ]);
-
         mkdir("users/{$user['username']}", 0770);
     }
 
