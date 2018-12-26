@@ -7,10 +7,11 @@ function login($access_token) {
         response(false, $error->getMessage());
     }
 
-    $user_db = sql_select('users', 'id,username', "user_id='{$user['id']}'", true);
+    $user_db = sql_select('users', 'id', "user_id='{$user['id']}'", true);
 
-    if (empty($user_db['username'])) {
+    if (empty($user_db['id'])) {
         mkdir("users/{$user['username']}", 0770);
+        sql_insert('users', ['user_id' => $user['id']]);
     }
 
     $_SESSION['logged_in'] = true;
