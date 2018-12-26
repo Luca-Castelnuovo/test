@@ -7,20 +7,27 @@ function login($access_token) {
         response(false, $error->getMessage());
     }
 
+    $user_db = sql_select('users', 'id,username', "user_id='{$user['id']}'", true);
+
+    if (empty($user_db['username'])) {
+        sql_insert('users', [
+            'user_id' => $user['id'],
+            'username' => $user['username'],
+        ]);
+
+        $user_new = sql_query('users', 'id', "user_id='{$user['id']}'", true);
+        $user_id = $user_new['id'];
+
+        mkdir("users/{$user['username']}", 0770);
+    } else {
+        $user_id = $user_db['id'];
+    }
+
     $_SESSION['logged_in'] = true;
     $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
     $_SESSION['access_token'] = $access_token;
-    $_SESSION['id'] = $user['id'];
+    $_SESSION['id'] = $user_id;
     $_SESSION['username'] = $user['username'];
-
-    $user_db = sql_select('users', 'username', "user_id='{$user['id']}'", true);
-
-    if (empty($user_db['username'])) {
-        // insert user in db
-        //     user_id and username
-        // new directory
-        //     /users/USERNAME
-    }
 
     redirect('/home', 'You are logged in');
 }
