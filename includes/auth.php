@@ -23,12 +23,14 @@ function login($access_token) {
     redirect('/home', 'You are logged in');
 }
 
+
 function loggedin()
 {
     try {
         api_get_token($_SESSION['access_token']);
     } catch (Exception $error) {
-        redirect('/?reset', 'Please login');
+        // redirect('/?reset', 'Please login');
+        redirect('/?reset', $error);
     }
 
     if ((!$_SESSION['logged_in']) || ($_SESSION['ip'] != $_SERVER['REMOTE_ADDR']) || (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800))) {
@@ -36,22 +38,6 @@ function loggedin()
     } else {
         $_SESSION['LAST_ACTIVITY'] = time();
     }
-}
-
-function loggedin_admin() {
-    loggedin();
-
-    if (!$_SESSION['admin']) {
-        redirect('/home', 'This page is only accessible by admins');
-    }
-}
-
-
-function logout()
-{
-    session_destroy();
-    session_start();
-    redirect('/', 'You are logged out');
 }
 
 
