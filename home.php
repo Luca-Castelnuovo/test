@@ -1,28 +1,25 @@
-<?php require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
-login(); ?>
+<?php
 
-<!DOCTYPE html>
-<html lang="en">
+require $_SERVER['DOCUMENT_ROOT'] . '/includes/init.php';
 
-<?php head($_SESSION['user_name']); ?>
+loggedin();
 
-<body>
-<div class="wrapper">
-    <div class="login pd-20 <?php if (isset($_GET['project'])) {
-    echo 'remove';
-} ?>">
-        <div class="loader"><i class="spinner"></i></div>
-        <div class="content">
-            <?php if (isset($_GET['project'])) {
-    my_project($_GET['project']);
-} else {
-    my_projects();
-} ?>
-        </div>
-    </div>
+if (isset($_GET['id']) && isset($_GET['delete_project']) && isset($_GET['CSRFtoken'])) {
+    projects_delete($_SESSION['id'], $_GET['id'], $_GET['CSRFtoken']);
+}
+
+page_header('Home');
+
+?>
+
+<?php if (!isset($_GET['id'])) { ?>
+<div class="row">
+    <?php projects_list($_SESSION['id']); ?>
 </div>
-<?php footer(); ?>
-<script>$('.dropdown-trigger').dropdown();</script>
-</body>
+<?php } else { ?>
+<div class="row">
+    <?php projects_info($_SESSION['id'], $_GET['id']); ?>
+</div>
+<?php } ?>
 
-</html>
+<?= page_footer(); ?>

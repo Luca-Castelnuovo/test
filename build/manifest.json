@@ -1,9 +1,0 @@
-{
-  "theme_color" : "#2196f3",
-  "display" : "standalone",
-  "scope" : "\/",
-  "background_color" : "#2196f3",
-  "short_name" : "Test",
-  "name" : "Testing Platform",
-  "start_url" : "\/"
-}

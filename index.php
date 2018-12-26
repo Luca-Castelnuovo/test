@@ -1,34 +1,69 @@
-<?php require_once($_SERVER['DOCUMENT_ROOT'] . "/functions.php");
+<?php
+
+require($_SERVER['DOCUMENT_ROOT'] . '/includes/init.php');
+
+if (isset($_GET['authenticate'])) {
+    auth_get_authorization_code($GLOBALS['config']->client_id, 'basic:read');
+}
+
+if (isset($_GET['code'])) {
+    $access_token_request = auth_get_access_token($GLOBALS['config']->client_id, $GLOBALS['config']->client_secret, $_GET['code'], $_GET['state']);
+
+    if ($access_token_request['success']) {
+        login($access_token_request['access_token']);
+    }
+}
+
 if (isset($_GET['logout'])) {
     logout();
-} ?>
+}
 
+if (isset($_GET['reset'])) {
+    reset_session();
+}
+
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
+    redirect('/home');
+}
+
+?>
 <!DOCTYPE html>
+<html>
 
-<html lang="en">
+<head>
+    <title>Login</title>
 
-<?php head('Log In'); ?>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#2962ff">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
 
 <body>
-    <div class="wrapper">
-        <form class="login" method="post">
-            <div class="loader"><i class="spinner"></i></div>
-            <div class="content">
-                <p class="title">Log in</p>
-                <div class="input-field">
-                    <label for="username">Username</label>
-                    <input type="text" name="user_name" class="text validate" id="username" autocomplete="off" required autofocus>
-                </div>
-                <div class="input-field">
-                    <label for="password">Password</label>
-                    <input type="password" name="user_password" class="text validate" id="password" autocomplete="off" required>
-                </div>
-                <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>" />
-                <button id="submit"><i class="spinner"></i> <span class="state">Log in</span></button>
+<div class="row">
+    <div class="col s12 m8 offset-m2 l4 offset-l4">
+        <div class="card">
+            <div class="card-action blue accent-4 white-text">
+                <h3>Login</h3>
             </div>
-        </form>
+            <div class="card-content">
+                <div class="row center">
+                    <a class="waves-effect waves-light btn-large blue accent-4" href="?authenticate">
+                        Login with LTC
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-    <?php footer('login'); ?>
+</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <?= alert_display() ?>
 </body>
 
 </html>
