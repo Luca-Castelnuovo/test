@@ -6,11 +6,11 @@ function files_list($user_id, $project_id) {
 
     $files = sql_select('projects', 'id,name', "owner_id='{$user_id}' AND project_id='{$project_id}'", false);
 
-    if ($files->num_rows != 0) {
-        echo '<style>.blue-icon{color:#2962ff}</style>';
-        echo '<ul class="collection with-header">';
-        echo '<li class="collection-header"><h4>Files</h4></li>';
+    echo '<style>.blue-icon{color:#2962ff}</style>';
+    echo '<ul class="collection with-header">';
+    echo '<li class="collection-header"><h4>Files</h4></li>';
 
+    if ($files->num_rows != 0) {
         $CSRFtoken = csrf_gen();
 
         while ($file = $files->fetch_assoc()) {
@@ -27,9 +27,11 @@ function files_list($user_id, $project_id) {
             </li>
 HTML;
         }
-
-        echo '</ul>';
+    } else {
+        echo '<li class="collection-item">You don\'t have any files.</li>';
     }
+
+    echo '</ul>';
 }
 
 

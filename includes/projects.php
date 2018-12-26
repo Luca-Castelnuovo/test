@@ -5,10 +5,11 @@ function projects_list($user_id) {
 
     $projects = sql_select('projects', 'id,name', "owner_id='{$user_id}'", false);
 
+    echo '<style>.blue-icon{color:#2962ff}</style>';
+    echo '<ul class="collection with-header">';
+    echo '<li class="collection-header"><h4>Projects</h4></li>';
+
     if ($projects->num_rows != 0) {
-        echo '<style>.blue-icon{color:#2962ff}</style>';
-        echo '<ul class="collection with-header">';
-        echo '<li class="collection-header"><h4>Projects</h4></li>';
 
         $CSRFtoken = csrf_gen();
 
@@ -27,8 +28,11 @@ function projects_list($user_id) {
 HTML;
         }
 
-        echo '</ul>';
+    } else {
+        echo '<li class="collection-item">You don\'t have any projects.</li>';
     }
+
+    echo '</ul>';
 }
 
 
