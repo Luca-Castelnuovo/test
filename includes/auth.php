@@ -21,7 +21,7 @@ function login($access_token) {
     $_SESSION['logged_in'] = true;
     $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
     $_SESSION['access_token'] = $access_token;
-    $_SESSION['id'] = sql_query('users', 'id,username', "user_id='{$user['id']}'", true)['id'];
+    $_SESSION['id'] = sql_query('users', 'id,username', "user_id={$user['id']}", true)['id'];
     $_SESSION['username'] = $user['username'];
 
     redirect('/home', 'You are logged in');
