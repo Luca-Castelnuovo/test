@@ -68,6 +68,7 @@ page_header('Edit File');
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js"></script>
 <script src="/js/emmet.js"></script>
+<script src="/js/emmet-ext.js"></script>
 <script>
     var editor = ace.edit("editor", {
         theme: "ace/theme/monokai",
@@ -76,7 +77,9 @@ page_header('Edit File');
         maxLines: 10000,
         minLines: 30,
     });
-    editor.setOption("enableEmmet", true);
+
+    var Emmet = require("ace/ext/emmet");
+    ace.setOption("enableEmmet", true);
 
     function copyValue() {
         document.querySelector("#textarea").value = editor.getValue();
