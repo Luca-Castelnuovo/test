@@ -33,6 +33,7 @@ HTML;
     }
 
     echo '</ul>';
+    echo '<a href="/files/add" class="btn waves-effect blue accent-4">Create File</a>';
 }
 
 
