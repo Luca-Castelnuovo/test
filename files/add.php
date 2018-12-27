@@ -8,9 +8,10 @@ if ($existing_project->num_rows != 1) {
     redirect('/project', 'Project doen\'t exist');
 }
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_val($_POST['CSRFtoken'], '/project');
+
+    $project = sql_select('projects', 'name', "owner_id='{$_SESSION['id']}'  AND id='{$project_id}'", true);
 
     $file_name = check_data($_POST['name'], true, 'File name', true, '/files/add');
     $file_type = check_data($_POST['type'], true, 'File type', true, '/files/add');
