@@ -23,8 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     fclose($file_open);
 
     redirect('/home?project_id=' . $project_id, 'File updated');
-} else {
-    fclose($file_open);
 }
 
 page_header('Edit File');
@@ -48,4 +46,5 @@ page_header('Edit File');
     </form>
 </div>
 
+<?php fclose($file_open); ?>
 <?= page_footer(); ?>
