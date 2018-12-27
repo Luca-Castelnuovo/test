@@ -7,17 +7,24 @@ function page_header($title = 'Unknown')
     <html>
 
     <head>
-        <title>{$title}</title>
+        <!-- Config -->
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <link rel="manifest" href="/manifest.json"></link>
+        <title>{$title} || Test</title>
+
+        <!-- SEO -->
+        <link href="https://test.lucacastelnuovo.nl" rel="canonical">
+        <meta content="A system to develop your quick ideas" name="description">
+
+        <!-- Icons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+        <!-- Styles -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-        <link rel="shortcut icon" href="/images/favicon.ico">
-        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-        <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#2962ff">
-        <link rel="manifest" href="/site.webmanifest">
     </head>
 
     <body>
