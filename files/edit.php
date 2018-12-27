@@ -75,7 +75,8 @@ page_header('Edit File');
         mode: "ace/mode/<?= $mode ?>",
         autoScrollEditorIntoView: true,
         maxLines: 10000,
-        minLines: 30
+        minLines: 30,
+        enableEmmet: true
     });
 
     function copyValue() {
