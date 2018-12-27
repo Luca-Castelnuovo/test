@@ -12,14 +12,18 @@ if ($file->num_rows != 1) {
     $file_assoc = $file->fetch_assoc();
 }
 
+$project = sql_select('projects', 'name', "owner_id='{$_SESSION['id']}'  AND id='{$project_id}'", true);
+$file = fopen("../users/{$_SESSION['username']}/{$project['name']}/{$file_assoc['name']}", "r+");
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_val($_POST['CSRFtoken'], '/project');
     $project = sql_select('projects', 'name', "owner_id='{$_SESSION['id']}'  AND id='{$project_id}'", true);
-    $file = fopen("../users/{$_SESSION['username']}/{$project['name']}/{$file_assoc['name']}", "w");
     fwrite($file, $_POST['content'] . PHP_EOL);
     fclose($file);
 
     redirect('/home?project_id=' . $project_id, 'File updated');
+} else {
+    fclose($file);
 }
 
 page_header('Edit File');
@@ -31,7 +35,7 @@ page_header('Edit File');
     <form method="post" action="?project_id=<?= $project_id ?>&file_id=<?= $file_id ?>">
         <div class="row">
             <div class="col s12">
-                <textarea name="content" rows="8" cols="80">Code Editor echo file content</textarea>
+                <textarea name="content" rows="8" cols="80"><?= $file ?></textarea>
             </div>
         </div>
         <div class="row">
