@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     redirect('/home?project_id=' . $project_id, 'File updated');
 }
 
-$ext = pathinfo($filename, PATHINFO_EXTENSION);
+$ext = pathinfo($file, PATHINFO_EXTENSION);
 switch ($ext) {
     case 'html':
         $mode = 'html';
