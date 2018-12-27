@@ -29,7 +29,11 @@ page_header('Edit File');
 <div class="row">
     <h4>Edit File</h4>
     <form method="post" action="?project_id=<?= $project_id ?>&file_id=<?= $file_id ?>">
-        <textarea name="name" rows="8" cols="80">Code Editor echo file content</textarea>
+        <div class="row">
+            <div class="col s12">
+                <textarea name="content" rows="8" cols="80">Code Editor echo file content</textarea>
+            </div>
+        </div>
         <div class="row">
             <div class="col s12">
                 <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
