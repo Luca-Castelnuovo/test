@@ -5,7 +5,7 @@ function files_list($user_id, $project_id) {
     $project_id = check_data($project_id, true, 'Project ID', true, '/home');
 
     $project = sql_select('projects', 'id,name', "owner_id='{$user_id}' AND id='{$project_id}'", true);
-    $files = sql_select('projects', 'id,name', "owner_id='{$user_id}' AND project_id='{$project_id}'", false);
+    $files = sql_select('files', 'id,name', "owner_id='{$user_id}' AND project_id='{$project_id}'", false);
 
     echo '<style>.blue-icon{color:#2962ff}</style>';
     echo '<ul class="collection with-header">';
