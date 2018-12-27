@@ -75,8 +75,8 @@ page_header('Edit File');
         autoScrollEditorIntoView: true,
         maxLines: 10000,
         minLines: 30,
-        enableEmmet: true
     });
+    editor.setOption("enableEmmet", true);
 
     function copyValue() {
         document.querySelector("#textarea").value = editor.getValue();
