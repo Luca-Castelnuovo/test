@@ -62,7 +62,7 @@ page_header('Edit File');
         <div class="row">
             <div class="col s12">
                 <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
-                <button class="col s12 btn waves-effect blue accent-4" type="submit" onclick="copyValue()">Update File</button>
+                <a class="col s12 btn waves-effect blue accent-4" onclick="copyValue()">Update File</a>
             </div>
         </div>
     </form>
