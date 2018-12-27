@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $ext = pathinfo($file, PATHINFO_EXTENSION);
 switch ($ext) {
     case 'html':
-        $mode = 'xml';
+        $mode = 'html';
         break;
 
     case 'css':
