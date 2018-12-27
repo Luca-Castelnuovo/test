@@ -25,38 +25,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     redirect('/home?project_id=' . $project_id, 'File updated');
 }
 
-$file_extension = substr($file, strpos($file, "/{$file_assoc['name']}.") + strlen($file_assoc['name']) + 2);
-switch ($file_extension) {
-    case 'html':
-        $content = <<<HTML
-        <textarea name="textarea" class="secret">{$file_content}</textarea>
-        <div style="display: flex;">
-            <textarea name="content" class="text" id="code" placeholder="Enter your code here..."></textarea>
-            <iframe id=preview></iframe>
-        </div>
-HTML;
-        $content_js = '<script src="/js/editor/lib/xml.js"></script><script src="/js/editor/init/xml.js"></script>';
-        break;
-
-    default:
-        redirect('/home?project_id=' . $project_id, 'Please delete this file ' . $file_extension);
-        break;
-}
-
-$file_content = fread($file_open, filesize($file));
-
 page_header('Edit File');
 
 ?>
 
-<link rel="stylesheet" href="/js/editor/main.css">
-<link rel="stylesheet" href="/js/editor/editor.css">
+
 <div class="row">
     <h4>Edit File</h4>
     <form method="post" action="?project_id=<?= $project_id ?>&file_id=<?= $file_id ?>">
         <div class="row">
             <div class="col s12">
-                <?= $content ?>
+                <textarea name="content" rows="32"><?= fread($file_open, filesize($file)) ?></textarea>
             </div>
         </div>
         <div class="row">
@@ -67,10 +46,6 @@ page_header('Edit File');
         </div>
     </form>
 </div>
-<script src="/js/editor/init.js"></script>
-<script src="/js/editor/plugins/closetag.js"></script>
-<?= $content_js ?>
-<script>var contenttext = document.querySelector("textarea[name=textarea]").value;myCodeMirror.getDoc().setValue(contenttext)</script>
 
 <?= page_footer(); ?>
 <?php fclose($file_open); ?>
