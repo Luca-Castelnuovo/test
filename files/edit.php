@@ -33,7 +33,7 @@ page_header('Edit File');
         <div class="row">
             <div class="col s12">
                 <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
-                <button class="col s12 btn waves-effect blue accent-4" type="submit">Create File</button>
+                <button class="col s12 btn waves-effect blue accent-4" type="submit">Update File</button>
             </div>
         </div>
     </form>
