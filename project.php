@@ -1,5 +1,7 @@
 <?php
 
+require($_SERVER['DOCUMENT_ROOT'] . '/includes/init.php');
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $project_name = check_data($_POST['name'], true, 'Project name', true);
 
