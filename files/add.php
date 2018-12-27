@@ -13,7 +13,6 @@
 require($_SERVER['DOCUMENT_ROOT'] . '/includes/init.php');
 
 $project_id = check_data($_GET['project_id'], false, '', true);
-
 //check if user has access to project
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -25,17 +24,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $file_name = strtolower($file_name);
     $file_name = str_replace(' ', '_', $file_name);
 
-    $existing_project = sql_select('projects', 'id', "owner_id='{$user_id}'  AND name='{$project_name}'", false);
-    if ($existing_project->num_rows > 0) {
-        redirect('/project', 'You already have a project with this name.');
+    if ($file_type != '.html' && $file_type != '.css' && $file_type != '.js') {
+        redirect('/files/add?project_id=' . $project_id, 'Incorrect file type.');
     }
 
-    sql_insert('projects', [
+    $file_full = $file_name . $file_type;
+
+    $existing_project = sql_select('projects', 'id', "owner_id='{$user_id}'  AND name='{$project_name}'", false);
+    if ($existing_project->num_rows > 0) {
+        redirect('/files/add?project_id=' . $project_id, 'You already have a file with this name.');
+    }
+
+    sql_insert('files', [
         'owner_id' => $_SESSION['id'],
-        'name' => $project_name
+        'project_id' => $project_id,
+        'name' => $file_full
     ]);
 
-    mkdir("users/{$_SESSION['username']}/{$project_name}", 0770);
+    //create file
 
     redirect('/home?project_id=' . $project_id, 'File created');
 }
@@ -56,7 +62,7 @@ page_header('Create File');
 </style>
 <div class="row">
     <h4>Create Client</h4>
-    <form method="post">
+    <form method="post" action="?project_id=<?= $project_id ?>">
         <div class="row">
             <div class="input-field col s12">
                 <label for="name">File Name</label> <input id="name" name="name" type="text">
@@ -66,23 +72,22 @@ page_header('Create File');
             <h5>File Type</h5>
             <p>
                 <label>
-                    <input checked name="type" type="radio" value="html"> <span>HTML</span>
+                    <input checked name="type" type="radio" value=".html"> <span>HTML</span>
                 </label>
             </p>
             <p>
                 <label>
-                    <input name="type" type="radio" value="css"> <span>CSS</span>
+                    <input name="type" type="radio" value=".css"> <span>CSS</span>
                 </label>
             </p>
             <p>
                 <label>
-                    <input name="type" type="radio" value="js"> <span>JS</span>
+                    <input name="type" type="radio" value=".js"> <span>JS</span>
                 </label>
             </p>
         </div>
         <div class="row">
             <div class="col s12">
-                <input type="hidden" name="project_id" value="<?= $_GET['project_id'] ?>"/>
                 <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
                 <button class="col s12 btn waves-effect blue accent-4" type="submit">Create Project</button>
             </div>
