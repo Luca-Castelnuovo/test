@@ -17,10 +17,10 @@ function projects_list($user_id)
             echo <<<HTML
             <li class="collection-item">
                 <div>
-                    <a href="?id={$project['id']}">
+                    <a href="?project_id={$project['id']}">
                         {$project['name']}
                     </a>
-                    <a href="?id={$project['id']}&delete_project&CSRFtoken={$CSRFtoken}" class="secondary-content" onclick="return confirm('Are you sure?')">
+                    <a href="?project_id={$project['id']}&CSRFtoken={$CSRFtoken}" class="secondary-content" onclick="return confirm('Are you sure?')">
                         <i class="material-icons blue-icon">delete</i>
                     </a>
                 </div>

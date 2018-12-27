@@ -4,8 +4,10 @@ require $_SERVER['DOCUMENT_ROOT'] . '/includes/init.php';
 
 loggedin();
 
-if (isset($_GET['id']) && isset($_GET['delete_project']) && isset($_GET['CSRFtoken'])) {
-    projects_delete($_SESSION['id'], $_GET['id'], $_GET['CSRFtoken']);
+if (isset($_GET['project_id']) && isset($_GET['file_id']) && isset($_GET['CSRFtoken'])) {
+    files_delete($_SESSION['id'], $_GET['project_id'], $_GET['file_id'], $_GET['CSRFtoken']);
+} elseif (isset($_GET['project_id']) && isset($_GET['CSRFtoken'])) {
+    projects_delete($_SESSION['id'], $_GET['project_id'], $_GET['CSRFtoken']);
 }
 
 page_header('Home');

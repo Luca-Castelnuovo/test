@@ -21,7 +21,7 @@ function files_list($user_id, $project_id) {
                     <a href="/users/{$_SESSION['username']}/{$project['name']}/{$file['name']}" target="_blank">
                         {$file['name']}
                     </a>
-                    <a href="?id={$file['id']}&delete_file&CSRFtoken={$CSRFtoken}" class="secondary-content" onclick="return confirm('Are you sure?')">
+                    <a href="?project_id={$project['id']}&file_id={$file['id']}&CSRFtoken={$CSRFtoken}" class="secondary-content" onclick="return confirm('Are you sure?')">
                         <i class="material-icons blue-icon">delete</i>
                     </a>
                 </div>
@@ -54,5 +54,5 @@ function files_delete($user_id, $project_id, $file_id, $CSRFtoken) {
     sql_delete('files', "owner_id='{$user_id}' AND id='{$file_id}' AND project_id='{$project_id}'");
     unlink("{$_SERVER['DOCUMENT_ROOT']}/users/{$_SESSION['username']}/{$project['name']}/{$file['name']}");
 
-    redirect('/home?id=' . $project_id, 'File deleted');
+    redirect('/home?project_id=' . $project_id, 'File deleted');
 }
