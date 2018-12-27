@@ -66,14 +66,13 @@ page_header('Edit File');
     </form>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js"></script>
+<script src="https://rawgithub.com/ajaxorg/ace-builds/master/src/ace.js"></script>
 <script src="https://rawgithub.com/ajaxorg/ace-builds/master/src/ext-emmet.js">  </script>
 <script src="https://rawgithub.com/nightwing/emmet-core/master/emmet.js"></script>
 <script>
     var editor = ace.edit("editor", {
         theme: "ace/theme/monokai",
         mode: "ace/mode/<?= $mode ?>",
-        autoScrollEditorIntoView: true,
         maxLines: 10000,
         minLines: 30,
     });
