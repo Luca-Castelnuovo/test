@@ -54,6 +54,13 @@ page_header('Create File');
         border-bottom: 1px solid #2962FF !important;
         box-shadow: 0 1px 0 0 #2962FF !important;
     }
+
+    [type="radio"]:checked + label::after, [type="radio"].with-gap:checked + label::after {
+        background-color: #2962FF !important;
+    }
+    [type="radio"]:checked + label::after, [type="radio"].with-gap:checked + label::before, [type="radio"].with-gap:checked + label::after {
+        border: 2px solid #2962FF !important;
+    }
 </style>
 <div class="row">
     <h4>Create Client</h4>
