@@ -55,11 +55,9 @@ page_header('Create File');
         box-shadow: 0 1px 0 0 #2962FF !important;
     }
 
-    [type="radio"]:checked + label::after, [type="radio"].with-gap:checked + label::after {
+    [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
         background-color: #2962FF !important;
-    }
-    [type="radio"]:checked + label::after, [type="radio"].with-gap:checked + label::before, [type="radio"].with-gap:checked + label::after {
-        border: 2px solid #2962FF !important;
+        border: 2px solid #2962FF;
     }
 </style>
 <div class="row">
