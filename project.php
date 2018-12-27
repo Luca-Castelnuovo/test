@@ -40,7 +40,7 @@ page_header('Create Project');
     }
 </style>
 <div class="row">
-    <h4>Create Client</h4>
+    <h4>Create Project</h4>
     <form method="post">
         <div class="row">
             <div class="input-field col s12">
