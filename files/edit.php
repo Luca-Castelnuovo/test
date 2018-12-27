@@ -39,7 +39,7 @@ HTML;
         break;
 
     default:
-        redirect('/home?project_id=' . $project_id, 'Please delete this file');
+        redirect('/home?project_id=' . $project_id, 'Please delete this file ' . $file_extension);
         break;
 }
 
