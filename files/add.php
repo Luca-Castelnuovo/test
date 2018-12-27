@@ -1,19 +1,13 @@
-//unique filename
-//strtolower
-//trim filename
-//change space in the middle to underscore (strreplace)
-
-// only allow
-// html
-// css
-// js
-
 <?php
 
 require($_SERVER['DOCUMENT_ROOT'] . '/includes/init.php');
 
 $project_id = check_data($_GET['project_id'], false, '', true);
-//check if user has access to project
+$existing_project = sql_select('projects', 'id', "owner_id='{$_SESSION['id']}'  AND id='{$project_id}'", false);
+if ($existing_project->num_rows > 0) {
+    redirect('/project', 'You already have a project with this name.');
+}
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_val($_POST['CSRFtoken'], '/project');
@@ -30,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $file_full = $file_name . $file_type;
 
-    $existing_project = sql_select('projects', 'id', "owner_id='{$user_id}'  AND name='{$project_name}'", false);
-    if ($existing_project->num_rows > 0) {
+    $existing_file = sql_select('files', 'id', "owner_id='{$_SESSION['id']}'  AND project_id='{$project_id}'  AND name='{$file_full}'", false);
+    if ($existing_file->num_rows > 0) {
         redirect('/files/add?project_id=' . $project_id, 'You already have a file with this name.');
     }
 
@@ -41,7 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'name' => $file_full
     ]);
 
-    //create file
+    fopen("users/{$_SESSION['username']}/{$project['name']}/{$file_full}", "w");
+    fclose("users/{$_SESSION['username']}/{$project['name']}/{$file_full}");
 
     redirect('/home?project_id=' . $project_id, 'File created');
 }
