@@ -67,7 +67,7 @@ page_header('Edit File');
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js"></script>
-<!-- add emmet script -->
+<script src="/js/emmet.js"></script>
 <script>
     var editor = ace.edit("editor", {
         theme: "ace/theme/monokai",
