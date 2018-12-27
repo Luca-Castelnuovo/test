@@ -19,7 +19,8 @@ $file_open = fopen($file, "r+");
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_val($_POST['CSRFtoken'], '/project');
     $project = sql_select('projects', 'name', "owner_id='{$_SESSION['id']}'  AND id='{$project_id}'", true);
-    fwrite($file_open, htmlspecialchars_decode($_POST['content']) . PHP_EOL);
+    // fwrite($file_open, htmlspecialchars_decode($_POST['content']) . PHP_EOL);
+    fwrite($file_open, htmlspecialchars_decode($_POST['content']));
     fclose($file_open);
 
     redirect('/home?project_id=' . $project_id, 'File updated');
