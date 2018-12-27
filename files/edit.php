@@ -25,6 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     redirect('/home?project_id=' . $project_id, 'File updated');
 }
 
+//get file extension
+
 page_header('Edit File');
 
 ?>
@@ -35,17 +37,32 @@ page_header('Edit File');
     <form method="post" action="?project_id=<?= $project_id ?>&file_id=<?= $file_id ?>">
         <div class="row">
             <div class="col s12">
-                <textarea name="content" rows="32"><?= fread($file_open, filesize($file)) ?></textarea>
+                <div id="editor">
+                    <?= fread($file_open, filesize($file)) ?>
+                </div>
+                <textarea name="content" id="textarea"></textarea>
             </div>
         </div>
         <div class="row">
             <div class="col s12">
                 <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
-                <button class="col s12 btn waves-effect blue accent-4" type="submit">Update File</button>
+                <button class="col s12 btn waves-effect blue accent-4" type="submit" onclick="copyValue()">Update File</button>
             </div>
         </div>
     </form>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.session.setMode("ace/mode/html");
+
+    function copyValue() {
+        document.querySelector("#textarea").value = editor.getValue();
+        return false;
+    }
+</script>
 
 <?= page_footer(); ?>
 <?php fclose($file_open); ?>
