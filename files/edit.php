@@ -79,7 +79,7 @@ page_header('Edit File');
     });
 
     var Emmet = require("ace/ext/emmet");
-    ace.setOption("enableEmmet", true);
+    editor.setOption("enableEmmet", true);
 
     function copyValue() {
         document.querySelector("#textarea").value = editor.getValue();
