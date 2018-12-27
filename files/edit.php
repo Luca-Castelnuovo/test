@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $ext = pathinfo($file, PATHINFO_EXTENSION);
 switch ($ext) {
     case 'html':
-        $mode = 'html';
+        $mode = 'xml';
         break;
 
     case 'css':
@@ -69,6 +69,7 @@ page_header('Edit File');
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js"></script>
+<!-- add emmet script -->
 <script>
     var editor = ace.edit("editor", {
         theme: "ace/theme/monokai",
