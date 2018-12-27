@@ -64,22 +64,24 @@ page_header('Create File');
             </div>
         </div>
         <div class="row">
-            <h5>File Type</h5>
-            <p>
-                <label>
-                    <input checked name="type" type="radio" value=".html"> <span>HTML</span>
-                </label>
-            </p>
-            <p>
-                <label>
-                    <input name="type" type="radio" value=".css"> <span>CSS</span>
-                </label>
-            </p>
-            <p>
-                <label>
-                    <input name="type" type="radio" value=".js"> <span>JS</span>
-                </label>
-            </p>
+            <div class="col">
+                <h5>File Type</h5>
+                <p>
+                    <label>
+                        <input checked name="type" type="radio" value=".html"> <span>HTML</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="type" type="radio" value=".css"> <span>CSS</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="type" type="radio" value=".js"> <span>JS</span>
+                    </label>
+                </p>
+            </div>
         </div>
         <div class="row">
             <div class="col s12">
