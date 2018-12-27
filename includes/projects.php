@@ -32,6 +32,7 @@ HTML;
     }
 
     echo '</ul>';
+    echo '<a href="/project" class="btn waves-effect blue accent-4">Create Project</a>';
 }
 
 
