@@ -3,6 +3,8 @@
 require($_SERVER['DOCUMENT_ROOT'] . '/includes/init.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    csrf_val($_POST['CSRFtoken'], '/project');
+
     $project_name = check_data($_POST['name'], true, 'Project name', true);
 
     $project_name = strtolower($project_name);
