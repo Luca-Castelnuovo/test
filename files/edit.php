@@ -19,7 +19,7 @@ $file_open = fopen($file, "r+");
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_val($_POST['CSRFtoken'], '/project');
     $project = sql_select('projects', 'name', "owner_id='{$_SESSION['id']}'  AND id='{$project_id}'", true);
-    fwrite($file_open, $_POST['content'] . PHP_EOL);
+    fwrite($file_open, htmlspecialchars_decode($_POST['content']) . PHP_EOL);
     fclose($file_open);
 
     redirect('/home?project_id=' . $project_id, 'File updated');
@@ -54,7 +54,7 @@ page_header('Edit File');
         <div class="row">
             <div class="col s12">
                 <div id="editor" style="height: 300px;">
-                    <?= fread($file_open, filesize($file)) ?>
+                    <?= htmlspecialchars(fread($file_open, filesize($file))) ?>
                 </div>
                 <textarea name="content" id="textarea" style="position:absolute;top:-9999px;left:-9999px;"></textarea>
             </div>
