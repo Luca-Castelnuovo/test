@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     redirect('/home?project_id=' . $project_id, 'File updated');
 }
 
-$file_extension = substr($file, strpos($file, "/.") + 1);
+$file_extension = substr($file, strpos($file, "/{$file_assoc['name']}.") + strlen($file_assoc['name']) + 2);
 switch ($file_extension) {
     case 'html':
         $content = <<<HTML
