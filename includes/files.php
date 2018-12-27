@@ -18,7 +18,7 @@ function files_list($user_id, $project_id) {
             echo <<<HTML
             <li class="collection-item">
                 <div>
-                    <a href="?id={$file['id']}">
+                    <a href="/users/{$_SESSION['username']}/{$project['name']}/{$file['name']}">
                         {$file['name']}
                     </a>
                     <a href="?id={$file['id']}&delete_file&CSRFtoken={$CSRFtoken}" class="secondary-content" onclick="return confirm('Are you sure?')">
