@@ -48,16 +48,15 @@ page_header('Edit File');
 
 ?>
 
-
 <div class="row">
     <h4>Edit File</h4>
-    <form method="post" action="?project_id=<?= $project_id ?>&file_id=<?= $file_id ?>">
+    <form method="post" action="?project_id=<?= $project_id ?>&file_id=<?= $file_id ?>" id="form">
         <div class="row">
             <div class="col s12">
-                <div id="editor">
+                <div id="editor" style="height: 300px;">
                     <?= fread($file_open, filesize($file)) ?>
                 </div>
-                <textarea name="content" id="textarea"></textarea>
+                <textarea name="content" id="textarea" class="hide"></textarea>
             </div>
         </div>
         <div class="row">
@@ -71,13 +70,17 @@ page_header('Edit File');
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js"></script>
 <script>
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/monokai");
-    editor.session.setMode("ace/mode/<?= $mode ?>");
+    var editor = ace.edit("editor", {
+        theme: "ace/theme/monokai",
+        mode: "ace/mode/<?= $mode ?>",
+        autoScrollEditorIntoView: true,
+        maxLines: 10000,
+        minLines: 30
+    });
 
     function copyValue() {
         document.querySelector("#textarea").value = editor.getValue();
-        return false;
+        document.querySelector('#form').submit();
     }
 </script>
 
