@@ -56,7 +56,7 @@ page_header('Edit File');
                 <div id="editor" style="height: 300px;">
                     <?= fread($file_open, filesize($file)) ?>
                 </div>
-                <textarea name="content" id="textarea" class="hide"></textarea>
+                <textarea name="content" id="textarea" style="position:absolute;top:-9999px;left:-9999px;"></textarea>
             </div>
         </div>
         <div class="row">
