@@ -34,7 +34,7 @@ page_header('Edit File');
     <form method="post" action="?project_id=<?= $project_id ?>&file_id=<?= $file_id ?>">
         <div class="row">
             <div class="col s12">
-                <textarea name="content" rows="8" cols="80"><?= fread($file_open, filesize($file)); ?></textarea>
+                <textarea name="content" rows="8" style="resize: vertical; height: auto;"><?= fread($file_open, filesize($file)); ?></textarea>
             </div>
         </div>
         <div class="row">
