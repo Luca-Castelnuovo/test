@@ -24,7 +24,7 @@ function files_list($user_id, $project_id) {
                     <a href="?project_id={$project['id']}&file_id={$file['id']}&CSRFtoken={$CSRFtoken}" class="secondary-content" onclick="return confirm('Are you sure?')">
                         <i class="material-icons blue-icon">delete</i>
                     </a>
-                    <a href="/files/update?project_id={$project['id']}&file_id={$file['id']}" class="secondary-content">
+                    <a href="/files/edit?project_id={$project['id']}&file_id={$file['id']}" class="secondary-content">
                         <i class="material-icons blue-icon">edit</i>
                     </a>
                 </div>

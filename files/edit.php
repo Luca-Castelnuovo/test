@@ -22,12 +22,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     redirect('/home?project_id=' . $project_id, 'File updated');
 }
 
-page_header('Update File');
+page_header('Edit File');
 
 ?>
 
 <div class="row">
-    <h4>Update File</h4>
+    <h4>Edit File</h4>
     <form method="post" action="?project_id=<?= $project_id ?>&file_id=<?= $file_id ?>">
         <textarea name="name" rows="8" cols="80">Code Editor echo file content</textarea>
         <div class="row">
