@@ -25,7 +25,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     redirect('/home?project_id=' . $project_id, 'File updated');
 }
 
-//get file extension
+$ext = pathinfo($filename, PATHINFO_EXTENSION);
+switch ($ext) {
+    case 'html':
+        $mode = 'html';
+        break;
+
+    case 'css':
+        $mode = 'css';
+        break;
+
+    case 'js':
+        $mode = 'javascript';
+        break;
+
+    default:
+        redirect('/home?project_id=' . $project_id, 'Please delete this file');
+        break;
+}
 
 page_header('Edit File');
 
@@ -56,7 +73,7 @@ page_header('Edit File');
 <script>
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/monokai");
-    editor.session.setMode("ace/mode/html");
+    editor.session.setMode("ace/mode/<?= $mode ?>");
 
     function copyValue() {
         document.querySelector("#textarea").value = editor.getValue();
