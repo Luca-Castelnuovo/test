@@ -5,7 +5,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/includes/init.php');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_val($_POST['CSRFtoken'], '/project');
 
-    $project_name = check_data($_POST['name'], true, 'Project name', true);
+    $project_name = check_data($_POST['name'], true, 'Project name', true, '/project');
 
     $project_name = strtolower($project_name);
     $project_name = str_replace(' ', '_', $project_name);
