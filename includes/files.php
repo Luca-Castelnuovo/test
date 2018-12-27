@@ -4,11 +4,12 @@ function files_list($user_id, $project_id) {
     $user_id = check_data($user_id, true, 'User ID', true, '/home');
     $project_id = check_data($project_id, true, 'Project ID', true, '/home');
 
+    $project = sql_select('projects', 'id,name', "owner_id='{$user_id}' AND id='{$project_id}'", true);
     $files = sql_select('projects', 'id,name', "owner_id='{$user_id}' AND project_id='{$project_id}'", false);
 
     echo '<style>.blue-icon{color:#2962ff}</style>';
     echo '<ul class="collection with-header">';
-    echo '<li class="collection-header"><h4>Files</h4></li>';
+    echo '<li class="collection-header"><h4>' . $project['name'] . '</h4></li>';
 
     if ($files->num_rows != 0) {
         $CSRFtoken = csrf_gen();

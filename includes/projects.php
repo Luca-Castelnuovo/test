@@ -88,9 +88,6 @@ function projects_info($user_id, $project_id)
 
     echo <<<HTML
     <div class="row">
-        <h4>{$project['name']}</h4>
-    </div>
-    <div class="row">
 HTML;
     files_list($user_id, $project_id);
     echo '</div>';
