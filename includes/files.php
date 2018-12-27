@@ -45,7 +45,7 @@ function files_delete($user_id, $project_id, $file_id, $CSRFtoken) {
     $file_id = check_data($file_id, true, 'File ID', true, '/home');
 
     $project = sql_select('projects', 'id,name', "owner_id='{$user_id}' AND id='{$project_id}'", true);
-    $file = sql_select('projects', 'name', "owner_id='{$user_id}' AND id='{$file_id}' AND project_id='{$project['id']}'", true);
+    $file = sql_select('files', 'name', "owner_id='{$user_id}' AND id='{$file_id}' AND project_id='{$project['id']}'", true);
 
     if (empty($file['name'])) {
         redirect('/home', 'File doesn\'t exist');
