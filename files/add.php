@@ -4,8 +4,8 @@ require($_SERVER['DOCUMENT_ROOT'] . '/includes/init.php');
 
 $project_id = check_data($_GET['project_id'], true, 'Project ID', true, '/home');
 $existing_project = sql_select('projects', 'id', "owner_id='{$_SESSION['id']}'  AND id='{$project_id}'", false);
-if ($existing_project->num_rows > 0) {
-    redirect('/project', 'You already have a project with this name.');
+if ($existing_project->num_rows != 1) {
+    redirect('/project', 'Project doen\'t exist');
 }
 
 
