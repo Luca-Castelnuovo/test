@@ -1,6 +1,8 @@
 <?php
 
-require($_SERVER['DOCUMENT_ROOT'] . '/includes/init.php');
+require $_SERVER['DOCUMENT_ROOT'] . '/includes/init.php';
+
+loggedin();
 
 $project_id = check_data($_GET['project_id'], true, 'Project ID', true, '/home');
 $existing_project = sql_select('projects', 'id', "owner_id='{$_SESSION['id']}'  AND id='{$project_id}'", false);

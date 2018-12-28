@@ -1,6 +1,8 @@
 <?php
 
-require($_SERVER['DOCUMENT_ROOT'] . '/includes/init.php');
+require $_SERVER['DOCUMENT_ROOT'] . '/includes/init.php';
+
+loggedin();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_val($_POST['CSRFtoken'], '/project');

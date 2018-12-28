@@ -1,6 +1,8 @@
 <?php
 
-require($_SERVER['DOCUMENT_ROOT'] . '/includes/init.php');
+require $_SERVER['DOCUMENT_ROOT'] . '/includes/init.php';
+
+loggedin();
 
 $project_id = check_data($_GET['project_id'], true, 'Project ID', true, '/home');
 $file_id = check_data($_GET['file_id'], true, 'File ID', true, '/home?project_id' . $project_id);
@@ -66,9 +68,9 @@ page_header('Edit File');
     </form>
 </div>
 
-<script src="https://rawgithub.com/ajaxorg/ace-builds/master/src/ace.js"></script>
-<script src="https://rawgithub.com/ajaxorg/ace-builds/master/src/ext-emmet.js">  </script>
-<script src="https://rawgithub.com/nightwing/emmet-core/master/emmet.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ajaxorg/ace-builds/src/ace.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ajaxorg/ace-builds/src/ext-emmet.min.js">  </script>
+<script src="https://cdn.jsdelivr.net/gh/nightwing/emmet-core/emmet.min.js"></script>
 <script>
     var editor = ace.edit("editor", {
         theme: "ace/theme/monokai",

@@ -1,6 +1,6 @@
 <?php
 
-require($_SERVER['DOCUMENT_ROOT'] . '/includes/init.php');
+require $_SERVER['DOCUMENT_ROOT'] . '/includes/init.php';
 
 if (isset($_GET['authenticate'])) {
     try {
