@@ -70,7 +70,7 @@ page_header('Edit File');
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ext-emmet.js">  </script>
-<script src="https://cdn.jsdelivr.net/gh/nightwing/emmet-core/emmet.min.js"></script>
+<script src="https://cdn.lucacastelnuovo.nl/test.lucacastelnuovo.nl/js/plugins/emmet.js"></script>
 <script>
     var editor = ace.edit("editor", {
         basePath: "https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/",
