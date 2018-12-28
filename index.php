@@ -57,7 +57,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdn.lucacastelnuovo.nl/general/css/materialize.css">
 </head>
 
 <body>
@@ -77,7 +77,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
         </div>
     </div>
 </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.lucacastelnuovo.nl/general/js/materialize.js"></script>
     <?= alert_display() ?>
 </body>
 
