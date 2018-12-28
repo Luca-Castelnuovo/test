@@ -73,7 +73,6 @@ page_header('Edit File');
 <script src="https://cdn.jsdelivr.net/gh/nightwing/emmet-core/emmet.min.js"></script>
 <script>
     var editor = ace.edit("editor", {
-        basePath: "https://cdn.jsdelivr.net/gh/ajaxorg/ace-builds/src/",
         theme: "ace/theme/monokai",
         mode: "ace/mode/<?= $mode ?>",
         maxLines: 10000,
