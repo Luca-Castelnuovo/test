@@ -68,13 +68,14 @@ page_header('Edit File');
     </form>
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/ajaxorg/ace-builds/src/ace.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ajaxorg/ace-builds/src/ext-emmet.min.js">  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ext-emmet.js">  </script>
 <script src="https://cdn.jsdelivr.net/gh/nightwing/emmet-core/emmet.min.js"></script>
 <script>
     var editor = ace.edit("editor", {
-        theme: "ace/theme/monokai",
-        mode: "ace/mode/<?= $mode ?>",
+        basePath: "https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/",
+        theme: "theme/monokai",
+        mode: "mode/<?= $mode ?>",
         maxLines: 10000,
         minLines: 30,
     });
