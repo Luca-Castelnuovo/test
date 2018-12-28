@@ -44,7 +44,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="manifest" href="/manifest.json"></link>
-    <title>Login || Test</title>
+    <title>Login || TestingPlatform</title>
 
     <!-- SEO -->
     <link href="https://test.lucacastelnuovo.nl" rel="canonical">
@@ -65,7 +65,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
     <div class="col s12 m8 offset-m2 l4 offset-l4">
         <div class="card">
             <div class="card-action blue accent-4 white-text">
-                <h3>Login</h3>
+                <h3>TestingPlatform</h3>
             </div>
             <div class="card-content">
                 <div class="row center">
