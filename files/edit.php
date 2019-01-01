@@ -41,6 +41,10 @@ switch ($ext) {
         $mode = 'javascript';
         break;
 
+    case 'json':
+        $mode = 'json';
+        break;
+
     default:
         redirect('/home?project_id=' . $project_id, 'Please delete this file');
         break;

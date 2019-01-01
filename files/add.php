@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $file_name = strtolower($file_name);
     $file_name = str_replace(' ', '_', $file_name);
 
-    if ($file_type != '.html' && $file_type != '.css' && $file_type != '.js') {
+    if ($file_type != '.html' && $file_type != '.css' && $file_type != '.js' && $file_type != '.json') {
         redirect('/files/add?project_id=' . $project_id, 'Incorrect file type.');
     }
 
@@ -87,6 +87,11 @@ page_header('Create File');
                 <p>
                     <label>
                         <input name="type" type="radio" value=".js"> <span>JS</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="type" type="radio" value=".js"> <span>JSON</span>
                     </label>
                 </p>
             </div>
