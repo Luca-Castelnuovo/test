@@ -18,10 +18,9 @@ $project = sql_select('projects', 'name', "owner_id='{$_SESSION['id']}'  AND id=
 $file = "../users/{$_SESSION['username']}/{$project['name']}/{$file_assoc['name']}";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    csrf_val($_POST['CSRFtoken'], '/project');
+    csrf_val($_POST['CSRFtoken'], '/home');
     $file_post = fopen($file, "w");
     $file_content = htmlspecialchars_decode($_POST['content']);
-    echo $file_content;exit;
     fwrite($file_post, $file_content);
     fclose($file_post);
 
