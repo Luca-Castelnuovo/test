@@ -16,16 +16,19 @@ if ($file_sql->num_rows != 1) {
 
 $project = sql_select('projects', 'name', "owner_id='{$_SESSION['id']}'  AND id='{$project_id}'", true);
 $file = "../users/{$_SESSION['username']}/{$project['name']}/{$file_assoc['name']}";
-$file_open = fopen($file, "r+");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_val($_POST['CSRFtoken'], '/project');
-    $project = sql_select('projects', 'name', "owner_id='{$_SESSION['id']}'  AND id='{$project_id}'", true);
-    fwrite($file_open, htmlspecialchars_decode($_POST['content']));
-    fclose($file_open);
+    $file_post = fopen($file, "w");
+    $file_content = htmlspecialchars_decode($_POST['content']);
+    echo $file_content;exit;
+    fwrite($file_post, $file_content);
+    fclose($file_post);
 
     redirect('/home?project_id=' . $project_id, 'File updated');
 }
+
+$file_get = fopen($file, "r");
 
 $ext = pathinfo($file, PATHINFO_EXTENSION);
 switch ($ext) {
@@ -59,7 +62,7 @@ page_header('Edit File');
     <form method="post" action="?project_id=<?= $project_id ?>&file_id=<?= $file_id ?>" id="form">
         <div class="row">
             <div class="col s12">
-                <div id="editor" style="height: 300px;"><?= htmlspecialchars(fread($file_open, filesize($file))) ?></div>
+                <div id="editor" style="height: 300px;"><?= htmlspecialchars(fread($file_get, filesize($file))) ?></div>
                 <textarea name="content" id="textarea" style="position:absolute;top:-9999px;left:-9999px;"></textarea>
             </div>
         </div>
