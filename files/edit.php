@@ -78,7 +78,7 @@ page_header('Edit File');
 <script>
     var editor = ace.edit("editor", {
         basePath: "https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/",
-        theme: "ace/theme/monokai",
+        theme: "ace/theme/dracula",
         mode: "ace/mode/<?= $mode ?>",
         maxLines: 10000,
         minLines: 30,
