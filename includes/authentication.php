@@ -73,7 +73,7 @@ function auth_get_access_token($client_id, $client_secret, $code, $provided_stat
         }
     }
 
-    $access_token_request = auth_request($GLOBALS['auth']->access_token_url, ["client_id" => "{$client_id}", "client_secret" => "{$client_secret}", "code" => "{$code}", "state" => "{$provided_state}"]);
+    $access_token_request = auth_request($GLOBALS['auth']->access_token_url, ["client_id" => "{$client_id}", "client_secret" => "{$client_secret}", "code" => "{$code}", "state" => "{$provided_state}", "grant_type" => "authorization_code"]);
 
     if (!$access_token_request['success']) {
         throw new Exception($access_token_request['error']);
