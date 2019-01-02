@@ -87,9 +87,10 @@ function projects_info($user_id, $project_id)
         redirect('/home', 'Project doesn\'t exist');
     }
 
-    echo <<<HTML
-    <div class="row">
-HTML;
+    echo '<div class="row">';
     files_list($user_id, $project_id);
     echo '</div>';
+    echo <<<HTML
+    <script>document.querySelector(".brand-logo").innerHTML = "{$project['name']}";</script>
+HTML;
 }
