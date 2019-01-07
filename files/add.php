@@ -91,7 +91,7 @@ page_header('Create File');
                 </p>
                 <p>
                     <label>
-                        <input name="type" type="radio" value=".js"> <span>JSON</span>
+                        <input name="type" type="radio" value=".json"> <span>JSON</span>
                     </label>
                 </p>
             </div>
