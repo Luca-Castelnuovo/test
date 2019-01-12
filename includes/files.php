@@ -60,6 +60,6 @@ function files_delete($user_id, $project_id, $file_id, $CSRFtoken)
     sql_delete('files', "owner_id='{$user_id}' AND id='{$file_id}' AND project_id='{$project_id}'");
     unlink("{$_SERVER['DOCUMENT_ROOT']}/users/{$_SESSION['username']}/{$project['name']}/{$file['name']}");
 
-    log_action('3', 'file.deleted', $_SERVER["REMOTE_ADDR"], $_SESSION['id'], $GLOBALS['config']->oauth->client_id);
+    log_action('3', 'file.deleted', $_SERVER["REMOTE_ADDR"], $_SESSION['id']);
     redirect('/home?project_id=' . $project_id, 'File deleted');
 }

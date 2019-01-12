@@ -16,7 +16,7 @@ function login($access_token)
     $_SESSION['id'] = $user['id'];
     $_SESSION['username'] = $user['username'];
 
-    log_action('3', 'auth.login', $_SERVER["REMOTE_ADDR"], $_SESSION['id'], $GLOBALS['config']->oauth->client_id);
+    log_action('3', 'auth.login', $_SERVER["REMOTE_ADDR"], $_SESSION['id']);
     redirect('/home', 'You are logged in');
 }
 
