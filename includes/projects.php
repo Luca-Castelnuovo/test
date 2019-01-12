@@ -72,6 +72,7 @@ function projects_delete($user_id, $project_id, $CSRFtoken)
     sql_delete('projects', "owner_id='{$user_id}' AND id='{$project_id}'");
     sql_delete('files', "owner_id='{$user_id}' AND project_id='{$project_id}'");
 
+    log_action('3', 'project.deleted', $_SERVER["REMOTE_ADDR"], $_SESSION['id'], $GLOBALS['config']->oauth->client_id);
     redirect('/home', 'Project deleted');
 }
 

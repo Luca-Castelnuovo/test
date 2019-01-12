@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     mkdir("users/{$_SESSION['username']}/{$project_name}", 0770);
 
+    log_action('3', 'project.created', $_SERVER["REMOTE_ADDR"], $_SESSION['id'], $GLOBALS['config']->oauth->client_id);
     redirect('/home', 'Project created');
 }
 

@@ -1,6 +1,7 @@
 <?php
 
-function files_list($user_id, $project_id) {
+function files_list($user_id, $project_id)
+{
     $user_id = check_data($user_id, true, 'User ID', true, '/home');
     $project_id = check_data($project_id, true, 'Project ID', true, '/home');
 
@@ -41,7 +42,8 @@ HTML;
 
 
 //delete files
-function files_delete($user_id, $project_id, $file_id, $CSRFtoken) {
+function files_delete($user_id, $project_id, $file_id, $CSRFtoken)
+{
     csrf_val($CSRFtoken, '/home');
 
     $user_id = check_data($user_id, true, 'User ID', true, '/home');
@@ -58,5 +60,6 @@ function files_delete($user_id, $project_id, $file_id, $CSRFtoken) {
     sql_delete('files', "owner_id='{$user_id}' AND id='{$file_id}' AND project_id='{$project_id}'");
     unlink("{$_SERVER['DOCUMENT_ROOT']}/users/{$_SESSION['username']}/{$project['name']}/{$file['name']}");
 
+    log_action('3', 'file.deleted', $_SERVER["REMOTE_ADDR"], $_SESSION['id'], $GLOBALS['config']->oauth->client_id);
     redirect('/home?project_id=' . $project_id, 'File deleted');
 }

@@ -23,11 +23,19 @@ if (isset($_GET['code'])) {
 }
 
 if (isset($_GET['logout'])) {
+    if ($_SESSION['logged_in']) {
+        log_action('3', 'auth.login', $_SERVER["REMOTE_ADDR"], $_SESSION['id'], $GLOBALS['config']->oauth->client_id);
+    }
+
     alert_set('You are logged out.');
     reset_session();
 }
 
 if (isset($_GET['reset'])) {
+    if ($_SESSION['logged_in']) {
+        log_action('3', 'auth.reset', $_SERVER["REMOTE_ADDR"], $_SESSION['id'], $GLOBALS['config']->oauth->client_id);
+    }
+
     reset_session();
 }
 
