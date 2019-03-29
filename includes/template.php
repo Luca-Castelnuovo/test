@@ -25,6 +25,9 @@ function page_header($title = 'Unknown')
         <!-- Styles -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.lucacastelnuovo.nl/general/css/materialize.css">
+
+        <!-- Analytics -->
+    <script src="https://cdn.lucacastelnuovo.nl/tracking/13"></script>
     </head>
 
     <body>
