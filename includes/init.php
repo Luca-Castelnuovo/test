@@ -16,5 +16,4 @@ require $_SERVER['DOCUMENT_ROOT'] . '/includes/sql.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/includes/template.php';
 
 // External
-require '/var/www/logs.lucacastelnuovo.nl/logs.php';
 require '/var/www/cdn.lucacastelnuovo.nl/include.php';
