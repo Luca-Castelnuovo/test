@@ -6,7 +6,6 @@ function sql_connect()
     $conn = new mysqli($GLOBALS['config']->database->host, $GLOBALS['config']->database->user, $GLOBALS['config']->database->password, $GLOBALS['config']->database->database);
 
     if ($conn->connect_error) {
-        log_action('3', 'sql.connect_error', $_SERVER["REMOTE_ADDR"], $_SESSION['id']);
         redirect('/', 'Server Error');
     } else {
         return $conn;

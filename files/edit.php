@@ -24,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     fwrite($file_post, $file_content);
     fclose($file_post);
 
-    log_action('3', 'file.updated', $_SERVER["REMOTE_ADDR"], $_SESSION['id']);
     redirect('/home?project_id=' . $project_id, 'File updated');
 }
 

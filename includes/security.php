@@ -63,12 +63,10 @@ function csrf_gen()
 function csrf_val($CSRFtoken, $redirect = '/')
 {
     if (!isset($_SESSION['CSRFtoken'])) {
-        log_action('3', 'csrf.mismatch', $_SERVER["REMOTE_ADDR"], $_SESSION['id']);
         redirect($redirect, 'CSRF Error');
     }
 
     if (!(hash_equals($_SESSION['CSRFtoken'], $CSRFtoken))) {
-        log_action('3', 'csrf.not_set', $_SERVER["REMOTE_ADDR"], $_SESSION['id']);
         redirect($redirect, 'CSRF Error');
     } else {
         unset($_SESSION['CSRFtoken']);
@@ -83,7 +81,6 @@ function captcha_val($resonse, $redirect = '/')
     $response = json_decode(file_get_contents($url));
 
     if (!$response->success) {
-        log_action('3', 'captcha.invalid', $_SERVER["REMOTE_ADDR"], $_SESSION['id']);
         redirect($redirect, 'Please try again.');
     }
 }

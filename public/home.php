@@ -1,6 +1,6 @@
 <?php
 
-require $_SERVER['DOCUMENT_ROOT'] . '/includes/init.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/../includes/init.php';
 
 loggedin();
 
@@ -24,4 +24,4 @@ page_header('Home');
 </div>
 <?php } ?>
 
-<?= page_footer(); ?>
+<?= page_footer() ?>

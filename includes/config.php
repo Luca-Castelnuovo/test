@@ -1,23 +1,20 @@
 <?php
 
-$configKey = getenv('CONFIG_KEY');
-$configClient = new \ConfigCat\ConfigCatClient($configKey);
-
-if (!$configClient->getValue("appActive", true)) {
-    http_response_code(503);
-    exit('App is temporarily disabled.');
-}
-
+$dotenv = Dotenv\Dotenv::create(__DIR__ . '/../');
+$dotenv->load();
 
 return (object) array(
     'database' => (object) array(
-        'host' => $configClient->getValue("dbHost", "localhost"),
-        'user' => $configClient->getValue("dbUser", ""),
-        'password' => $configClient->getValue("dbPassword", ""),
-        'database' => $configClient->getValue("dbDatabase", ""),
+        'host' => getenv('DB_HOST'),
+        'database' => getenv('DB_DATABASE'),
+        'user' => getenv('DB_USERNAME'),
+        'password' => getenv('DB_PASSWORD')
     ),
 
-    'client_id' => $configClient->getValue("clientID", ""),
-    'client_secret' => $configClient->getValue("clientSecret", ""),
+    'github' => (object) array(
+        'client_id' => getenv('GITHUB_CIENT_ID'),
+        'client_secret' => getenv('GITHUB_CLIENT_SECRET'),
+        'redirect' => 'https://test.lucacastelnuovo.nl'
+    )
 );
 

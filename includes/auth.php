@@ -1,22 +1,19 @@
 <?php
 
-function login($access_token)
-{
-    try {
-        $user = api_get_user($access_token);
-    } catch (Exception $error) {
-        response(false, $error->getMessage());
-    }
+$provider = new League\OAuth2\Client\Provider\Github([
+    'clientId'          => $GLOBALS['config']->github->client_id,
+    'clientSecret'      => $GLOBALS['config']->github->client_secret,
+    'redirectUri'       => $GLOBALS['config']->github->redirect,
+]);
 
-    mkdir("users/{$user['username']}", 0770);
+function login($user)
+{
+    mkdir("users/{$user->getNickname()}", 0770);
 
     $_SESSION['logged_in'] = true;
     $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
-    $_SESSION['access_token'] = $access_token;
-    $_SESSION['id'] = $user['id'];
-    $_SESSION['username'] = $user['username'];
+    $_SESSION['id'] = 1;
 
-    log_action('3', 'auth.login', $_SERVER["REMOTE_ADDR"], $_SESSION['id']);
     redirect('/home', 'You are logged in');
 }
 

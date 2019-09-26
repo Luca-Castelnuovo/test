@@ -41,7 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $file = fopen("../users/{$_SESSION['username']}/{$project['name']}/{$file_full}", "w");
     fclose($file);
 
-    log_action('3', 'file.created', $_SERVER["REMOTE_ADDR"], $_SESSION['id']);
     redirect('/home?project_id=' . $project_id, 'File created');
 }
 

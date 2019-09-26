@@ -1,41 +1,36 @@
 <?php
 
-require $_SERVER['DOCUMENT_ROOT'] . '/includes/init.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/../includes/init.php';
 
 if (isset($_GET['authenticate'])) {
-    try {
-        auth_get_authorization_code($GLOBALS['config']->client_id, 'basic:read');
-    } catch (Exception $error) {
-        redirect('/?reset', $error);
-    }
+    $authUrl = $provider->getAuthorizationUrl();
+    $_SESSION['state'] = $provider->getState();
+    header('Location: '.$authUrl);
 }
 
 if (isset($_GET['code'])) {
-    try {
-        $access_token_request = auth_get_access_token($GLOBALS['config']->client_id, $GLOBALS['config']->client_secret, $_GET['code'], $_GET['state']);
-    } catch (Exception $error) {
+    if(empty($_GET['state']) || ($_GET['state'] !== $_SESSION['state']))  {
         redirect('/?reset', $error);
     }
 
-    if ($access_token_request['success']) {
-        login($access_token_request['access_token']);
+    $token = $provider->getAccessToken('authorization_code', [
+        'code' => $_GET['code']
+    ]);
+
+    try {
+        $user = $provider->getResourceOwner($token);
+        login($provider->getResourceOwner($token));
+    } catch (Exception $error) {
+        redirect('/?reset', $error);
     }
 }
 
 if (isset($_GET['logout'])) {
-    if ($_SESSION['logged_in']) {
-        log_action('3', 'auth.login', $_SERVER["REMOTE_ADDR"], $_SESSION['id']);
-    }
-
     alert_set('You are logged out.');
     reset_session();
 }
 
 if (isset($_GET['reset'])) {
-    if ($_SESSION['logged_in']) {
-        log_action('3', 'auth.reset', $_SERVER["REMOTE_ADDR"], $_SESSION['id']);
-    }
-
     reset_session();
 }
 
@@ -78,7 +73,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
             <div class="card-content">
                 <div class="row center">
                     <a class="waves-effect waves-light btn-large blue accent-4" href="?authenticate">
-                        Login with LTC
+                        Login with GitHub
                     </a>
                 </div>
             </div>

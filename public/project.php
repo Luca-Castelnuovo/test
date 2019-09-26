@@ -1,6 +1,6 @@
 <?php
 
-require $_SERVER['DOCUMENT_ROOT'] . '/includes/init.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/../includes/init.php';
 
 loggedin();
 
@@ -24,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     mkdir("users/{$_SESSION['username']}/{$project_name}", 0770);
 
-    log_action('3', 'project.created', $_SERVER["REMOTE_ADDR"], $_SESSION['id']);
     redirect('/home', 'Project created');
 }
 
