@@ -67,7 +67,7 @@ function projects_delete($user_id, $project_id, $CSRFtoken)
         redirect('/home', 'Project doesn\'t exist');
     }
 
-    rrmdir("{$_SERVER['DOCUMENT_ROOT']}/users/{$_SESSION['username']}/{$project['name']}");
+    rrmdir("{$_SERVER['DOCUMENT_ROOT']}/users/{$_SESSION['id']}/{$project['name']}");
 
     sql_delete('projects', "owner_id='{$user_id}' AND id='{$project_id}'");
     sql_delete('files', "owner_id='{$user_id}' AND project_id='{$project_id}'");

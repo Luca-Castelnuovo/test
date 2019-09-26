@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'name' => $project_name
     ]);
 
-    mkdir("users/{$_SESSION['username']}/{$project_name}", 0770);
+    mkdir("users/{$_SESSION['id']}/{$project_name}", 0770);
 
     redirect('/home', 'Project created');
 }

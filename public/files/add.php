@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'name' => $file_full
     ]);
 
-    $file = fopen("../users/{$_SESSION['username']}/{$project['name']}/{$file_full}", "w");
+    $file = fopen("../users/{$_SESSION['id']}/{$project['name']}/{$file_full}", "w");
     fclose($file);
 
     redirect('/home?project_id=' . $project_id, 'File created');

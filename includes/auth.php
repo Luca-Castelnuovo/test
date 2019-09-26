@@ -12,7 +12,7 @@ function login($user)
 
     $_SESSION['logged_in'] = true;
     $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
-    $_SESSION['id'] = 1;
+    $_SESSION['id'] = $user->getNickname();
 
     redirect('/home', 'You are logged in');
 }

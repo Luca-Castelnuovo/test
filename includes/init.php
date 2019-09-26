@@ -14,4 +14,4 @@ require 'sql.php';
 require 'template.php';
 
 // External
-// require '/var/www/cdn.lucacastelnuovo.nl/include.php';
+require '/var/www/cdn.lucacastelnuovo.nl/include.php';

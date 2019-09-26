@@ -15,7 +15,7 @@ if ($file_sql->num_rows != 1) {
 }
 
 $project = sql_select('projects', 'name', "owner_id='{$_SESSION['id']}'  AND id='{$project_id}'", true);
-$file = "../users/{$_SESSION['username']}/{$project['name']}/{$file_assoc['name']}";
+$file = "../users/{$_SESSION['id']}/{$project['name']}/{$file_assoc['name']}";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_val($_POST['CSRFtoken'], '/home');
