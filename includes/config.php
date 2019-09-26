@@ -3,17 +3,17 @@
 $dotenv = Dotenv\Dotenv::create(__DIR__ . '/../');
 $dotenv->load();
 
-return (object) array(
+$GLOBALS['config'] = (object) array(
     'database' => (object) array(
-        'host' => getenv('DB_HOST'),
-        'database' => getenv('DB_DATABASE'),
-        'user' => getenv('DB_USERNAME'),
-        'password' => getenv('DB_PASSWORD')
+        'host' => $_ENV['DB_HOST'],
+        'database' => $_ENV['DB_DATABASE'],
+        'user' => $_ENV['DB_USERNAME'],
+        'password' => $_ENV['DB_PASSWORD']
     ),
 
     'github' => (object) array(
-        'client_id' => getenv('GITHUB_CIENT_ID'),
-        'client_secret' => getenv('GITHUB_CLIENT_SECRET'),
+        'client_id' => $_ENV['GITHUB_CIENT_ID'],
+        'client_secret' => $_ENV['GITHUB_CLIENT_SECRET'],
         'redirect' => 'https://test.lucacastelnuovo.nl'
     )
 );
