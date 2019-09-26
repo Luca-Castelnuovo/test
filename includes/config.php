@@ -17,4 +17,3 @@ $GLOBALS['config'] = (object) array(
         'redirect' => 'https://test.lucacastelnuovo.nl'
     )
 );
-
