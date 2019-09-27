@@ -16,24 +16,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $project = sql_select('projects', 'name', "owner_id='{$_SESSION['id']}'  AND id='{$project_id}'", true);
 
     $file_name = check_data($_POST['name'], true, 'File name', true, '/files/add');
-    // $file_type = check_data($_POST['type'], true, 'File type', true, '/files/add');
 
     $file_name = strtolower($file_name);
     $file_name = str_replace(' ', '_', $file_name);
 
     $valid_extensions = [".html", ".css", ".js", ".json"];
-    if (!in_array(pathinfo($file_name, PATHINFO_EXTENSION), $valid_extensions)) {
+    if (!in_array(substr(strrchr($file_name,'.'),1), $valid_extensions)) {
         redirect('/files/add?project_id=' . $project_id, 'Incorrect file type.');
     }
 
-    // if ($file_type != '.html' && $file_type != '.css' && $file_type != '.js' && $file_type != '.json') {
-    //     redirect('/files/add?project_id=' . $project_id, 'Incorrect file type.');
-    // }
-
-    // $file_full = $file_name . $file_type;
-    $file_full = $file_name;
-
-    $existing_file = sql_select('files', 'id', "owner_id='{$_SESSION['id']}'  AND project_id='{$project_id}'  AND name='{$file_full}'", false);
+    $existing_file = sql_select('files', 'id', "owner_id='{$_SESSION['id']}' AND project_id='{$project_id}' AND name='{$file_name}'", false);
     if ($existing_file->num_rows > 0) {
         redirect('/files/add?project_id=' . $project_id, 'You already have a file with this name.');
     }
@@ -41,10 +33,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     sql_insert('files', [
         'owner_id' => $_SESSION['id'],
         'project_id' => $project_id,
-        'name' => $file_full
+        'name' => $file_name
     ]);
 
-    $file = fopen("../users/{$_SESSION['id']}/{$project['name']}/{$file_full}", "w");
+    $file = fopen("../users/{$_SESSION['id']}/{$project['name']}/{$file_name}", "w");
     fclose($file);
 
     redirect('/home?project_id=' . $project_id, 'File created');
@@ -77,31 +69,6 @@ page_header('Create File');
                 <label for="name">File Name (.html, .css, .js, .json)</label> <input id="name" name="name" type="text">
             </div>
         </div>
-        <!-- <div class="row">
-            <div class="col">
-                <h5>File Type</h5>
-                <p>
-                    <label>
-                        <input checked name="type" type="radio" value=".html"> <span>HTML</span>
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        <input name="type" type="radio" value=".css"> <span>CSS</span>
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        <input name="type" type="radio" value=".js"> <span>JavaScript</span>
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        <input name="type" type="radio" value=".json"> <span>JSON</span>
-                    </label>
-                </p>
-            </div>
-        </div> -->
         <div class="row">
             <div class="col s12">
                 <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>

@@ -8,11 +8,18 @@ $provider = new League\OAuth2\Client\Provider\Github([
 
 function login($user)
 {
-    mkdir("users/{$user->getNickname()}", 0770);
+    $username = $user->getNickname();
+
+    // TODO: check if username is in allowed users
+    if (false) {
+        redirect("/?reset", 'Account not allowed');
+    }
+
+    mkdir("users/{$username}", 0770);
 
     $_SESSION['logged_in'] = true;
     $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
-    $_SESSION['id'] = $user->getNickname();
+    $_SESSION['id'] = $username;
 
     redirect('/home', 'You are logged in');
 }
