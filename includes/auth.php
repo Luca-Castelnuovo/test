@@ -10,8 +10,10 @@ function login($user)
 {
     $username = $user->getNickname();
 
-    // TODO: check if username is in allowed users
-    if (false) {
+    $file = file_get_contents(__DIR__ . "../public/users/Luca-Castelnuovo/configuration/testingplatform.json");
+    $json = json_decode($file, true);
+
+    if (!in_array($username, $json["allowed_users"])) {
         redirect("/?reset", 'Account not allowed');
     }
 
