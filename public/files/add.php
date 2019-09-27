@@ -16,16 +16,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $project = sql_select('projects', 'name', "owner_id='{$_SESSION['id']}'  AND id='{$project_id}'", true);
 
     $file_name = check_data($_POST['name'], true, 'File name', true, '/files/add');
-    $file_type = check_data($_POST['type'], true, 'File type', true, '/files/add');
+    // $file_type = check_data($_POST['type'], true, 'File type', true, '/files/add');
 
     $file_name = strtolower($file_name);
     $file_name = str_replace(' ', '_', $file_name);
 
-    if ($file_type != '.html' && $file_type != '.css' && $file_type != '.js' && $file_type != '.json') {
+    $valid_extensions = [".html", ".css", ".js", ".json"];
+    if (!in_array(pathinfo($file_name, PATHINFO_EXTENSION), $valid_extensions)) {
         redirect('/files/add?project_id=' . $project_id, 'Incorrect file type.');
     }
 
-    $file_full = $file_name . $file_type;
+    // if ($file_type != '.html' && $file_type != '.css' && $file_type != '.js' && $file_type != '.json') {
+    //     redirect('/files/add?project_id=' . $project_id, 'Incorrect file type.');
+    // }
+
+    // $file_full = $file_name . $file_type;
+    $file_full = $file_name;
 
     $existing_file = sql_select('files', 'id', "owner_id='{$_SESSION['id']}'  AND project_id='{$project_id}'  AND name='{$file_full}'", false);
     if ($existing_file->num_rows > 0) {
@@ -68,10 +74,10 @@ page_header('Create File');
     <form method="post" action="?project_id=<?= $project_id ?>">
         <div class="row">
             <div class="input-field col s12">
-                <label for="name">File Name</label> <input id="name" name="name" type="text">
+                <label for="name">File Name (.html, .css, .js, .json)</label> <input id="name" name="name" type="text">
             </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col">
                 <h5>File Type</h5>
                 <p>
@@ -86,7 +92,7 @@ page_header('Create File');
                 </p>
                 <p>
                     <label>
-                        <input name="type" type="radio" value=".js"> <span>JS</span>
+                        <input name="type" type="radio" value=".js"> <span>JavaScript</span>
                     </label>
                 </p>
                 <p>
@@ -95,7 +101,7 @@ page_header('Create File');
                     </label>
                 </p>
             </div>
-        </div>
+        </div> -->
         <div class="row">
             <div class="col s12">
                 <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
