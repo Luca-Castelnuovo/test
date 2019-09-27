@@ -20,11 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $file_name = strtolower($file_name);
     $file_name = str_replace(' ', '_', $file_name);
     $file_type = substr(strrchr($file_name,'.'),1);
-    $valid_extensions = [".html", ".css", ".js", ".json"];
-    
-    echo 'filename: ' . $file_name;
-    echo 'filetype: ' . $file_type;
-    exit;
+    $valid_extensions = ["html", "css", "js", "json"];
 
     if (!in_array(substr(strrchr($file_name,'.'),1), $valid_extensions)) {
         redirect('/files/add?project_id=' . $project_id, 'Incorrect file type.');
