@@ -49,11 +49,12 @@ HTML;
 
 function page_footer()
 {
+    $cdnPath = cdnPath('/test.lucacastelnuovo.nl/public/js/emmet.js');
     echo <<<HTML
             </div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script src="<?= cdnPath('/test.lucacastelnuovo.nl/js/init.js') ?>"></script>
+        <script src="{$cdnPath}" onerror="this.onerror=null;this.src='/js/init.js';"></script>
 HTML;
     alert_display();
     echo <<<HTML
