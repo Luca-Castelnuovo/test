@@ -3,6 +3,8 @@
 $dotenv = Dotenv\Dotenv::create(__DIR__ . '/../');
 $dotenv->load();
 
+$configFile = json_decode(file_get_contents("/var/www/test.lucacastelnuovo.nl/public/users/Luca-Castelnuovo/configuration/testingplatform.json"));
+
 $GLOBALS['config'] = (object) array(
     'database' => (object) array(
         'host' => $_ENV['DB_HOST'],
@@ -15,5 +17,8 @@ $GLOBALS['config'] = (object) array(
         'client_id' => $_ENV['GITHUB_CIENT_ID'],
         'client_secret' => $_ENV['GITHUB_CLIENT_SECRET'],
         'redirect' => 'https://test.lucacastelnuovo.nl'
-    )
+    ),
+
+    'allowed_users' => $configFile->allowed_users,
+    'allowed_extensions' => $configFile->allowed_extensions,
 );

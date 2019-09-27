@@ -30,26 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $file_get = fopen($file, "r");
 
 $ext = pathinfo($file, PATHINFO_EXTENSION);
-switch ($ext) {
-    case 'html':
-        $mode = 'html';
-        break;
 
-    case 'css':
-        $mode = 'css';
-        break;
-
-    case 'js':
-        $mode = 'javascript';
-        break;
-
-    case 'json':
-        $mode = 'json';
-        break;
-
-    default:
-        redirect('/home?project_id=' . $project_id, 'Please delete this file');
-        break;
+if ($ext === 'js') {
+    $ext = 'javascript';
 }
 
 page_header('Edit File');
@@ -84,7 +67,7 @@ page_header('Edit File');
     var editor = ace.edit("editor", {
         basePath: "https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/",
         theme: "ace/theme/dracula",
-        mode: "ace/mode/<?= $mode ?>",
+        mode: "ace/mode/<?= $ext ?>",
         maxLines: 10000,
         minLines: 30,
     });

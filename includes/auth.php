@@ -10,10 +10,7 @@ function login($user)
 {
     $username = $user->getNickname();
 
-    $file = file_get_contents("/var/www/test.lucacastelnuovo.nl/public/users/Luca-Castelnuovo/configuration/testingplatform.json");
-    $json = json_decode($file, true);
-
-    if (!in_array($username, $json["allowed_users"])) {
+    if (!in_array($username, $GLOBALS['config']->allowed_users)) {
         redirect("/?reset", 'Account not allowed');
     }
 
