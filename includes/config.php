@@ -3,7 +3,7 @@
 $dotenv = Dotenv\Dotenv::create(__DIR__ . '/../');
 $dotenv->load();
 
-$configFile = json_decode(file_get_contents("/var/www/test.lucacastelnuovo.nl/public/users/Luca-Castelnuovo/configuration/testingplatform.json"));
+$configFile = json_decode(file_get_contents("https://test.lucacastelnuovo.nl/users/Luca-Castelnuovo/configuration/testingplatform.json"));
 
 $GLOBALS['config'] = (object) array(
     'database' => (object) array(
