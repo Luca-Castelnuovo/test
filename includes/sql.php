@@ -3,7 +3,7 @@
 //Connect to database
 function sql_connect()
 {
-    $conn = new mysqli($GLOBALS['config']->database->host, $GLOBALS['config']->database->user, $GLOBALS['config']->database->password, $GLOBALS['config']->database->database);
+    $conn = new mysqli($GLOBALS['config']->database->host, $GLOBALS['config']->database->user, $GLOBALS['config']->database->password, $GLOBALS['config']->database->database, $GLOBALS['config']->database->port);
 
     if ($conn->connect_error) {
         redirect('/', 'Server Error');
