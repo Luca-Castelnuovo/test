@@ -8,6 +8,7 @@ $configFile = json_decode(file_get_contents("https://test.lucacastelnuovo.nl/use
 $GLOBALS['config'] = (object) array(
     'database' => (object) array(
         'host' => $_ENV['DB_HOST'],
+        'port' => $_ENV['DB_PORT'],
         'database' => $_ENV['DB_DATABASE'],
         'user' => $_ENV['DB_USERNAME'],
         'password' => $_ENV['DB_PASSWORD']
