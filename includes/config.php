@@ -1,7 +1,22 @@
 <?php
 
-$dotenv = Dotenv\Dotenv::create(__DIR__ . '/../');
-$dotenv->load();
+use Dotenv\Dotenv;
+use Dotenv\Repository\Adapter\EnvConstAdapter;
+use Dotenv\Repository\Adapter\ServerConstAdapter;
+use Dotenv\Repository\RepositoryBuilder;
+
+$adapters = [
+	new EnvConstAdapter(),
+	new ServerConstAdapter(),
+];
+
+$repository = RepositoryBuilder::create()
+    ->withReaders($adapters)
+    ->withWriters($adapters)
+    ->immutable()
+    ->make();
+
+Dotenv::create($repository, __DIR__ . '/../', null)->load();
 
 $configFile = json_decode(file_get_contents("https://test.lucacastelnuovo.nl/users/Luca-Castelnuovo/configuration/testingplatform.json"));
 
