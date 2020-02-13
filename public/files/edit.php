@@ -59,10 +59,7 @@ page_header('Edit File');
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ext-emmet.js">  </script>
-<script
-    src="<?=cdnPath('/test.lucacastelnuovo.nl/public/js/emmet.js') ?>"
-    onerror="this.onerror=null;this.src='/js/emmet.js';"
-></script>
+<script src="/js/emmet.js"></script>
 <script>
     var editor = ace.edit("editor", {
         basePath: "https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/",

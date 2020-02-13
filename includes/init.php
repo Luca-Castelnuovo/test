@@ -12,6 +12,3 @@ require 'projects.php';
 require 'security.php';
 require 'sql.php';
 require 'template.php';
-
-// External
-require '/var/www/cdn.lucacastelnuovo.nl/include.php';
