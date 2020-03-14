@@ -56,6 +56,7 @@ function page_footer()
 HTML;
     alert_display();
     echo <<<HTML
+        <script async src="https://analytics.lucacastelnuovo.nl/tracker.js" data-ackee-server="https://analytics.lucacastelnuovo.nl" data-ackee-domain-id="0cfb7d34-c3b1-492f-8552-129dab201b09" data-ackee-opts='{ "detailed": true }'></script>
     </body>
 
     </html>
