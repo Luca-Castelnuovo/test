@@ -82,6 +82,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
 </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <?= alert_display() ?>
+    <script async src="https://analytics.lucacastelnuovo.nl/tracker.js" data-ackee-server="https://analytics.lucacastelnuovo.nl" data-ackee-domain-id="0cfb7d34-c3b1-492f-8552-129dab201b09" data-ackee-opts='{ "detailed": true }'></script>
 </body>
 
 </html>
