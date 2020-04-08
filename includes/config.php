@@ -18,7 +18,7 @@ $repository = RepositoryBuilder::create()
 
 Dotenv::create($repository, __DIR__ . '/../', null)->load();
 
-$configFile = json_decode(file_get_contents("https://test.lucacastelnuovo.nl/users/Luca-Castelnuovo/configuration/testingplatform.json"));
+$configFile = json_decode(file_get_contents("https://cms.lucacastelnuovo.nl/api/singletons/get/TestingPlatform"));
 
 $GLOBALS['config'] = (object) array(
     'database' => (object) array(
