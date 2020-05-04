@@ -21,10 +21,11 @@ class Controller
     public function __construct()
     {
         $loader = new FilesystemLoader('../views');
-        $this->twig = new Environment($loader /* , ['cache' => '../storage/views'] */);
+        $this->twig = new Environment($loader, ['cache' => '../storage/views']);
         $this->twig->addGlobal('analytics', config('analytics'));
         $this->twig->addGlobal('app_url', config('app.url'));
         $this->twig->addGlobal('user_id', SessionHelper::get('id'));
+        $this->twig->addGlobal('user_variant', SessionHelper::get('variant'));
     }
 
     /**
