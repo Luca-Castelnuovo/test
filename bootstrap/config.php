@@ -21,16 +21,16 @@ function config($key, $fallback = null)
                 'id' => env('APP_ID'),
                 'variants' => [
                     'Free' => [
-                        'files_per_project' => 5,
-                        'max_projects' => 1
+                        'max_projects' => 1,
+                        'files_per_project' => 5
                     ],
                     'Personal' => [
-                        'files_per_project' => 3,
-                        'max_projects' => 15
+                        'max_projects' => 3,
+                        'files_per_project' => 15
                     ],
                     'Professional' => [
-                        'files_per_project' => 10,
-                        'max_projects' => 25
+                        'max_projects' => 10,
+                        'files_per_project' => 25
                     ],
                 ],
             ],
