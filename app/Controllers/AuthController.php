@@ -73,6 +73,8 @@ class AuthController extends Controller
      */
     public function login($id, $variant, $expires)
     {
+        $return_to = SessionHelper::get('return_to');
+
         SessionHelper::destroy();
         SessionHelper::set('id', $id);
         SessionHelper::set('variant', $variant);
@@ -80,6 +82,10 @@ class AuthController extends Controller
         SessionHelper::set('expires', $expires);
 
         // TODO: create folder
+
+        if ($return_to) {
+            return $this->redirect($return_to);
+        }
 
         return $this->redirect('/dashboard');
     }
