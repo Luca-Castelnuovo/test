@@ -58,7 +58,20 @@ class FilesController extends Controller
 
         // TODO: check it has valid extension
 
-        // TODO: check tier
+        $n_files = DB::count('files', [
+            'owner_id' => $owner_id,
+            'project_id' => $project_id
+        ]);
+        $license_variant = SessionHelper::get('variant');
+        $n_files_licensed = config("variants.{$license_variant}.files_per_project");
+
+        if ($n_files >= $n_files_licensed) {
+            return $this->respondJson(
+                "Files quota reached, max {$n_files_licensed}",
+                [],
+                400
+            );
+        }
 
         $id = Uuid::uuid4()->toString();
         DB::create('files', [

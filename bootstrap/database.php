@@ -109,4 +109,19 @@ class DB
 
         return $db->has($table, $where);
     }
+
+    /**
+     * Counts the number of rows
+     *
+     * @param string $table
+     * @param array $where
+     * 
+     * @return int|null
+     */
+    public static function count($table, $where)
+    {
+        $db = self::connect();
+
+        return $db->count($table, $where);
+    }
 }

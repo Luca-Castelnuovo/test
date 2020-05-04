@@ -41,10 +41,20 @@ class ProjectsController extends Controller
             );
         }
 
-        // TODO: check tier
-
         $id = Uuid::uuid4()->toString();
         $owner_id = SessionHelper::get('id');
+
+        $n_projects = DB::count('projects', ['owner_id' => $owner_id]);
+        $license_variant = SessionHelper::get('variant');
+        $n_projects_licensed = config("variants.{$license_variant}.max_projects");
+
+        if ($n_projects >= $n_projects_licensed) {
+            return $this->respondJson(
+                "Projects quota reached, max {$n_projects_licensed}",
+                [],
+                400
+            );
+        }
 
         DB::create('projects', [
             'id' => $id,
@@ -56,7 +66,10 @@ class ProjectsController extends Controller
         $template_path = "../views/templates";
         mkdir($project_path, 0770);
 
-        copy($template_path . '/index.html', $project_path . '/index.html'); // TODO: update base_path
+        copy($template_path . '/index.html', $project_path . '/index.html');
+        $str = file_get_contents($project_path . '/index.html');
+        $str = str_replace('BASE_HREF', config('app.url') . '/' . $project_path, $str);
+        file_put_contents($project_path . '/index.html', $str);
         DB::create('files', [
             'id' => Uuid::uuid4()->toString(),
             'project_id' => $id,

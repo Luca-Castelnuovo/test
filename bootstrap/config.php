@@ -32,7 +32,7 @@ function config($key, $fallback = null)
                     'files_per_project' => 5,
                     'max_projects' => 1
                 ],
-                'Peersonal' => [
+                'Personal' => [
                     'files_per_project' => 3,
                     'max_projects' => 15
                 ],
