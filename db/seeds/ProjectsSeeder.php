@@ -2,7 +2,7 @@
 
 use Phinx\Seed\AbstractSeed;
 
-class UsersSeeder extends AbstractSeed
+class ProjectsSeeder extends AbstractSeed
 {
     /**
      * Run Method.
@@ -20,16 +20,13 @@ class UsersSeeder extends AbstractSeed
         for ($i = 0; $i < 5; $i++) {
             $data[] = [
                 'id'            => $faker->uuid,
-                'active'        => $faker->boolean,
-                'admin'         => $faker->boolean,
-                'email'         => $faker->email,
-                'google'        => $faker->ean13,
-                'github'        => $faker->ean13,
+                'owner_id'      => $faker->uuid,
+                'name'          => $faker->firstName,
                 'updated_at'    => date('Y-m-d H:i:s'),
                 'created_at'    => date('Y-m-d H:i:s'),
             ];
         }
 
-        $this->table('users')->insert($data)->saveData();
+        $this->table('projects')->insert($data)->saveData();
     }
 }
