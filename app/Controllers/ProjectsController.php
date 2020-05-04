@@ -67,9 +67,10 @@ class ProjectsController extends Controller
         mkdir($project_path, 0770);
 
         copy($template_path . '/index.html', $project_path . '/index.html');
-        $str = file_get_contents($project_path . '/index.html');
-        $str = str_replace('BASE_HREF', config('app.url') . '/' . $project_path, $str);
-        file_put_contents($project_path . '/index.html', $str);
+        $indexhtml = file_get_contents($project_path . '/index.html');
+        $base_href = config('app.url') . '/' . $project_path . '/';
+        $indexhtml = str_replace('BASE_HREF', $base_href, $indexhtml);
+        file_put_contents($project_path . '/index.html', $indexhtml);
         DB::create('files', [
             'id' => Uuid::uuid4()->toString(),
             'project_id' => $id,
