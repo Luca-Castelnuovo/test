@@ -118,7 +118,8 @@ class ProjectsController extends Controller
 
         $files = DB::select('files', ['id', 'name'], [
             'project_id' => $id,
-            'owner_id' => SessionHelper::get('id')
+            'owner_id' => SessionHelper::get('id'),
+            'ORDER' => ['name' => 'ASC']
         ]);
 
         return $this->respond('project.twig', [
@@ -179,7 +180,7 @@ class ProjectsController extends Controller
             foreach ($objects as $object) {
                 if ($object != "." && $object != "..") {
                     if (is_dir($dir . "/" . $object)) {
-                        rrmdir($dir . "/" . $object);
+                        $this->rrmdir($dir . "/" . $object);
                     } else {
                         unlink($dir . "/" . $object);
                     }
