@@ -1,0 +1,13 @@
+<script src="/assets/js/materialize.min.js"></script>
+<script src="/assets/js/axios.min.js"></script>
+<script src="/assets/js/utilities.js"></script>
+
+{% if analytics.enabled %}
+    <script
+        async
+        src="https://analytics.lucacastelnuovo.nl/tracker.js"
+        data-ackee-server="https://analytics.lucacastelnuovo.nl"
+        data-ackee-domain-id="{{ analytics.domainId }}"
+        data-ackee-opts="{{ analytics.options }}">
+    </script>
+{% endif %}

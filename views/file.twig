@@ -1,0 +1,32 @@
+{% extends "partials/base.twig" %}
+{% set title = "File Editor" %}
+
+{% block content %}
+<div class="row">
+    <h2>Edit File</h2>
+    <form id="file">
+        <div class="row">
+            <div class="col s12">
+                <input id="file_id" type="hidden" value="{{ file.id }}"/>
+                <div id="editor" style="height: 300px;">{{ file.content }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <button class="col s12 m5 btn waves-effect grey lighten-4 black-text" onClick="save(true)">Save and Quit</button>
+                <div class="col m2"></div>
+                <button class="col s12 m5 btn waves-effect blue accent-4" onClick="save(false)">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ext-emmet.js"></script>
+<script>
+    window.file_ext = '{{ file.ext }}';
+    window.file_updated_at = '{{ file.updated_at }}';
+</script>
+<script src="/assets/js/emmet.js"></script>
+<script src="/assets/js/file.js"></script>
+{% endblock %}
