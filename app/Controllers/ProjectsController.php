@@ -143,12 +143,35 @@ class ProjectsController extends Controller
         ]);
 
         $owner_id = SessionHelper::get('id');
-        $project_path = "users/{$owner_id}/{$id}";
-        // TODO: delete folder
+        $this->rrmdir("users/{$owner_id}/{$id}");
 
         return $this->respondJson(
             'Project Deleted',
             ['reload' => true]
         );
+    }
+
+    /**
+     * Recursively delete dierctory
+     *
+     * @param string $dir
+     * 
+     * @return void
+     */
+    private function rrmdir($dir)
+    {
+        if (is_dir($dir)) {
+            $objects = scandir($dir);
+            foreach ($objects as $object) {
+                if ($object != "." && $object != "..") {
+                    if (is_dir($dir . "/" . $object)) {
+                        rrmdir($dir . "/" . $object);
+                    } else {
+                        unlink($dir . "/" . $object);
+                    }
+                }
+            }
+            rmdir($dir);
+        }
     }
 }
