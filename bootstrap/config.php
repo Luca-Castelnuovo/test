@@ -45,7 +45,8 @@ function config($key, $fallback = null)
                 'allowed_extensions' => [
                     'html',
                     'css',
-                    'js'
+                    'js',
+                    'json'
                 ]
             ]
         ];
