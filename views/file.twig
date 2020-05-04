@@ -1,1 +1,50 @@
-// TODO: edit file
+{% extends "partials/base.twig" %}
+{% set title = "File Editor" %}
+
+{% block content %}
+<div class="row">
+    <h2>Edit File</h2>
+    <form id="file">
+        <div class="row">
+            <div class="col s12">
+                <input id="file_id" type="hidden" value="{{ file_id }}"/>
+                <div id="editor" style="height: 300px;">{{ file_content }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <button class="col s12 m5 btn waves-effect grey lighten-4 black-text" onClick="save(true)">Save and Quit</button>
+                <div class="col m2"></div>
+                <button class="col s12 m5 btn waves-effect blue accent-4" onClick="save(false)">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ext-emmet.js">  </script>
+<script src="/assets/js/emmet.js"></script>
+<script>
+    const editor = ace.edit('editor', {
+        basePath: 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/',
+        theme: 'ace/theme/dracula',
+        mode: "ace/mode/{{ file_ext }}",
+        maxLines: 10000,
+        minLines: 30,
+    });
+
+    const Emmet = require('ace/ext/emmet');
+    editor.setOption('enableEmmet', true);
+
+    document.querySelector('form#file').addEventListener('submit', e => e.preventDefault());
+
+    const save = quit => {
+        const id = document.querySelector('input#file_id').value;
+
+        apiUse('put', `/file/${id}`, {
+            quit,
+            content: editor.getValue()
+        });
+    }
+</script>
+{% endblock %}

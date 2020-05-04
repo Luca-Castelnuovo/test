@@ -46,7 +46,7 @@ class ProjectsController extends Controller
 
         $n_projects = DB::count('projects', ['owner_id' => $owner_id]);
         $license_variant = SessionHelper::get('variant');
-        $n_projects_licensed = config("variants.{$license_variant}.max_projects");
+        $n_projects_licensed = config("app.variants.{$license_variant}.max_projects");
 
         if ($n_projects >= $n_projects_licensed) {
             return $this->respondJson(
@@ -116,7 +116,7 @@ class ProjectsController extends Controller
             return $this->redirect('/dashboard');
         }
 
-        $files = DB::select('files', ['name'], [
+        $files = DB::select('files', ['id', 'name'], [
             'project_id' => $id,
             'owner_id' => SessionHelper::get('id')
         ]);

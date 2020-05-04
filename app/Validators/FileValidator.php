@@ -30,7 +30,7 @@ class FileValidator extends ValidatorBase
     public static function update($data)
     {
         $v = v::attribute('content', v::stringType())
-            ->attribute('quit', v::boolType()); // TODO: correct validation
+            ->attribute('quit', v::boolType());
 
         ValidatorBase::validate($v, $data);
     }

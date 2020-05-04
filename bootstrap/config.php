@@ -18,7 +18,21 @@ function config($key, $fallback = null)
             ],
             'app' => [
                 'url' => env('APP_URL'),
-                'id' => env('APP_ID')
+                'id' => env('APP_ID'),
+                'variants' => [
+                    'Free' => [
+                        'files_per_project' => 5,
+                        'max_projects' => 1
+                    ],
+                    'Personal' => [
+                        'files_per_project' => 3,
+                        'max_projects' => 15
+                    ],
+                    'Professional' => [
+                        'files_per_project' => 10,
+                        'max_projects' => 25
+                    ],
+                ],
             ],
             'database' => [
                 'host' => env('DB_HOST'),
@@ -27,19 +41,12 @@ function config($key, $fallback = null)
                 'username' => env('DB_USERNAME'),
                 'password' => env('DB_PASSWORD')
             ],
-            'variants' => [
-                'Free' => [
-                    'files_per_project' => 5,
-                    'max_projects' => 1
-                ],
-                'Personal' => [
-                    'files_per_project' => 3,
-                    'max_projects' => 15
-                ],
-                'Professional' => [
-                    'files_per_project' => 10,
-                    'max_projects' => 25
-                ],
+            'files' => [
+                'allowed_extensions' => [
+                    'html',
+                    'css',
+                    'js'
+                ]
             ]
         ];
     }

@@ -32,6 +32,9 @@ class FilesController extends Controller
         }
 
         $owner_id = SessionHelper::get('id');
+        $file_name = strtolower($request->data->name);
+        $file_name = str_replace(' ', '_', $file_name);
+        $file_type = substr(strrchr($file_name, '.'), 1);
 
         if (!DB::has('projects', [
             'id' => $project_id,
@@ -45,7 +48,7 @@ class FilesController extends Controller
         }
 
         if (DB::has('files', [
-            'name' => $request->data->name,
+            'name' => $file_name,
             'project_id' => $project_id,
             'owner_id' => $owner_id
         ])) {
@@ -56,14 +59,20 @@ class FilesController extends Controller
             );
         }
 
-        // TODO: check it has valid extension
+        if (!in_array($file_type, config('files.allowed_extensions', []))) {
+            return $this->respondJson(
+                'Incorrect file type',
+                [],
+                400
+            );
+        }
 
         $n_files = DB::count('files', [
             'owner_id' => $owner_id,
             'project_id' => $project_id
         ]);
         $license_variant = SessionHelper::get('variant');
-        $n_files_licensed = config("variants.{$license_variant}.files_per_project");
+        $n_files_licensed = config("app.variants.{$license_variant}.files_per_project");
 
         if ($n_files >= $n_files_licensed) {
             return $this->respondJson(
@@ -76,13 +85,14 @@ class FilesController extends Controller
         $id = Uuid::uuid4()->toString();
         DB::create('files', [
             'id' => $id,
-            'name' => $request->data->name,
+            'name' => $file_name,
             'project_id' => $project_id,
             'owner_id' => $owner_id
         ]);
 
-        $file_path = "users/{$owner_id}/{$project_id}/{$request->data->name}";
-        // TODO: create file
+        $file_path = "users/{$owner_id}/{$project_id}/{$file_name}";
+        $file = fopen($file_path, "w");
+        fclose($file);
 
         return $this->respondJson(
             'File Created',
@@ -111,10 +121,18 @@ class FilesController extends Controller
         }
 
         $file_path = "users/{$owner_id}/{$file['project_id']}/{$file['name']}";
-        $file_content = ''; // TODO: get file content
+        $file_open = fopen($file_path, "r");
+        $file_content = fread($file_open, filesize($file_path));
+        fclose($file_open);
+
+        $file_ext = pathinfo($file_path, PATHINFO_EXTENSION);
+        if ($file_ext === 'js') {
+            $file_ext = 'javascript';
+        }
 
         return $this->respond('file.twig', [
             'file_id' => $id,
+            'file_ext' => $file_ext,
             'file_content' => $file_content
         ]);
     }
@@ -128,6 +146,16 @@ class FilesController extends Controller
      */
     public function update(ServerRequest $request, $id)
     {
+        try {
+            FileValidator::update($request->data);
+        } catch (Exception $e) {
+            return $this->respondJson(
+                'Provided data was malformed',
+                json_decode($e->getMessage()),
+                422
+            );
+        }
+
         $owner_id = SessionHelper::get('id');
 
         $file = DB::get('files', ['name', 'project_id'], [
@@ -144,7 +172,10 @@ class FilesController extends Controller
         }
 
         $file_path = "users/{$owner_id}/{$file['project_id']}/{$file['name']}";
-        // TODO: write $request->data->content
+        $file_open = fopen($file_path, "w");
+        $file_content = htmlspecialchars_decode($request->data->content);
+        fwrite($file_open, $file_content);
+        fclose($file_open);
 
         if ($request->data->quit) {
             return $this->respondJson(
@@ -189,7 +220,7 @@ class FilesController extends Controller
         ]);
 
         $file_path = "users/{$owner_id}/{$file['project_id']}/{$file['name']}";
-        // TODO: delete actual file
+        unlink($file_path);
 
         return $this->respondJson(
             'File Deleted',
