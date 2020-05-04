@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    console.log('restoring lost work');
+    alert('Restoring lost work');
 
     editor.setValue(content);
     editor.clearSelection();
