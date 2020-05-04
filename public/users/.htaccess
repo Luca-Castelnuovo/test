@@ -1,2 +1,8 @@
+# Disable Caching
 Header always set Cache-Control "no-store"
+
+# Disable CSP
 Header unset Content-Security-Policy 
+
+# Disable pagespeed
+ModPagespeed off

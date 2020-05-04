@@ -7,8 +7,8 @@
     <form id="file">
         <div class="row">
             <div class="col s12">
-                <input id="file_id" type="hidden" value="{{ file_id }}"/>
-                <div id="editor" style="height: 300px;">{{ file_content }}</div>
+                <input id="file_id" type="hidden" value="{{ file.id }}"/>
+                <div id="editor" style="height: 300px;">{{ file.content }}</div>
             </div>
         </div>
         <div class="row">
@@ -22,29 +22,11 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ext-emmet.js">  </script>
-<script src="/assets/js/emmet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ext-emmet.js"></script>
 <script>
-    const editor = ace.edit('editor', {
-        basePath: 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/',
-        theme: 'ace/theme/dracula',
-        mode: "ace/mode/{{ file_ext }}",
-        maxLines: 10000,
-        minLines: 30,
-    });
-
-    const Emmet = require('ace/ext/emmet');
-    editor.setOption('enableEmmet', true);
-
-    document.querySelector('form#file').addEventListener('submit', e => e.preventDefault());
-
-    const save = quit => {
-        const id = document.querySelector('input#file_id').value;
-
-        apiUse('put', `/file/${id}`, {
-            quit,
-            content: editor.getValue()
-        });
-    }
+    window.file_ext = '{{ file.ext }}';
+    window.file_updated_at = '{{ file.updated_at }}';
 </script>
+<script src="/assets/js/emmet.js"></script>
+<script src="/assets/js/file.js"></script>
 {% endblock %}

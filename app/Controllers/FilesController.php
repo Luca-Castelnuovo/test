@@ -111,7 +111,7 @@ class FilesController extends Controller
     {
         $owner_id = SessionHelper::get('id');
 
-        $file = DB::get('files', ['name', 'project_id'], [
+        $file = DB::get('files', ['id', 'name', 'project_id', 'updated_at'], [
             'id' => $id,
             'owner_id' => $owner_id
         ]);
@@ -122,18 +122,18 @@ class FilesController extends Controller
 
         $file_path = "users/{$owner_id}/{$file['project_id']}/{$file['name']}";
         $file_open = fopen($file_path, "r");
-        $file_content = fread($file_open, filesize($file_path));
+        $file['content'] = fread($file_open, filesize($file_path));
         fclose($file_open);
 
-        $file_ext = pathinfo($file_path, PATHINFO_EXTENSION);
-        if ($file_ext === 'js') {
-            $file_ext = 'javascript';
+        $file['ext'] = pathinfo($file_path, PATHINFO_EXTENSION);
+        if ($file['ext'] === 'js') {
+            $file['ext'] = 'javascript';
         }
 
+        $file['updated_at'] = strtotime($file['updated_at']);
+
         return $this->respond('file.twig', [
-            'file_id' => $id,
-            'file_ext' => $file_ext,
-            'file_content' => $file_content
+            'file' => $file
         ]);
     }
 
@@ -184,10 +184,7 @@ class FilesController extends Controller
             );
         }
 
-        return $this->respondJson(
-            'File Updated',
-            ['reload' => true]
-        );
+        return $this->respondJson('File Updated');
     }
 
     /**

@@ -1,9 +1,11 @@
 const createFileForm = document.querySelector('form#file');
 createFileForm.addEventListener('submit', e => {
     e.preventDefault();
+
+    const id = document.querySelector('input#project_id').value;
     const data = formDataToJSON(new FormData(createFileForm));
 
-    apiUse('post', '/file', data);
+    apiUse('post', `/file/${id}`, data);
 })
 
 const deleteFile = id => {
