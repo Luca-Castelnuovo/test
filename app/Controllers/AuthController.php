@@ -11,15 +11,16 @@ use Zend\Diactoros\ServerRequest;
 
 class AuthController extends Controller
 {
+    private $provider;
 
     /**
      * Initialize the provider
      * 
-     * @return AppsClient
+     * @return void
      */
-    private function provider()
+    public function __construct()
     {
-        return new AppsClient([
+        $this->provider = new AppsClient([
             'app_id' => config('app.id'),
             'app_url'     => config('app.url')
         ]);
@@ -32,8 +33,7 @@ class AuthController extends Controller
      */
     public function request()
     {
-        $provider = $this->provider();
-        $authUrl = $provider->getAuthorizationUrl();
+        $authUrl = $this->provider->getAuthorizationUrl();
 
         return $this->redirect($authUrl);
     }
@@ -48,11 +48,10 @@ class AuthController extends Controller
     public function callback(ServerRequest $request)
     {
         $code = $request->getQueryParams()['code'];
-        $provider = $this->provider();
 
         try {
-            // $data = $provider->getData($code, $_SERVER['REMOTE_ADDR'], $_SERVER['HTTP_USER_AGENT']); // TODO: enable for production
-            $data = $provider->getData($code, '86.87.160.103', $_SERVER['HTTP_USER_AGENT']);
+            // $data = $this->provider->getData($code, $_SERVER['REMOTE_ADDR'], $_SERVER['HTTP_USER_AGENT']); // TODO: enable for production
+            $data = $this->provider->getData($code, '86.87.160.103', $_SERVER['HTTP_USER_AGENT']);
         } catch (Exception $e) {
             return $this->logout("Error: {$e->getMessage()}");
         }
