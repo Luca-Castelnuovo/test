@@ -1,6 +1,41 @@
 {
-  "require": {
-    "league/oauth2-github": "^2.0",
-    "vlucas/phpdotenv": "^4.1"
-  }
+    "name": "luca-castelnuovo/testingplatform",
+    "description": "System for quickly testing and hosting mock-ups.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luca Castelnuovo",
+            "email": "luca@castelnuovo.xyz"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "catfan/medoo": "^1.7",
+        "miladrahimi/phprouter": "^4.0",
+        "respect/validation": "^2.0",
+        "robmorgan/phinx": "^0.12.0",
+        "twig/twig": "^3.0",
+        "vlucas/phpdotenv": "^4.1",
+        "lucacastelnuovo/apps-client": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "phinx": "vendor/bin/phinx",
+        "migrate": "composer phinx migrate",
+        "seed": "composer phinx seed:run -v"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

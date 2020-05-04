@@ -1,0 +1,28 @@
+{% extends "partials/base.twig" %}
+{% set title = "Login" %}
+{% set navbarDisable = true %}
+
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="row">
+    {% if message %}
+        <div class="col s12">
+            <div class="card-panel hoverable z-depth-2">
+                <span class="flow-text">
+                    {{ message }}
+                </span>
+            </div>
+        </div>
+    {% endif %}
+    <div class="col s12 l6">
+        {% include 'index/login.twig' %}
+    </div>
+
+    <div class="col s12 l6">
+        {% include 'index/register.twig' %}
+    </div>
+</div>
+
+<script src="/assets/js/index.js"></script>
+{% endblock %}
