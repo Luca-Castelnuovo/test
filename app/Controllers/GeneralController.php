@@ -10,14 +10,20 @@ class GeneralController extends Controller
     /**
      * Login screen
      * 
-     * @return HtmlResponse
+     * @param ServerRequest $request
+     * 
+     * @return RedirectResponse|HtmlResponse
      */
     public function index(ServerRequest $request)
     {
         $msg = $request->getQueryParams()['msg'] ?: '';
+        $code = $request->getQueryParams()['code'] ?: '';
+
+        if ($code) {
+            return $this->redirect("/auth/callback?code={$code}");
+        }
 
         // TODO: add message validation (maybe switchcase)
-
         return $this->respond('index.twig', [
             'message' => $msg,
             'logged_in' => AuthHelper::valid()
@@ -42,16 +48,8 @@ class GeneralController extends Controller
                 $short_message = 'Oops! Page not found';
                 $message = 'We are sorry, but the page you requested was not found';
                 break;
-            case '422':
-                $short_message = 'Oops! Parameters missing';
-                $message = 'The page you requested missed required parameters';
-                break;
             case '500':
                 $short_message = 'Oops! Server error';
-                $message = 'We are experiencing some technical issues';
-                break;
-            case '502':
-                $short_message = 'Oops! Proxy error';
                 $message = 'We are experiencing some technical issues';
                 break;
 

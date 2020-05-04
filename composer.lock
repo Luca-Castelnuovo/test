@@ -318,7 +318,7 @@
         },
         {
             "name": "firebase/php-jwt",
-            "version": "v5.2.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/firebase/php-jwt.git",
@@ -372,18 +372,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Luca-Castelnuovo/Apps-Client.git",
-                "reference": "a5f42096e89e1297abaef85b839b9d6252931361"
+                "reference": "8d085485c55bfeedc1ae4388a722f05b7c3cf166"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Luca-Castelnuovo/Apps-Client/zipball/a5f42096e89e1297abaef85b839b9d6252931361",
-                "reference": "a5f42096e89e1297abaef85b839b9d6252931361",
+                "url": "https://api.github.com/repos/Luca-Castelnuovo/Apps-Client/zipball/8d085485c55bfeedc1ae4388a722f05b7c3cf166",
+                "reference": "8d085485c55bfeedc1ae4388a722f05b7c3cf166",
                 "shasum": ""
             },
             "require": {
-                "firebase/php-jwt": "^5.1"
+                "firebase/php-jwt": "dev-master",
+                "php": ">=5.3.0"
             },
             "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "lucacastelnuovo\\AppsClient\\": "src/"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -395,7 +401,7 @@
                 }
             ],
             "description": "Client for centralized auth server Luca-Castelnuovo/Apps",
-            "time": "2020-05-03T17:56:13+00:00"
+            "time": "2020-05-04T12:18:02+00:00"
         },
         {
             "name": "miladrahimi/phprouter",

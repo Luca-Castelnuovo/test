@@ -1,46 +1,39 @@
 <?php
 
-namespace App\Controllers\Auth;
+namespace App\Controllers;
 
-use DB;
 use Exception;
 use App\Controllers\Controller;
-use App\Helpers\JWTHelper;
-use App\Helpers\StateHelper;
+use App\Helpers\StringHelper;
 use App\Helpers\SessionHelper;
+use lucacastelnuovo\AppsClient\AppsClient;
 use Zend\Diactoros\ServerRequest;
-
 
 class AuthController extends Controller
 {
 
     /**
-     * Initialize the OAuth provider
+     * Initialize the provider
      * 
-     * @return Google
+     * @return AppsClient
      */
     private function provider()
     {
-        return new Google([
-            'clientId'     => config('auth.google.client_id'),
-            'clientSecret' => config('auth.google.client_secret'),
-            'redirectUri' => config('app.url') . '/auth/google/callback'
+        return new AppsClient([
+            'app_id' => config('app.id'),
+            'app_url'     => config('app.url')
         ]);
     }
 
     /**
-     * Redirect to OAuth
-     *
-     * @param ServerRequest $request
+     * Redirect to authorization portal
      * 
      * @return RedirectResponse
      */
-    public function request(ServerRequest $request)
+    public function request()
     {
         $provider = $this->provider();
-
         $authUrl = $provider->getAuthorizationUrl();
-        StateHelper::set($provider->getState());
 
         return $this->redirect($authUrl);
     }
@@ -54,55 +47,39 @@ class AuthController extends Controller
      */
     public function callback(ServerRequest $request)
     {
-        $state = $request->getQueryParams()['state'];
         $code = $request->getQueryParams()['code'];
-
-        if (!StateHelper::valid($state)) {
-            return $this->logout('State is invalid');
-        }
+        $provider = $this->provider();
 
         try {
-            $provider = $this->provider();
-            $token = $provider->getAccessToken('authorization_code', ['code' => $code]);
-            $data = $provider->getResourceOwner($token);
-            $id = StringHelper::escape($data->toArray()['sub']);
+            // $data = $provider->getData($code, $_SERVER['REMOTE_ADDR'], $_SERVER['HTTP_USER_AGENT']); // TODO: enable for production
+            $data = $provider->getData($code, '86.87.160.103', $_SERVER['HTTP_USER_AGENT']);
         } catch (Exception $e) {
-            return $this->logout("Error: {$e}");
+            return $this->logout("Error: {$e->getMessage()}");
         }
 
-        return $this->login(['google' => $id]);
+        $id = StringHelper::escape($data->sub); // Value is used in DB calls
+
+        return $this->login($id, $data->variant, $data->exp);
     }
 
     /**
      * Create session
      * 
-     * @param string|null $next
+     * @param string $id
+     * @param string $variant
+     * @param string $expires
      *
      * @return RedirectResponse
      */
-    public function login($user_where)
+    public function login($id, $variant, $expires)
     {
-        $user = DB::get('users', ['id', 'active [Bool]', 'admin [Bool]'], $user_where);
-
-        if (!$user) {
-            return $this->logout('Account not found!');
-        }
-
-        if (!$user['active']) {
-            return $this->logout('Your account has been deactivated! Contact the administrator');
-        }
-
-        $return_to = SessionHelper::get('return_to');
-
         SessionHelper::destroy();
-        SessionHelper::set('id', $user['id']);
-        SessionHelper::set('admin', $user['admin']);
+        SessionHelper::set('id', $id);
+        SessionHelper::set('variant', $variant);
         SessionHelper::set('ip', $_SERVER['REMOTE_ADDR']);
-        SessionHelper::set('last_activity', time());
+        SessionHelper::set('expires', $expires);
 
-        if ($return_to) {
-            return $this->redirect($return_to);
-        }
+        // TODO: create folder
 
         return $this->redirect('/dashboard');
     }
@@ -110,20 +87,16 @@ class AuthController extends Controller
     /**
      * Destroy session
      * 
-     * @param string $message optional
+     * @param string $msg optional
      *
      * @return RedirectResponse
      */
-    public function logout($message = 'You have been logged out!')
+    public function logout($msg = 'You have been logged out!')
     {
         SessionHelper::destroy();
 
-        if ($message) {
-            $jwt = JWTHelper::create('message', [
-                'message' => $message
-            ]);
-
-            return $this->redirect("/?msg={$jwt}");
+        if ($msg) {
+            return $this->redirect("/?msg={$msg}");
         }
 
         return $this->redirect('/');

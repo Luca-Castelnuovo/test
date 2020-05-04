@@ -18,6 +18,7 @@ function config($key, $fallback = null)
             ],
             'app' => [
                 'url' => env('APP_URL'),
+                'id' => env('APP_ID')
             ],
             'database' => [
                 'host' => env('DB_HOST'),
