@@ -80,7 +80,9 @@ class AuthController extends Controller
         SessionHelper::set('ip', $_SERVER['REMOTE_ADDR']);
         SessionHelper::set('expires', $expires);
 
-        // TODO: create folder
+        if (!file_exists("users/{$id}")) {
+            mkdir("users/{$id}", 0770);
+        }
 
         if ($return_to) {
             return $this->redirect($return_to);

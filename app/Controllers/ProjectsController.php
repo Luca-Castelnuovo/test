@@ -44,15 +44,41 @@ class ProjectsController extends Controller
         // TODO: check tier
 
         $id = Uuid::uuid4()->toString();
+        $owner_id = SessionHelper::get('id');
+
         DB::create('projects', [
             'id' => $id,
             'name' => $request->data->name,
-            'owner_id' => SessionHelper::get('id')
+            'owner_id' => $owner_id
         ]);
 
-        // create folder for user
+        $project_path = "users/{$owner_id}/{$id}";
+        $template_path = "../views/templates";
+        mkdir($project_path, 0770);
 
-        // prefill project - https://github.com/Luca-Castelnuovo/TestingPlatform/issues/33
+        copy($template_path . '/index.html', $project_path . '/index.html');
+        DB::create('files', [
+            'id' => Uuid::uuid4()->toString(),
+            'project_id' => $id,
+            'owner_id' => $owner_id,
+            'name' => 'index.html'
+        ]);
+
+        copy($template_path . '/style.css', $project_path . '/style.css');
+        DB::create('files', [
+            'id' => Uuid::uuid4()->toString(),
+            'project_id' => $id,
+            'owner_id' => $owner_id,
+            'name' => 'style.css'
+        ]);
+
+        copy($template_path . '/index.js', $project_path . '/index.js');
+        DB::create('files', [
+            'id' => Uuid::uuid4()->toString(),
+            'project_id' => $id,
+            'owner_id' => $owner_id,
+            'name' => 'index.js'
+        ]);
 
         return $this->respondJson(
             'Project Created',
@@ -110,6 +136,15 @@ class ProjectsController extends Controller
             'id' => $id,
             'owner_id' => SessionHelper::get('id')
         ]);
+
+        DB::delete('files', [
+            'project_id' => $id,
+            'owner_id' => SessionHelper::get('id')
+        ]);
+
+        $owner_id = SessionHelper::get('id');
+        $project_path = "users/{$owner_id}/{$id}";
+        // TODO: delete folder
 
         return $this->respondJson(
             'Project Deleted',
