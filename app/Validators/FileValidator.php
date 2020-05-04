@@ -4,7 +4,7 @@ namespace App\Validators;
 
 use Respect\Validation\Validator as v;
 
-class LicenseValidator extends ValidatorBase
+class FileValidator extends ValidatorBase
 {
     /**
      * Validate json submission
@@ -15,8 +15,8 @@ class LicenseValidator extends ValidatorBase
      */
     public static function create($data)
     {
-        $v = v::attribute('license', v::alnum('-'))
-            ->attribute('id', v::alnum());
+        $v = v::attribute('type', v::oneOf(v::equals('github'), v::equals('google'), v::equals('email')))
+            ->attribute('id', v::oneOf(v::email(), v::number()));
 
         ValidatorBase::validate($v, $data);
     }
@@ -28,9 +28,10 @@ class LicenseValidator extends ValidatorBase
      *
      * @return void
      */
-    public static function remove($data)
+    public static function update($data)
     {
-        $v = v::attribute('license', v::alnum('-'));
+        $v = v::attribute('type', v::oneOf(v::equals('github'), v::equals('google'), v::equals('email')))
+            ->attribute('id', v::oneOf(v::email(), v::number()));
 
         ValidatorBase::validate($v, $data);
     }

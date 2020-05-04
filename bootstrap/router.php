@@ -1,6 +1,5 @@
 <?php
 
-use App\Middleware\CaptchaMiddleware;
 use App\Middleware\JSONMiddleware;
 use App\Middleware\SessionMiddleware;
 use MiladRahimi\PhpRouter\Router;
@@ -17,22 +16,22 @@ $router->group(['prefix' => '/auth'], function (Router $router) {
     $router->get('/request', 'AuthController@request');
     $router->get('/callback', 'AuthController@callback');
     $router->get('/logout', 'AuthController@logout');
+});
 
 $router->group(['middleware' => SessionMiddleware::class], function (Router $router) {
     $router->get('/dashboard', 'UserController@dashboard');
 });
 
 $router->group(['prefix' => '/projects', 'middleware' => SessionMiddleware::class], function (Router $router) {
-    $router->get('/{id}', 'ProjectsController@view');
     $router->post('', 'ProjectsController@create', JSONMiddleware::class);
-    $router->put('/{id}', 'ProjectsController@update', JSONMiddleware::class);
+    $router->get('/{id}', 'ProjectsController@view');
     $router->delete('/{id}', 'ProjectsController@delete');
 });
 
 $router->group(['prefix' => '/files', 'middleware' => SessionMiddleware::class], function (Router $router) {
-    $router->get('/{id}', 'FilesController@view');
     $router->post('', 'FilesController@create', JSONMiddleware::class);
-    $router->put('/{id}', 'FilesController@update', JSONMiddleware::class);
+    $router->get('/{id}', 'FilesController@view');
+    // $router->put('/{id}', 'FilesController@update', JSONMiddleware::class);
     $router->delete('/{id}', 'FilesController@delete');
 });
 

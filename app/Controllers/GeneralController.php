@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use Exception;
-use App\Helpers\JWTHelper;
 use App\Helpers\AuthHelper;
 use Zend\Diactoros\ServerRequest;
 
@@ -18,12 +16,7 @@ class GeneralController extends Controller
     {
         $msg = $request->getQueryParams()['msg'] ?: '';
 
-        try {
-            $jwt = JWTHelper::valid('message', $msg);
-            $msg = $jwt->message;
-        } catch (Exception $e) {
-            $msg = '';
-        }
+        // TODO: add message validation (maybe switchcase)
 
         return $this->respond('index.twig', [
             'message' => $msg,

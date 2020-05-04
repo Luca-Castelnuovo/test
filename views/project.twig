@@ -1,0 +1,18 @@
+{% extends "partials/base.twig" %}
+{% set title = "Project" %}
+
+{% block content %}
+<h2>NameOfProject <button class="btn waves-effect waves-light blue accent-4" onClick="createFile()">Create File</button></h2>
+<div class="row">
+    {% for file in files %}
+        {% include 'partials/file.twig' %}
+    {% endfor %}
+</div>
+
+<script>
+
+// TODO: open modal with file name
+// post /file
+
+</script>
+{% endblock %}
