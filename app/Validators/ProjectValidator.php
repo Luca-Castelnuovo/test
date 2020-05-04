@@ -15,8 +15,7 @@ class ProjectValidator extends ValidatorBase
      */
     public static function create($data)
     {
-        $v = v::attribute('type', v::oneOf(v::equals('github'), v::equals('google'), v::equals('email')))
-            ->attribute('id', v::oneOf(v::email(), v::number()));
+        $v = v::attribute('name', v::alnum(' ', '_', '-'));
 
         ValidatorBase::validate($v, $data);
     }

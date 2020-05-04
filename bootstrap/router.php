@@ -22,13 +22,13 @@ $router->group(['middleware' => SessionMiddleware::class], function (Router $rou
     $router->get('/dashboard', 'UserController@dashboard');
 });
 
-// $router->group(['prefix' => '/projects', 'middleware' => SessionMiddleware::class], function (Router $router) {
-//     $router->post('', 'ProjectsController@create', JSONMiddleware::class);
-//     $router->get('/{id}', 'ProjectsController@view');
-//     $router->delete('/{id}', 'ProjectsController@delete');
-// });
+$router->group(['prefix' => '/project', 'middleware' => SessionMiddleware::class], function (Router $router) {
+    $router->post('', 'ProjectsController@create', JSONMiddleware::class);
+    $router->get('/{id}', 'ProjectsController@view');
+    $router->delete('/{id}', 'ProjectsController@delete');
+});
 
-// $router->group(['prefix' => '/files', 'middleware' => SessionMiddleware::class], function (Router $router) {
+// $router->group(['prefix' => '/file', 'middleware' => SessionMiddleware::class], function (Router $router) {
 //     $router->post('', 'FilesController@create', JSONMiddleware::class);
 //     $router->get('/{id}', 'FilesController@view');
 //     // $router->put('/{id}', 'FilesController@update', JSONMiddleware::class);

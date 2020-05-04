@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(){
-    M.Sidenav.init(document.querySelectorAll(".sidenav"), {edge:"right"})
+    M.Sidenav.init(document.querySelectorAll(".sidenav"), {edge:"right"});
+    M.Modal.init(document.querySelectorAll('.modal'), {});
 });
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
@@ -17,16 +18,16 @@ const api = axios.create({
     },
 });
 
-const apiUse = (method, endpoint, data, form = null) => {
+const formDataToJSON = data => {
+    const object = {};
+    [...data].map((item) => object[item[0]] = item[1]);
+    return object
+}
+
+const apiUse = (method, endpoint, data) => {
     inputsDisabled(true);
 
     api[method](endpoint, data).then(async response => {
-        if (response.data.success) {
-            try {
-                M.Modal.getInstance(form).close();
-            } catch (e) {/* not an modal */}
-        }
-
         M.toast({html: response.data.message, displayLength: 8000});
         inputsDisabled(false);
 
@@ -41,14 +42,3 @@ const apiUse = (method, endpoint, data, form = null) => {
         }
     });
 }
-
-// const formHandler = (form, endpoint, captchaRequired = false) => {
-//     form.addEventListener('submit', e => {
-//         e.preventDefault();
-        
-//         formSubmit(form, endpoint, captchaRequired)
-//     });    
-// }
-
-
-// formHandler(document.querySelector('form#auth-signin-email'), '/auth/email/request', true);

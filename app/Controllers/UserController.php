@@ -14,7 +14,6 @@ class UserController extends Controller
      */
     public function dashboard()
     {
-        // TODO: build migrations
         $projects = DB::select('projects', ['id', 'name'], [
             'owner_id' => SessionHelper::get('id'),
             'ORDER' => ['name' => 'ASC']
