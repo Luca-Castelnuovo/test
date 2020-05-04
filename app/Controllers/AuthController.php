@@ -50,8 +50,7 @@ class AuthController extends Controller
         $code = $request->getQueryParams()['code'];
 
         try {
-            // $data = $this->provider->getData($code, $_SERVER['REMOTE_ADDR'], $_SERVER['HTTP_USER_AGENT']); // TODO: enable for production
-            $data = $this->provider->getData($code, '86.87.160.103', $_SERVER['HTTP_USER_AGENT']);
+            $data = $this->provider->getData($code, $_SERVER['REMOTE_ADDR'], $_SERVER['HTTP_USER_AGENT']);
         } catch (Exception $e) {
             // var_dump($e->getMessage());exit;
             return $this->logout("token");
