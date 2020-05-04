@@ -28,12 +28,12 @@ $router->group(['prefix' => '/project', 'middleware' => SessionMiddleware::class
     $router->delete('/{id}', 'ProjectsController@delete');
 });
 
-// $router->group(['prefix' => '/file', 'middleware' => SessionMiddleware::class], function (Router $router) {
-//     $router->post('', 'FilesController@create', JSONMiddleware::class);
-//     $router->get('/{id}', 'FilesController@view');
-//     // $router->put('/{id}', 'FilesController@update', JSONMiddleware::class);
-//     $router->delete('/{id}', 'FilesController@delete');
-// });
+$router->group(['prefix' => '/file', 'middleware' => SessionMiddleware::class], function (Router $router) {
+    $router->post('/{project_id}', 'FilesController@create', JSONMiddleware::class);
+    $router->get('/{id}', 'FilesController@view');
+    $router->put('/{id}', 'FilesController@update', JSONMiddleware::class);
+    $router->delete('/{id}', 'FilesController@delete');
+});
 
 try {
     $router->dispatch();

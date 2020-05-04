@@ -53,7 +53,8 @@ class AuthController extends Controller
             // $data = $this->provider->getData($code, $_SERVER['REMOTE_ADDR'], $_SERVER['HTTP_USER_AGENT']); // TODO: enable for production
             $data = $this->provider->getData($code, '86.87.160.103', $_SERVER['HTTP_USER_AGENT']);
         } catch (Exception $e) {
-            return $this->logout("Error: {$e->getMessage()}");
+            // var_dump($e->getMessage());exit;
+            return $this->logout("token");
         }
 
         $id = StringHelper::escape($data->sub); // Value is used in DB calls
@@ -98,7 +99,7 @@ class AuthController extends Controller
      *
      * @return RedirectResponse
      */
-    public function logout($msg = 'You have been logged out!')
+    public function logout($msg = 'logout')
     {
         SessionHelper::destroy();
 

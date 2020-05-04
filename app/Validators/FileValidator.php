@@ -29,8 +29,8 @@ class FileValidator extends ValidatorBase
      */
     public static function update($data)
     {
-        $v = v::attribute('type', v::oneOf(v::equals('github'), v::equals('google'), v::equals('email')))
-            ->attribute('id', v::oneOf(v::email(), v::number()));
+        $v = v::attribute('content', v::stringType())
+            ->attribute('quit', v::boolType()); // TODO: correct validation
 
         ValidatorBase::validate($v, $data);
     }

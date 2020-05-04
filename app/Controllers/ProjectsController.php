@@ -56,7 +56,7 @@ class ProjectsController extends Controller
         $template_path = "../views/templates";
         mkdir($project_path, 0770);
 
-        copy($template_path . '/index.html', $project_path . '/index.html');
+        copy($template_path . '/index.html', $project_path . '/index.html'); // TODO: update base_path
         DB::create('files', [
             'id' => Uuid::uuid4()->toString(),
             'project_id' => $id,

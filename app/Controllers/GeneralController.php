@@ -23,7 +23,22 @@ class GeneralController extends Controller
             return $this->redirect("/auth/callback?code={$code}");
         }
 
-        // TODO: add message validation (maybe switchcase)
+        if ($msg) {
+            switch ($msg) {
+                case 'logout':
+                    $msg = 'You have been logged out!';
+                    break;
+
+                case 'token':
+                    $msg = 'Invalid authentication!';
+                    break;
+
+                default:
+                    $msg = '';
+                    break;
+            }
+        }
+
         return $this->respond('index.twig', [
             'message' => $msg,
             'logged_in' => AuthHelper::valid()
