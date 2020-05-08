@@ -3,7 +3,7 @@
 namespace App\Middleware;
 
 use App\Helpers\AuthHelper;
-use App\Helpers\StringHelper;
+use lucacastelnuovo\Helpers\Str;
 use lucacastelnuovo\Helpers\Session;
 use MiladRahimi\PhpRouter\Middleware;
 use Psr\Http\Message\ServerRequestInterface;
@@ -27,7 +27,7 @@ class SessionMiddleware implements Middleware
 
             Session::set('return_to', $request->getUri());
 
-            if (StringHelper::contains($request->getHeader('content-type')[0], '/json')) {
+            if (Str::contains($request->getHeader('content-type')[0], '/json')) {
                 return new JsonResponse([
                     'success' => false,
                     'message' => 'Session expired',
