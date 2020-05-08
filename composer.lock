@@ -414,16 +414,16 @@
         },
         {
             "name": "lucacastelnuovo/helpers-php",
-            "version": "1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Luca-Castelnuovo/helpers-php.git",
-                "reference": "5ea72debefa9675a530b3f55aa875e6543f314d6"
+                "reference": "238ede8d9b41aec02d98d9864024bf91239ec996"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Luca-Castelnuovo/helpers-php/zipball/5ea72debefa9675a530b3f55aa875e6543f314d6",
-                "reference": "5ea72debefa9675a530b3f55aa875e6543f314d6",
+                "url": "https://api.github.com/repos/Luca-Castelnuovo/helpers-php/zipball/238ede8d9b41aec02d98d9864024bf91239ec996",
+                "reference": "238ede8d9b41aec02d98d9864024bf91239ec996",
                 "shasum": ""
             },
             "require": {
@@ -448,7 +448,7 @@
                 }
             ],
             "description": "PHP helpers",
-            "time": "2020-05-08T18:38:38+00:00"
+            "time": "2020-05-08T19:04:24+00:00"
         },
         {
             "name": "miladrahimi/phprouter",
