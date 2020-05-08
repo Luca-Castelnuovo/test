@@ -1,6 +1,6 @@
 <?php
 
-use App\Helpers\ArrayHelper;
+use lucacastelnuovo\Helpers\Arr;
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
 $dotenv->load();
@@ -52,5 +52,5 @@ function config($key, $fallback = null)
         ];
     }
 
-    return ArrayHelper::get($config, $key, $fallback);
+    return Arr::get($config, $key, $fallback);
 }
