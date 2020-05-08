@@ -4,7 +4,7 @@ namespace App\Middleware;
 
 use App\Helpers\AuthHelper;
 use App\Helpers\StringHelper;
-use App\Helpers\SessionHelper;
+use lucacastelnuovo\Helpers\Session;
 use MiladRahimi\PhpRouter\Middleware;
 use Psr\Http\Message\ServerRequestInterface;
 use Zend\Diactoros\Response\RedirectResponse;
@@ -23,9 +23,9 @@ class SessionMiddleware implements Middleware
     public function handle(ServerRequestInterface $request, $next)
     {
         if (!AuthHelper::valid()) {
-            SessionHelper::destroy();
+            Session::destroy();
 
-            SessionHelper::set('return_to', $request->getUri());
+            Session::set('return_to', $request->getUri());
 
             if (StringHelper::contains($request->getHeader('content-type')[0], '/json')) {
                 return new JsonResponse([

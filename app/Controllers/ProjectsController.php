@@ -4,8 +4,8 @@ namespace App\Controllers;
 
 use DB;
 use Exception;
-use App\Helpers\SessionHelper;
 use App\Validators\ProjectValidator;
+use lucacastelnuovo\Helpers\Session;
 use Zend\Diactoros\ServerRequest;
 use Ramsey\Uuid\Uuid;
 
@@ -32,7 +32,7 @@ class ProjectsController extends Controller
 
         if (DB::has('projects', [
             'name' => $request->data->name,
-            'owner_id' => SessionHelper::get('id')
+            'owner_id' => Session::get('id')
         ])) {
             return $this->respondJson(
                 'Project with this name already exists',
@@ -42,10 +42,10 @@ class ProjectsController extends Controller
         }
 
         $id = Uuid::uuid4()->toString();
-        $owner_id = SessionHelper::get('id');
+        $owner_id = Session::get('id');
 
         $n_projects = DB::count('projects', ['owner_id' => $owner_id]);
-        $license_variant = SessionHelper::get('variant');
+        $license_variant = Session::get('variant');
         $n_projects_licensed = config("app.variants.{$license_variant}.max_projects");
 
         if ($n_projects >= $n_projects_licensed) {
@@ -109,7 +109,7 @@ class ProjectsController extends Controller
     {
         $project = DB::get('projects', ['name'], [
             'id' => $id,
-            'owner_id' => SessionHelper::get('id')
+            'owner_id' => Session::get('id')
         ]);
 
         if (!$project) {
@@ -118,7 +118,7 @@ class ProjectsController extends Controller
 
         $files = DB::select('files', ['id', 'name'], [
             'project_id' => $id,
-            'owner_id' => SessionHelper::get('id'),
+            'owner_id' => Session::get('id'),
             'ORDER' => ['name' => 'ASC']
         ]);
 
@@ -138,7 +138,7 @@ class ProjectsController extends Controller
     {
         if (!DB::has('projects', [
             'id' => $id,
-            'owner_id' => SessionHelper::get('id')
+            'owner_id' => Session::get('id')
         ])) {
             return $this->respondJson(
                 'Project not found',
@@ -149,15 +149,15 @@ class ProjectsController extends Controller
 
         DB::delete('projects', [
             'id' => $id,
-            'owner_id' => SessionHelper::get('id')
+            'owner_id' => Session::get('id')
         ]);
 
         DB::delete('files', [
             'project_id' => $id,
-            'owner_id' => SessionHelper::get('id')
+            'owner_id' => Session::get('id')
         ]);
 
-        $owner_id = SessionHelper::get('id');
+        $owner_id = Session::get('id');
         $this->rrmdir("users/{$owner_id}/{$id}");
 
         return $this->respondJson(

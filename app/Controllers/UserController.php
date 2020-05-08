@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use DB;
-use App\Helpers\SessionHelper;
+use lucacastelnuovo\Helpers\Session;
 
 class UserController extends Controller
 {
@@ -15,7 +15,7 @@ class UserController extends Controller
     public function dashboard()
     {
         $projects = DB::select('projects', ['id', 'name'], [
-            'owner_id' => SessionHelper::get('id'),
+            'owner_id' => Session::get('id'),
             'ORDER' => ['name' => 'ASC']
         ]);
 

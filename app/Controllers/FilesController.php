@@ -4,8 +4,8 @@ namespace App\Controllers;
 
 use DB;
 use Exception;
-use App\Helpers\SessionHelper;
 use App\Validators\FileValidator;
+use lucacastelnuovo\Helpers\Session;
 use Zend\Diactoros\ServerRequest;
 use Ramsey\Uuid\Uuid;
 
@@ -31,7 +31,7 @@ class FilesController extends Controller
             );
         }
 
-        $owner_id = SessionHelper::get('id');
+        $owner_id = Session::get('id');
         $file_name = strtolower($request->data->name);
         $file_name = str_replace(' ', '_', $file_name);
         $file_type = substr(strrchr($file_name, '.'), 1);
@@ -71,7 +71,7 @@ class FilesController extends Controller
             'owner_id' => $owner_id,
             'project_id' => $project_id
         ]);
-        $license_variant = SessionHelper::get('variant');
+        $license_variant = Session::get('variant');
         $n_files_licensed = config("app.variants.{$license_variant}.files_per_project");
 
         if ($n_files >= $n_files_licensed) {
@@ -109,7 +109,7 @@ class FilesController extends Controller
      */
     public function view($id)
     {
-        $owner_id = SessionHelper::get('id');
+        $owner_id = Session::get('id');
 
         $file = DB::get('files', ['id', 'name', 'project_id', 'updated_at'], [
             'id' => $id,
@@ -156,7 +156,7 @@ class FilesController extends Controller
             );
         }
 
-        $owner_id = SessionHelper::get('id');
+        $owner_id = Session::get('id');
 
         $file = DB::get('files', ['name', 'project_id'], [
             'id' => $id,
@@ -196,7 +196,7 @@ class FilesController extends Controller
      */
     public function delete($id)
     {
-        $owner_id = SessionHelper::get('id');
+        $owner_id = Session::get('id');
 
         $file = DB::get('files', ['name', 'project_id'], [
             'id' => $id,
@@ -213,7 +213,7 @@ class FilesController extends Controller
 
         DB::delete('files', [
             'id' => $id,
-            'owner_id' => SessionHelper::get('id')
+            'owner_id' => Session::get('id')
         ]);
 
         $file_path = "users/{$owner_id}/{$file['project_id']}/{$file['name']}";

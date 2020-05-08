@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Helpers\SessionHelper;
+use lucacastelnuovo\Helpers\Session;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 use Zend\Diactoros\Response\RedirectResponse;
@@ -24,8 +24,8 @@ class Controller
         $this->twig = new Environment($loader, ['cache' => '../storage/views']);
         $this->twig->addGlobal('analytics', config('analytics'));
         $this->twig->addGlobal('app_url', config('app.url'));
-        $this->twig->addGlobal('user_id', SessionHelper::get('id'));
-        $this->twig->addGlobal('user_variant', SessionHelper::get('variant'));
+        $this->twig->addGlobal('user_id', Session::get('id'));
+        $this->twig->addGlobal('user_variant', Session::get('variant'));
     }
 
     /**
