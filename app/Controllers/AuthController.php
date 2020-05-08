@@ -6,7 +6,7 @@ use Exception;
 use App\Controllers\Controller;
 use App\Helpers\StringHelper;
 use App\Helpers\SessionHelper;
-use lucacastelnuovo\AppsClient\AppsClient;
+use lucacastelnuovo\Helpers\AppsClient;
 use Zend\Diactoros\ServerRequest;
 
 class AuthController extends Controller
@@ -22,7 +22,7 @@ class AuthController extends Controller
     {
         $this->provider = new AppsClient([
             'app_id' => config('app.id'),
-            'app_url'     => config('app.url')
+            'app_url' => config('app.url')
         ]);
     }
 

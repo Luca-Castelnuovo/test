@@ -11,7 +11,7 @@
     "require": {
         "php": ">=5.3.0",
         "catfan/medoo": "^1.7",
-        "lucacastelnuovo/apps-client": "^1.0",
+        "lucacastelnuovo/helpers-php": "^1.0",
         "miladrahimi/phprouter": "^4.0",
         "ramsey/uuid": "^4.0",
         "respect/validation": "^2.0",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "02ff3039a8ec0654c848e221d538a07b",
+    "content-hash": "dd14ba701c16e82fa8e49e0cf9bacb7f",
     "packages": [
         {
             "name": "brick/math",
@@ -364,7 +364,7 @@
         },
         {
             "name": "firebase/php-jwt",
-            "version": "dev-master",
+            "version": "v5.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/firebase/php-jwt.git",
@@ -413,27 +413,28 @@
             "time": "2020-03-25T18:49:23+00:00"
         },
         {
-            "name": "lucacastelnuovo/apps-client",
-            "version": "dev-master",
+            "name": "lucacastelnuovo/helpers-php",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Luca-Castelnuovo/Apps-Client.git",
-                "reference": "8d085485c55bfeedc1ae4388a722f05b7c3cf166"
+                "url": "https://github.com/Luca-Castelnuovo/helpers-php.git",
+                "reference": "5ea72debefa9675a530b3f55aa875e6543f314d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Luca-Castelnuovo/Apps-Client/zipball/8d085485c55bfeedc1ae4388a722f05b7c3cf166",
-                "reference": "8d085485c55bfeedc1ae4388a722f05b7c3cf166",
+                "url": "https://api.github.com/repos/Luca-Castelnuovo/helpers-php/zipball/5ea72debefa9675a530b3f55aa875e6543f314d6",
+                "reference": "5ea72debefa9675a530b3f55aa875e6543f314d6",
                 "shasum": ""
             },
             "require": {
-                "firebase/php-jwt": "dev-master",
-                "php": ">=5.3.0"
+                "firebase/php-jwt": "^5.2",
+                "php": ">=5.3.0",
+                "phpseclib/phpseclib": "^2.0"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "lucacastelnuovo\\AppsClient\\": "src/"
+                    "lucacastelnuovo\\Helpers\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -446,8 +447,8 @@
                     "email": "luca@castelnuovo.xyz"
                 }
             ],
-            "description": "Client for centralized auth server Luca-Castelnuovo/Apps",
-            "time": "2020-05-04T12:18:02+00:00"
+            "description": "PHP helpers",
+            "time": "2020-05-08T18:38:38+00:00"
         },
         {
             "name": "miladrahimi/phprouter",
@@ -559,6 +560,98 @@
                 "type"
             ],
             "time": "2020-03-21T18:07:53+00:00"
+        },
+        {
+            "name": "phpseclib/phpseclib",
+            "version": "2.0.27",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpseclib/phpseclib.git",
+                "reference": "34620af4df7d1988d8f0d7e91f6c8a3bf931d8dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/34620af4df7d1988d8f0d7e91f6c8a3bf931d8dc",
+                "reference": "34620af4df7d1988d8f0d7e91f6c8a3bf931d8dc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phing/phing": "~2.7",
+                "phpunit/phpunit": "^4.8.35|^5.7|^6.0",
+                "sami/sami": "~2.0",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "suggest": {
+                "ext-gmp": "Install the GMP (GNU Multiple Precision) extension in order to speed up arbitrary precision integer arithmetic operations.",
+                "ext-libsodium": "SSH2/SFTP can make use of some algorithms provided by the libsodium-php extension.",
+                "ext-mcrypt": "Install the Mcrypt extension in order to speed up a few other cryptographic operations.",
+                "ext-openssl": "Install the OpenSSL extension in order to speed up a wide variety of cryptographic operations."
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "phpseclib/bootstrap.php"
+                ],
+                "psr-4": {
+                    "phpseclib\\": "phpseclib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jim Wigginton",
+                    "email": "terrafrost@php.net",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Patrick Monnerat",
+                    "email": "pm@datasphere.ch",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Andreas Fischer",
+                    "email": "bantu@phpbb.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Hans-Jürgen Petrich",
+                    "email": "petrich@tronic-media.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Graham Campbell",
+                    "email": "graham@alt-three.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP Secure Communications Library - Pure-PHP implementations of RSA, AES, SSH2, SFTP, X.509 etc.",
+            "homepage": "http://phpseclib.sourceforge.net",
+            "keywords": [
+                "BigInteger",
+                "aes",
+                "asn.1",
+                "asn1",
+                "blowfish",
+                "crypto",
+                "cryptography",
+                "encryption",
+                "rsa",
+                "security",
+                "sftp",
+                "signature",
+                "signing",
+                "ssh",
+                "twofish",
+                "x.509",
+                "x509"
+            ],
+            "time": "2020-04-04T23:17:33+00:00"
         },
         {
             "name": "psr/container",
@@ -1818,9 +1911,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "lucacastelnuovo/apps-client": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
