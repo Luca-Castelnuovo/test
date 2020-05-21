@@ -30,7 +30,7 @@ For production
 
 Please review [our security policy](https://github.com/Luca-Castelnuovo/TestingPlatform/security/policy) on how to report security vulnerabilities.
 
-## 📝 License
+## License
 
 Copyright © 2020 [Luca Castelnuovo](https://github.com/Luca-Castelnuovo).<br />
 This project is [MIT](https://github.com/Luca-Castelnuovo/TestingPlatform/blob/master/LICENSE) licensed.
