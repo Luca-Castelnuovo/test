@@ -14,10 +14,11 @@
 For development
 
 1. `git clone https://github.com/Luca-Castelnuovo/TestingPlatform.git`
-2. Edit `.env`
-3. `composer migrate`
-4. `composer seed`
-5. Start development server `php -S localhost:8080 -t public`
+2. `composer install`
+3. Edit `.env`
+4. `composer migrate`
+5. `composer seed`
+6. Start development server `php -S localhost:8080 -t public`
 
 For production
 
