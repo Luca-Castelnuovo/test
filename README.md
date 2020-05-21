@@ -1,6 +1,13 @@
-# TestingPlatform
+<h1 align="center">Welcome to TestingPlatform 👋</h1>
+<p>
+  <a href="https://github.com/Luca-Castelnuovo/TestingPlatform/blob/master/LICENSE" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+</p>
 
-System for quickly testing and hosting mock-ups.
+> System for quickly testing and hosting mock-ups.
+
+### 🏠 [Homepage](https://test.lucacastelnuovo.nl)
 
 ## Installation
 
@@ -23,6 +30,7 @@ For production
 
 Please review [our security policy](https://github.com/Luca-Castelnuovo/TestingPlatform/security/policy) on how to report security vulnerabilities.
 
-## License
+## 📝 License
 
-TestingPlatform is open-sourced software licensed under the [MIT license](LICENSE.md).
+Copyright © 2020 [Luca Castelnuovo](https://github.com/Luca-Castelnuovo).<br />
+This project is [MIT](https://github.com/Luca-Castelnuovo/TestingPlatform/blob/master/LICENSE) licensed.
