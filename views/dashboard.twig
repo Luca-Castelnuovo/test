@@ -1,5 +1,8 @@
 {% extends "partials/base.twig" %}
 {% set title = "Dashboard" %}
+{% set navbarDisable = false %}
+{% set page_css = "" %}
+{% set page_script = "dashboard.js" %}
 
 {% block content %}
 <div class="row">
@@ -42,6 +45,4 @@
         {% endfor %}
     </ul>
 </div>
-
-<script src="/assets/js/dashboard.js"></script>
 {% endblock %}

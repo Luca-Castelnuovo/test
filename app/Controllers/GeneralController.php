@@ -2,19 +2,19 @@
 
 namespace App\Controllers;
 
-use App\Helpers\AuthHelper;
-use Zend\Diactoros\ServerRequest;
+use CQ\Helpers\Auth;
+use CQ\Controllers\Controller;
 
 class GeneralController extends Controller
 {
     /**
-     * Login screen
+     * Index screen
      * 
-     * @param ServerRequest $request
+     * @param object $request
      * 
-     * @return RedirectResponse|HtmlResponse
+     * @return Html
      */
-    public function index(ServerRequest $request)
+    public function index($request)
     {
         $msg = $request->getQueryParams()['msg'] ?: '';
         $code = $request->getQueryParams()['code'] ?: '';
@@ -41,7 +41,7 @@ class GeneralController extends Controller
 
         return $this->respond('index.twig', [
             'message' => $msg,
-            'logged_in' => AuthHelper::valid()
+            'logged_in' => Auth::valid()
         ]);
     }
 
@@ -49,12 +49,12 @@ class GeneralController extends Controller
      * Error screen
      * 
      * @param string $httpcode
-     *
-     * @return HtmlResponse
+     * 
+     * @return Html
      */
-    public function error($httpcode)
+    public function error($code)
     {
-        switch ($httpcode) {
+        switch ($code) {
             case '403':
                 $short_message = 'Oops! Access denied';
                 $message = 'Access to this page is forbidden';
@@ -71,14 +71,14 @@ class GeneralController extends Controller
             default:
                 $short_message = 'Oops! Unknown Error';
                 $message = 'Unknown error occured';
-                $httpcode = 400;
+                $code = 400;
                 break;
         }
 
         return $this->respond('error.twig', [
-            'code' => $httpcode,
+            'code' => $code,
             'short_message' => $short_message,
             'message' => $message
-        ], $httpcode);
+        ], $code);
     }
 }

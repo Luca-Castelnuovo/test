@@ -2,15 +2,16 @@
 
 namespace App\Controllers;
 
-use DB;
-use lucacastelnuovo\Helpers\Session;
+use CQ\DB\DB;
+use CQ\Helpers\Session;
+use CQ\Controllers\Controller;
 
 class UserController extends Controller
 {
     /**
      * Dashboard screen
      * 
-     * @return HtmlResponse
+     * @return Html
      */
     public function dashboard()
     {

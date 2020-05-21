@@ -1,5 +1,8 @@
 {% extends "partials/base.twig" %}
 {% set title = project_name %}
+{% set navbarDisable = true %}
+{% set page_css = "" %}
+{% set page_script = "project.js" %}
 
 {% block content %}
 <div class="row">
@@ -47,6 +50,4 @@
         {% endfor %}
     </ul>
 </div>
-
-<script src="/assets/js/project.js"></script>
 {% endblock %}

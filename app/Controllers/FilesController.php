@@ -2,24 +2,25 @@
 
 namespace App\Controllers;
 
-use DB;
 use Exception;
+use CQ\DB\DB;
+use CQ\Helpers\UUID;
+use CQ\Helpers\Session;
+use CQ\Helpers\Variant;
+use CQ\Controllers\Controller;
 use App\Validators\FileValidator;
-use lucacastelnuovo\Helpers\Session;
-use Zend\Diactoros\ServerRequest;
-use Ramsey\Uuid\Uuid;
 
 class FilesController extends Controller
 {
     /**
      * Create file
      * 
-     * @param ServerRequest $request
+     * @param object $request
      * @param string $project_id
      * 
-     * @return JsonResponse
+     * @return Json
      */
-    public function create(ServerRequest $request, $project_id)
+    public function create($request, $project_id)
     {
         try {
             FileValidator::create($request->data);
@@ -59,7 +60,7 @@ class FilesController extends Controller
             );
         }
 
-        if (!in_array($file_type, config('files.allowed_extensions', []))) {
+        if (!in_array($file_type, Variant::check(Session::get('variant'), 'allowed_extensions'))) {
             return $this->respondJson(
                 'Incorrect file type',
                 [],
@@ -71,10 +72,9 @@ class FilesController extends Controller
             'owner_id' => $owner_id,
             'project_id' => $project_id
         ]);
-        $license_variant = Session::get('variant');
-        $n_files_licensed = config("app.variants.{$license_variant}.files_per_project");
+        if (!Variant::check(Session::get('variant'), 'files_per_project', $n_files)) {
+            $n_files_licensed = Variant::variantValue(Session::get('variant'), 'files_per_project');
 
-        if ($n_files >= $n_files_licensed) {
             return $this->respondJson(
                 "Files quota reached, max {$n_files_licensed}",
                 [],
@@ -82,7 +82,7 @@ class FilesController extends Controller
             );
         }
 
-        $id = Uuid::uuid4()->toString();
+        $id = UUID::v6();
         DB::create('files', [
             'id' => $id,
             'name' => $file_name,
@@ -140,11 +140,11 @@ class FilesController extends Controller
     /**
      * Update file
      *
-     * @param ServerRequest $request
+     * @param object $request
      * 
-     * @return JsonResponse
+     * @return Json
      */
-    public function update(ServerRequest $request, $id)
+    public function update($request, $id)
     {
         try {
             FileValidator::update($request->data);
@@ -192,7 +192,7 @@ class FilesController extends Controller
      * 
      * @param string $id
      * 
-     * @return JsonResponse
+     * @return Json
      */
     public function delete($id)
     {

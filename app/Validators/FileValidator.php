@@ -2,9 +2,10 @@
 
 namespace App\Validators;
 
+use CQ\Validators\Validator;
 use Respect\Validation\Validator as v;
 
-class FileValidator extends ValidatorBase
+class FileValidator extends Validator
 {
     /**
      * Validate json submission
@@ -17,7 +18,7 @@ class FileValidator extends ValidatorBase
     {
         $v = v::attribute('name', v::stringType());
 
-        ValidatorBase::validate($v, $data);
+        self::validate($v, $data);
     }
 
     /**
@@ -32,6 +33,6 @@ class FileValidator extends ValidatorBase
         $v = v::attribute('content', v::stringType())
             ->attribute('quit', v::boolType());
 
-        ValidatorBase::validate($v, $data);
+        self::validate($v, $data);
     }
 }

@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", function(){
-    M.Sidenav.init(document.querySelectorAll(".sidenav"), {edge:"right"});
+document.addEventListener('DOMContentLoaded', function(){
+    M.Sidenav.init(document.querySelectorAll('.sidenav'), {edge:"right"});
     M.Modal.init(document.querySelectorAll('.modal'), {});
 });
 
@@ -21,7 +21,7 @@ const api = axios.create({
 const formDataToJSON = data => {
     const object = {};
     [...data].map((item) => object[item[0]] = item[1]);
-    return object
+    return object;
 }
 
 const apiUse = (method, endpoint, data) => {
