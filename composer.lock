@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd14ba701c16e82fa8e49e0cf9bacb7f",
+    "content-hash": "14838d7412124597056e1f202b8030e8",
     "packages": [
         {
             "name": "brick/math",
@@ -363,6 +363,57 @@
             "time": "2020-02-11T08:20:42+00:00"
         },
         {
+            "name": "cubequence/framework",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Luca-Castelnuovo/CubeQuence-framework.git",
+                "reference": "e20fe21842ef68c936fbac32ca1bae500723200a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Luca-Castelnuovo/CubeQuence-framework/zipball/e20fe21842ef68c936fbac32ca1bae500723200a",
+                "reference": "e20fe21842ef68c936fbac32ca1bae500723200a",
+                "shasum": ""
+            },
+            "require": {
+                "catfan/medoo": "^1.7",
+                "firebase/php-jwt": "^5.2",
+                "fzaninotto/faker": "^1.9",
+                "guzzlehttp/guzzle": "^6.5",
+                "miladrahimi/phprouter": "^4.0",
+                "php": ">=5.3.0",
+                "phpseclib/phpseclib": "^2.0",
+                "ramsey/uuid": "^4.0",
+                "respect/validation": "^2.0",
+                "robmorgan/phinx": "^0.12.1",
+                "twig/twig": "^3.0",
+                "vlucas/phpdotenv": "^4.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CQ\\": "src/CubeQuence/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Luca Castelnuovo",
+                    "email": "luca@castelnuovo.xyz"
+                }
+            ],
+            "description": "The CubeQuence Framework",
+            "keywords": [
+                "cubequence",
+                "framework"
+            ],
+            "time": "2020-05-21T17:00:42+00:00"
+        },
+        {
             "name": "firebase/php-jwt",
             "version": "v5.2.0",
             "source": {
@@ -411,6 +462,56 @@
                 "php"
             ],
             "time": "2020-03-25T18:49:23+00:00"
+        },
+        {
+            "name": "fzaninotto/faker",
+            "version": "v1.9.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/fc10d778e4b84d5bd315dad194661e091d307c6f",
+                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.3 || ^7.0"
+            },
+            "require-dev": {
+                "ext-intl": "*",
+                "phpunit/phpunit": "^4.8.35 || ^5.7",
+                "squizlabs/php_codesniffer": "^2.9.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2019-12-12T13:22:17+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -600,45 +701,6 @@
                 "url"
             ],
             "time": "2019-07-01T23:21:34+00:00"
-        },
-        {
-            "name": "lucacastelnuovo/helpers-php",
-            "version": "v1.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Luca-Castelnuovo/helpers-php.git",
-                "reference": "d0c7611836fac36b64b2b783c0b8fdcf37333345"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Luca-Castelnuovo/helpers-php/zipball/d0c7611836fac36b64b2b783c0b8fdcf37333345",
-                "reference": "d0c7611836fac36b64b2b783c0b8fdcf37333345",
-                "shasum": ""
-            },
-            "require": {
-                "firebase/php-jwt": "^5.2",
-                "guzzlehttp/guzzle": "^6.5",
-                "php": ">=5.3.0",
-                "phpseclib/phpseclib": "^2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "lucacastelnuovo\\Helpers\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Luca Castelnuovo",
-                    "email": "luca@castelnuovo.xyz"
-                }
-            ],
-            "description": "PHP helpers",
-            "time": "2020-05-11T22:27:15+00:00"
         },
         {
             "name": "miladrahimi/phprouter",
@@ -1323,16 +1385,16 @@
         },
         {
             "name": "respect/validation",
-            "version": "2.0.3",
+            "version": "2.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Respect/Validation.git",
-                "reference": "3463343b14a7fa5ba931f03b5dcb8efcbc0ddf9c"
+                "reference": "e0fbed32c90b408652bb30803647d90901f612f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Respect/Validation/zipball/3463343b14a7fa5ba931f03b5dcb8efcbc0ddf9c",
-                "reference": "3463343b14a7fa5ba931f03b5dcb8efcbc0ddf9c",
+                "url": "https://api.github.com/repos/Respect/Validation/zipball/e0fbed32c90b408652bb30803647d90901f612f1",
+                "reference": "e0fbed32c90b408652bb30803647d90901f612f1",
                 "shasum": ""
             },
             "require": {
@@ -1385,7 +1447,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2020-05-13T16:41:55+00:00"
+            "time": "2020-05-20T13:02:44+00:00"
         },
         {
             "name": "robmorgan/phinx",
@@ -2206,36 +2268,41 @@
     ],
     "packages-dev": [
         {
-            "name": "fzaninotto/faker",
-            "version": "v1.9.1",
+            "name": "filp/whoops",
+            "version": "2.7.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f"
+                "url": "https://github.com/filp/whoops.git",
+                "reference": "17d0d3f266c8f925ebd035cd36f83cf802b47d4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/fc10d778e4b84d5bd315dad194661e091d307c6f",
-                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/17d0d3f266c8f925ebd035cd36f83cf802b47d4a",
+                "reference": "17d0d3f266c8f925ebd035cd36f83cf802b47d4a",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3 || ^7.0"
+                "php": "^5.5.9 || ^7.0",
+                "psr/log": "^1.0.1"
             },
             "require-dev": {
-                "ext-intl": "*",
-                "phpunit/phpunit": "^4.8.35 || ^5.7",
-                "squizlabs/php_codesniffer": "^2.9.2"
+                "mockery/mockery": "^0.9 || ^1.0",
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0",
+                "symfony/var-dumper": "^2.6 || ^3.0 || ^4.0 || ^5.0"
+            },
+            "suggest": {
+                "symfony/var-dumper": "Pretty print complex values better with var-dumper available",
+                "whoops/soap": "Formats errors as SOAP responses"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.9-dev"
+                    "dev-master": "2.6-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Faker\\": "src/Faker/"
+                    "Whoops\\": "src/Whoops/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2244,16 +2311,22 @@
             ],
             "authors": [
                 {
-                    "name": "François Zaninotto"
+                    "name": "Filipe Dobreira",
+                    "homepage": "https://github.com/filp",
+                    "role": "Developer"
                 }
             ],
-            "description": "Faker is a PHP library that generates fake data for you.",
+            "description": "php error handling for cool kids",
+            "homepage": "https://filp.github.io/whoops/",
             "keywords": [
-                "data",
-                "faker",
-                "fixtures"
+                "error",
+                "exception",
+                "handling",
+                "library",
+                "throwable",
+                "whoops"
             ],
-            "time": "2019-12-12T13:22:17+00:00"
+            "time": "2020-05-05T12:28:07+00:00"
         }
     ],
     "aliases": [],

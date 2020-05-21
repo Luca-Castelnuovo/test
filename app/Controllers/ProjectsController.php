@@ -2,23 +2,26 @@
 
 namespace App\Controllers;
 
-use DB;
 use Exception;
+use CQ\DB\DB;
+use CQ\Config\Config;
+use CQ\Helpers\UUID;
+use CQ\Helpers\Session;
+use CQ\Helpers\Variant;
+use CQ\Controllers\Controller;
 use App\Validators\ProjectValidator;
-use lucacastelnuovo\Helpers\Session;
-use Zend\Diactoros\ServerRequest;
-use Ramsey\Uuid\Uuid;
+
 
 class ProjectsController extends Controller
 {
     /**
      * Create project
      * 
-     * @param ServerRequest $request
+     * @param object $request
      * 
-     * @return JsonResponse
+     * @return Json
      */
-    public function create(ServerRequest $request)
+    public function create($request)
     {
         try {
             ProjectValidator::create($request->data);
@@ -41,14 +44,13 @@ class ProjectsController extends Controller
             );
         }
 
-        $id = Uuid::uuid4()->toString();
+        $id = UUID::v6();
         $owner_id = Session::get('id');
 
         $n_projects = DB::count('projects', ['owner_id' => $owner_id]);
-        $license_variant = Session::get('variant');
-        $n_projects_licensed = config("app.variants.{$license_variant}.max_projects");
+        if (Variant::check(Session::get('variant'), 'max_projects', $n_projects)) {
+            $n_projects_licensed = Variant::variantValue(Session::get('variant'), 'max_projects');
 
-        if ($n_projects >= $n_projects_licensed) {
             return $this->respondJson(
                 "Projects quota reached, max {$n_projects_licensed}",
                 [],
@@ -68,11 +70,11 @@ class ProjectsController extends Controller
 
         copy($template_path . '/index.html', $project_path . '/index.html');
         $indexhtml = file_get_contents($project_path . '/index.html');
-        $base_href = config('app.url') . '/' . $project_path . '/';
+        $base_href = Config::get('app.url') . '/' . $project_path . '/';
         $indexhtml = str_replace('BASE_HREF', $base_href, $indexhtml);
         file_put_contents($project_path . '/index.html', $indexhtml);
         DB::create('files', [
-            'id' => Uuid::uuid4()->toString(),
+            'id' => UUID::v4(),
             'project_id' => $id,
             'owner_id' => $owner_id,
             'name' => 'index.html'
@@ -80,7 +82,7 @@ class ProjectsController extends Controller
 
         copy($template_path . '/style.css', $project_path . '/style.css');
         DB::create('files', [
-            'id' => Uuid::uuid4()->toString(),
+            'id' => UUID::v4(),
             'project_id' => $id,
             'owner_id' => $owner_id,
             'name' => 'style.css'
@@ -88,7 +90,7 @@ class ProjectsController extends Controller
 
         copy($template_path . '/index.js', $project_path . '/index.js');
         DB::create('files', [
-            'id' => Uuid::uuid4()->toString(),
+            'id' => UUID::v4(),
             'project_id' => $id,
             'owner_id' => $owner_id,
             'name' => 'index.js'

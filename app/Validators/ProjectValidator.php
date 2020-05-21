@@ -2,9 +2,10 @@
 
 namespace App\Validators;
 
+use CQ\Validators\Validator;
 use Respect\Validation\Validator as v;
 
-class ProjectValidator extends ValidatorBase
+class ProjectValidator extends Validator
 {
     /**
      * Validate json submission
@@ -17,6 +18,6 @@ class ProjectValidator extends ValidatorBase
     {
         $v = v::attribute('name', v::alnum(' ', '_', '-'));
 
-        ValidatorBase::validate($v, $data);
+        self::validate($v, $data);
     }
 }

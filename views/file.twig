@@ -1,5 +1,8 @@
 {% extends "partials/base.twig" %}
 {% set title = "File Editor" %}
+{% set navbarDisable = true %}
+{% set page_css = "" %}
+{% set page_script = "file.js" %}
 
 {% block content %}
 <div class="row">
@@ -28,5 +31,4 @@
     window.file_updated_at = '{{ file.updated_at }}';
 </script>
 <script src="/assets/js/emmet.js"></script>
-<script src="/assets/js/file.js"></script>
 {% endblock %}
