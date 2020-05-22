@@ -125,6 +125,8 @@ class ProjectsController extends Controller
         ]);
 
         return $this->respond('project.twig', [
+            'app_url' => Config::get('app.url'),
+            'user_id' => Session::get('id'),
             'project_id' => $id,
             'project_name' => $project['name'],
             'files' => $files
