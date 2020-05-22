@@ -48,7 +48,7 @@ class ProjectsController extends Controller
         $owner_id = Session::get('id');
 
         $n_projects = DB::count('projects', ['owner_id' => $owner_id]);
-        if (Variant::check(Session::get('variant'), 'max_projects', $n_projects)) {
+        if (!Variant::check(Session::get('variant'), 'max_projects', $n_projects)) {
             $n_projects_licensed = Variant::variantValue(Session::get('variant'), 'max_projects');
 
             return $this->respondJson(
