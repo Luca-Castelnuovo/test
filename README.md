@@ -33,5 +33,5 @@ Please review [our security policy](https://github.com/Luca-Castelnuovo/TestingP
 
 ## License
 
-Copyright © 2020 [Luca Castelnuovo](https://github.com/Luca-Castelnuovo).<br />
+Copyright © 2020 [Luca Castelnuovo](https://github.com/Luca-Castelnuovo). <br />
 This project is [MIT](https://github.com/Luca-Castelnuovo/TestingPlatform/blob/master/LICENSE) licensed.
