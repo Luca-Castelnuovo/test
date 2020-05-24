@@ -52,7 +52,7 @@ class ProjectsController extends Controller
             'type' => 'max_projects',
             'current_value' => DB::count('projects', ['owner_id' => $owner_id])
         ]);
-        if (!$variant_provider->reachedLimit()) {
+        if (!$variant_provider->limitReached()) {
             return $this->respondJson(
                 "Projects quota reached, max {$variant_provider->configuredValue()}",
                 [],

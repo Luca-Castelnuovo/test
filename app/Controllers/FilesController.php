@@ -2,22 +2,22 @@
 
 namespace App\Controllers;
 
-use Exception;
-use CQ\DB\DB;
-use CQ\Helpers\UUID;
-use CQ\Helpers\Session;
-use CQ\Helpers\Variant;
-use CQ\Controllers\Controller;
 use App\Validators\FileValidator;
+use CQ\Controllers\Controller;
+use CQ\DB\DB;
+use CQ\Helpers\Session;
+use CQ\Helpers\UUID;
+use CQ\Helpers\Variant;
+use Exception;
 
 class FilesController extends Controller
 {
     /**
      * Create file
-     * 
+     *
      * @param object $request
      * @param string $project_id
-     * 
+     *
      * @return Json
      */
     public function create($request, $project_id)
@@ -39,7 +39,7 @@ class FilesController extends Controller
 
         if (!DB::has('projects', [
             'id' => $project_id,
-            'owner_id' => $owner_id
+            'owner_id' => $owner_id,
         ])) {
             return $this->respondJson(
                 'Project not found',
@@ -51,7 +51,7 @@ class FilesController extends Controller
         if (DB::has('files', [
             'name' => $file_name,
             'project_id' => $project_id,
-            'owner_id' => $owner_id
+            'owner_id' => $owner_id,
         ])) {
             return $this->respondJson(
                 'File with this name already exists',
@@ -62,7 +62,7 @@ class FilesController extends Controller
 
         $variant_provider = new Variant([
             'user' => Session::get('variant'),
-            'type' => 'allowed_extensions'
+            'type' => 'allowed_extensions',
         ]);
         if (!in_array($file_type, $variant_provider->configuredValue())) {
             return $this->respondJson(
@@ -75,9 +75,9 @@ class FilesController extends Controller
         $variant_provider = new Variant([
             'user' => Session::get('variant'),
             'type' => 'files_per_project',
-            'current_value' => DB::count('files', ['owner_id' => $owner_id, 'project_id' => $project_id])
+            'current_value' => DB::count('files', ['owner_id' => $owner_id, 'project_id' => $project_id]),
         ]);
-        if (!$variant_provider->reachedLimit()) {
+        if (!$variant_provider->limitReached()) {
             return $this->respondJson(
                 "Files quota reached, max {$variant_provider->configuredValue()}",
                 [],
@@ -90,7 +90,7 @@ class FilesController extends Controller
             'id' => $id,
             'name' => $file_name,
             'project_id' => $project_id,
-            'owner_id' => $owner_id
+            'owner_id' => $owner_id,
         ]);
 
         $file_path = "users/{$owner_id}/{$project_id}/{$file_name}";
@@ -105,9 +105,9 @@ class FilesController extends Controller
 
     /**
      * Show file
-     * 
+     *
      * @param string $id
-     * 
+     *
      * @return RedirectResponse|HtmlResponse
      */
     public function view($id)
@@ -116,7 +116,7 @@ class FilesController extends Controller
 
         $file = DB::get('files', ['id', 'name', 'project_id', 'updated_at'], [
             'id' => $id,
-            'owner_id' => $owner_id
+            'owner_id' => $owner_id,
         ]);
 
         if (!$file) {
@@ -136,7 +136,7 @@ class FilesController extends Controller
         $file['updated_at'] = strtotime($file['updated_at']);
 
         return $this->respond('file.twig', [
-            'file' => $file
+            'file' => $file,
         ]);
     }
 
@@ -144,7 +144,7 @@ class FilesController extends Controller
      * Update file
      *
      * @param object $request
-     * 
+     *
      * @return Json
      */
     public function update($request, $id)
@@ -163,7 +163,7 @@ class FilesController extends Controller
 
         $file = DB::get('files', ['name', 'project_id'], [
             'id' => $id,
-            'owner_id' => $owner_id
+            'owner_id' => $owner_id,
         ]);
 
         if (!$file) {
@@ -192,9 +192,9 @@ class FilesController extends Controller
 
     /**
      * Delete File
-     * 
+     *
      * @param string $id
-     * 
+     *
      * @return Json
      */
     public function delete($id)
@@ -203,7 +203,7 @@ class FilesController extends Controller
 
         $file = DB::get('files', ['name', 'project_id'], [
             'id' => $id,
-            'owner_id' => $owner_id
+            'owner_id' => $owner_id,
         ]);
 
         if (!$file) {
@@ -216,7 +216,7 @@ class FilesController extends Controller
 
         DB::delete('files', [
             'id' => $id,
-            'owner_id' => Session::get('id')
+            'owner_id' => Session::get('id'),
         ]);
 
         $file_path = "users/{$owner_id}/{$file['project_id']}/{$file['name']}";
