@@ -7,8 +7,7 @@ return [
         'allowed_extensions' => [
             'html',
             'css',
-            'js',
-            'json'
+            'js'
         ]
     ],
     'Personal' => [
@@ -17,8 +16,7 @@ return [
         'allowed_extensions' => [
             'html',
             'css',
-            'js',
-            'json'
+            'js'
         ]
     ],
     'Professional' => [
