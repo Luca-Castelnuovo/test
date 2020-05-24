@@ -60,7 +60,11 @@ class FilesController extends Controller
             );
         }
 
-        if (!in_array($file_type, Variant::check(Session::get('variant'), 'allowed_extensions'))) {
+        $variant_provider = new Variant([
+            'user' => Session::get('variant'),
+            'type' => 'allowed_extensions'
+        ]);
+        if (!in_array($file_type, $variant_provider->configuredValue())) {
             return $this->respondJson(
                 'Incorrect file type',
                 [],
@@ -68,15 +72,14 @@ class FilesController extends Controller
             );
         }
 
-        $n_files = DB::count('files', [
-            'owner_id' => $owner_id,
-            'project_id' => $project_id
+        $variant_provider = new Variant([
+            'user' => Session::get('variant'),
+            'type' => 'files_per_project',
+            'current_value' => DB::count('files', ['owner_id' => $owner_id, 'project_id' => $project_id])
         ]);
-        if (!Variant::check(Session::get('variant'), 'files_per_project', $n_files)) {
-            $n_files_licensed = Variant::variantValue(Session::get('variant'), 'files_per_project');
-
+        if (!$variant_provider->reachedLimit()) {
             return $this->respondJson(
-                "Files quota reached, max {$n_files_licensed}",
+                "Files quota reached, max {$variant_provider->configuredValue()}",
                 [],
                 400
             );

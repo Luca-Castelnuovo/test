@@ -47,12 +47,14 @@ class ProjectsController extends Controller
         $id = UUID::v6();
         $owner_id = Session::get('id');
 
-        $n_projects = DB::count('projects', ['owner_id' => $owner_id]);
-        if (!Variant::check(Session::get('variant'), 'max_projects', $n_projects)) {
-            $n_projects_licensed = Variant::variantValue(Session::get('variant'), 'max_projects');
-
+        $variant_provider = new Variant([
+            'user' => Session::get('variant'),
+            'type' => 'max_projects',
+            'current_value' => DB::count('projects', ['owner_id' => $owner_id])
+        ]);
+        if (!$variant_provider->reachedLimit()) {
             return $this->respondJson(
-                "Projects quota reached, max {$n_projects_licensed}",
+                "Projects quota reached, max {$variant_provider->configuredValue()}",
                 [],
                 400
             );
