@@ -34,7 +34,7 @@ For production
 
 ## Security Vulnerabilities
 
-Please review [our security policy](security/policy) on how to report security vulnerabilities.
+Please review [our security policy](https://github.com/Luca-Castelnuovo/TestingPlatform/security/policy) on how to report security vulnerabilities.
 
 ## License
 
