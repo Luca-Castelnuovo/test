@@ -3,7 +3,6 @@
     "description": "System for quickly testing and hosting mock-ups",
     "keywords": [
         "testingplatform",
-        "framework",
         "cubequence"
     ],
     "license": "MIT",
@@ -35,10 +34,7 @@
     "scripts": {
         "post-install-cmd": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "migrate": "composer phinx migrate",
-        "phinx": "vendor/bin/phinx",
-        "seed": "composer phinx seed:run -v"
+        ]
     },
     "support": {
         "issues": "https://github.com/Luca-Castelnuovo/TestingPlatform/issues",

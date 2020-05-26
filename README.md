@@ -1,13 +1,16 @@
-<h1 align="center">Welcome to TestingPlatform 👋</h1>
-<p>
-  <a href="https://github.com/Luca-Castelnuovo/TestingPlatform/blob/master/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
-  </a>
+<p align="center"><a href="https://github.com/Luca-Castelnuovo/TestingPlatform"><img src="https://rawcdn.githack.com/CubeQuence/CubeQuence/855a8fe836989ca40c4e50a889362975eab9ac43/public/assets/images/banner.png"></a></p>
+
+<p align="center">
+<a href="https://github.com/Luca-Castelnuovo/TestingPlatform/commits/master"><img src="https://img.shields.io/github/last-commit/Luca-Castelnuovo/TestingPlatform" alt="Latest Commit"></a>
+<a href="https://github.com/Luca-Castelnuovo/TestingPlatform/issues"><img src="https://img.shields.io/github/issues/Luca-Castelnuovo/TestingPlatform" alt="Issues"></a>
+<a href="https://github.com/Luca-Castelnuovo/TestingPlatform/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Luca-Castelnuovo/TestingPlatform" alt="License"></a>
 </p>
 
-> System for quickly testing and hosting mock-ups.
+# TestingPlatform
 
-### 🏠 [Homepage](https://test.lucacastelnuovo.nl)
+System for quickly testing and hosting mock-ups.
+
+-   [Homepage](https://test.lucacastelnuovo.nl)
 
 ## Installation
 
@@ -16,16 +19,18 @@ For development
 1. `git clone https://github.com/Luca-Castelnuovo/TestingPlatform.git`
 2. `composer install`
 3. Edit `.env`
-4. `composer migrate`
-5. `composer seed`
-6. Start development server `php -S localhost:8080 -t public`
+4. `php cubequence app:key`
+5. `php cubequence db:migrate`
+6. `php cubequence db:seed`
+7. Start development server `php -S localhost:8080 -t public`
 
 For production
 
 1. `git clone https://github.com/Luca-Castelnuovo/TestingPlatform.git`
 2. `composer install --optimize-autoloader --no-dev`
 3. Edit `.env`
-4. `composer migrate`
+4. `php cubequence app:key`
+5. `php cubequence db:migrate`
 
 ## Security Vulnerabilities
 
