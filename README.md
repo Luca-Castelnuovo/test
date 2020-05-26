@@ -3,7 +3,7 @@
 <p align="center">
 <a href="https://github.com/Luca-Castelnuovo/TestingPlatform/commits/master"><img src="https://img.shields.io/github/last-commit/Luca-Castelnuovo/TestingPlatform" alt="Latest Commit"></a>
 <a href="https://github.com/Luca-Castelnuovo/TestingPlatform/issues"><img src="https://img.shields.io/github/issues/Luca-Castelnuovo/TestingPlatform" alt="Issues"></a>
-<a href="https://github.com/Luca-Castelnuovo/TestingPlatform/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Luca-Castelnuovo/TestingPlatform" alt="License"></a>
+<a href="LICENSE.md"><img src="https://img.shields.io/github/license/Luca-Castelnuovo/TestingPlatform" alt="License"></a>
 </p>
 
 # TestingPlatform
