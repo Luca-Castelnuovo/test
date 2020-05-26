@@ -1,4 +1,4 @@
-<p align="center"><a href="https://github.com/Luca-Castelnuovo/TestingPlatform"><img src="https://rawcdn.githack.com/CubeQuence/CubeQuence/855a8fe836989ca40c4e50a889362975eab9ac43/public/assets/images/banner.png"></a></p>
+<p align="center"><a href="https://github.com/Luca-Castelnuovo/TestingPlatform"><img src="https://wip.com"></a></p>
 
 <p align="center">
 <a href="https://github.com/Luca-Castelnuovo/TestingPlatform/commits/master"><img src="https://img.shields.io/github/last-commit/Luca-Castelnuovo/TestingPlatform" alt="Latest Commit"></a>
