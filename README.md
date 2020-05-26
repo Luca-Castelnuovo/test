@@ -1,4 +1,4 @@
-<p align="center"><a href="https://github.com/Luca-Castelnuovo/TestingPlatform"><img src="https://wip.com"></a></p>
+<p align="center"><a href="https://github.com/Luca-Castelnuovo/TestingPlatform"><img src="https://rawcdn.githack.com/Luca-Castelnuovo/TestingPlatform/d0951b9ab506d603b75ca33da72aaa79eb4ba181/public/assets/images/banner.png"></a></p>
 
 <p align="center">
 <a href="https://github.com/Luca-Castelnuovo/TestingPlatform/commits/master"><img src="https://img.shields.io/github/last-commit/Luca-Castelnuovo/TestingPlatform" alt="Latest Commit"></a>
@@ -39,4 +39,4 @@ Please review [our security policy](https://github.com/Luca-Castelnuovo/TestingP
 ## License
 
 Copyright © 2020 [Luca Castelnuovo](https://github.com/Luca-Castelnuovo). <br />
-This project is [MIT](https://github.com/Luca-Castelnuovo/TestingPlatform/blob/master/LICENSE) licensed.
+This project is [MIT](LICENSE.md) licensed.
