@@ -34,10 +34,10 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    alert('Restoring lost work');
-
     editor.setValue(content);
     editor.clearSelection();
+    
+    alert('Restoring lost work');
   });
 
 const save = quit => {
