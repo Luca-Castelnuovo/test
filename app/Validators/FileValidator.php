@@ -8,11 +8,9 @@ use Respect\Validation\Validator as v;
 class FileValidator extends Validator
 {
     /**
-     * Validate json submission
+     * Validate json submission.
      *
      * @param object $data
-     *
-     * @return void
      */
     public static function create($data)
     {
@@ -22,16 +20,15 @@ class FileValidator extends Validator
     }
 
     /**
-     * Validate json submission
+     * Validate json submission.
      *
      * @param object $data
-     *
-     * @return void
      */
     public static function update($data)
     {
         $v = v::attribute('content', v::stringType())
-            ->attribute('quit', v::boolType());
+            ->attribute('quit', v::boolType())
+        ;
 
         self::validate($v, $data);
     }

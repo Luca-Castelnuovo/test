@@ -2,15 +2,15 @@
 
 namespace App\Controllers;
 
-use CQ\Helpers\Session;
-use CQ\Helpers\Request;
 use CQ\Controllers\Auth;
+use CQ\Helpers\Request;
+use CQ\Helpers\Session;
 
 class AuthController extends Auth
 {
     /**
-     * Create session
-     * 
+     * Create session.
+     *
      * @param string $id
      * @param string $variant
      * @param string $expires

@@ -7,8 +7,8 @@ return [
         'allowed_extensions' => [
             'html',
             'css',
-            'js'
-        ]
+            'js',
+        ],
     ],
     'Personal' => [
         'max_projects' => 3,
@@ -16,8 +16,8 @@ return [
         'allowed_extensions' => [
             'html',
             'css',
-            'js'
-        ]
+            'js',
+        ],
     ],
     'Professional' => [
         'max_projects' => 10,
@@ -26,8 +26,8 @@ return [
             'html',
             'css',
             'js',
-            'json'
-        ]
+            'json',
+        ],
     ],
     'Admin' => [
         'max_projects' => 100,
@@ -37,7 +37,7 @@ return [
             'css',
             'js',
             'json',
-            'php'
-        ]
-    ]
+            'php',
+        ],
+    ],
 ];

@@ -33,11 +33,12 @@ class CreateProjectsTable extends Migration
     {
         $projects = $this->table('projects', ['id' => false, 'primary_key' => 'id']);
         $projects
-            ->addColumn('id',           'uuid')
-            ->addColumn('owner_id',     'uuid')
-            ->addColumn('name',         'string')
-            ->addColumn('updated_at',   'datetime', ['default' => 'CURRENT_TIMESTAMP'])
-            ->addColumn('created_at',   'datetime', ['default' => 'CURRENT_TIMESTAMP'])
-            ->create();
+            ->addColumn('id', 'uuid')
+            ->addColumn('owner_id', 'uuid')
+            ->addColumn('name', 'string')
+            ->addColumn('updated_at', 'datetime', ['default' => 'CURRENT_TIMESTAMP'])
+            ->addColumn('created_at', 'datetime', ['default' => 'CURRENT_TIMESTAMP'])
+            ->create()
+        ;
     }
 }

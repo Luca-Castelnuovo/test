@@ -33,12 +33,13 @@ class CreateFilesTable extends Migration
     {
         $files = $this->table('files', ['id' => false, 'primary_key' => 'id']);
         $files
-            ->addColumn('id',           'uuid')
-            ->addColumn('owner_id',     'uuid')
-            ->addColumn('project_id',   'uuid')
-            ->addColumn('name',         'string')
-            ->addColumn('updated_at',   'datetime', ['default' => 'CURRENT_TIMESTAMP'])
-            ->addColumn('created_at',   'datetime', ['default' => 'CURRENT_TIMESTAMP'])
-            ->create();
+            ->addColumn('id', 'uuid')
+            ->addColumn('owner_id', 'uuid')
+            ->addColumn('project_id', 'uuid')
+            ->addColumn('name', 'string')
+            ->addColumn('updated_at', 'datetime', ['default' => 'CURRENT_TIMESTAMP'])
+            ->addColumn('created_at', 'datetime', ['default' => 'CURRENT_TIMESTAMP'])
+            ->create()
+        ;
     }
 }

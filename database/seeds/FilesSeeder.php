@@ -17,14 +17,14 @@ class FilesSeeder extends Seeder
         $faker = self::faker();
         $data = [];
 
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 5; ++$i) {
             $data[] = [
-                'id'            => $faker->uuid,
-                'owner_id'      => $faker->uuid,
-                'project_id'    => $faker->uuid,
-                'name'          => "{$faker->firstName}.{$faker->fileExtension}",
-                'updated_at'    => date('Y-m-d H:i:s'),
-                'created_at'    => date('Y-m-d H:i:s'),
+                'id' => $faker->uuid,
+                'owner_id' => $faker->uuid,
+                'project_id' => $faker->uuid,
+                'name' => "{$faker->firstName}.{$faker->fileExtension}",
+                'updated_at' => date('Y-m-d H:i:s'),
+                'created_at' => date('Y-m-d H:i:s'),
             ];
         }
 

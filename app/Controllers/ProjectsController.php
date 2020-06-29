@@ -2,23 +2,22 @@
 
 namespace App\Controllers;
 
-use Exception;
-use CQ\DB\DB;
-use CQ\Config\Config;
-use CQ\Helpers\UUID;
-use CQ\Helpers\Session;
-use CQ\Helpers\Variant;
-use CQ\Controllers\Controller;
 use App\Validators\ProjectValidator;
-
+use CQ\Config\Config;
+use CQ\Controllers\Controller;
+use CQ\DB\DB;
+use CQ\Helpers\Session;
+use CQ\Helpers\UUID;
+use CQ\Helpers\Variant;
+use Exception;
 
 class ProjectsController extends Controller
 {
     /**
-     * Create project
-     * 
+     * Create project.
+     *
      * @param object $request
-     * 
+     *
      * @return Json
      */
     public function create($request)
@@ -35,7 +34,7 @@ class ProjectsController extends Controller
 
         if (DB::has('projects', [
             'name' => $request->data->name,
-            'owner_id' => Session::get('id')
+            'owner_id' => Session::get('id'),
         ])) {
             return $this->respondJson(
                 'Project with this name already exists',
@@ -50,7 +49,7 @@ class ProjectsController extends Controller
         $variant_provider = new Variant([
             'user' => Session::get('variant'),
             'type' => 'max_projects',
-            'current_value' => DB::count('projects', ['owner_id' => $owner_id])
+            'current_value' => DB::count('projects', ['owner_id' => $owner_id]),
         ]);
         if (!$variant_provider->limitReached()) {
             return $this->respondJson(
@@ -63,39 +62,39 @@ class ProjectsController extends Controller
         DB::create('projects', [
             'id' => $id,
             'name' => $request->data->name,
-            'owner_id' => $owner_id
+            'owner_id' => $owner_id,
         ]);
 
         $project_path = "users/{$owner_id}/{$id}";
-        $template_path = "../views/templates";
+        $template_path = '../views/templates';
         mkdir($project_path, 0770);
 
-        copy($template_path . '/index.html', $project_path . '/index.html');
-        $indexhtml = file_get_contents($project_path . '/index.html');
-        $base_href = Config::get('app.url') . '/' . $project_path . '/';
+        copy($template_path.'/index.html', $project_path.'/index.html');
+        $indexhtml = file_get_contents($project_path.'/index.html');
+        $base_href = Config::get('app.url').'/'.$project_path.'/';
         $indexhtml = str_replace('BASE_HREF', $base_href, $indexhtml);
-        file_put_contents($project_path . '/index.html', $indexhtml);
+        file_put_contents($project_path.'/index.html', $indexhtml);
         DB::create('files', [
             'id' => UUID::v4(),
             'project_id' => $id,
             'owner_id' => $owner_id,
-            'name' => 'index.html'
+            'name' => 'index.html',
         ]);
 
-        copy($template_path . '/style.css', $project_path . '/style.css');
+        copy($template_path.'/style.css', $project_path.'/style.css');
         DB::create('files', [
             'id' => UUID::v4(),
             'project_id' => $id,
             'owner_id' => $owner_id,
-            'name' => 'style.css'
+            'name' => 'style.css',
         ]);
 
-        copy($template_path . '/index.js', $project_path . '/index.js');
+        copy($template_path.'/index.js', $project_path.'/index.js');
         DB::create('files', [
             'id' => UUID::v4(),
             'project_id' => $id,
             'owner_id' => $owner_id,
-            'name' => 'index.js'
+            'name' => 'index.js',
         ]);
 
         return $this->respondJson(
@@ -105,15 +104,17 @@ class ProjectsController extends Controller
     }
 
     /**
-     * Show project
-     * 
+     * Show project.
+     *
+     * @param mixed $id
+     *
      * @return RedirectResponse|HtmlResponse
      */
     public function view($id)
     {
         $project = DB::get('projects', ['name'], [
             'id' => $id,
-            'owner_id' => Session::get('id')
+            'owner_id' => Session::get('id'),
         ]);
 
         if (!$project) {
@@ -123,7 +124,7 @@ class ProjectsController extends Controller
         $files = DB::select('files', ['id', 'name'], [
             'project_id' => $id,
             'owner_id' => Session::get('id'),
-            'ORDER' => ['name' => 'ASC']
+            'ORDER' => ['name' => 'ASC'],
         ]);
 
         return $this->respond('project.twig', [
@@ -131,20 +132,22 @@ class ProjectsController extends Controller
             'user_id' => Session::get('id'),
             'project_id' => $id,
             'project_name' => $project['name'],
-            'files' => $files
+            'files' => $files,
         ]);
     }
 
     /**
-     * Delete project
-     * 
+     * Delete project.
+     *
+     * @param mixed $id
+     *
      * @return JsonResponse
      */
     public function delete($id)
     {
         if (!DB::has('projects', [
             'id' => $id,
-            'owner_id' => Session::get('id')
+            'owner_id' => Session::get('id'),
         ])) {
             return $this->respondJson(
                 'Project not found',
@@ -155,12 +158,12 @@ class ProjectsController extends Controller
 
         DB::delete('projects', [
             'id' => $id,
-            'owner_id' => Session::get('id')
+            'owner_id' => Session::get('id'),
         ]);
 
         DB::delete('files', [
             'project_id' => $id,
-            'owner_id' => Session::get('id')
+            'owner_id' => Session::get('id'),
         ]);
 
         $owner_id = Session::get('id');
@@ -173,22 +176,20 @@ class ProjectsController extends Controller
     }
 
     /**
-     * Recursively delete dierctory
+     * Recursively delete dierctory.
      *
      * @param string $dir
-     * 
-     * @return void
      */
     private function rrmdir($dir)
     {
         if (is_dir($dir)) {
             $objects = scandir($dir);
             foreach ($objects as $object) {
-                if ($object != "." && $object != "..") {
-                    if (is_dir($dir . "/" . $object)) {
-                        $this->rrmdir($dir . "/" . $object);
+                if ('.' != $object && '..' != $object) {
+                    if (is_dir($dir.'/'.$object)) {
+                        $this->rrmdir($dir.'/'.$object);
                     } else {
-                        unlink($dir . "/" . $object);
+                        unlink($dir.'/'.$object);
                     }
                 }
             }

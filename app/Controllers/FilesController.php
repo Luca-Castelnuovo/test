@@ -13,7 +13,7 @@ use Exception;
 class FilesController extends Controller
 {
     /**
-     * Create file
+     * Create file.
      *
      * @param object $request
      * @param string $project_id
@@ -94,7 +94,7 @@ class FilesController extends Controller
         ]);
 
         $file_path = "users/{$owner_id}/{$project_id}/{$file_name}";
-        $file = fopen($file_path, "w");
+        $file = fopen($file_path, 'w');
         fclose($file);
 
         return $this->respondJson(
@@ -104,7 +104,7 @@ class FilesController extends Controller
     }
 
     /**
-     * Show file
+     * Show file.
      *
      * @param string $id
      *
@@ -124,12 +124,12 @@ class FilesController extends Controller
         }
 
         $file_path = "users/{$owner_id}/{$file['project_id']}/{$file['name']}";
-        $file_open = fopen($file_path, "r");
+        $file_open = fopen($file_path, 'r');
         $file['content'] = fread($file_open, filesize($file_path));
         fclose($file_open);
 
         $file['ext'] = pathinfo($file_path, PATHINFO_EXTENSION);
-        if ($file['ext'] === 'js') {
+        if ('js' === $file['ext']) {
             $file['ext'] = 'javascript';
         }
 
@@ -141,9 +141,10 @@ class FilesController extends Controller
     }
 
     /**
-     * Update file
+     * Update file.
      *
      * @param object $request
+     * @param mixed  $id
      *
      * @return Json
      */
@@ -175,7 +176,7 @@ class FilesController extends Controller
         }
 
         $file_path = "users/{$owner_id}/{$file['project_id']}/{$file['name']}";
-        $file_open = fopen($file_path, "w");
+        $file_open = fopen($file_path, 'w');
         $file_content = htmlspecialchars_decode($request->data->content);
         fwrite($file_open, $file_content);
         fclose($file_open);
@@ -191,7 +192,7 @@ class FilesController extends Controller
     }
 
     /**
-     * Delete File
+     * Delete File.
      *
      * @param string $id
      *
