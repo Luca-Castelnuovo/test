@@ -26,7 +26,7 @@ class FileValidator extends Validator
      */
     public static function update($data)
     {
-        $v = v::attribute('content', v::stringType())
+        $v = v::attribute('content', v::stringType()->length(1, 2000000))
             ->attribute('quit', v::boolType())
         ;
 
