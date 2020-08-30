@@ -3,8 +3,8 @@
 namespace App\Controllers;
 
 use CQ\Controllers\Controller;
+use CQ\Helpers\User;
 use CQ\DB\DB;
-use CQ\Helpers\Session;
 
 class UserController extends Controller
 {
@@ -16,7 +16,7 @@ class UserController extends Controller
     public function dashboard()
     {
         $projects = DB::select('projects', ['id', 'name'], [
-            'owner_id' => Session::get('id'),
+            'owner_id' => User::getId(),
             'ORDER' => ['name' => 'ASC'],
         ]);
 

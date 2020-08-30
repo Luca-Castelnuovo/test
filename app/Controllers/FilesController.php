@@ -6,8 +6,8 @@ use App\Validators\FileValidator;
 use CQ\Controllers\Controller;
 use CQ\DB\DB;
 use CQ\Helpers\Session;
+use CQ\Helpers\User;
 use CQ\Helpers\UUID;
-use CQ\Helpers\Variant;
 use Exception;
 
 class FilesController extends Controller
@@ -32,7 +32,7 @@ class FilesController extends Controller
             );
         }
 
-        $owner_id = Session::get('id');
+        $owner_id = User::getId();
         $file_name = strtolower($request->data->name);
         $file_name = str_replace(' ', '_', $file_name);
         $file_type = substr(strrchr($file_name, '.'), 1);
@@ -60,11 +60,8 @@ class FilesController extends Controller
             );
         }
 
-        $variant_provider = new Variant([
-            'user' => Session::get('variant'),
-            'type' => 'allowed_extensions',
-        ]);
-        if (!in_array($file_type, $variant_provider->configuredValue())) {
+        $allowed_extensions = User::valueRole('allowed_extensions');
+        if (!in_array($file_type, $allowed_extensions)) {
             return $this->respondJson(
                 'Incorrect file type',
                 [],
@@ -72,14 +69,11 @@ class FilesController extends Controller
             );
         }
 
-        $variant_provider = new Variant([
-            'user' => Session::get('variant'),
-            'type' => 'files_per_project',
-            'current_value' => DB::count('files', ['owner_id' => $owner_id, 'project_id' => $project_id]),
-        ]);
-        if (!$variant_provider->limitReached()) {
+        $user_n_files = DB::count('files', ['owner_id' => $owner_id, 'project_id' => $project_id]);
+        $max_n_files = User::valueRole('files_per_project');
+        if ($user_n_files >= $max_n_files) {
             return $this->respondJson(
-                "Files quota reached, max {$variant_provider->configuredValue()}",
+                "Files quota reached, max {$max_n_files}",
                 [],
                 400
             );
@@ -112,7 +106,7 @@ class FilesController extends Controller
      */
     public function view($id)
     {
-        $owner_id = Session::get('id');
+        $owner_id = User::getId();
 
         $file = DB::get('files', ['id', 'name', 'project_id', 'updated_at'], [
             'id' => $id,
@@ -160,7 +154,7 @@ class FilesController extends Controller
             );
         }
 
-        $owner_id = Session::get('id');
+        $owner_id = User::getId();
 
         $file = DB::get('files', ['name', 'project_id'], [
             'id' => $id,
@@ -200,7 +194,7 @@ class FilesController extends Controller
      */
     public function delete($id)
     {
-        $owner_id = Session::get('id');
+        $owner_id = User::getId();
 
         $file = DB::get('files', ['name', 'project_id'], [
             'id' => $id,
@@ -217,7 +211,7 @@ class FilesController extends Controller
 
         DB::delete('files', [
             'id' => $id,
-            'owner_id' => Session::get('id'),
+            'owner_id' => User::getId(),
         ]);
 
         $file_path = "users/{$owner_id}/{$file['project_id']}/{$file['name']}";

@@ -6,9 +6,8 @@ use App\Validators\ProjectValidator;
 use CQ\Config\Config;
 use CQ\Controllers\Controller;
 use CQ\DB\DB;
-use CQ\Helpers\Session;
+use CQ\Helpers\User;
 use CQ\Helpers\UUID;
-use CQ\Helpers\Variant;
 use Exception;
 
 class ProjectsController extends Controller
@@ -34,7 +33,7 @@ class ProjectsController extends Controller
 
         if (DB::has('projects', [
             'name' => $request->data->name,
-            'owner_id' => Session::get('id'),
+            'owner_id' => User::getId(),
         ])) {
             return $this->respondJson(
                 'Project with this name already exists',
@@ -44,16 +43,13 @@ class ProjectsController extends Controller
         }
 
         $id = UUID::v6();
-        $owner_id = Session::get('id');
+        $owner_id = User::getId();
 
-        $variant_provider = new Variant([
-            'user' => Session::get('variant'),
-            'type' => 'max_projects',
-            'current_value' => DB::count('projects', ['owner_id' => $owner_id]),
-        ]);
-        if (!$variant_provider->limitReached()) {
+        $user_n_projects = DB::count('projects', ['owner_id' => $owner_id]);
+        $max_n_projects = User::valueRole('max_projects');
+        if ($user_n_projects >= $max_n_projects) {
             return $this->respondJson(
-                "Projects quota reached, max {$variant_provider->configuredValue()}",
+                "Projects quota reached, max {$max_n_projects}",
                 [],
                 400
             );
@@ -114,7 +110,7 @@ class ProjectsController extends Controller
     {
         $project = DB::get('projects', ['name'], [
             'id' => $id,
-            'owner_id' => Session::get('id'),
+            'owner_id' => User::getId(),
         ]);
 
         if (!$project) {
@@ -123,13 +119,13 @@ class ProjectsController extends Controller
 
         $files = DB::select('files', ['id', 'name'], [
             'project_id' => $id,
-            'owner_id' => Session::get('id'),
+            'owner_id' => User::getId(),
             'ORDER' => ['name' => 'ASC'],
         ]);
 
         return $this->respond('project.twig', [
             'app_url' => Config::get('app.url'),
-            'user_id' => Session::get('id'),
+            'user_id' => User::getId(),
             'project_id' => $id,
             'project_name' => $project['name'],
             'files' => $files,
@@ -147,7 +143,7 @@ class ProjectsController extends Controller
     {
         if (!DB::has('projects', [
             'id' => $id,
-            'owner_id' => Session::get('id'),
+            'owner_id' => User::getId(),
         ])) {
             return $this->respondJson(
                 'Project not found',
@@ -158,15 +154,15 @@ class ProjectsController extends Controller
 
         DB::delete('projects', [
             'id' => $id,
-            'owner_id' => Session::get('id'),
+            'owner_id' => User::getId(),
         ]);
 
         DB::delete('files', [
             'project_id' => $id,
-            'owner_id' => Session::get('id'),
+            'owner_id' => User::getId(),
         ]);
 
-        $owner_id = Session::get('id');
+        $owner_id = User::getId();
         $this->rrmdir("users/{$owner_id}/{$id}");
 
         return $this->respondJson(
