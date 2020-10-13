@@ -979,16 +979,16 @@
         },
         {
             "name": "php-di/invoker",
-            "version": "2.1.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-DI/Invoker.git",
-                "reference": "6a6f8f276d2680e77d06294b9fd67b4881b1f82d"
+                "reference": "e08a7c87068daeaeef464b95d81643ea530bc535"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-DI/Invoker/zipball/6a6f8f276d2680e77d06294b9fd67b4881b1f82d",
-                "reference": "6a6f8f276d2680e77d06294b9fd67b4881b1f82d",
+                "url": "https://api.github.com/repos/PHP-DI/Invoker/zipball/e08a7c87068daeaeef464b95d81643ea530bc535",
+                "reference": "e08a7c87068daeaeef464b95d81643ea530bc535",
                 "shasum": ""
             },
             "require": {
@@ -997,6 +997,7 @@
             },
             "require-dev": {
                 "athletic/athletic": "~0.1.8",
+                "mnapoli/hard-mode": "~0.3.0",
                 "phpunit/phpunit": "^9.0"
             },
             "type": "library",
@@ -1019,7 +1020,13 @@
                 "invoke",
                 "invoker"
             ],
-            "time": "2020-08-01T15:36:25+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/mnapoli",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-10-12T12:15:50+00:00"
         },
         {
             "name": "phpoption/phpoption",
