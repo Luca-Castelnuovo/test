@@ -47,6 +47,13 @@ class AuthController extends Auth
         $user_path = "users/{$user['sub']}";
         if (!is_dir($user_path)) {
             mkdir($user_path, 0770);
+
+            $projectsController = new ProjectsController;
+            $projectsController->create((object) [
+                'data' => (object) [
+                    'name' => 'Hello World',
+                ],
+            ]);
         }
 
         return $this->redirect('/dashboard');
