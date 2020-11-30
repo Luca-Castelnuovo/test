@@ -80,7 +80,8 @@ class FilesController extends Controller
         }
 
         try {
-            new File("users/{$owner_id}/{$project_id}/{$file_name}");
+            $file = new File("users/{$owner_id}/{$project_id}/{$file_name}");
+            $file->create();
         } catch (Exception $e) {
             return $this->respondJson(
                 "File couldn't be created",
@@ -123,17 +124,14 @@ class FilesController extends Controller
             return $this->redirect('/dashboard');
         }
 
-        $file_path = "users/{$owner_id}/{$file['project_id']}/{$file['name']}";
-        $file_open = fopen($file_path, 'r');
-        $file['content'] = fread($file_open, filesize($file_path));
-        fclose($file_open);
+        $fileHelper = new File("users/{$owner_id}/{$file['project_id']}/{$file['name']}");
 
-        $file['ext'] = pathinfo($file_path, PATHINFO_EXTENSION);
+        $file['content'] = $fileHelper->read();
+        $file['updated_at'] = strtotime($file['updated_at']);
+        $file['ext'] = $fileHelper->getPathInfo()['extension'];
         if ('js' === $file['ext']) {
             $file['ext'] = 'javascript';
         }
-
-        $file['updated_at'] = strtotime($file['updated_at']);
 
         return $this->respond('file.twig', [
             'file' => $file,
@@ -175,11 +173,8 @@ class FilesController extends Controller
             );
         }
 
-        $file_path = "users/{$owner_id}/{$file['project_id']}/{$file['name']}";
-        $file_open = fopen($file_path, 'w');
-        $file_content = htmlspecialchars_decode($request->data->content);
-        fwrite($file_open, $file_content);
-        fclose($file_open);
+        $fileHelper = new File("users/{$owner_id}/{$file['project_id']}/{$file['name']}");
+        $fileHelper->write(htmlspecialchars_decode($request->data->content));
 
         if ($request->data->quit) {
             return $this->respondJson(
@@ -215,13 +210,21 @@ class FilesController extends Controller
             );
         }
 
+        try {
+            $fileHelper = new File("users/{$owner_id}/{$file['project_id']}/{$file['name']}");
+            $fileHelper->delete();
+        } catch (Exception $e) {
+            return $this->respondJson(
+                'File not deleted',
+                ['reload' => true],
+                400
+            );
+        }
+
         DB::delete('files', [
             'id' => $id,
             'owner_id' => User::getId(),
         ]);
-
-        $file_path = "users/{$owner_id}/{$file['project_id']}/{$file['name']}";
-        unlink($file_path);
 
         return $this->respondJson(
             'File Deleted',
