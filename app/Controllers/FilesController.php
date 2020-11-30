@@ -5,9 +5,9 @@ namespace App\Controllers;
 use App\Validators\FileValidator;
 use CQ\Controllers\Controller;
 use CQ\DB\DB;
-use CQ\Helpers\Session;
 use CQ\Helpers\User;
 use CQ\Helpers\UUID;
+use CQ\Helpers\File;
 use Exception;
 
 class FilesController extends Controller
@@ -79,6 +79,16 @@ class FilesController extends Controller
             );
         }
 
+        try {
+            new File("users/{$owner_id}/{$project_id}/{$file_name}");
+        } catch (Exception $e) {
+            return $this->respondJson(
+                "File couldn't be created",
+                [],
+                400
+            );
+        }
+
         $id = UUID::v6();
         DB::create('files', [
             'id' => $id,
@@ -86,10 +96,6 @@ class FilesController extends Controller
             'project_id' => $project_id,
             'owner_id' => $owner_id,
         ]);
-
-        $file_path = "users/{$owner_id}/{$project_id}/{$file_name}";
-        $file = fopen($file_path, 'w');
-        fclose($file);
 
         return $this->respondJson(
             'File Created',

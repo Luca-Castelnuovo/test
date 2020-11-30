@@ -5,6 +5,7 @@ namespace App\Controllers;
 use CQ\Controllers\Auth;
 use CQ\Helpers\Request;
 use CQ\Helpers\Session;
+use CQ\Helpers\Folder;
 
 class AuthController extends Auth
 {
@@ -45,8 +46,8 @@ class AuthController extends Auth
         }
 
         $user_path = "users/{$user['sub']}";
-        if (!is_dir($user_path)) {
-            mkdir($user_path, 0770);
+        if (!Folder::exists($user_path)) {
+            Folder::create($user_path);
 
             $projectsController = new ProjectsController;
             $projectsController->create((object) [

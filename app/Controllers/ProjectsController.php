@@ -8,6 +8,8 @@ use CQ\Controllers\Controller;
 use CQ\DB\DB;
 use CQ\Helpers\User;
 use CQ\Helpers\UUID;
+use CQ\Helpers\Folder;
+use CQ\Helpers\File;
 use Exception;
 
 class ProjectsController extends Controller
@@ -55,21 +57,28 @@ class ProjectsController extends Controller
             );
         }
 
+        $project_path = "users/{$owner_id}/{$id}";
+        $template_path = '../views/templates';
+
+        try {
+            Folder::create($project_path);
+            File::copy("{$template_path}/index.html", "{$project_path}/index.html");
+            File::copy("{$template_path}/style.css", "{$project_path}/style.css");
+            File::copy("{$template_path}/index.js", "{$project_path}/index.js");
+        } catch (Exception $e) {
+            return $this->respondJson(
+                "Project couldn't be created",
+                json_decode($e->getMessage()),
+                500
+            );
+        }
+
         DB::create('projects', [
             'id' => $id,
             'name' => $request->data->name,
             'owner_id' => $owner_id,
         ]);
 
-        $project_path = "users/{$owner_id}/{$id}";
-        $template_path = '../views/templates';
-        mkdir($project_path, 0770);
-
-        copy($template_path.'/index.html', $project_path.'/index.html');
-        $indexhtml = file_get_contents($project_path.'/index.html');
-        $base_href = Config::get('app.url').'/'.$project_path.'/';
-        $indexhtml = str_replace('BASE_HREF', $base_href, $indexhtml);
-        file_put_contents($project_path.'/index.html', $indexhtml);
         DB::create('files', [
             'id' => UUID::v4(),
             'project_id' => $id,
@@ -77,7 +86,6 @@ class ProjectsController extends Controller
             'name' => 'index.html',
         ]);
 
-        copy($template_path.'/style.css', $project_path.'/style.css');
         DB::create('files', [
             'id' => UUID::v4(),
             'project_id' => $id,
@@ -85,7 +93,6 @@ class ProjectsController extends Controller
             'name' => 'style.css',
         ]);
 
-        copy($template_path.'/index.js', $project_path.'/index.js');
         DB::create('files', [
             'id' => UUID::v4(),
             'project_id' => $id,
@@ -152,6 +159,18 @@ class ProjectsController extends Controller
             );
         }
 
+        $owner_id = User::getId();
+
+        try {
+            Folder::delete("users/{$owner_id}/{$id}", true);
+        } catch (Exception $e) {
+            return $this->respondJson(
+                "Project couldn't be deleted",
+                json_decode($e->getMessage()),
+                500
+            );
+        }
+
         DB::delete('projects', [
             'id' => $id,
             'owner_id' => User::getId(),
@@ -162,34 +181,9 @@ class ProjectsController extends Controller
             'owner_id' => User::getId(),
         ]);
 
-        $owner_id = User::getId();
-        $this->rrmdir("users/{$owner_id}/{$id}");
-
         return $this->respondJson(
             'Project Deleted',
             ['reload' => true]
         );
-    }
-
-    /**
-     * Recursively delete dierctory.
-     *
-     * @param string $dir
-     */
-    private function rrmdir($dir)
-    {
-        if (is_dir($dir)) {
-            $objects = scandir($dir);
-            foreach ($objects as $object) {
-                if ('.' != $object && '..' != $object) {
-                    if (is_dir($dir.'/'.$object)) {
-                        $this->rrmdir($dir.'/'.$object);
-                    } else {
-                        unlink($dir.'/'.$object);
-                    }
-                }
-            }
-            rmdir($dir);
-        }
     }
 }
