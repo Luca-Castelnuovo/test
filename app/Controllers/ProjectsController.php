@@ -62,9 +62,15 @@ class ProjectsController extends Controller
 
         try {
             Folder::create($project_path);
-            File::copy("{$template_path}/index.html", "{$project_path}/index.html");
-            File::copy("{$template_path}/style.css", "{$project_path}/style.css");
-            File::copy("{$template_path}/index.js", "{$project_path}/index.js");
+
+            $file = new File("{$project_path}/index.html");
+            $file->copy("{$template_path}/index.html");
+
+            $file = new File("{$project_path}/style.css");
+            $file->copy("{$template_path}/style.css");
+
+            $file = new File("{$project_path}/index.js");
+            $file->copy("{$template_path}/index.js");
         } catch (Exception $e) {
             return $this->respondJson(
                 "Project couldn't be created",
