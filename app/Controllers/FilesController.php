@@ -4,11 +4,10 @@ namespace App\Controllers;
 
 use App\Validators\FileValidator;
 use CQ\Controllers\Controller;
-use CQ\DB\DB;
 use CQ\Helpers\User;
 use CQ\Helpers\UUID;
 use CQ\Helpers\File;
-use Exception;
+use CQ\DB\DB;
 
 class FilesController extends Controller
 {
@@ -24,10 +23,10 @@ class FilesController extends Controller
     {
         try {
             FileValidator::create($request->data);
-        } catch (Exception $e) {
+        } catch (\Throwable $th) {
             return $this->respondJson(
                 'Provided data was malformed',
-                json_decode($e->getMessage()),
+                json_decode($th->getMessage()),
                 422
             );
         }
@@ -82,7 +81,7 @@ class FilesController extends Controller
         try {
             $file = new File("users/{$owner_id}/{$project_id}/{$file_name}");
             $file->create();
-        } catch (Exception $e) {
+        } catch (\Throwable $th) {
             return $this->respondJson(
                 "File couldn't be created",
                 [],
@@ -150,10 +149,10 @@ class FilesController extends Controller
     {
         try {
             FileValidator::update($request->data);
-        } catch (Exception $e) {
+        } catch (\Throwable $th) {
             return $this->respondJson(
                 'Provided data was malformed',
-                json_decode($e->getMessage()),
+                json_decode($th->getMessage()),
                 422
             );
         }
@@ -213,7 +212,7 @@ class FilesController extends Controller
         try {
             $fileHelper = new File("users/{$owner_id}/{$file['project_id']}/{$file['name']}");
             $fileHelper->delete();
-        } catch (Exception $e) {
+        } catch (\Throwable $th) {
             return $this->respondJson(
                 'File not deleted',
                 ['reload' => true],

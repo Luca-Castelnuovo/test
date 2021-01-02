@@ -5,12 +5,11 @@ namespace App\Controllers;
 use App\Validators\ProjectValidator;
 use CQ\Config\Config;
 use CQ\Controllers\Controller;
-use CQ\DB\DB;
 use CQ\Helpers\User;
 use CQ\Helpers\UUID;
 use CQ\Helpers\Folder;
 use CQ\Helpers\File;
-use Exception;
+use CQ\DB\DB;
 
 class ProjectsController extends Controller
 {
@@ -25,10 +24,10 @@ class ProjectsController extends Controller
     {
         try {
             ProjectValidator::create($request->data);
-        } catch (Exception $e) {
+        } catch (\Throwable $th) {
             return $this->respondJson(
                 'Provided data was malformed',
-                json_decode($e->getMessage()),
+                json_decode($th->getMessage()),
                 422
             );
         }
@@ -71,10 +70,10 @@ class ProjectsController extends Controller
 
             $file = new File("{$project_path}/index.js");
             $file->copy("{$template_path}/index.js");
-        } catch (Exception $e) {
+        } catch (\Throwable $th) {
             return $this->respondJson(
                 "Project couldn't be created",
-                json_decode($e->getMessage()),
+                json_decode($th->getMessage()),
                 500
             );
         }
@@ -169,10 +168,10 @@ class ProjectsController extends Controller
 
         try {
             Folder::delete("users/{$owner_id}/{$id}", true);
-        } catch (Exception $e) {
+        } catch (\Throwable $th) {
             return $this->respondJson(
                 "Project couldn't be deleted",
-                json_decode($e->getMessage()),
+                json_decode($th->getMessage()),
                 500
             );
         }
