@@ -15,7 +15,7 @@ class AuthController extends Auth
      * @param object $user
      * @param string $expires_at
      *
-     * @return Redirect
+     * @return string
      */
     public function login($user, $expires_at)
     {
@@ -25,10 +25,10 @@ class AuthController extends Auth
 
         // User Info
         Session::set('user', [
-            'id' => $user['sub'],
-            'roles' => $user['roles'],
-            'email' => $user['email'],
-            'name' => $user['preferred_username'],
+            'id' => $user->sub,
+            'roles' => $user->roles,
+            'email' => $user->email,
+            'name' => $user->preferred_username,
         ]);
 
         // Auth Info
@@ -41,11 +41,7 @@ class AuthController extends Auth
         // Activity Info
         Session::set('last_activity', time());
 
-        if ($return_to) {
-            return $this->redirect($return_to);
-        }
-
-        $user_path = "users/{$user['sub']}";
+        $user_path = "users/{$user->sub}";
         if (!Folder::exists($user_path)) {
             Folder::create($user_path);
 
@@ -57,6 +53,10 @@ class AuthController extends Auth
             ]);
         }
 
-        return $this->redirect('/dashboard');
+        if ($return_to) {
+            return $return_to;
+        }
+
+        return '/dashboard';
     }
 }
